@@ -99,12 +99,16 @@ const GPUPage: React.FC = () => {
   }
 
   const comparisonAttributes: (keyof GPU)[] = [
-    'videocard_name', 'price', 'g3d_mark', 'videocard_value', 'g2d_mark',
+    'price', 'g3d_mark', 'videocard_value', 'g2d_mark',
     'tdp', 'power_perf', 'vram', 'test_date', 'category'
   ];
 
   const numericAttributes: (keyof GPU)[] = [
     'price', 'g3d_mark', 'videocard_value', 'g2d_mark', 'tdp', 'power_perf', 'vram'
+  ];
+
+  const performanceAttributes: (keyof GPU)[] = [
+    'g3d_mark', 'g2d_mark', 'tdp', 'power_perf', 'vram'
   ];
 
   const getBarStyle = (attribute: keyof GPU, index: number) => {
@@ -131,6 +135,48 @@ const GPUPage: React.FC = () => {
       background: `linear-gradient(90deg, ${color} ${percentage}%, transparent ${percentage}%)`,
     };
   };
+
+  const getOverallComparisonPercentage = () => {
+    if (!comparisonResult) return null;
+  
+    let totalImprovement = 0;
+    let totalAttributesCounted = 0;
+  
+    performanceAttributes.forEach((attribute) => {
+      const value1 = comparisonResult[0][attribute] as number;
+      const value2 = comparisonResult[1][attribute] as number;
+  
+      if (value1 !== 0 && value2 !== 0) {
+        if (value1 > value2) {
+          // Calculate the improvement percentage for GPU1
+          const improvementPercentage = ((value1 - value2) / value2) * 100;
+          totalImprovement += improvementPercentage;
+          totalAttributesCounted++;
+        } else if (value2 > value1) {
+          // Calculate the improvement percentage for GPU2
+          const improvementPercentage = ((value2 - value1) / value1) * 100;
+          totalImprovement -= improvementPercentage; // Negative impact for GPU1
+          totalAttributesCounted++;
+        }
+      }
+    });
+  
+    if (totalAttributesCounted === 0) {
+      return "Both GPUs perform equally based on the selected criteria.";
+    }
+  
+    // Calculate average improvement
+    const averageImprovement = totalImprovement / totalAttributesCounted;
+  
+    if (averageImprovement > 0) {
+      return `${comparisonResult[0].videocard_name} is ${averageImprovement.toFixed(2)}% better than ${comparisonResult[1].videocard_name} based on pure perfomance metrics excluding price.`;
+    } else {
+      return `${comparisonResult[1].videocard_name} is ${Math.abs(averageImprovement).toFixed(2)}% better than ${comparisonResult[0].videocard_name} based on pure perfomance metrics excluding price.`;
+    }
+  };
+  
+  
+  
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
@@ -182,17 +228,17 @@ const GPUPage: React.FC = () => {
       {comparisonResult && (
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300 shadow-sm rounded-lg overflow-hidden">
-            <thead className="bg-gray-50">
+            <thead className="bg-gray-100 ">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{translations.gpuComparison.attribute}</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{gpu1}</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{gpu2}</th>
+                <th className="px-6 py-3 text-left text-xs font-bold text-gray-900 uppercase tracking-wider">{translations.gpuComparison.attribute}</th>
+                <th className="px-6 py-3 text-left text-xs font-bold text-gray-900 uppercase tracking-wider">{comparisonResult[0].videocard_name}</th>
+                <th className="px-6 py-3 text-left text-xs font-bold text-gray-900 uppercase tracking-wider">{comparisonResult[1].videocard_name}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               {comparisonAttributes.map((attribute) => (
                 <tr key={attribute} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-500">
                     {translations.gpuComparison[attribute] || attribute}
                   </td>
                   <td 
@@ -211,6 +257,10 @@ const GPUPage: React.FC = () => {
               ))}
             </tbody>
           </table>
+          {/* Overall Comparison Line */}
+    <div className="mt-4 text-center text-lg font-semibold text-gray-700">
+      {`${getOverallComparisonPercentage()}`}
+    </div>
         </div>
       )}
     </div>
