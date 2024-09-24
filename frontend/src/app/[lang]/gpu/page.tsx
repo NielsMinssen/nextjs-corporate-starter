@@ -34,6 +34,10 @@ interface Translation {
     vram: string;
     test_date: string;
     category: string;
+    bothequal: string;
+    is: string;
+    betterthan: string;
+    basedon: string;
     [key: string]: string; // Add index signature
   }
 }
@@ -162,16 +166,16 @@ const GPUPage: React.FC = () => {
     });
   
     if (totalAttributesCounted === 0) {
-      return "Both GPUs perform equally based on the selected criteria.";
+      return (translations?.gpuComparison.bothequal);
     }
   
     // Calculate average improvement
     const averageImprovement = totalImprovement / totalAttributesCounted;
   
     if (averageImprovement > 0) {
-      return `${comparisonResult[0].videocard_name} is ${averageImprovement.toFixed(2)}% better than ${comparisonResult[1].videocard_name} based on pure perfomance metrics excluding price.`;
+      return `${comparisonResult[0].videocard_name} ${translations?.gpuComparison.is} ${averageImprovement.toFixed(2)}% ${translations?.gpuComparison.betterthan} ${comparisonResult[1].videocard_name} ${translations?.gpuComparison.basedon}`;
     } else {
-      return `${comparisonResult[1].videocard_name} is ${Math.abs(averageImprovement).toFixed(2)}% better than ${comparisonResult[0].videocard_name} based on pure perfomance metrics excluding price.`;
+      return `${comparisonResult[1].videocard_name} ${translations?.gpuComparison.is} ${Math.abs(averageImprovement).toFixed(2)}% ${translations?.gpuComparison.betterthan} ${comparisonResult[0].videocard_name} ${translations?.gpuComparison.basedon}`;
     }
   };
   
