@@ -119,12 +119,12 @@ const GPUPage: React.FC = () => {
     let color;
     if (attribute === 'price' || attribute === 'tdp') {
       // For price and TDP, lower is better (green)
-      color = index === 0 ? `rgb(255, ${Math.round(255 * (percentage / 100))}, 0)` 
-                          : `rgb(${Math.round(255 * (1 - percentage / 100))}, 255, 0)`;
+      color = index === 0 ? `rgb(${Math.round(255 * (1 - percentage / 100))}, 255, 0)`
+                          : `rgb(255, ${Math.round(255 * (percentage / 100))}, 0)` ;
     } else {
       // For other attributes, higher is better (green)
-      color = index === 0 ? `rgb(${Math.round(255 * (1 - percentage / 100))}, 255, 0)` 
-                          : `rgb(255, ${Math.round(255 * (percentage / 100))}, 0)`;
+      color = index === 0 ?`rgb(255, ${Math.round(255 * (percentage / 100))}, 0)` 
+                          : `rgb(${Math.round(255 * (1 - percentage / 100))}, 255, 0)` ;
     }
 
     return {
