@@ -1050,6 +1050,52 @@ export interface ApiGpuGpu extends Schema.CollectionType {
   };
 }
 
+export interface ApiGpudescriptionGpudescription extends Schema.SingleType {
+  collectionName: 'gpudescriptions';
+  info: {
+    singularName: 'gpudescription';
+    pluralName: 'gpudescriptions';
+    displayName: 'gpudescription';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    gpudescription: Attribute.JSON &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gpudescription.gpudescription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gpudescription.gpudescription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::gpudescription.gpudescription',
+      'oneToMany',
+      'api::gpudescription.gpudescription'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiLeadFormSubmissionLeadFormSubmission
   extends Schema.CollectionType {
   collectionName: 'lead_form_submissions';
@@ -1223,6 +1269,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::gpu.gpu': ApiGpuGpu;
+      'api::gpudescription.gpudescription': ApiGpudescriptionGpudescription;
       'api::lead-form-submission.lead-form-submission': ApiLeadFormSubmissionLeadFormSubmission;
       'api::page.page': ApiPagePage;
       'api::product-feature.product-feature': ApiProductFeatureProductFeature;
