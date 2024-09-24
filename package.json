@@ -13,6 +13,9 @@
   },
   "dependencies": {
     "concurrently": "^8.2.2",
-    "npm-check-updates": "^16.14.15"
+    "i18next": "^23.15.1",
+    "next-i18next": "^15.3.1",
+    "npm-check-updates": "^16.14.15",
+    "react-i18next": "^15.0.2"
   }
 }

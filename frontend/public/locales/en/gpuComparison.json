@@ -1,0 +1,21 @@
+{
+    "title": "GPU Comparison",
+    "description": "Compare two GPUs side by side based on their specifications.",
+    "selectGPU1": "Select GPU 1",
+    "selectGPU2": "Select GPU 2",
+    "select": "Select",
+    "compareButton": "Compare",
+    "attribute": "Attribute",
+    "videocard_name": "Videocard Name",
+    "price": "Price",
+    "g3d_mark": "G3D Mark",
+    "videocard_value": "Videocard Value",
+    "g2d_mark": "G2D Mark",
+    "tdp": "TDP (W)",
+    "power_perf": "Power Performance",
+    "vram": "VRAM (MB)",
+    "test_date": "Test Date",
+    "category": "Category"
+  }
+  
+  

@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gpus",
+  "info": {
+    "singularName": "gpu",
+    "pluralName": "gpus",
+    "displayName": "GPU"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "GPU": {
+      "type": "json"
+    }
+  }
+}

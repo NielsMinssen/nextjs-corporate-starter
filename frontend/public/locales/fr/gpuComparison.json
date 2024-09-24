@@ -1,0 +1,20 @@
+{
+    "title": "Comparaison de GPU",
+    "description": "Comparez deux GPU côte à côte en fonction de leurs spécifications.",
+    "selectGPU1": "Sélectionner GPU 1",
+    "selectGPU2": "Sélectionner GPU 2",
+    "select": "Sélectionner",
+    "compareButton": "Comparer",
+    "attribute": "Attribut",
+    "videocard_name": "Nom de la carte graphique",
+    "price": "Prix",
+    "g3d_mark": "G3D Mark",
+    "videocard_value": "Valeur de la carte graphique",
+    "g2d_mark": "G2D Mark",
+    "tdp": "TDP (W)",
+    "power_perf": "Performance par Watt",
+    "vram": "VRAM (MB)",
+    "test_date": "Date du test",
+    "category": "Catégorie"
+  }
+  

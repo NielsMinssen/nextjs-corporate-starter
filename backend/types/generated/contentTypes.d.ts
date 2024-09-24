@@ -799,15 +799,35 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    title: Attribute.String;
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     description: Attribute.Text &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
     slug: Attribute.UID<'api::article.article', 'title'>;
-    cover: Attribute.Media<'images' | 'files' | 'videos'>;
+    cover: Attribute.Media<'images' | 'files' | 'videos'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     category: Attribute.Relation<
       'api::article.article',
       'manyToOne',
@@ -821,13 +841,23 @@ export interface ApiArticleArticle extends Schema.CollectionType {
         'shared.slider',
         'shared.video-embed'
       ]
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     authorsBio: Attribute.Relation<
       'api::article.article',
       'manyToOne',
       'api::author.author'
     >;
-    seo: Attribute.Component<'shared.seo'>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -843,6 +873,12 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::article.article',
+      'oneToMany',
+      'api::article.article'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -989,6 +1025,28 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
       'api::global.global'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiGpuGpu extends Schema.CollectionType {
+  collectionName: 'gpus';
+  info: {
+    singularName: 'gpu';
+    pluralName: 'gpus';
+    displayName: 'GPU';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    GPU: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::gpu.gpu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::gpu.gpu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
   };
 }
 
@@ -1164,6 +1222,7 @@ declare module '@strapi/types' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::gpu.gpu': ApiGpuGpu;
       'api::lead-form-submission.lead-form-submission': ApiLeadFormSubmissionLeadFormSubmission;
       'api::page.page': ApiPagePage;
       'api::product-feature.product-feature': ApiProductFeatureProductFeature;
