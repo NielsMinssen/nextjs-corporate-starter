@@ -82,8 +82,7 @@ export default function Navbar({
             ))}
           </ul>
         </div>
-
-        <LangugageSwitcher />
+        <div className="my-4 max-sm:hidden"><LangugageSwitcher /></div>
 
         <Dialog
           as="div"
@@ -118,6 +117,7 @@ export default function Navbar({
                       {...item}
                     />
                   ))}
+                  <div className="mt-6"><LangugageSwitcher /></div>
                 </div>
               </div>
             </div>

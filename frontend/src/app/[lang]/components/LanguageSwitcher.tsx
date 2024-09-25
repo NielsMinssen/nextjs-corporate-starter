@@ -13,9 +13,9 @@ interface Language {
 
 // List of available languages
 const languages: Language[] = [
-  { code: "en", label: "English"},
-  { code: "fr", label: "French"},
-  { code: "es", label: "Spanish"},
+  { code: "en", label: "English" },
+  { code: "fr", label: "French" },
+  { code: "es", label: "Spanish" },
 ];
 
 const LanguageSwitcher: React.FC = () => {
@@ -23,6 +23,7 @@ const LanguageSwitcher: React.FC = () => {
 
   const path = usePathname(); // Get the current path
   const initialLanguageCode = path.split('/')[1]; // Extract the language code from the URL
+  const currentPage = path.split('/')[2];
 
   // Use the extracted code to find the initial language
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(() => {
@@ -49,7 +50,9 @@ const LanguageSwitcher: React.FC = () => {
         onClick={toggleDropdown}
         className="flex items-center p-2 border rounded-md bg-gray-100 dark:bg-gray-800"
       >
-       <span className={`fi fi-${selectedLanguage.code === 'en' ? 'gb' : selectedLanguage.code}`}></span>
+        <div className="mr-2">
+          <span className={`fi fi-${selectedLanguage.code === 'en' ? 'gb' : selectedLanguage.code}`}></span>
+        </div>
         {selectedLanguage.label}
         <svg
           className={`ml-2 w-4 h-4 transition-transform ${isDropdownOpen ? "rotate-180" : "rotate-0"}`}
@@ -67,9 +70,11 @@ const LanguageSwitcher: React.FC = () => {
         <ul className="absolute z-10 mt-2 w-full bg-white border rounded-md shadow-lg dark:bg-gray-700">
           {languages.map((language) => (
             <li key={language.code}>
-              <Link className="flex items-center p-2 hover:bg-gray-200 dark:hover:bg-gray-600" href={`/${language.code}`} onClick={() => handleLanguageSwitch(language)}>
-              <span className={`fi fi-${language.code === 'en' ? 'gb' : language.code}`}></span>
-                  {language.label}
+              <Link className="flex items-center p-2 hover:bg-gray-200 dark:hover:bg-gray-600" href={`/${language.code}/${currentPage}`} onClick={() => handleLanguageSwitch(language)}>
+                <div className="mr-2">
+                  <span className={`fi fi-${language.code === 'en' ? 'gb' : language.code}`}></span>
+                </div>
+                {language.label}
               </Link>
             </li>
           ))}
