@@ -16,8 +16,15 @@ export default function LangRedirect() {
           />
 
           <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+            {/* Language Switcher Links */}
             <Link href="/en" className={renderButtonStyle("primary")}>
               Back To English
+            </Link>
+            <Link href="/fr" className={renderButtonStyle("primary")}>
+              Back To French
+            </Link>
+            <Link href="/es" className={renderButtonStyle("primary")}>
+              Back To Spanish
             </Link>
           </div>
         </div>

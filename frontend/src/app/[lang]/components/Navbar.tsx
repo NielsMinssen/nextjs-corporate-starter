@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import LangugageSwitcher from "./LanguageSwitcher"
 
 interface NavLink {
   id: number;
@@ -81,6 +82,8 @@ export default function Navbar({
             ))}
           </ul>
         </div>
+
+        <LangugageSwitcher />
 
         <Dialog
           as="div"

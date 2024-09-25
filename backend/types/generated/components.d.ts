@@ -168,11 +168,9 @@ export interface SectionsHeading extends Schema.Component {
   collectionName: 'components_sections_headings';
   info: {
     displayName: 'Heading';
+    description: '';
   };
-  attributes: {
-    heading: Attribute.String & Attribute.Required;
-    description: Attribute.String;
-  };
+  attributes: {};
 }
 
 export interface SectionsFeatures extends Schema.Component {
@@ -238,6 +236,20 @@ export interface MetaMetadata extends Schema.Component {
   attributes: {
     metaTitle: Attribute.String & Attribute.Required;
     metaDescription: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface MenuLink extends Schema.Component {
+  collectionName: 'components_menu_links';
+  info: {
+    displayName: 'link';
+    icon: 'link';
+  };
+  attributes: {
+    name: Attribute.String;
+    url: Attribute.String;
+    description: Attribute.String;
+    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -496,6 +508,7 @@ declare module '@strapi/types' {
       'sections.feature-columns-group': SectionsFeatureColumnsGroup;
       'sections.bottom-actions': SectionsBottomActions;
       'meta.metadata': MetaMetadata;
+      'menu.link': MenuLink;
       'links.social-link': LinksSocialLink;
       'links.link': LinksLink;
       'links.button': LinksButton;
