@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Select, { SingleValue } from "react-select";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/[lang]/components/tooltip";
+import { HelpCircle } from "lucide-react";
 
 interface GPU {
   id: number;
@@ -39,9 +41,29 @@ interface Translation {
     is: string;
     betterthan: string;
     basedon: string;
-    [key: string]: string; // Add index signature
+    tooltips: {
+      [key: string]: string;
+    };
+    [key: string]: string | { [key: string]: string };
   };
 }
+
+const AttributeWithTooltip: React.FC<{ attribute: string; translations: Translation }> = ({ attribute, translations }) => {
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <span className="flex items-center">
+            <HelpCircle className="ml-1 h-4 w-4 text-gray-400" />
+          </span>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{translations.gpuComparison.tooltips[attribute] || "No description available"}</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+};
 
 const GPUPage: React.FC = () => {
   const [gpuList, setGpuList] = useState<GPU[]>([]);
@@ -51,7 +73,7 @@ const GPUPage: React.FC = () => {
   const [translations, setTranslations] = useState<Translation | null>(null);
 
   useEffect(() => {
-    const userLanguage = navigator.language.split("-")[0];
+    const userLanguage = window.location.pathname.split("/")[1];
 
     const fetchTranslations = async (lang: string) => {
       try {
@@ -195,15 +217,16 @@ const GPUPage: React.FC = () => {
   
   const getOverallComparisonPercentage = () => {
     if (!comparisonResult) return null;
-
+  
     let totalImprovement = 0;
     let totalAttributesCounted = 0;
-
+  
     performanceAttributes.forEach((attribute) => {
       const value1 = comparisonResult[0][attribute] as number;
       const value2 = comparisonResult[1][attribute] as number;
-
-      if (value1 !== 0 && value2 !== 0) {
+  
+      // Skip if value1 or value2 is null, undefined, or zero
+      if (value1 != null && value2 != null && value1 !== 0 && value2 !== 0) {
         if (value1 > value2) {
           const improvementPercentage = ((value1 - value2) / value2) * 100;
           totalImprovement += improvementPercentage;
@@ -215,13 +238,13 @@ const GPUPage: React.FC = () => {
         }
       }
     });
-
+  
     if (totalAttributesCounted === 0) {
       return translations?.gpuComparison.bothequal;
     }
-
+  
     const averageImprovement = totalImprovement / totalAttributesCounted;
-
+  
     if (averageImprovement > 0) {
       return `${comparisonResult[0].videocard_name} ${translations?.gpuComparison.is} ${averageImprovement.toFixed(
         2
@@ -232,6 +255,7 @@ const GPUPage: React.FC = () => {
       ).toFixed(2)}% ${translations?.gpuComparison.betterthan} ${comparisonResult[0].videocard_name} ${translations?.gpuComparison.basedon}`;
     }
   };
+  
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
@@ -277,7 +301,7 @@ const GPUPage: React.FC = () => {
 
       {comparisonResult && (
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border border-gray-300 shadow-sm rounded-lg overflow-hidden">
+           <table className="min-w-full bg-white border border-gray-300 shadow-sm rounded-lg overflow-hidden">
             <thead className="bg-gray-100">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-bold text-gray-900 uppercase tracking-wider">
@@ -294,8 +318,9 @@ const GPUPage: React.FC = () => {
             <tbody className="divide-y divide-gray-200">
               {comparisonAttributes.map((attribute) => (
                 <tr key={attribute} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-500">
-                    {translations.gpuComparison[attribute] || attribute}
+                  <td className="flex flex-row px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-500">
+                    <>{translations.gpuComparison[attribute] || attribute}</>
+                    <AttributeWithTooltip attribute={attribute} translations={translations} />
                   </td>
                   <td
                     className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
