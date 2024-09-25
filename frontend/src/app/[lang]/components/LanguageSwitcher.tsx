@@ -14,8 +14,8 @@ interface Language {
 // List of available languages
 const languages: Language[] = [
   { code: "en", label: "English" },
-  { code: "fr", label: "French" },
-  { code: "es", label: "Spanish" },
+  { code: "fr", label: "Français" },
+  { code: "es", label: "Español" },
 ];
 
 const LanguageSwitcher: React.FC = () => {
