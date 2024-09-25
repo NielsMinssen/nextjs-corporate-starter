@@ -7,6 +7,12 @@ def clean_text(text):
     cleaned = re.sub(r'\s+', ' ', text).strip()
     return cleaned
 
+def extract_numeric_value(text):
+    """ Extracts only numeric values from the given text. """
+    # Replace commas with empty string and extract numeric parts
+    cleaned = re.sub(r'[^\d.]', '', text)  # Remove anything that's not a digit or period
+    return cleaned if cleaned else ''
+
 def parse_html_table(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
     table = soup.find('table', id='cputable')
@@ -17,13 +23,13 @@ def parse_html_table(html_content):
         cols = row.find_all('td')
         if len(cols) >= 11:
             videocard_name = clean_text(cols[1].text)
-            price = cols[2].text.strip()
+            price = extract_numeric_value(cols[2].text.strip())
             g3d_mark = cols[3].text.strip()
             videocard_value = cols[4].text.strip()
             g2d_mark = cols[5].text.strip()
             tdp = cols[6].text.strip()
             power_perf = cols[7].text.strip()
-            vram = cols[8].text.strip()
+            vram = extract_numeric_value(cols[8].text.strip())  # Extract numeric value from VRAM
             test_date = cols[9].text.strip()
             category = cols[10].text.strip()
             

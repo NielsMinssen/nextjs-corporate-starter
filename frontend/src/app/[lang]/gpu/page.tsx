@@ -144,31 +144,55 @@ const GPUPage: React.FC = () => {
 
   const getBarStyle = (attribute: keyof GPU, index: number) => {
     if (!comparisonResult || !numericAttributes.includes(attribute)) return {};
-
+  
     const value1 = comparisonResult[0][attribute] as number;
     const value2 = comparisonResult[1][attribute] as number;
-    const maxValue = Math.max(value1, value2);
-    const currentValue = comparisonResult[index][attribute] as number;
-    const percentage = (currentValue / maxValue) * 100;
 
-    let color;
-    if (attribute === "price" || attribute === "tdp") {
-      color =
-        index === 0
-          ? `rgb(${Math.round(255 * (1 - percentage / 100))}, 255, 0)`
-          : `rgb(255, ${Math.round(255 * (percentage / 100))}, 0)`;
-    } else {
-      color =
-        index === 0
-          ? `rgb(255, ${Math.round(255 * (percentage / 100))}, 0)`
-          : `rgb(${Math.round(255 * (1 - percentage / 100))}, 255, 0)`;
+      // If one of the values doesn't exist, use pastel blue for the other existing value
+  if (value1 == null || value2 == null) {
+    if (index === 0 && value1 != null) {
+      return {
+        background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for the existing value
+      };
+    } else if (index === 1 && value2 != null) {
+      return {
+        background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for the existing value
+      };
     }
-
+    return {}; // No styling if the value doesn't exist
+  }
+  
+    // If values are the same, return full pastel blue for both
+    if (value1 === value2) {
+      return {
+        background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for equal values
+      };
+    }
+  
+    const maxValue = Math.max(value1, value2);
+    const minValue = Math.min(value1, value2);
+    const currentValue = comparisonResult[index][attribute] as number;
+    const isBestValue = (attribute === "price" || attribute === "tdp") ? currentValue === minValue : currentValue === maxValue;
+    const otherValue = comparisonResult[1 - index][attribute] as number;
+    
+    // Determine the difference ratio
+    const differenceRatio = Math.abs(currentValue - otherValue) / Math.max(maxValue, 1); // Avoid division by zero
+    const percentage = (currentValue / maxValue) * 100;
+  
+    // Base color for the best value (always green)
+    let color = `hsl(120, 70%, 60%)`; // green
+  
+    if (!isBestValue) {
+      // Color transitions from green (120 hue) to red (0 hue) based on how far the values are
+      const hue = 100 - (differenceRatio * 120); // Shift hue from 120 (green) to 0 (red) based on the difference
+      color = `hsl(${hue}, 70%, 60%)`; // Softened, pastel color
+    }
+  
     return {
       background: `linear-gradient(90deg, ${color} ${percentage}%, transparent ${percentage}%)`,
     };
   };
-
+  
   const getOverallComparisonPercentage = () => {
     if (!comparisonResult) return null;
 
