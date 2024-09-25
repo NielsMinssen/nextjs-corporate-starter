@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Select, { SingleValue } from "react-select";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/[lang]/components/tooltip";
 import { HelpCircle } from "lucide-react";
+import Loader from "../components/Loader";
 
 interface GPU {
   id: number;
@@ -137,7 +138,7 @@ const GPUPage: React.FC = () => {
   };
 
   if (!translations) {
-    return <div>Loading...</div>;
+    return (<Loader />)
   }
 
   const comparisonAttributes: (keyof GPU)[] = [
@@ -166,65 +167,65 @@ const GPUPage: React.FC = () => {
 
   const getBarStyle = (attribute: keyof GPU, index: number) => {
     if (!comparisonResult || !numericAttributes.includes(attribute)) return {};
-  
+
     const value1 = comparisonResult[0][attribute] as number;
     const value2 = comparisonResult[1][attribute] as number;
 
-      // If one of the values doesn't exist, use pastel blue for the other existing value
-  if (value1 == null || value2 == null) {
-    if (index === 0 && value1 != null) {
-      return {
-        background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for the existing value
-      };
-    } else if (index === 1 && value2 != null) {
-      return {
-        background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for the existing value
-      };
+    // If one of the values doesn't exist, use pastel blue for the other existing value
+    if (value1 == null || value2 == null) {
+      if (index === 0 && value1 != null) {
+        return {
+          background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for the existing value
+        };
+      } else if (index === 1 && value2 != null) {
+        return {
+          background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for the existing value
+        };
+      }
+      return {}; // No styling if the value doesn't exist
     }
-    return {}; // No styling if the value doesn't exist
-  }
-  
+
     // If values are the same, return full pastel blue for both
     if (value1 === value2) {
       return {
         background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for equal values
       };
     }
-  
+
     const maxValue = Math.max(value1, value2);
     const minValue = Math.min(value1, value2);
     const currentValue = comparisonResult[index][attribute] as number;
     const isBestValue = (attribute === "price" || attribute === "tdp") ? currentValue === minValue : currentValue === maxValue;
     const otherValue = comparisonResult[1 - index][attribute] as number;
-    
+
     // Determine the difference ratio
     const differenceRatio = Math.abs(currentValue - otherValue) / Math.max(maxValue, 1); // Avoid division by zero
     const percentage = (currentValue / maxValue) * 100;
-  
+
     // Base color for the best value (always green)
     let color = `hsl(120, 70%, 60%)`; // green
-  
+
     if (!isBestValue) {
       // Color transitions from green (120 hue) to red (0 hue) based on how far the values are
       const hue = 100 - (differenceRatio * 120); // Shift hue from 120 (green) to 0 (red) based on the difference
       color = `hsl(${hue}, 70%, 60%)`; // Softened, pastel color
     }
-  
+
     return {
       background: `linear-gradient(90deg, ${color} ${percentage}%, transparent ${percentage}%)`,
     };
   };
-  
+
   const getOverallComparisonPercentage = () => {
     if (!comparisonResult) return null;
-  
+
     let totalImprovement = 0;
     let totalAttributesCounted = 0;
-  
+
     performanceAttributes.forEach((attribute) => {
       const value1 = comparisonResult[0][attribute] as number;
       const value2 = comparisonResult[1][attribute] as number;
-  
+
       // Skip if value1 or value2 is null, undefined, or zero
       if (value1 != null && value2 != null && value1 !== 0 && value2 !== 0) {
         if (value1 > value2) {
@@ -238,13 +239,13 @@ const GPUPage: React.FC = () => {
         }
       }
     });
-  
+
     if (totalAttributesCounted === 0) {
       return translations?.gpuComparison.bothequal;
     }
-  
+
     const averageImprovement = totalImprovement / totalAttributesCounted;
-  
+
     if (averageImprovement > 0) {
       return `${comparisonResult[0].videocard_name} ${translations?.gpuComparison.is} ${averageImprovement.toFixed(
         2
@@ -255,7 +256,7 @@ const GPUPage: React.FC = () => {
       ).toFixed(2)}% ${translations?.gpuComparison.betterthan} ${comparisonResult[0].videocard_name} ${translations?.gpuComparison.basedon}`;
     }
   };
-  
+
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
@@ -301,7 +302,7 @@ const GPUPage: React.FC = () => {
 
       {comparisonResult && (
         <div className="overflow-x-auto">
-           <table className="min-w-full bg-white border border-gray-300 shadow-sm rounded-lg overflow-hidden">
+          <table className="min-w-full bg-white border border-gray-300 shadow-sm rounded-lg overflow-hidden">
             <thead className="bg-gray-100">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-bold text-gray-900 uppercase tracking-wider">

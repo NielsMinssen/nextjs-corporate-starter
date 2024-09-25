@@ -70,7 +70,8 @@ const LanguageSwitcher: React.FC = () => {
         <ul className="absolute z-10 mt-2 w-full bg-white border rounded-md shadow-lg dark:bg-gray-700">
           {languages.map((language) => (
             <li key={language.code}>
-              <Link className="flex items-center p-2 hover:bg-gray-200 dark:hover:bg-gray-600" href={`/${language.code}/${currentPage}`} onClick={() => handleLanguageSwitch(language)}>
+              <Link className="flex items-center p-2 hover:bg-gray-200 dark:hover:bg-gray-600" href={`/${language.code}/${currentPage ? currentPage : ''}`}
+                onClick={() => handleLanguageSwitch(language)}>
                 <div className="mr-2">
                   <span className={`fi fi-${language.code === 'en' ? 'gb' : language.code}`}></span>
                 </div>
