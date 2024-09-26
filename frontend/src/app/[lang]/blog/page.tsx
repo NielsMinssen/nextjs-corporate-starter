@@ -5,6 +5,7 @@ import { fetchAPI } from "../utils/fetch-api";
 import Loader from "../components/Loader";
 import Blog from "../views/blog-list";
 import PageHeader from "../components/PageHeader";
+import { CiSquarePlus } from "react-icons/ci";
 
 interface Meta {
   pagination: {
@@ -68,7 +69,7 @@ export default function Profile() {
 
   return (
     <div>
-      <PageHeader heading="Our Blog" text="Checkout Something Cool" />
+      <PageHeader heading="Blog" text="" />
       <Blog data={data}>
         {meta!.pagination.start + meta!.pagination.limit <
           meta!.pagination.total && (
@@ -78,7 +79,7 @@ export default function Profile() {
               className="px-6 py-3 text-sm rounded-lg hover:underline dark:bg-gray-900 dark:text-gray-400"
               onClick={loadMorePosts}
             >
-              Load more posts...
+              <CiSquarePlus size={54}/>
             </button>
           </div>
         )}

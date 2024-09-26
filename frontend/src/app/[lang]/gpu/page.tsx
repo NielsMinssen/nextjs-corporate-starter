@@ -259,13 +259,13 @@ const GPUPage: React.FC = () => {
 
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
-      <h1 className="text-3xl font-bold mb-4 text-center text-gray-800">{translations.gpuComparison.title}</h1>
-      <p className="text-lg mb-6 text-center text-gray-600">{translations.gpuComparison.description}</p>
-
-      <div className="flex flex-col md:flex-row gap-4 mb-6">
-        <div className="flex-1">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+    <div className="max-w-4xl mx-auto p-8 bg-white rounded-xl">
+      <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">{translations.gpuComparison.title}</h1>
+      <p className="text-xl mb-8 text-center text-gray-600">{translations.gpuComparison.description}</p>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             {translations.gpuComparison.selectGPU1}
           </label>
           <Select
@@ -277,8 +277,8 @@ const GPUPage: React.FC = () => {
             className="w-full"
           />
         </div>
-        <div className="flex-1">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             {translations.gpuComparison.selectGPU2}
           </label>
           <Select
@@ -291,46 +291,49 @@ const GPUPage: React.FC = () => {
           />
         </div>
       </div>
-      <div className="text-center mb-8">
+
+      <div className="text-center mb-10">
         <button
           onClick={compareGPUs}
-          className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1"
         >
           {translations.gpuComparison.compareButton}
         </button>
       </div>
 
       {comparisonResult && (
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border border-gray-300 shadow-sm rounded-lg overflow-hidden">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-bold text-gray-900 uppercase tracking-wider">
+        <div className="overflow-x-auto bg-gray-50 rounded-xl p-6">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b-2 border-gray-200">
+                <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
                   {translations.gpuComparison.attribute}
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-bold text-gray-900 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
                   {comparisonResult[0].videocard_name}
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-bold text-gray-900 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
                   {comparisonResult[1].videocard_name}
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200">
+            <tbody>
               {comparisonAttributes.map((attribute) => (
-                <tr key={attribute} className="hover:bg-gray-50">
-                  <td className="flex flex-row px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-500">
-                    <>{translations.gpuComparison[attribute] || attribute}</>
+                <tr key={attribute} className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
+                  <td className="flex items-center px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700">
+                    <>
+                    {translations.gpuComparison[attribute] || attribute}
+                    </>
                     <AttributeWithTooltip attribute={attribute} translations={translations} />
                   </td>
                   <td
-                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
                     style={getBarStyle(attribute, 0)}
                   >
                     {comparisonResult[0][attribute]}
                   </td>
                   <td
-                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
                     style={getBarStyle(attribute, 1)}
                   >
                     {comparisonResult[1][attribute]}
@@ -339,8 +342,7 @@ const GPUPage: React.FC = () => {
               ))}
             </tbody>
           </table>
-          {/* Overall Comparison Line */}
-          <div className="mt-4 text-center text-lg font-semibold text-gray-700">
+          <div className="mt-6 text-center text-xl font-semibold text-gray-800">
             {`${getOverallComparisonPercentage()}`}
           </div>
         </div>
