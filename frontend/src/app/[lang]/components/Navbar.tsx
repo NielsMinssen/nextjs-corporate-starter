@@ -1,11 +1,12 @@
 "use client";
-import Logo from "./Logo";
-import Link from "next/link";
+
 import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { useState, useRef, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
-import LangugageSwitcher from "./LanguageSwitcher"
+import { Bars3Icon, XMarkIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import Logo from "./Logo";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 interface NavLink {
   id: number;
@@ -14,122 +15,186 @@ interface NavLink {
   text: string;
 }
 
+interface DropdownLink {
+  id: number;
+  title: string;
+  links: Array<NavLink>;
+}
+
 interface MobileNavLink extends NavLink {
   closeMenu: () => void;
 }
 
-function NavLink({ url, text }: NavLink) {
+function NavLinkComponent({ url, text }: NavLink) {
   const path = usePathname();
-
   return (
-    <li className="flex">
-      <Link
-        href={url}
-        className={`flex items-center mx-4 -mb-1 border-b-2 dark:border-transparent ${
-          path === url && "dark:text-violet-400 dark:border-violet-400"
-        }}`}
-      >
-        {text}
-      </Link>
-    </li>
+    <Link
+      href={url}
+      className={`px-3 py-2 rounded-md text-base font-medium ${
+        path === url 
+          ? "text-blue-600" 
+          : "text-gray-700 hover:text-blue-600"
+      }`}
+    >
+      {text}
+    </Link>
   );
 }
 
-function MobileNavLink({ url, text, closeMenu }: MobileNavLink) {
+function MobileNavLinkComponent({ url, text, closeMenu }: MobileNavLink) {
   const path = usePathname();
-  const handleClick = () => {
-    closeMenu();
-  };
   return (
-    <a className="flex">
-      <Link
-        href={url}
-        onClick={handleClick}
-        className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-900 ${
-          path === url && "dark:text-violet-400 dark:border-violet-400"
-        }}`}
+    <Link
+      href={url}
+      onClick={closeMenu}
+      className={`block px-3 py-2 rounded-md text-base font-medium ${
+        path === url
+          ? "text-blue-600"
+          : "text-gray-700 hover:text-blue-600"
+      }`}
+    >
+      {text}
+    </Link>
+  );
+}
+
+function DropdownComponent({ title, links, isMobile = false, closeMenu }: DropdownLink & { isMobile?: boolean; closeMenu: () => void }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  return (
+    <div ref={dropdownRef} className="relative">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`flex items-center ${
+          isMobile
+            ? "text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
+            : "text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+        }`}
       >
-        {text}
-      </Link>
-    </a>
+        {title}
+        <ChevronDownIcon className={`ml-2 h-5 w-5 transform ${isOpen ? "rotate-180" : ""} transition-transform duration-200`} />
+      </button>
+      {isOpen && (
+        <div className={`${isMobile ? "" : "absolute left-0 mt-2 w-48"} rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5`}>
+          <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+            {links.map((link) => (
+              <Link
+                key={link.id}
+                href={link.url}
+                className="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+                role="menuitem"
+                onClick={() => {
+                  setIsOpen(false);
+                  if (isMobile) closeMenu();
+                }}
+              >
+                {link.text}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 
 export default function Navbar({
   links,
+  dropdownLinks,
   logoUrl,
   logoText,
 }: {
   links: Array<NavLink>;
+  dropdownLinks: Array<DropdownLink>;
   logoUrl: string | null;
   logoText: string | null;
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const closeMenu = () => {
-    setMobileMenuOpen(false);
-  };
+  const closeMenu = () => setMobileMenuOpen(false);
+
   return (
-    <div className="p-4 dark:bg-black dark:text-gray-100">
-      <div className="container flex justify-between h-16 mx-auto px-0 sm:px-6">
-        <Logo src={logoUrl}>
-          {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
-        </Logo>
-
-        <div className="items-center flex-shrink-0 hidden lg:flex">
-          <ul className="items-stretch hidden space-x-3 lg:flex">
-            {links.map((item: NavLink) => (
-              <NavLink key={item.id} {...item} />
-            ))}
-          </ul>
-        </div>
-        <div className="my-4 max-lg:hidden"><LangugageSwitcher /></div>
-
-        <Dialog
-          as="div"
-          className="lg:hidden"
-          open={mobileMenuOpen}
-          onClose={setMobileMenuOpen}
-        >
-          <div className="fixed inset-0 z-40 bg-gray-600 bg-opacity-75" />{" "}
-          {/* Overlay */}
-          <Dialog.Panel className="fixed inset-y-0 rtl:left-0 ltr:right-0 z-50 w-full overflow-y-auto bg-gray-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-inset sm:ring-white/10">
-            <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Strapi</span>
-                {logoUrl && <img className="h-8 w-auto" src={logoUrl} alt="" />}
-              </a>
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
+    <nav className="border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex-shrink-0">
+            <Logo src={logoUrl}>
+              {logoText && <h2 className="text-gray-900 text-lg font-semibold">{logoText}</h2>}
+            </Logo>
+          </div>
+          <div className="hidden md:flex items-center justify-center flex-1">
+            <div className="flex items-baseline space-x-4">
+              {links.map((item) => (
+                <NavLinkComponent key={item.id} {...item} />
+              ))}
+              {dropdownLinks.map((dropdown) => (
+                <DropdownComponent key={dropdown.id} {...dropdown} closeMenu={closeMenu} />
+              ))}
             </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-700">
-                <div className="space-y-2 py-6">
-                  {links.map((item) => (
-                    <MobileNavLink
-                      key={item.id}
-                      closeMenu={closeMenu}
-                      {...item}
-                    />
-                  ))}
-                  <div className="mt-6"><LangugageSwitcher /></div>
-                </div>
+          </div>
+          <div className="hidden md:block">
+            <LanguageSwitcher />
+          </div>
+          <div className="md:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+            >
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <Dialog
+        as="div"
+        className="md:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-40 bg-black bg-opacity-25" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div className="flex items-center justify-between">
+            <Logo src={logoUrl}>
+              {logoText && <h2 className="text-gray-900 text-lg font-semibold">{logoText}</h2>}
+            </Logo>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-500/10">
+              <div className="space-y-2 py-6">
+                {links.map((item) => (
+                  <MobileNavLinkComponent key={item.id} {...item} closeMenu={closeMenu} />
+                ))}
+                {dropdownLinks.map((dropdown) => (
+                  <DropdownComponent key={dropdown.id} {...dropdown} isMobile closeMenu={closeMenu} />
+                ))}
+              </div>
+              <div className="py-6">
+                <LanguageSwitcher />
               </div>
             </div>
-          </Dialog.Panel>
-        </Dialog>
-        <button
-          className="p-4 lg:hidden"
-          onClick={() => setMobileMenuOpen(true)}
-        >
-          <Bars3Icon className="h-7 w-7 text-gray-100" aria-hidden="true" />
-        </button>
-      </div>
-    </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </nav>
   );
 }

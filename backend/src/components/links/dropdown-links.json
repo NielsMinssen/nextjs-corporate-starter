@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_links_dropdown_links",
+  "info": {
+    "displayName": "dropdownLinks",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.link"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

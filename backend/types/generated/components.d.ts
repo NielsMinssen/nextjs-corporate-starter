@@ -76,6 +76,17 @@ export interface SharedMedia extends Schema.Component {
   };
 }
 
+export interface SharedDropwonLinks extends Schema.Component {
+  collectionName: 'components_menu_dropwon_links';
+  info: {
+    displayName: 'DropdownLinks';
+    description: '';
+  };
+  attributes: {
+    Link: Attribute.Component<'links.link', true>;
+  };
+}
+
 export interface SectionsTestimonialsGroup extends Schema.Component {
   collectionName: 'components_slices_testimonials_groups';
   info: {
@@ -282,6 +293,18 @@ export interface LinksLink extends Schema.Component {
   };
 }
 
+export interface LinksDropdownLinks extends Schema.Component {
+  collectionName: 'components_links_dropdown_links';
+  info: {
+    displayName: 'dropdownLinks';
+    description: '';
+  };
+  attributes: {
+    links: Attribute.Component<'links.link', true>;
+    title: Attribute.String;
+  };
+}
+
 export interface LinksButton extends Schema.Component {
   collectionName: 'components_links_simple_buttons';
   info: {
@@ -324,6 +347,7 @@ export interface LayoutNavbar extends Schema.Component {
     links: Attribute.Component<'links.link', true>;
     button: Attribute.Component<'links.button-link'>;
     navbarLogo: Attribute.Component<'layout.logo'>;
+    dropdownLinks: Attribute.Component<'links.dropdown-links', true>;
   };
 }
 
@@ -496,6 +520,7 @@ declare module '@strapi/types' {
       'shared.rich-text': SharedRichText;
       'shared.quote': SharedQuote;
       'shared.media': SharedMedia;
+      'shared.dropwon-links': SharedDropwonLinks;
       'sections.testimonials-group': SectionsTestimonialsGroup;
       'sections.rich-text': SectionsRichText;
       'sections.pricing': SectionsPricing;
@@ -511,6 +536,7 @@ declare module '@strapi/types' {
       'menu.link': MenuLink;
       'links.social-link': LinksSocialLink;
       'links.link': LinksLink;
+      'links.dropdown-links': LinksDropdownLinks;
       'links.button': LinksButton;
       'links.button-link': LinksButtonLink;
       'layout.navbar': LayoutNavbar;

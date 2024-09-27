@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_menu_dropwon_links",
+  "info": {
+    "displayName": "DropdownLinks",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.link"
+    }
+  }
+}

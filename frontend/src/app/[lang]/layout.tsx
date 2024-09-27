@@ -24,6 +24,8 @@ async function getGlobal(lang: string): Promise<any> {
       "favicon",
       "notificationBanner.link",
       "navbar.links",
+      "navbar.dropdownLinks",
+      "navbar.dropdownLinks.links",
       "navbar.navbarLogo.logoImg",
       "footer.footerLogo.logoImg",
       "footer.menuLinks",
@@ -61,9 +63,9 @@ export default async function RootLayout({
   readonly params: { lang: string };
 }) {
   const global = await getGlobal(params.lang);
-  // TODO: CREATE A CUSTOM ERROR PAGE
+
   if (!global.data) return null;
-  
+
   const { notificationBanner, navbar, footer } = global.data.attributes;
 
   const navbarLogoUrl = getStrapiMedia(
@@ -74,11 +76,30 @@ export default async function RootLayout({
     footer.footerLogo.logoImg.data?.attributes.url
   );
 
+  const links = navbar.links.map((link: any) => ({
+    id: link.id,
+    url: link.url, // Ensure this matches your data structure
+    newTab: link.newTab, // Ensure this matches your data structure
+    text: link.text, // Ensure this matches your data structure
+  }));
+
+  const dropdownLinks = (navbar.dropdownLinks || []).map((dropdown: any) => ({
+    id: dropdown.id,
+    title: dropdown.title, // Title of the dropdown
+    links: (dropdown.links || []).map((link: any) => ({
+      id: link.id,
+      url: link.url, // Ensure this matches your data structure
+      newTab: link.newTab, // Ensure this matches your data structure
+      text: link.text, // Ensure this matches your data structure
+    })),
+  }));
+
   return (
     <html lang={params.lang}>
       <body>
-        <Navbar
-          links={navbar.links}
+      <Navbar
+          links={links} // Pass normal links
+          dropdownLinks={dropdownLinks} // Pass dropdown links separately
           logoUrl={navbarLogoUrl}
           logoText={navbar.navbarLogo.logoText}
         />
@@ -100,8 +121,4 @@ export default async function RootLayout({
       </body>
     </html>
   );
-}
-
-export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }));
 }
