@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cpus",
+  "info": {
+    "singularName": "cpu",
+    "pluralName": "cpus",
+    "displayName": "CPU",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "CPU": {
+      "pluginOptions": {},
+      "type": "json"
+    }
+  }
+}

@@ -977,6 +977,29 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiCpuCpu extends Schema.CollectionType {
+  collectionName: 'cpus';
+  info: {
+    singularName: 'cpu';
+    pluralName: 'cpus';
+    displayName: 'CPU';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    CPU: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::cpu.cpu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::cpu.cpu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Schema.SingleType {
   collectionName: 'globals';
   info: {
@@ -1288,6 +1311,7 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::cpu.cpu': ApiCpuCpu;
       'api::global.global': ApiGlobalGlobal;
       'api::gpu.gpu': ApiGpuGpu;
       'api::gpudescription.gpudescription': ApiGpudescriptionGpudescription;
