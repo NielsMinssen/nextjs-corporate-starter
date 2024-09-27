@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "cpudescriptions",
+  "info": {
+    "singularName": "cpudescription",
+    "pluralName": "cpudescriptions",
+    "displayName": "cpudescription",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "cpudescription": {
+      "type": "json",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

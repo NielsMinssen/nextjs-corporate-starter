@@ -1000,6 +1000,53 @@ export interface ApiCpuCpu extends Schema.CollectionType {
   };
 }
 
+export interface ApiCpudescriptionCpudescription extends Schema.SingleType {
+  collectionName: 'cpudescriptions';
+  info: {
+    singularName: 'cpudescription';
+    pluralName: 'cpudescriptions';
+    displayName: 'cpudescription';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    cpudescription: Attribute.JSON &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cpudescription.cpudescription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cpudescription.cpudescription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::cpudescription.cpudescription',
+      'oneToMany',
+      'api::cpudescription.cpudescription'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiGlobalGlobal extends Schema.SingleType {
   collectionName: 'globals';
   info: {
@@ -1312,6 +1359,7 @@ declare module '@strapi/types' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::cpu.cpu': ApiCpuCpu;
+      'api::cpudescription.cpudescription': ApiCpudescriptionCpudescription;
       'api::global.global': ApiGlobalGlobal;
       'api::gpu.gpu': ApiGpuGpu;
       'api::gpudescription.gpudescription': ApiGpudescriptionGpudescription;
