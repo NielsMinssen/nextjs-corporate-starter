@@ -74,6 +74,15 @@ function DropdownComponent({ title, links, isMobile = false, closeMenu }: Dropdo
     };
   }, []);
 
+  const [languageCode, setLanguageCode] = useState<string>("en"); // Default language
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('selectedLanguage');
+    if (storedLanguage) {
+      setLanguageCode(storedLanguage);
+    }
+  }, []);
+
+
   return (
     <div ref={dropdownRef} className="relative">
       <button
@@ -93,7 +102,7 @@ function DropdownComponent({ title, links, isMobile = false, closeMenu }: Dropdo
             {links.map((link) => (
               <Link
                 key={link.id}
-                href={link.url}
+                href={`/${languageCode}${link.url}`} // Prepend the language code to the dropdown link URL
                 className="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 hover:text-blue-600"
                 role="menuitem"
                 onClick={() => {
@@ -125,6 +134,15 @@ export default function Navbar({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const closeMenu = () => setMobileMenuOpen(false);
 
+  const [languageCode, setLanguageCode] = useState<string>("en"); // Default language
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('selectedLanguage');
+    if (storedLanguage) {
+      setLanguageCode(storedLanguage);
+    }
+  }, []);
+
+
   return (
     <nav className="border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -137,7 +155,10 @@ export default function Navbar({
           <div className="hidden md:flex items-center justify-center flex-1">
             <div className="flex items-baseline space-x-4">
               {links.map((item) => (
-                <NavLinkComponent key={item.id} {...item} />
+                 <NavLinkComponent 
+                  key={item.id}
+                  url={`/${languageCode}${item.url}`} // Prepend the language code to the URL
+                  text={item.text} id={0} newTab={false}               />
               ))}
               {dropdownLinks.map((dropdown) => (
                 <DropdownComponent key={dropdown.id} {...dropdown} closeMenu={closeMenu} />
@@ -182,7 +203,11 @@ export default function Navbar({
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 {links.map((item) => (
-                  <MobileNavLinkComponent key={item.id} {...item} closeMenu={closeMenu} />
+                   <MobileNavLinkComponent 
+                    key={item.id}
+                    url={`/${languageCode}${item.url}`} // Prepend the language code to the URL
+                    text={item.text}
+                    closeMenu={closeMenu} id={0} newTab={false}                 />
                 ))}
                 {dropdownLinks.map((dropdown) => (
                   <DropdownComponent key={dropdown.id} {...dropdown} isMobile closeMenu={closeMenu} />

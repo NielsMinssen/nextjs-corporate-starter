@@ -1,9 +1,9 @@
-"use client"
-import { useState } from "react";
+"use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
 
 // Define the Language type
 interface Language {
@@ -27,10 +27,20 @@ const LanguageSwitcher: React.FC = () => {
 
   // Use the extracted code to find the initial language
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(() => {
+    // Check local storage first
+    const storedLanguage = localStorage.getItem('selectedLanguage');
+    if (storedLanguage) {
+      return languages.find(lang => lang.code === storedLanguage) || languages[0];
+    }
+    // Fall back to URL language code
     const language = languages.find(lang => lang.code === initialLanguageCode);
     return language || languages[0]; // Default to English if not found
   });
 
+  // Effect to store the selected language in local storage
+  useEffect(() => {
+    localStorage.setItem('selectedLanguage', selectedLanguage.code);
+  }, [selectedLanguage]);
 
   // Toggle dropdown open/close
   const toggleDropdown = () => {
