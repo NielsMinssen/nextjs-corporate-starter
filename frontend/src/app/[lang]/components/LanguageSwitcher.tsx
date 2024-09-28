@@ -27,10 +27,12 @@ const LanguageSwitcher: React.FC = () => {
 
   // Use the extracted code to find the initial language
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(() => {
-    // Check local storage first
-    const storedLanguage = localStorage.getItem('selectedLanguage');
-    if (storedLanguage) {
-      return languages.find(lang => lang.code === storedLanguage) || languages[0];
+    // Check if window is defined to avoid reference error
+    if (typeof window !== 'undefined') {
+      const storedLanguage = localStorage.getItem('selectedLanguage');
+      if (storedLanguage) {
+        return languages.find(lang => lang.code === storedLanguage) || languages[0];
+      }
     }
     // Fall back to URL language code
     const language = languages.find(lang => lang.code === initialLanguageCode);
@@ -39,7 +41,9 @@ const LanguageSwitcher: React.FC = () => {
 
   // Effect to store the selected language in local storage
   useEffect(() => {
-    localStorage.setItem('selectedLanguage', selectedLanguage.code);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('selectedLanguage', selectedLanguage.code);
+    }
   }, [selectedLanguage]);
 
   // Toggle dropdown open/close

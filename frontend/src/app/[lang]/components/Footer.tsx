@@ -35,7 +35,7 @@ function FooterLink({ url, text }: FooterLink) {
   }, []);
 
   return (
-    <li className="flex justify-center">
+    <li className="flex max-md:justify-center">
       <Link
         href={`/${languageCode}${url}`} // Prepend language code
         className={`hover:dark:text-violet-400 ${
