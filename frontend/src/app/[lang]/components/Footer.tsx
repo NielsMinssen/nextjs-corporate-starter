@@ -5,6 +5,7 @@ import Logo from "./Logo";
 import { CgWebsite } from "react-icons/cg";
 import { FaDiscord } from "react-icons/fa";
 import { AiFillTwitterCircle, AiFillYoutube } from "react-icons/ai";
+import { useEffect, useState } from "react";
 
 interface FooterLink {
   id: number;
@@ -24,10 +25,19 @@ interface CategoryLink {
 
 function FooterLink({ url, text }: FooterLink) {
   const path = usePathname();
+  const [languageCode, setLanguageCode] = useState<string>("en");
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("selectedLanguage");
+    if (storedLanguage) {
+      setLanguageCode(storedLanguage);
+    }
+  }, []);
+
   return (
     <li className="flex">
       <Link
-        href={url}
+        href={`/${languageCode}${url}`} // Prepend language code
         className={`hover:dark:text-violet-400 ${
           path === url && "dark:text-violet-400 dark:border-violet-400"
         }}`}
@@ -39,10 +49,19 @@ function FooterLink({ url, text }: FooterLink) {
 }
 
 function CategoryLink({ attributes }: CategoryLink) {
+  const [languageCode, setLanguageCode] = useState<string>("en");
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("selectedLanguage");
+    if (storedLanguage) {
+      setLanguageCode(storedLanguage);
+    }
+  }, []);
+
   return (
     <li className="flex">
       <Link
-        href={`/blog/${attributes.slug}`}
+        href={`/${languageCode}/blog/${attributes.slug}`} // Prepend language code
         className="hover:dark:text-violet-400"
       >
         {attributes.name}
@@ -81,6 +100,14 @@ export default function Footer({
   legalLinks: Array<FooterLink>;
   socialLinks: Array<FooterLink>;
 }) {
+  const [languageCode, setLanguageCode] = useState<string>("en");
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("selectedLanguage");
+    if (storedLanguage) {
+      setLanguageCode(storedLanguage);
+    }
+  }, []);
 
   return (
     <footer className="py-6 dark:bg-black dark:text-gray-50">
@@ -118,7 +145,7 @@ export default function Footer({
             <ul className="flex">
               {legalLinks.map((link: FooterLink) => (
                 <Link
-                  href={link.url}
+                  href={`/${languageCode}${link.url}`} // Prepend language code
                   className="text-gray-400 hover:text-gray-300 mr-2"
                   key={link.id}
                 >
@@ -133,7 +160,7 @@ export default function Footer({
                 <a
                   key={link.id}
                   rel="noopener noreferrer"
-                  href={link.url}
+                  href={`/${languageCode}${link.url}`} // Prepend language code
                   title={link.text}
                   target={link.newTab ? "_blank" : "_self"}
                   className="flex items-center justify-center w-10 h-10 rounded-full dark:bg-violet-400 dark:text-gray-900"
