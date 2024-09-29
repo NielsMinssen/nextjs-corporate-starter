@@ -78,7 +78,7 @@ const GPUPage: React.FC = () => {
 
     const fetchTranslations = async (lang: string) => {
       try {
-        const response = await fetch(`http://localhost:1337/api/gpudescription?locale=${lang}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/gpudescription?locale=${lang}`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -93,7 +93,7 @@ const GPUPage: React.FC = () => {
 
     const fetchGPUs = async () => {
       try {
-        const response = await fetch("http://localhost:1337/api/gpus");
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/gpus`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

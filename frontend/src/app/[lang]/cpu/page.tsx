@@ -84,7 +84,8 @@ const CPUPage: React.FC = () => {
 
     const fetchTranslations = async (lang: string) => {
       try {
-        const response = await fetch(`http://localhost:1337/api/cpudescription?locale=${lang}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpudescription?locale=${lang}`);
+
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -99,7 +100,8 @@ const CPUPage: React.FC = () => {
 
     const fetchCPUs = async () => {
       try {
-        const response = await fetch("http://localhost:1337/api/cpus");
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpus`);
+
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
