@@ -216,17 +216,21 @@ const GPUPage: React.FC = () => {
     };
   };
 
-  const getOverallComparisonPercentage = () => {
-    if (!comparisonResult) return null;
-
+  const getOverallComparisonPercentage = (): { 
+    betterGpu: string | null, 
+    worseGpu: string | null, 
+    percentageDifference: number | null, 
+    isEqual: boolean 
+  } => {
+    if (!comparisonResult) return { betterGpu: null, worseGpu: null, percentageDifference: null, isEqual: false };
+  
     let totalImprovement = 0;
     let totalAttributesCounted = 0;
-
+  
     performanceAttributes.forEach((attribute) => {
       const value1 = comparisonResult[0][attribute] as number;
       const value2 = comparisonResult[1][attribute] as number;
-
-      // Skip if value1 or value2 is null, undefined, or zero
+  
       if (value1 != null && value2 != null && value1 !== 0 && value2 !== 0) {
         if (value1 > value2) {
           const improvementPercentage = ((value1 - value2) / value2) * 100;
@@ -239,21 +243,27 @@ const GPUPage: React.FC = () => {
         }
       }
     });
-
+  
     if (totalAttributesCounted === 0) {
-      return translations?.gpuComparison.bothequal;
+      return { betterGpu: null, worseGpu: null, percentageDifference: null, isEqual: true };
     }
-
+  
     const averageImprovement = totalImprovement / totalAttributesCounted;
-
+  
     if (averageImprovement > 0) {
-      return `${comparisonResult[0].videocard_name} ${translations?.gpuComparison.is} ${averageImprovement.toFixed(
-        2
-      )}% ${translations?.gpuComparison.betterthan} ${comparisonResult[1].videocard_name} ${translations?.gpuComparison.basedon}`;
+      return {
+        betterGpu: comparisonResult[0].videocard_name,
+        worseGpu: comparisonResult[1].videocard_name,
+        percentageDifference: Number(averageImprovement.toFixed(2)),
+        isEqual: false
+      };
     } else {
-      return `${comparisonResult[1].videocard_name} ${translations?.gpuComparison.is} ${Math.abs(
-        averageImprovement
-      ).toFixed(2)}% ${translations?.gpuComparison.betterthan} ${comparisonResult[0].videocard_name} ${translations?.gpuComparison.basedon}`;
+      return {
+        betterGpu: comparisonResult[1].videocard_name,
+        worseGpu: comparisonResult[0].videocard_name,
+        percentageDifference: Number(Math.abs(averageImprovement).toFixed(2)),
+        isEqual: false
+      };
     }
   };
 
@@ -343,8 +353,29 @@ const GPUPage: React.FC = () => {
             </tbody>
           </table>
           <div className="mt-6 text-center text-xl font-semibold text-gray-800">
-            {`${getOverallComparisonPercentage()}`}
-          </div>
+      {(() => {
+        const comparisonData = getOverallComparisonPercentage();
+        if (comparisonData.isEqual) {
+          return translations.gpuComparison.bothequal;
+        } else {
+          return (
+            <>
+              <span className="text-green-600">{comparisonData.betterGpu}</span>
+              {' '}
+              {translations.gpuComparison.is}
+              {' '}
+              <span className="text-blue-600">{comparisonData.percentageDifference}%</span>
+              {' '}
+              {translations.gpuComparison.betterthan}
+              {' '}
+              <span className="text-red-600">{comparisonData.worseGpu}</span>
+              {' '}
+              {translations.gpuComparison.basedon}
+            </>
+          );
+        }
+      })()}
+    </div>
         </div>
       )}
     </div>

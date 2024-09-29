@@ -228,16 +228,21 @@ const getBarStyle = (attribute: keyof CPU, index: number) => {
   
   // ... (rest of the code remains the same)
 
-  const getOverallComparisonPercentage = () => {
-    if (!comparisonResult) return null;
-
+  const getOverallComparisonPercentage = (): { 
+    betterCpu: string | null, 
+    worseCpu: string | null, 
+    percentageDifference: number | null, 
+    isEqual: boolean 
+  } => {
+    if (!comparisonResult) return { betterCpu: null, worseCpu: null, percentageDifference: null, isEqual: false };
+  
     let totalImprovement = 0;
     let totalAttributesCounted = 0;
-
+  
     performanceAttributes.forEach((attribute) => {
       const value1 = comparisonResult[0][attribute] as number;
       const value2 = comparisonResult[1][attribute] as number;
-
+  
       if (value1 != null && value2 != null && value1 !== 0 && value2 !== 0) {
         if (value1 > value2) {
           const improvementPercentage = ((value1 - value2) / value2) * 100;
@@ -250,24 +255,29 @@ const getBarStyle = (attribute: keyof CPU, index: number) => {
         }
       }
     });
-
+  
     if (totalAttributesCounted === 0) {
-      return translations?.cpuComparison.bothequal;
+      return { betterCpu: null, worseCpu: null, percentageDifference: null, isEqual: true };
     }
-
+  
     const averageImprovement = totalImprovement / totalAttributesCounted;
-
+  
     if (averageImprovement > 0) {
-      return `${comparisonResult[0].cpu_name} ${translations?.cpuComparison.is} ${averageImprovement.toFixed(
-        2
-      )}% ${translations?.cpuComparison.betterthan} ${comparisonResult[1].cpu_name} ${translations?.cpuComparison.basedon}`;
+      return {
+        betterCpu: comparisonResult[0].cpu_name,
+        worseCpu: comparisonResult[1].cpu_name,
+        percentageDifference: Number(averageImprovement.toFixed(2)),
+        isEqual: false
+      };
     } else {
-      return `${comparisonResult[1].cpu_name} ${translations?.cpuComparison.is} ${Math.abs(
-        averageImprovement
-      ).toFixed(2)}% ${translations?.cpuComparison.betterthan} ${comparisonResult[0].cpu_name} ${translations?.cpuComparison.basedon}`;
+      return {
+        betterCpu: comparisonResult[1].cpu_name,
+        worseCpu: comparisonResult[0].cpu_name,
+        percentageDifference: Number(Math.abs(averageImprovement).toFixed(2)),
+        isEqual: false
+      };
     }
   };
-
   return (
     <div className="max-w-4xl mx-auto p-8 bg-white rounded-xl">
       <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">{translations.cpuComparison.title}</h1>
@@ -353,8 +363,29 @@ const getBarStyle = (attribute: keyof CPU, index: number) => {
             </tbody>
           </table>
           <div className="mt-6 text-center text-xl font-semibold text-gray-800">
-            {`${getOverallComparisonPercentage()}`}
-          </div>
+          {(() => {
+            const comparisonData = getOverallComparisonPercentage();
+            if (comparisonData.isEqual) {
+              return translations.cpuComparison.bothequal;
+            } else {
+              return (
+                <>
+                  <span className="text-green-600">{comparisonData.betterCpu}</span>
+                  {' '}
+                  {translations.cpuComparison.is}
+                  {' '}
+                  <span className="text-blue-600">{comparisonData.percentageDifference}%</span>
+                  {' '}
+                  {translations.cpuComparison.betterthan}
+                  {' '}
+                  <span className="text-red-600">{comparisonData.worseCpu}</span>
+                  {' '}
+                  {translations.cpuComparison.basedon}
+                </>
+              );
+            }
+          })()}
+        </div>
         </div>
       )}
     </div>
