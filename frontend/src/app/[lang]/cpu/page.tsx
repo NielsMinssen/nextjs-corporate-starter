@@ -175,14 +175,14 @@ const CPUPage: React.FC = () => {
 
   const performanceAttributes: (keyof CPU)[] = ["cpu_mark", "thread_mark", "cores", "tdp", "power_perf"];
 
-// ... (previous code remains the same)
+  // ... (previous code remains the same)
 
-const getBarStyle = (attribute: keyof CPU, index: number) => {
+  const getBarStyle = (attribute: keyof CPU, index: number) => {
     if (!comparisonResult || !numericAttributes.includes(attribute)) return {};
-  
+
     const value1 = comparisonResult[0][attribute] as number | null | undefined;
     const value2 = comparisonResult[1][attribute] as number | null | undefined;
-  
+
     // Handle cases where one or both values are null or undefined
     if (value1 == null || value2 == null) {
       const currentValue = index === 0 ? value1 : value2;
@@ -194,24 +194,24 @@ const getBarStyle = (attribute: keyof CPU, index: number) => {
         background: `linear-gradient(90deg, hsl(210, 70%, 60%) 100%, hsl(210, 70%, 60%) 100%)`,
       };
     }
-  
+
     if (value1 === value2) {
       return {
         background: `linear-gradient(90deg, hsl(210, 70%, 60%) 100%, hsl(210, 70%, 60%) 100%)`,
       };
     }
-  
+
     const isHigherBetter = !(attribute === "price" || attribute === "tdp");
     const betterValue = isHigherBetter ? Math.max(value1, value2) : Math.min(value1, value2);
     const worseValue = isHigherBetter ? Math.min(value1, value2) : Math.max(value1, value2);
     const currentValue = comparisonResult[index][attribute] as number;
-  
+
     const isBetterValue = currentValue === betterValue;
-  
+
     // Calculate percentage based on absolute value
     const maxValue = Math.max(value1, value2);
     const percentage = (currentValue / maxValue) * 100;
-  
+
     // Determine color
     let color;
     if (isBetterValue) {
@@ -220,29 +220,29 @@ const getBarStyle = (attribute: keyof CPU, index: number) => {
       const hueDifference = (Math.abs(betterValue - currentValue) / (isHigherBetter ? betterValue : worseValue)) * 120;
       color = `hsl(${120 - hueDifference}, 70%, 60%)`; // Ranging from green to red based on the difference
     }
-  
+
     return {
       background: `linear-gradient(90deg, ${color} ${percentage}%, transparent ${percentage}%)`,
     };
   };
-  
+
   // ... (rest of the code remains the same)
 
-  const getOverallComparisonPercentage = (): { 
-    betterCpu: string | null, 
-    worseCpu: string | null, 
-    percentageDifference: number | null, 
-    isEqual: boolean 
+  const getOverallComparisonPercentage = (): {
+    betterCpu: string | null,
+    worseCpu: string | null,
+    percentageDifference: number | null,
+    isEqual: boolean
   } => {
     if (!comparisonResult) return { betterCpu: null, worseCpu: null, percentageDifference: null, isEqual: false };
-  
+
     let totalImprovement = 0;
     let totalAttributesCounted = 0;
-  
+
     performanceAttributes.forEach((attribute) => {
       const value1 = comparisonResult[0][attribute] as number;
       const value2 = comparisonResult[1][attribute] as number;
-  
+
       if (value1 != null && value2 != null && value1 !== 0 && value2 !== 0) {
         if (value1 > value2) {
           const improvementPercentage = ((value1 - value2) / value2) * 100;
@@ -255,13 +255,13 @@ const getBarStyle = (attribute: keyof CPU, index: number) => {
         }
       }
     });
-  
+
     if (totalAttributesCounted === 0) {
       return { betterCpu: null, worseCpu: null, percentageDifference: null, isEqual: true };
     }
-  
+
     const averageImprovement = totalImprovement / totalAttributesCounted;
-  
+
     if (averageImprovement > 0) {
       return {
         betterCpu: comparisonResult[0].cpu_name,
@@ -282,7 +282,7 @@ const getBarStyle = (attribute: keyof CPU, index: number) => {
     <div className="max-w-4xl mx-auto p-8 bg-white rounded-xl">
       <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">{translations.cpuComparison.title}</h1>
       <p className="text-xl mb-8 text-center text-gray-600">{translations.cpuComparison.description}</p>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -323,69 +323,83 @@ const getBarStyle = (attribute: keyof CPU, index: number) => {
 
       {comparisonResult && (
         <div className="overflow-x-auto bg-gray-50 rounded-xl p-6">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b-2 border-gray-200">
-                <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                  {translations.cpuComparison.attribute}
-                </th>
-                <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                  {comparisonResult[0].cpu_name}
-                </th>
-                <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                  {comparisonResult[1].cpu_name}
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonAttributes.map((attribute) => (
-                <tr key={attribute} className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
-                  <td className="flex items-center px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700">
-                    <>
-                    {translations.cpuComparison[attribute] || attribute}
-                    </>
-                    <AttributeWithTooltip attribute={attribute} translations={translations} />
-                  </td>
-                  <td
-                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
-                    style={getBarStyle(attribute, 0)}
-                  >
-                    {comparisonResult[0][attribute]}
-                  </td>
-                  <td
-                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
-                    style={getBarStyle(attribute, 1)}
-                  >
-                    {comparisonResult[1][attribute]}
-                  </td>
+          <div className="overflow-x-auto bg-gray-50 rounded-xl p-6">
+            {/* En-tête mobile pour les noms des CPUs */}
+            <div className="md:hidden mb-4 flex justify-between font-bold text-sm text-gray-900">
+              <div className="w-1/2 px-2">{comparisonResult[0].cpu_name}</div>
+              <div className="w-1/2 px-2">{comparisonResult[1].cpu_name}</div>
+            </div>
+
+            <table className="w-full">
+              <thead className="hidden md:table-header-group">
+                <tr className="border-b-2 border-gray-200">
+                  <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
+                    {translations.cpuComparison.attribute}
+                  </th>
+                  <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
+                    {comparisonResult[0].cpu_name}
+                  </th>
+                  <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
+                    {comparisonResult[1].cpu_name}
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {comparisonAttributes.map((attribute) => (
+                  <React.Fragment key={attribute}>
+                    <tr className="md:hidden border-b border-gray-200 bg-gray-50">
+                      <td colSpan={2} className="px-6 py-2 text-sm font-medium text-gray-700">
+                        <>{translations.cpuComparison[attribute] || attribute}</>
+                        <AttributeWithTooltip attribute={attribute} translations={translations} />
+                      </td>
+                    </tr>
+                    <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
+                      <td className="hidden md:flex md:items-center px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700">
+                        <>{translations.cpuComparison[attribute] || attribute}</>
+                        <AttributeWithTooltip attribute={attribute} translations={translations} />
+                      </td>
+                      <td
+                        className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
+                        style={getBarStyle(attribute, 0)}
+                      >
+                        {comparisonResult[0][attribute]}
+                      </td>
+                      <td
+                        className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
+                        style={getBarStyle(attribute, 1)}
+                      >
+                        {comparisonResult[1][attribute]}
+                      </td>
+                    </tr>
+                  </React.Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
           <div className="mt-6 text-center text-xl font-semibold text-gray-800">
-          {(() => {
-            const comparisonData = getOverallComparisonPercentage();
-            if (comparisonData.isEqual) {
-              return translations.cpuComparison.bothequal;
-            } else {
-              return (
-                <>
-                  <span className="text-green-600">{comparisonData.betterCpu}</span>
-                  {' '}
-                  {translations.cpuComparison.is}
-                  {' '}
-                  <span className="text-blue-600">{comparisonData.percentageDifference}%</span>
-                  {' '}
-                  {translations.cpuComparison.betterthan}
-                  {' '}
-                  <span className="text-red-600">{comparisonData.worseCpu}</span>
-                  {' '}
-                  {translations.cpuComparison.basedon}
-                </>
-              );
-            }
-          })()}
-        </div>
+            {(() => {
+              const comparisonData = getOverallComparisonPercentage();
+              if (comparisonData.isEqual) {
+                return translations.cpuComparison.bothequal;
+              } else {
+                return (
+                  <>
+                    <span className="text-green-600">{comparisonData.betterCpu}</span>
+                    {' '}
+                    {translations.cpuComparison.is}
+                    {' '}
+                    <span className="text-blue-600">{comparisonData.percentageDifference}%</span>
+                    {' '}
+                    {translations.cpuComparison.betterthan}
+                    {' '}
+                    <span className="text-red-600">{comparisonData.worseCpu}</span>
+                    {' '}
+                    {translations.cpuComparison.basedon}
+                  </>
+                );
+              }
+            })()}
+          </div>
         </div>
       )}
     </div>
