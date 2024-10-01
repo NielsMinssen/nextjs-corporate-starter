@@ -5,6 +5,7 @@ import Select, { SingleValue } from "react-select";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/[lang]/components/tooltip";
 import { HelpCircle } from "lucide-react";
 import Loader from "@/app/[lang]/components/Loader";
+import GPUComparisonBubbles from './GPUComparisonBubbles';
 
 interface GPU {
   id: number;
@@ -82,6 +83,20 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
+
+  type SupportedLanguage = 'fr' | 'es' | 'en';
+
+  const userLanguage: SupportedLanguage = (window.location.pathname.split("/")[1] as SupportedLanguage) || 'en';
+
+
+  const gpuComparisons = [
+    { gpu: 'GeForce RTX 3060 12GB vs GeForce RTX 4060' },
+    { gpu: 'GeForce RTX 3060 Ti vs GeForce RTX 4060' },
+    { gpu: 'GeForce RTX 3070 vs GeForce RTX 4060' },
+    { gpu: 'GeForce RTX 4060 vs GeForce RTX 4060 Ti' },
+    { gpu: 'GeForce GTX 1060 5GB vs Radeon RX 580' },
+    { gpu: 'GeForce RTX 2060 SUPER vs GeForce RTX 3060 12GB' },
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -439,6 +454,7 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
         </div>
       )}
       </div>
+      <GPUComparisonBubbles comparisons={gpuComparisons} lang={userLanguage} />
     </div>
   );
 };

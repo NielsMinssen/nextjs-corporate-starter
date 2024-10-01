@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation';
 import Select, { SingleValue } from "react-select";
 import Loader from "../components/Loader";
+import GPUComparisonBubbles from "../components/GPUComparisonBubbles";
 
 interface GPU {
   id: number;
@@ -28,13 +29,17 @@ const GPUPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
+  
+  // Define the type for supported languages
+  type SupportedLanguage = 'fr' | 'es' | 'en';
+  
+  // Extract the language from the URL and ensure it's a valid language
+  const userLanguage: SupportedLanguage = (window.location.pathname.split("/")[1] as SupportedLanguage) || 'en';
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       setError(null);
-      const userLanguage = window.location.pathname.split("/")[1];
-
       try {
         const [translationsResponse, gpusResponse] = await Promise.all([
           fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/gpudescription?locale=${userLanguage}`),
@@ -73,11 +78,11 @@ const GPUPage: React.FC = () => {
     };
 
     fetchData();
-  }, []);
+  }, [userLanguage]); // Add userLanguage to the dependency array
 
   const handleCompare = () => {
     if (gpu1 && gpu2) {
-      router.push(`/${window.location.pathname.split("/")[1]}/gpu/compare/${encodeURIComponent(gpu1)}/${encodeURIComponent(gpu2)}`);
+      router.push(`/${userLanguage}/gpu/compare/${encodeURIComponent(gpu1)}/${encodeURIComponent(gpu2)}`);
     }
   };
 
@@ -104,6 +109,15 @@ const GPUPage: React.FC = () => {
     value: gpu.videocard_name,
     label: gpu.videocard_name,
   }));
+
+  const gpuComparisons = [
+    { gpu: 'GeForce RTX 3060 12GB vs GeForce RTX 4060' },
+    { gpu: 'GeForce RTX 3060 Ti vs GeForce RTX 4060' },
+    { gpu: 'GeForce RTX 3070 vs GeForce RTX 4060' },
+    { gpu: 'GeForce RTX 4060 vs GeForce RTX 4060 Ti' },
+    { gpu: 'GeForce GTX 1060 5GB vs Radeon RX 580' },
+    { gpu: 'GeForce RTX 2060 SUPER vs GeForce RTX 3060 12GB' },
+  ];
 
   return (
     <div className="max-w-4xl mx-auto p-8 bg-white rounded-xl">
@@ -150,6 +164,7 @@ const GPUPage: React.FC = () => {
           {translations.gpuComparison.compareButton}
         </button>
       </div>
+      <GPUComparisonBubbles comparisons={gpuComparisons} lang={userLanguage} />
     </div>
   );
 };
