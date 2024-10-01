@@ -113,8 +113,6 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
             ...item.attributes.GPU,
           }));
           setGpuList(gpus);
-          console.log("le gpu1 : ",gpu1);
-          console.log("le gpu2 : ",gpu2);
           
           const selectedGpu1 = gpus.find((gpu: GPU) => gpu.videocard_name === gpu1);
           const selectedGpu2 = gpus.find((gpu: GPU) => gpu.videocard_name === gpu2);
