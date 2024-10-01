@@ -104,7 +104,13 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
     };
 
     fetchData();
-  }, [lang, gpu1, gpu2]);
+  }, [lang]);
+
+  const handleCompare = () => {
+    if (gpu1 && gpu2) {
+      router.push(`/${window.location.pathname.split("/")[1]}/compare/${encodeURIComponent(gpu1)}/${encodeURIComponent(gpu2)}`);
+    }
+  };
 
   const handleSelectChange = (
     selectedOption: SingleValue<{ value: string; label: string }>,
@@ -112,7 +118,6 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
   ) => {
     if (selectedOption) {
       setter(selectedOption.value);
-      router.push(`/${lang}/gpu/compare/${encodeURIComponent(gpu1)}/${encodeURIComponent(gpu2)}`);
     }
   };
 
@@ -192,6 +197,18 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
             className="w-full"
           />
         </div>
+      </div>
+      
+      <div className="text-center mb-10">
+        <button
+          onClick={handleCompare}
+          disabled={!gpu1 || !gpu2}
+          className={`px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 ${
+            (!gpu1 || !gpu2) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+          }`}
+        >
+          {translations.gpuComparison.compareButton}
+        </button>
       </div>
 
       <div className="overflow-x-auto bg-gray-50 rounded-xl p-6">
