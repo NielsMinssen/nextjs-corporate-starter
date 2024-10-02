@@ -6,7 +6,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/
 import { HelpCircle } from "lucide-react";
 import Loader from "@/app/[lang]/components/Loader";
 import GPUComparisonBubbles from './GPUComparisonBubbles';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
 
 interface GPU {
   id: number;
