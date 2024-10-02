@@ -463,16 +463,16 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
               {comparisonAttributes.map((attribute) => (
                 <div key={attribute} className="p-4 bg-gray-100 rounded-lg shadow-sm">
 
-                  <p className="mt-2 text-gray-600">
+                  <div className="mt-2 text-gray-600">
                     {typeof translations.cpuComparison.details[attribute] === 'string' ? (
                       translations.cpuComparison.details[attribute]
                     ) : (
                       <div className="space-y-1">
                         {Object.entries(translations.cpuComparison.details[attribute]).map(
                           ([key, value]) => (
-                            key === "title" ? (<h3 className="text-2xl font-bold text-gray-800">
+                            key === "title" ? (<div className="text-2xl font-bold text-gray-800">
                               <>{value}</>
-                            </h3>)
+                            </div>)
                               : (<span key={key} className="block">
                                 <>{value}</>
                               </span>)
@@ -480,7 +480,7 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
                         )}
                       </div>
                     )}
-                  </p>
+                  </div>
                   <div className="mt-4 space-y-2">
                     <div>
                       <strong className="text-blue-700">{comparisonResult[0].cpu_name}</strong>: {comparisonResult[0][attribute]}

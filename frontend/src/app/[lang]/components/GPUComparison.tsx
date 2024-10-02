@@ -476,14 +476,14 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
               {comparisonAttributes.map((attribute) => (
                 <div key={attribute} className="p-4 bg-gray-100 rounded-lg shadow-sm">
 
-                  <p className="mt-2 text-gray-600">
+                  <div className="mt-2 text-gray-600">
                     <div className="space-y-1">
                       {Object.entries(translations.gpuComparison.details[attribute]).map(
                         ([key, value], index) => (
                           key === "title" ? (
-                            <h3 key={`title-${index}`} className="text-2xl font-bold text-gray-800">
+                            <div key={`title-${index}`} className="text-2xl font-bold text-gray-800">
                               <>{value}</>
-                            </h3>
+                            </div>
                           ) : (
                             <span key={`value-${key}-${index}`} className="block">
                               <>{value}</>
@@ -493,7 +493,7 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
                       )}
                     </div>
                     
-                  </p>
+                  </div>
                   <div className="mt-4 space-y-2">
                     <div>
                       <strong className="text-blue-700">{comparisonResult[0].videocard_name}</strong>: {comparisonResult[0][attribute]}
