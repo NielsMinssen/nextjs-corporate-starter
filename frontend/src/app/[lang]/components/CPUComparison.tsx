@@ -5,6 +5,7 @@ import Select, { SingleValue } from "react-select";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/[lang]/components/tooltip";
 import { HelpCircle } from "lucide-react";
 import Loader from "@/app/[lang]/components/Loader";
+import CPUComparisonBubbles from './CPUComparisonBubbles';
 
 interface CPU {
   id: number;
@@ -307,6 +308,15 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
     }
   };
 
+  const cpuComparisons = [
+    { cpu: 'Intel Core i5 12400F vs AMD Ryzen 5 5600' },
+    { cpu: 'AMD Ryzen 5 5600X vs Intel Core i5 12400F' },
+    { cpu: 'AMD Ryzen 5 5600 vs AMD Ryzen 5 5500' },
+    { cpu: 'Intel Core i5 12400F vs AMD Ryzen 5 7500F' },
+    { cpu: 'Intel Core i5 12400F vs AMD Ryzen 5 5500' },
+    { cpu: 'AMD Ryzen 5 3600 vs AMD Ryzen 5 5500' },
+  ];
+
   return (
     <div className="max-w-4xl mx-auto p-8 bg-white rounded-xl">
       <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">{translations.cpuComparison.title}</h1>
@@ -433,6 +443,7 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
         </div>
       )}
       </div>
+      <CPUComparisonBubbles comparisons={cpuComparisons} lang={userLanguage} />
     </div>
   );
 };

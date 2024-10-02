@@ -17,7 +17,7 @@ const getMetadata = (params: Params): Metadata => {
   const [cpu1, cpu2] = cpuComparison.split('-vs-');
   // Determine the canonical URL using alphabetical order
   const canonicalCpus = [cpu1, cpu2].sort(); // Alphabetical sort
-  const canonicalUrl = `https://${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${params.lang}/cpu/compare/${canonicalCpus[0]}-vs-${canonicalCpus[1]}`;
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${params.lang}/cpu/compare/${canonicalCpus[0]}-vs-${canonicalCpus[1]}`;
 
   // Define titles and descriptions in different languages
   const translations: Record<Language, { title: string; description: string }> = {
@@ -51,7 +51,6 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
 }
 
 export default function ComparisonPage({ params }: { params: Params }) {
-  console.log(params);
   // Extract the string containing cpu1 and cpu2
   const cpuComparison = params['cpu1]-vs-[cpu2'];
   // Split the string on '-vs-' to get cpu1 and cpu2
@@ -59,9 +58,6 @@ export default function ComparisonPage({ params }: { params: Params }) {
   const cpu1 = decodeURI(cpu1Extracted).replace(/-/g, ' ').replace(/%40/g, '@');
   const cpu2 = decodeURI(cpu2Extracted).replace(/-/g, ' ').replace(/%40/g, '@');
 
-  console.log("le cpu 1", cpu1);
-  console.log("le cpu 2", cpu2);
-  
   return (
     <CPUComparison
       initialCpu1={cpu1}

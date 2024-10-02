@@ -24,18 +24,19 @@ const CPUComparisonBubbles: React.FC<CPUComparisonBubblesProps> = ({ comparisons
   // Translations for the title and subtitles based on the language
   const translations = {
     en: {
-      title: 'Popular Graphics Card Comparisons',
-      subtitle: 'Here are some of the popular graphics card comparisons of late.',
+      title: 'Popular Processor Comparisons',
+      subtitle: 'Here are some of the popular processor comparisons of late.',
     },
     fr: {
-      title: 'Comparaisons de cartes graphiques populaires',
-      subtitle: 'Voici quelques-unes des comparaisons de cartes graphiques populaires récemment.',
+      title: 'Comparaisons de processeurs populaires',
+      subtitle: 'Voici quelques-unes des comparaisons de processeurs populaires récemment.',
     },
     es: {
-      title: 'Comparaciones populares de tarjetas gráficas',
-      subtitle: 'Aquí hay algunas de las comparaciones de tarjetas gráficas más populares últimamente.',
+      title: 'Comparaciones populares de procesadores',
+      subtitle: 'Aquí hay algunas de las comparaciones de procesadores más populares últimamente.',
     },
   };
+  
 
   return (
     <div className='py-10'>
