@@ -6,6 +6,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/
 import { HelpCircle } from "lucide-react";
 import Loader from "@/app/[lang]/components/Loader";
 import GPUComparisonBubbles from './GPUComparisonBubbles';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/accordion";
 
 interface GPU {
   id: number;
@@ -44,6 +45,9 @@ interface Translation {
     is: string;
     betterthan: string;
     basedon: string;
+    details: {
+      [key: string]: string;
+    };
     tooltips: {
       [key: string]: string;
     };
@@ -128,10 +132,10 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
             ...item.attributes.GPU,
           }));
           setGpuList(gpus);
-          
+
           const selectedGpu1 = gpus.find((gpu: GPU) => gpu.videocard_name === gpu1);
           const selectedGpu2 = gpus.find((gpu: GPU) => gpu.videocard_name === gpu2);
-          
+
           if (selectedGpu1 && selectedGpu2) {
             setComparisonResult([selectedGpu1, selectedGpu2]);
           } else {
@@ -155,7 +159,7 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
     if (gpu1 && gpu2) {
       const gpu1Formatted = gpu1.replace(/ /g, '-');
       const gpu2Formatted = gpu2.replace(/ /g, '-');
-      
+
       router.push(`/${userLanguage}/gpu/compare/${gpu1Formatted}-vs-${gpu2Formatted}`);
     }
   };
@@ -361,101 +365,144 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
           />
         </div>
       </div>
-      
+
       <div className="text-center mb-10">
         <button
           onClick={handleCompare}
           disabled={!gpu1 || !gpu2}
-          className={`px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 ${
-            (!gpu1 || !gpu2) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
-          }`}
+          className={`px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 ${(!gpu1 || !gpu2) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+            }`}
         >
           {translations.gpuComparison.compareButton}
         </button>
       </div>
 
-      <div className="overflow-x-auto bg-gray-50 rounded-xl p-6">
-      {comparisonResult && (
-        <div className="overflow-x-auto bg-gray-50 rounded-xl p-6">
-          <div className="overflow-x-auto bg-gray-50 rounded-xl p-6">
-            {/* Mobile-friendly GPU names header */}
-            <div className="md:hidden mb-4 flex justify-between font-bold text-sm text-gray-900">
-              <div className="w-1/2 px-2">{comparisonResult[0].videocard_name}</div>
-              <div className="w-1/2 px-2">{comparisonResult[1].videocard_name}</div>
-            </div>
+      <div className="overflow-x-auto bg-gray-50 rounded-xl p-1 md:p-6">
+        {comparisonResult && (
+          <div className="overflow-x-auto bg-gray-50 rounded-xl p-1 md:p-6">
+            <div className="overflow-x-auto bg-gray-50 rounded-xl p-1 md:p-6">
+              {/* Mobile-friendly GPU names header */}
+              <div className="md:hidden mb-4 flex justify-between font-bold text-sm text-gray-900">
+                <div className="w-1/2 px-2">{comparisonResult[0].videocard_name}</div>
+                <div className="w-1/2 px-2">{comparisonResult[1].videocard_name}</div>
+              </div>
 
-            <table className="w-full">
-              <thead className="hidden md:table-header-group">
-                <tr className="border-b-2 border-gray-200">
-                  <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                    {translations.gpuComparison.attribute}
-                  </th>
-                  <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                    {comparisonResult[0].videocard_name}
-                  </th>
-                  <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                    {comparisonResult[1].videocard_name}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonAttributes.map((attribute) => (
-                  <React.Fragment key={attribute}>
-                    <tr className="md:hidden border-b border-gray-200 bg-gray-50">
-                      <td colSpan={2} className="px-6 py-2 text-sm font-medium text-gray-700">
-                        <>{translations.gpuComparison[attribute] || attribute}</>
-                        <AttributeWithTooltip attribute={attribute}/>
-                      </td>
-                    </tr>
-                    <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
-                      <td className="hidden md:flex md:items-center px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700">
-                        <>{translations.gpuComparison[attribute] || attribute}</>
-                        <AttributeWithTooltip attribute={attribute}/>
-                      </td>
-                      <td
-                        className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
-                        style={getBarStyle(attribute, 0)}
-                      >
-                        {comparisonResult[0][attribute]}
-                      </td>
-                      <td
-                        className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
-                        style={getBarStyle(attribute, 1)}
-                      >
-                        {comparisonResult[1][attribute]}
-                      </td>
-                    </tr>
-                  </React.Fragment>
-                ))}
-              </tbody>
-            </table>
+              <table className="w-full">
+                <thead className="hidden md:table-header-group">
+                  <tr className="border-b-2 border-gray-200">
+                    <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
+                      {translations.gpuComparison.attribute}
+                    </th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
+                      {comparisonResult[0].videocard_name}
+                    </th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
+                      {comparisonResult[1].videocard_name}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonAttributes.map((attribute) => (
+                    <React.Fragment key={attribute}>
+                      <tr className="md:hidden border-b border-gray-200 bg-gray-50">
+                        <td colSpan={2} className="px-6 py-2 text-sm font-medium text-gray-700">
+                          <>{translations.gpuComparison[attribute] || attribute}</>
+                          <AttributeWithTooltip attribute={attribute} />
+                        </td>
+                      </tr>
+                      <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
+                        <td className="hidden md:flex md:items-center px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700">
+                          <>{translations.gpuComparison[attribute] || attribute}</>
+                          <AttributeWithTooltip attribute={attribute} />
+                        </td>
+                        <td
+                          className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
+                          style={getBarStyle(attribute, 0)}
+                        >
+                          {comparisonResult[0][attribute]}
+                        </td>
+                        <td
+                          className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
+                          style={getBarStyle(attribute, 1)}
+                        >
+                          {comparisonResult[1][attribute]}
+                        </td>
+                      </tr>
+                    </React.Fragment>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-6 text-center text-xl font-semibold text-gray-800">
+              {(() => {
+                const comparisonData = getOverallComparisonPercentage();
+                if (comparisonData.isEqual) {
+                  return translations.gpuComparison.bothequal;
+                } else {
+                  return (
+                    <>
+                      <span className="text-green-600">{comparisonData.betterGpu}</span>
+                      {' '}
+                      {translations.gpuComparison.is}
+                      {' '}
+                      <span className="text-blue-600">{comparisonData.percentageDifference}%</span>
+                      {' '}
+                      {translations.gpuComparison.betterthan}
+                      {' '}
+                      <span className="text-red-600">{comparisonData.worseGpu}</span>
+                      {' '}
+                      {translations.gpuComparison.basedon}
+                    </>
+                  );
+                }
+              })()}
+            </div>
           </div>
-          <div className="mt-6 text-center text-xl font-semibold text-gray-800">
-            {(() => {
-              const comparisonData = getOverallComparisonPercentage();
-              if (comparisonData.isEqual) {
-                return translations.gpuComparison.bothequal;
-              } else {
-                return (
-                  <>
-                    <span className="text-green-600">{comparisonData.betterGpu}</span>
-                    {' '}
-                    {translations.gpuComparison.is}
-                    {' '}
-                    <span className="text-blue-600">{comparisonData.percentageDifference}%</span>
-                    {' '}
-                    {translations.gpuComparison.betterthan}
-                    {' '}
-                    <span className="text-red-600">{comparisonData.worseGpu}</span>
-                    {' '}
-                    {translations.gpuComparison.basedon}
-                  </>
-                );
-              }
-            })()}
-          </div>
-        </div>
-      )}
+        )}
+      </div>
+      {/* Détail section */}
+      <div className="my-8">
+        <Accordion type="single" collapsible>
+          <AccordionItem value="detail">
+            <AccordionTrigger className="text-lg font-semibold hover:text-blue-600">
+              {translations.gpuComparison.details.title}
+            </AccordionTrigger>
+            <AccordionContent className="space-y-6">
+              {comparisonAttributes.map((attribute) => (
+                <div key={attribute} className="p-4 bg-gray-100 rounded-lg shadow-sm">
+
+                  <p className="mt-2 text-gray-600">
+                    {typeof translations.gpuComparison.details[attribute] === 'string' ? (
+                      translations.gpuComparison.details[attribute]
+                    ) : (
+                      <div className="space-y-1">
+                        {Object.entries(translations.gpuComparison.details[attribute]).map(
+                          ([key, value]) => (
+                            key === "title" ? (<h3 className="text-2xl font-bold text-gray-800">
+                              <>{value}</>
+                            </h3>)
+                              : (<span key={key} className="block">
+                                <>{value}</>
+                              </span>)
+                          )
+                        )}
+                      </div>
+                    )}
+                  </p>
+                  <div className="mt-4 space-y-2">
+                    <div>
+                      <strong className="text-blue-700">{comparisonResult[0].videocard_name}</strong>: {comparisonResult[0][attribute]}
+                    </div>
+                    <div>
+                      <strong className="text-blue-700">{comparisonResult[1].videocard_name}</strong>: {comparisonResult[1][attribute]}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+
       </div>
       <GPUComparisonBubbles comparisons={gpuComparisons} lang={userLanguage} />
     </div>
