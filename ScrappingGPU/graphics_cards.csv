@@ -1,30 +1,30 @@
 videocard_name,price,g3d_mark,videocard_value,g2d_mark,tdp,power_perf,vram,test_date,category
 256MB DDR Radeon 9800 XT,,38,,192,,,,Apr 2009,Unknown
-7900 MOD - Radeon HD 6520G,,610,,323,,,,Dec 2012,Unknown
-7900 MOD - Radeon HD 6550D,,893,,536,,,,Jan 2013,Unknown
-A10-8Q,,"7,042",,253,,,,Feb 2023,Unknown
+7900 MOD   Radeon HD 6520G,,610,,323,,,,Dec 2012,Unknown
+7900 MOD   Radeon HD 6550D,,893,,536,,,,Jan 2013,Unknown
+A10 8Q,,"7,042",,253,,,,Feb 2023,Unknown
 A16,,"5,236",,416,,,,Apr 2022,Unknown
-A16-2B,,"3,141",,78,,,,May 2024,Desktop
-A16-2Q,,"4,583",,89,,,,Nov 2023,Unknown
-A16-4Q,,"4,166",,90,,,,May 2024,Desktop
-A40-24Q,,"2,616",,53,,,,Feb 2023,Unknown
-A40-48Q,,"17,864",,522,,,,Feb 2023,Unknown
-A40-6Q,,787,,20,,,,May 2023,Unknown
-A6 Micro-6500T Quad-Core APU with RadeonR4,,220,,127,,,,Jan 2016,Unknown
+A16 2B,,"3,141",,78,,,,May 2024,Desktop
+A16 2Q,,"4,583",,89,,,,Nov 2023,Unknown
+A16 4Q,,"4,166",,90,,,,May 2024,Desktop
+A40 24Q,,"2,616",,53,,,,Feb 2023,Unknown
+A40 48Q,,"17,864",,522,,,,Feb 2023,Unknown
+A40 6Q,,787,,20,,,,May 2023,Unknown
+A6 Micro 6500T Quad Core APU with RadeonR4,,220,,127,,,,Jan 2016,Unknown
 ABIT Siluro T400,,4,,151,,,,Nov 2015,Unknown
-ALL-IN-WONDER 9000,,5,,103,,,,Dec 2009,Unknown
-ALL-IN-WONDER 9800,,23,,139,,,,Aug 2011,Unknown
-ALL-IN-WONDER RADEON 8500DV,,6,,128,,,,Dec 2010,Unknown
-All-in-Wonder X1800XL,,30,,283,,,,Oct 2011,Unknown
-All-in-Wonder X1900,,127,,445,,,,Oct 2009,Unknown
-ALL-IN-WONDER X800 GT,,84,,186,,,,Oct 2009,Unknown
+ALL IN WONDER 9000,,5,,103,,,,Dec 2009,Unknown
+ALL IN WONDER 9800,,23,,139,,,,Aug 2011,Unknown
+ALL IN WONDER RADEON 8500DV,,6,,128,,,,Dec 2010,Unknown
+All in Wonder X1800XL,,30,,283,,,,Oct 2011,Unknown
+All in Wonder X1900,,127,,445,,,,Oct 2009,Unknown
+ALL IN WONDER X800 GT,,84,,186,,,,Oct 2009,Unknown
 AMD Ryzen Z1 Extreme,,"7,051",,770,,,,Jun 2023,Unknown
-AMIGAMERLIN 3.1-R1 For Voodoo 4 4500 PCI,,3,,110,,,,Dec 2019,Unknown
+AMIGAMERLIN 3.1 R1 For Voodoo 4 4500 PCI,,3,,110,,,,Dec 2019,Unknown
 ASUS A7000,,9,,164,,,,Jan 2010,Unknown
-ASUS AGP-V3800PRO v31.40H,,5,,149,,,,Jun 2013,Unknown
+ASUS AGP V3800PRO v31.40H,,5,,149,,,,Jun 2013,Unknown
 ASUS EAH4870x2,,496,,539,,,,Apr 2009,Unknown
-Asus GTX 650 FML II EC-EGPU,,721,,534,,,,Dec 2016,Unknown
-ASUS V9520-X V62.11,,8,,208,,,,Jan 2011,Unknown
+Asus GTX 650 FML II EC EGPU,,721,,534,,,,Dec 2016,Unknown
+ASUS V9520 X V62.11,,8,,208,,,,Jan 2011,Unknown
 B8DKMDAP,,"4,557",,534,,,,May 2018,Unknown
 Barco MXRT 1450,,206,,520,,,,Oct 2013,Unknown
 Barco MXRT 2600,199.00,900,4.52,649,,,,Jan 2018,Unknown
@@ -46,19 +46,19 @@ Custom GPU 0405,,"2,832",,364,,,,Apr 2022,Unknown
 Custom GPU 0932,,"3,396",,391,,,,Aug 2024,Desktop
 Dell 8100,999.11,2,0.00,58,,,,Feb 2012,Unknown
 Dell 8200,,4,,205,,,,Dec 2009,Unknown
-Diamond X1300-PCIE 256MB,,70,,286,,,,Feb 2013,Unknown
+Diamond X1300 PCIE 256MB,,70,,286,,,,Feb 2013,Unknown
 EAH5450,109.99,134,1.22,216,,,,Apr 2017,Unknown
 EG PARK,,141,,7,,,,Mar 2021,Unknown
-EIZO MED-X5000,,"3,038",,405,,,,Jan 2022,Unknown
-EIZO MED-XN43,,"3,843",,767,,,,May 2024,Desktop
-EIZO Quadro MED-XN51LP,,"5,048",,952,,,,Oct 2018,Unknown
+EIZO MED X5000,,"3,038",,405,,,,Jan 2022,Unknown
+EIZO MED XN43,,"3,843",,767,,,,May 2024,Desktop
+EIZO Quadro MED XN51LP,,"5,048",,952,,,,Oct 2018,Unknown
 Embedded Radeon E9173,,"1,788",,344,,,,Jan 2018,Unknown
-Eng Sample: 100-000000261-50_Y,,"2,860",,865,,,,Mar 2022,Unknown
-Eng Sample: 100-000000371-40_42/18_Y,,"1,965",,596,,,,Jul 2023,Unknown
-Eng Sample: 100-000000534-40_Y,,"3,237",,732,,,,Aug 2022,Unknown
-Eng Sample: 100-000000545-40_Y,,"3,692",,831,,,,Mar 2022,Unknown
+Eng Sample: 100 000000261 50_Y,,"2,860",,865,,,,Mar 2022,Unknown
+Eng Sample: 100 000000371 40_42 18_Y,,"1,965",,596,,,,Jul 2023,Unknown
+Eng Sample: 100 000000534 40_Y,,"3,237",,732,,,,Aug 2022,Unknown
+Eng Sample: 100 000000545 40_Y,,"3,692",,831,,,,Mar 2022,Unknown
 Extreme AX850 PRO,,120,,218,,,,Jul 2018,Unknown
-FireGL T2-128,,31,,178,,,128,Sep 2009,Workstation
+FireGL T2 128,,31,,178,,,128,Sep 2009,Workstation
 FireGL V3100,,53,,275,,,128,May 2009,Workstation
 FireGL V3200,,85,,236,,,128,Aug 2009,Workstation
 FireGL V3300,,71,,326,,,128,Apr 2009,Workstation
@@ -184,7 +184,7 @@ GeForce 6150 LE,,33,,30,,,,May 2012,Unknown
 GeForce 6150SE,,25,,266,,,,Apr 2009,Unknown
 GeForce 6150SE nForce 430,,31,,16,,,,Aug 2012,Unknown
 GeForce 6200,53.17,37,0.71,31,,,256,Apr 2009,Desktop
-GeForce 6200 A-LE,,32,,192,,,256,Apr 2009,Desktop
+GeForce 6200 A LE,,32,,192,,,256,Apr 2009,Desktop
 GeForce 6200 LE,41.24,28,0.68,62,,,256,Aug 2012,Desktop
 GeForce 6200 TurboCache,,53,,49,,,,Apr 2009,Unknown
 GeForce 6200A,54.99,4,0.07,117,,,128,Dec 2014,Desktop
@@ -197,34 +197,34 @@ GeForce 6610 XL,,89,,288,,,,May 2009,Unknown
 GeForce 6700 XL,,95,,243,,,,Apr 2009,Unknown
 GeForce 6800,559.29,113,0.20,258,,,256,Apr 2009,Desktop
 GeForce 6800 GS,,192,,72,,,256,Apr 2009,Desktop
-GeForce 6800 GS/XT,,103,,196,,,256,Apr 2009,Desktop
+GeForce 6800 GS XT,,103,,196,,,256,Apr 2009,Desktop
 GeForce 6800 GT,,142,,212,,,256,Apr 2009,Desktop
 GeForce 6800 LE,,110,,166,,,128,Apr 2009,Desktop
 GeForce 6800 Ultra,,139,,153,,,512,Apr 2009,Desktop
 GeForce 6800 XE,,59,,166,,,,May 2009,Unknown
 GeForce 6800 XT,,123,,122,,,256,Apr 2009,Desktop
 GeForce 7000M,,13,,239,,,256,Feb 2010,Mobile
-GeForce 7000M / nForce 610M,,13,,188,,,,Apr 2009,Mobile
-GeForce 7025 / nForce 630a,,33,,13,,,,Mar 2012,Unknown
-GeForce 7050 / nForce 610i,,26,,78,,,,May 2009,Unknown
-GeForce 7050 / nForce 620i,,42,,88,,,,Jun 2009,Unknown
-GeForce 7050 / nForce 630i,,38,,145,,,,Feb 2010,Unknown
-GeForce 7050 PV / nForce 630a,,31,,83,,,,Jun 2009,Unknown
+GeForce 7000M   nForce 610M,,13,,188,,,,Apr 2009,Mobile
+GeForce 7025   nForce 630a,,33,,13,,,,Mar 2012,Unknown
+GeForce 7050   nForce 610i,,26,,78,,,,May 2009,Unknown
+GeForce 7050   nForce 620i,,42,,88,,,,Jun 2009,Unknown
+GeForce 7050   nForce 630i,,38,,145,,,,Feb 2010,Unknown
+GeForce 7050 PV   nForce 630a,,31,,83,,,,Jun 2009,Unknown
 GeForce 705M,,456,,455,,,,Jan 2014,Mobile
-GeForce 7100 / nForce 620i,,26,,229,,,,Jun 2009,Unknown
-GeForce 7100 / nForce 630i,,42,,37,,,0,Jun 2009,Desktop
+GeForce 7100   nForce 620i,,26,,229,,,,Jun 2009,Unknown
+GeForce 7100   nForce 630i,,42,,37,,,0,Jun 2009,Desktop
 GeForce 7100 GS,,51,,79,,,256,Apr 2009,Desktop
 GeForce 710A,,473,,198,33,14.34,2048,Jan 2014,Desktop
 GeForce 710M,,459,,125,12,38.27,2048,Feb 2013,Mobile
-GeForce 7150 / nForce 630i,,33,,254,,,,Mar 2012,Unknown
-GeForce 7150M / nForce 630M,,18,,194,,,,Apr 2009,Mobile
+GeForce 7150   nForce 630i,,33,,254,,,,Mar 2012,Unknown
+GeForce 7150M   nForce 630M,,18,,194,,,,Apr 2009,Mobile
 GeForce 7200 GS,,23,,98,,,256,Nov 2009,Desktop
 GeForce 720A,,614,,304,,,,Aug 2018,Unknown
 GeForce 7300 GS,,79,,47,,,256,Apr 2009,Desktop
 GeForce 7300 GT,149.99,137,0.91,31,,,256,Apr 2009,Desktop
 GeForce 7300 LE,32.00,80,2.50,48,,,128,May 2012,Desktop
 GeForce 7300 SE,,39,,251,,,128,Apr 2009,Desktop
-GeForce 7300 SE/7200 GS,,48,,32,,,512,Oct 2009,Workstation
+GeForce 7300 SE 7200 GS,,48,,32,,,512,Oct 2009,Workstation
 GeForce 730A,,772,,205,,,,Sep 2015,Unknown
 GeForce 7350 LE,,74,,281,,,,Jun 2009,Unknown
 GeForce 7500 LE,,90,,69,,,256,Aug 2012,Desktop
@@ -237,14 +237,14 @@ GeForce 7800 GT,80.00,244,3.05,273,,,256,Apr 2009,Desktop
 GeForce 7800 GTX,71.60,291,4.06,196,86,3.38,512,Apr 2009,Desktop
 GeForce 7900 GS,,254,,68,,,256,Apr 2009,Desktop
 GeForce 7900 GT,199.00,258,1.30,160,,,256,Apr 2009,Desktop
-GeForce 7900 GT/GTO,,247,,469,,,256,Apr 2009,Desktop
+GeForce 7900 GT GTO,,247,,469,,,256,Apr 2009,Desktop
 GeForce 7900 GTX,,388,,165,,,512,Apr 2009,Desktop
 GeForce 7950 GT,264.57,348,1.31,153,,,512,Oct 2011,Desktop
 GeForce 7950 GX2,54.99,202,3.67,413,,,1024,Apr 2009,Desktop
 GeForce 7950 Xtreme,,288,,288,,,,Dec 2015,Unknown
 GeForce 800A,,477,,165,,,,Nov 2015,Unknown
 GeForce 800M,,457,,203,,,,Oct 2014,Mobile
-GeForce 8100 / nForce 720a,,79,,308,,,,Apr 2009,Unknown
+GeForce 8100   nForce 720a,,79,,308,,,,Apr 2009,Unknown
 GeForce 810A,,616,,291,,,,Dec 2014,Unknown
 GeForce 810M,,411,,69,,,,Oct 2014,Mobile
 GeForce 8200,,156,,71,,,,Apr 2009,Unknown
@@ -290,7 +290,7 @@ GeForce 920A,,836,,159,,,,Aug 2016,Unknown
 GeForce 920M,,722,,118,,,,Apr 2015,Mobile
 GeForce 920MX,,"1,081",,150,,,,Jun 2016,Unknown
 GeForce 9300,59.00,127,2.15,385,,,,Apr 2009,Unknown
-GeForce 9300 / nForce 730i,,129,,367,,,,Apr 2009,Unknown
+GeForce 9300   nForce 730i,,129,,367,,,,Apr 2009,Unknown
 GeForce 9300 GE,22.99,80,3.50,38,,,256,Apr 2009,Desktop
 GeForce 9300 GS,59.95,102,1.71,80,,,256,May 2009,Desktop
 GeForce 9300 SE,,82,,344,,,,Feb 2015,Unknown
@@ -321,7 +321,7 @@ GeForce 9600 GSO 512,,330,,79,90,3.67,512,Apr 2009,Desktop
 GeForce 9600 GT,64.99,488,7.51,46,95,5.14,1024,Feb 2011,Desktop
 GeForce 9600M GS,,131,,58,20,6.54,1024,Apr 2009,Mobile
 GeForce 9600M GT,78.20,136,1.74,29,23,5.90,512,Apr 2009,Mobile
-GeForce 9600M GT / GeForce GT 220M,,293,,291,,,,May 2010,Mobile
+GeForce 9600M GT   GeForce GT 220M,,293,,291,,,,May 2010,Mobile
 GeForce 9650M GS,,270,,328,29,9.32,512,Apr 2009,Mobile
 GeForce 9650M GT,117.30,137,1.17,57,23,5.97,1024,Apr 2009,Mobile
 GeForce 9700M GT,,209,,120,45,4.63,512,Apr 2009,Mobile
@@ -330,7 +330,7 @@ GeForce 9800 GT,149.99,461,3.07,62,125,3.69,1024,Aug 2012,Desktop
 GeForce 9800 GT 1024MB,,134,,315,,,,Jul 2015,Unknown
 GeForce 9800 GTX,74.99,769,10.26,366,140,5.49,512,Apr 2009,Desktop
 GeForce 9800 GTX+,,494,,83,141,3.51,1024,Aug 2012,Desktop
-GeForce 9800 GTX/9800 GTX+,89.99,607,6.74,100,,,,Jun 2009,Unknown
+GeForce 9800 GTX 9800 GTX+,89.99,607,6.74,100,,,,Jun 2009,Unknown
 GeForce 9800 GX2,195.00,798,4.09,518,197,4.05,2,Apr 2009,Desktop
 GeForce 9800 S,,636,,427,,,,Nov 2012,Unknown
 GeForce 9800M GS,,555,,57,60,9.25,512,Aug 2012,Mobile
@@ -375,7 +375,7 @@ GeForce Go 6150,,19,,92,,,,Oct 2009,Unknown
 GeForce Go 6200,,15,,204,,,16,Apr 2009,Mobile
 GeForce Go 6400,,24,,212,,,16,Apr 2009,Mobile
 GeForce Go 6600,,69,,209,,,128,Apr 2009,Mobile
-GeForce Go 6600 TE/6200 TE,,45,,223,,,,May 2009,Unknown
+GeForce Go 6600 TE 6200 TE,,45,,223,,,,May 2009,Unknown
 GeForce Go 6800,,106,,205,,,128,Apr 2009,Mobile
 GeForce Go 6800 Ultra,,138,,198,,,256,Apr 2009,Mobile
 GeForce Go 7200,,45,,199,,,64,Aug 2012,Mobile
@@ -392,7 +392,7 @@ GeForce Go 7950 GTX,,264,,283,45,5.86,512,Apr 2009,Mobile
 GeForce GPU,,"1,189",,160,,,1024,Jul 2015,Mobile
 GeForce GT 1030,109.97,"2,461",22.38,443,30,82.02,2048,May 2017,Desktop
 GeForce GT 120,29.99,160,5.34,52,50,3.20,512,Apr 2009,Desktop
-GeForce GT 120 / 9500 GT,,325,,327,,,,Sep 2011,Unknown
+GeForce GT 120   9500 GT,,325,,327,,,,Sep 2011,Unknown
 GeForce GT 120M,,151,,32,23,6.56,1024,Jul 2009,Mobile
 GeForce GT 130,151.34,381,2.52,109,75,5.08,1536,Apr 2009,Desktop
 GeForce GT 130M,,146,,30,23,6.35,1024,Apr 2009,Mobile
@@ -429,7 +429,7 @@ GeForce GT 545,55.59,"1,111",19.98,327,,,,Aug 2012,Unknown
 GeForce GT 550M,,573,,119,32,17.91,1024,Mar 2011,Mobile
 GeForce GT 555M,177.20,654,3.69,111,30,21.80,1024,Mar 2011,Mobile
 GeForce GT 610,139.99,311,2.22,128,29,10.72,2048,Aug 2012,Desktop
-GeForce GT 610M / GT 620M / GT 710M / GT 720M / GT,,369,,824,,,,May 2014,Mobile
+GeForce GT 610M   GT 620M   GT 710M   GT 720M   GT,,369,,824,,,,May 2014,Mobile
 GeForce GT 620,154.00,377,2.45,159,30,12.57,512,Jun 2012,Desktop
 GeForce GT 620M,,434,,126,15,28.96,2048,Jul 2012,Mobile
 GeForce GT 625,,353,,188,30,11.78,1024,Jun 2013,Desktop
@@ -476,32 +476,32 @@ GeForce GTX 1050 (Mobile),,"4,462",,292,,,4096,Apr 2019,Mobile
 GeForce GTX 1050 3GB,,"5,109",,593,75,68.13,3072,Apr 2020,Desktop
 GeForce GTX 1050 Ti,428.06,"6,314",14.75,648,75,84.19,4096,Oct 2016,Desktop
 GeForce GTX 1050 Ti (Mobile),,"5,919",,323,,,4096,Apr 2019,Mobile
-GeForce GTX 1050 Ti with Max-Q Design,,"5,355",,425,,,4096,Apr 2018,Mobile
-GeForce GTX 1050 with Max-Q Design,,"4,070",,288,,,4096,Aug 2018,Mobile
+GeForce GTX 1050 Ti with Max Q Design,,"5,355",,425,,,4096,Apr 2018,Mobile
+GeForce GTX 1050 with Max Q Design,,"4,070",,288,,,4096,Aug 2018,Mobile
 GeForce GTX 1060,339.99,"10,075",29.63,750,120,83.96,6144,Jul 2016,Desktop
 GeForce GTX 1060 (Mobile),,"8,161",,444,80,102.01,6144,Apr 2019,Mobile
 GeForce GTX 1060 3GB,235.47,"9,760",41.45,773,120,81.33,3072,Aug 2016,Desktop
 GeForce GTX 1060 5GB,487.99,"9,058",18.56,617,120,75.49,5120,Apr 2018,Desktop
-GeForce GTX 1060 with Max-Q Design,,"7,902",,409,80,98.77,6144,Jun 2017,Mobile
+GeForce GTX 1060 with Max Q Design,,"7,902",,409,80,98.77,6144,Jun 2017,Mobile
 GeForce GTX 1070,529.99,"13,505",25.48,848,150,90.03,8192,Jun 2016,Desktop
 GeForce GTX 1070 (Mobile),,"10,465",,603,,,8192,Apr 2019,Mobile
 GeForce GTX 1070 Ti,569.99,"14,694",25.78,874,180,81.63,8192,Nov 2017,Desktop
-GeForce GTX 1070 with Max-Q Design,,"9,922",,430,90,110.25,8192,Jul 2017,Mobile
+GeForce GTX 1070 with Max Q Design,,"9,922",,430,90,110.25,8192,Jul 2017,Mobile
 GeForce GTX 1080,442.79,"15,542",35.10,888,180,86.35,8192,May 2016,Desktop
 GeForce GTX 1080 Ti,483.82,"18,564",38.37,934,250,74.26,11264,Mar 2017,Desktop
-GeForce GTX 1080 with Max-Q Design,,"11,521",,740,110,104.73,8192,Jul 2017,Mobile
+GeForce GTX 1080 with Max Q Design,,"11,521",,740,110,104.73,8192,Jul 2017,Mobile
 GeForce GTX 1630,189.99,"4,977",26.19,648,,,,Aug 2022,Unknown
 GeForce GTX 1650,149.99,"7,876",52.51,573,75,105.02,4096,Apr 2019,Desktop
 GeForce GTX 1650 (Mobile),,"6,969",,384,50,139.38,4096,May 2019,Mobile
 GeForce GTX 1650 SUPER,222.06,"10,159",45.75,750,100,101.59,4096,Nov 2019,Desktop
 GeForce GTX 1650 Ti,,"7,545",,385,55,137.19,4096,Mar 2020,Mobile
-GeForce GTX 1650 Ti with Max-Q Design,,"6,415",,334,35,183.30,4096,May 2020,Mobile
-GeForce GTX 1650 with Max-Q Design,,"6,180",,326,35,176.57,4096,Jun 2019,Mobile
+GeForce GTX 1650 Ti with Max Q Design,,"6,415",,334,35,183.30,4096,May 2020,Mobile
+GeForce GTX 1650 with Max Q Design,,"6,180",,326,35,176.57,4096,Jun 2019,Mobile
 GeForce GTX 1660,259.81,"11,682",44.96,780,120,97.35,6144,Mar 2019,Desktop
 GeForce GTX 1660 SUPER,227.99,"12,755",55.95,806,125,102.04,6144,Nov 2019,Desktop
 GeForce GTX 1660 Ti,307.79,"12,914",41.96,810,120,107.62,6144,Feb 2019,Desktop
 GeForce GTX 1660 Ti (Mobile),,"10,185",,483,80,127.32,6144,May 2019,Mobile
-GeForce GTX 1660 Ti with Max-Q Design,,"8,597",,363,60,143.28,6144,May 2019,Mobile
+GeForce GTX 1660 Ti with Max Q Design,,"8,597",,363,60,143.28,6144,May 2019,Mobile
 GeForce GTX 260,285.78,"1,219",4.27,57,202,6.04,896,Aug 2012,Desktop
 GeForce GTX 260M,,379,,43,65,5.83,1024,Aug 2012,Mobile
 GeForce GTX 275,431.72,"1,409",3.26,73,219,6.43,896,Aug 2012,Desktop
@@ -565,7 +565,7 @@ GeForce GTX 780 Ti,339.99,"9,514",27.98,634,250,38.06,3072,Nov 2013,Desktop
 GeForce GTX 780M,499.00,"3,852",7.72,424,122,31.58,4096,Jun 2013,Mobile
 GeForce GTX 850A,,"1,050",,551,,,,May 2015,Unknown
 GeForce GTX 850M,,"2,516",,226,40,62.91,2048,May 2014,Mobile
-GeForce GTX 850M - MODDED,,"1,092",,819,,,,Oct 2014,Mobile
+GeForce GTX 850M   MODDED,,"1,092",,819,,,,Oct 2014,Mobile
 GeForce GTX 860M,114.00,"3,051",26.76,226,45,67.80,2048,Apr 2014,Mobile
 GeForce GTX 870M,,"3,450",,276,110,31.36,6144,Mar 2014,Mobile
 GeForce GTX 880M,,"3,818",,333,130,29.37,8192,Mar 2014,Mobile
@@ -605,18 +605,18 @@ GeForce RTX 2060,428.87,"14,150",32.99,748,160,88.44,6144,Jan 2019,Desktop
 GeForce RTX 2060 (Mobile),,"11,355",,540,80,141.93,6144,Apr 2019,Mobile
 GeForce RTX 2060 12GB,,"15,920",,837,185,86.05,12288,Jan 2022,Desktop
 GeForce RTX 2060 SUPER,415.98,"16,542",39.77,857,175,94.53,8192,Jul 2019,Desktop
-GeForce RTX 2060 with Max-Q Design,,"9,754",,414,65,150.05,6144,Apr 2020,Mobile
+GeForce RTX 2060 with Max Q Design,,"9,754",,414,65,150.05,6144,Apr 2020,Mobile
 GeForce RTX 2070,389.46,"16,155",41.48,821,175,92.31,8192,Oct 2018,Desktop
 GeForce RTX 2070 (Mobile),,"12,354",,601,115,107.43,8192,Apr 2019,Mobile
 GeForce RTX 2070 SUPER,539.99,"18,230",33.76,882,215,84.79,8192,Jul 2019,Desktop
-GeForce RTX 2070 Super with Max-Q Design,,"13,771",,621,80,172.14,8192,Apr 2020,Mobile
-GeForce RTX 2070 with Max-Q Design,,"11,690",,479,80,146.12,8192,Feb 2019,Mobile
+GeForce RTX 2070 Super with Max Q Design,,"13,771",,621,80,172.14,8192,Apr 2020,Mobile
+GeForce RTX 2070 with Max Q Design,,"11,690",,479,80,146.12,8192,Feb 2019,Mobile
 GeForce RTX 2080,800.61,"18,803",23.49,907,250,75.21,8096,Sep 2018,Desktop
 GeForce RTX 2080 (Mobile),,"15,107",,812,150,100.71,8192,Apr 2019,Mobile
 GeForce RTX 2080 SUPER,684.86,"19,572",28.58,921,250,78.29,8192,Jul 2019,Desktop
-GeForce RTX 2080 Super with Max-Q Design,,"13,849",,583,80,173.11,8192,Apr 2020,Mobile
+GeForce RTX 2080 Super with Max Q Design,,"13,849",,583,80,173.11,8192,Apr 2020,Mobile
 GeForce RTX 2080 Ti,1299.99,"21,758",16.74,933,250,87.03,11264,Sep 2018,Desktop
-GeForce RTX 2080 with Max-Q Design,2099.99,"13,106",6.24,534,90,145.62,8192,Feb 2019,Mobile
+GeForce RTX 2080 with Max Q Design,2099.99,"13,106",6.24,534,90,145.62,8192,Feb 2019,Mobile
 GeForce RTX 3050 4GB Laptop GPU,,"6,750",,402,80,84.38,4096,Mar 2023,Mobile
 GeForce RTX 3050 6GB,161.99,"10,636",65.66,802,70,151.94,6144,Feb 2024,Desktop
 GeForce RTX 3050 6GB Laptop GPU,,"10,335",,599,80,129.19,6144,Mar 2023,Mobile
@@ -657,13 +657,13 @@ GeForce RTX 4090,1799.99,"38,570",21.43,"1,295",450,85.71,24576,Oct 2022,Desktop
 GeForce RTX 4090 D,,"37,631",,"1,012",,,,Mar 2024,Unknown
 GeForce RTX 4090 Laptop GPU,,"27,862",,982,150,185.75,16384,Feb 2023,Mobile
 GeForce2 Go,,4,,95,,,32,Apr 2009,Mobile
-GeForce2 GTS/GeForce2 Pro,,4,,136,,,,Feb 2012,Unknown
+GeForce2 GTS GeForce2 Pro,,4,,136,,,,Feb 2012,Unknown
 GeForce2 Integrated GPU,,4,,171,,,,Apr 2009,Unknown
 GeForce2 MX,,3,,143,,,64,Jul 2011,Desktop
-GeForce2 MX 100/200,,3,,119,,,,Sep 2009,Unknown
-GeForce2 MX with DVI-D and TV-out,,5,,187,,,,May 2009,Unknown
+GeForce2 MX 100 200,,3,,119,,,,Sep 2009,Unknown
+GeForce2 MX with DVI D and TV out,,5,,187,,,,May 2009,Unknown
 GeForce2 MX with TV Out,,3,,98,,,,Apr 2009,Unknown
-GeForce2 MX/MX 400,,4,,129,,,,Jul 2009,Unknown
+GeForce2 MX MX 400,,4,,129,,,,Jul 2009,Unknown
 GeForce2 Ti,,5,,149,,,64,May 2009,Desktop
 GeForce2 Ultra,,6,,147,,,64,May 2009,Desktop
 GeForce3,,5,,120,,,64,Apr 2009,Desktop
@@ -690,8 +690,8 @@ GeForce4 Ti 4800,,6,,190,,,,Oct 2009,Unknown
 GeForce4 Ti 4800 SE,,7,,187,,,,May 2009,Unknown
 GeForce9400M,,106,,161,,,,Oct 2009,Mobile
 GF117,,554,,446,,,,Feb 2015,Unknown
-Glenfly Arise-GT-10C0,,"1,007",,389,,,,May 2024,Desktop
-GRID GTX P40-6,,"4,340",,277,,,,Dec 2020,Unknown
+Glenfly Arise GT 10C0,,"1,007",,389,,,,May 2024,Desktop
+GRID GTX P40 6,,"4,340",,277,,,,Dec 2020,Unknown
 GRID K1,395.00,651,1.65,259,,,,Aug 2013,Workstation
 GRID K120Q,,293,,278,,,,Dec 2015,Workstation
 GRID K140Q,,728,,457,,,,Jul 2014,Workstation
@@ -703,89 +703,89 @@ GRID K240Q,,"2,541",,212,,,,Sep 2014,Workstation
 GRID K260Q,,"2,949",,361,,,,Feb 2015,Workstation
 GRID K280Q,,"2,840",,371,,,,Feb 2015,Workstation
 GRID K520,149.99,"3,516",23.44,160,,,,Nov 2013,Workstation
-GRID M10-0B,,871,,25,,,,Feb 2024,Unknown
-GRID M10-0Q,,796,,344,,,,Aug 2017,Unknown
-GRID M10-1B,,"2,310",,417,,,,Jun 2017,Unknown
-GRID M10-1Q,,"3,351",,556,,,,Aug 2017,Unknown
-GRID M10-2B,,"2,363",,132,,,,Nov 2019,Unknown
-GRID M10-2Q,,"2,692",,74,,,,Apr 2020,Unknown
-GRID M10-4Q,,"2,977",,273,,,,Aug 2018,Unknown
-GRID M10-8Q,,"1,756",,228,,,,May 2018,Unknown
-GRID M6-0B,,912,,764,,,,Jun 2016,Workstation
-GRID M6-1Q,,"2,069",,423,,,,Apr 2019,Unknown
-GRID M6-8Q,,"3,568",,556,,,,Dec 2017,Unknown
-GRID M60-0B,,"1,838",,596,,,,Aug 2017,Unknown
-GRID M60-0Q,,827,,516,,,,Apr 2018,Unknown
-GRID M60-1B,,"4,457",,483,,,,May 2016,Workstation
-GRID M60-1Q,,"3,695",,181,,,,May 2017,Unknown
-GRID M60-2Q,,"5,203",,311,,,,Apr 2017,Unknown
-GRID M60-4Q,,"3,831",,278,,,,Apr 2016,Workstation
-GRID M60-8A,,"5,523",,380,,,,Dec 2019,Unknown
-GRID M60-8Q,,"3,884",,618,,,,Mar 2017,Unknown
-GRID P100-16Q,,"5,945",,757,,,,Aug 2018,Unknown
-GRID P100-1B,,"2,223",,544,,,,Aug 2018,Unknown
-GRID P100-8Q,,"3,267",,264,,,,Jan 2020,Unknown
-GRID P4-1B,,"2,151",,56,,,,Feb 2024,Unknown
-GRID P4-1Q,,375,,87,,,,May 2024,Desktop
-GRID P4-4Q,,"6,843",,469,,,,Feb 2024,Unknown
-GRID P4-8A,,"3,206",,71,,,,Feb 2024,Unknown
-GRID P4-8Q,,"6,733",,249,,,,Apr 2023,Unknown
-GRID P40-12Q,,"11,028",,500,,,,Dec 2022,Unknown
-GRID P40-1A,,"4,909",,63,,,,Apr 2024,Desktop
-GRID P40-24Q,,"8,719",,479,,,,Oct 2018,Unknown
-GRID P40-2B,,"9,842",,548,,,,Jun 2018,Unknown
-GRID P40-2B4,,"9,111",,267,,,,Jun 2023,Unknown
-GRID P40-2Q,,"4,844",,281,,,,Dec 2018,Unknown
-GRID P40-3Q,,681,,603,,,,Apr 2019,Unknown
-GRID P40-4Q,,"5,365",,670,,,,Apr 2019,Unknown
-GRID P40-6Q,,905,,33,,,,Apr 2023,Unknown
-GRID P40-8Q,,"7,432",,201,,,,Jun 2023,Unknown
-GRID P6-2Q,,"3,926",,337,,,,Sep 2018,Unknown
-GRID P6-4A,,"2,639",,42,,,,Apr 2022,Unknown
-GRID P6-4Q,,"4,429",,586,,,,Mar 2018,Unknown
-GRID RTX6000-1B,,"8,473",,592,,,,Jul 2023,Unknown
-GRID RTX6000-6Q,,"21,987",,782,,,,May 2024,Desktop
-GRID RTX6000P-4Q,,"4,283",,76,,,,Aug 2020,Unknown
-GRID RTX6000P-6Q,,"4,777",,192,,,,Jul 2021,Unknown
-GRID RTX8000-2Q,,"3,574",,86,,,,Oct 2021,Unknown
-GRID RTX8000-4Q,,"3,961",,81,,,,Jun 2020,Unknown
-GRID RTX8000P-12A,,"4,166",,78,,,,Feb 2024,Unknown
-GRID RTX8000P-2Q,,"3,843",,84,,,,Nov 2020,Unknown
-GRID T4-16Q,,"5,055",,83,,,,Aug 2023,Unknown
-GRID T4-1Q,,"3,303",,78,,,,Sep 2020,Unknown
-GRID T4-2B,,"2,601",,62,,,,Mar 2022,Unknown
-GRID T4-2Q,,"3,451",,73,,,,Mar 2021,Unknown
-GRID T4-4Q,,"3,260",,83,,,,Feb 2021,Unknown
-GRID T4-8Q,,"5,680",,272,,,,Mar 2020,Unknown
-GRID V100-2Q,,"3,811",,78,,,,May 2022,Unknown
-GRID V100-8Q,,16,,149,,,,May 2018,Unknown
-GRID V100D-2Q,,"4,668",,79,,,,Jun 2023,Unknown
-GRID V100D-8Q,,"4,156",,518,,,,Aug 2019,Unknown
+GRID M10 0B,,871,,25,,,,Feb 2024,Unknown
+GRID M10 0Q,,796,,344,,,,Aug 2017,Unknown
+GRID M10 1B,,"2,310",,417,,,,Jun 2017,Unknown
+GRID M10 1Q,,"3,351",,556,,,,Aug 2017,Unknown
+GRID M10 2B,,"2,363",,132,,,,Nov 2019,Unknown
+GRID M10 2Q,,"2,692",,74,,,,Apr 2020,Unknown
+GRID M10 4Q,,"2,977",,273,,,,Aug 2018,Unknown
+GRID M10 8Q,,"1,756",,228,,,,May 2018,Unknown
+GRID M6 0B,,912,,764,,,,Jun 2016,Workstation
+GRID M6 1Q,,"2,069",,423,,,,Apr 2019,Unknown
+GRID M6 8Q,,"3,568",,556,,,,Dec 2017,Unknown
+GRID M60 0B,,"1,838",,596,,,,Aug 2017,Unknown
+GRID M60 0Q,,827,,516,,,,Apr 2018,Unknown
+GRID M60 1B,,"4,457",,483,,,,May 2016,Workstation
+GRID M60 1Q,,"3,695",,181,,,,May 2017,Unknown
+GRID M60 2Q,,"5,203",,311,,,,Apr 2017,Unknown
+GRID M60 4Q,,"3,831",,278,,,,Apr 2016,Workstation
+GRID M60 8A,,"5,523",,380,,,,Dec 2019,Unknown
+GRID M60 8Q,,"3,884",,618,,,,Mar 2017,Unknown
+GRID P100 16Q,,"5,945",,757,,,,Aug 2018,Unknown
+GRID P100 1B,,"2,223",,544,,,,Aug 2018,Unknown
+GRID P100 8Q,,"3,267",,264,,,,Jan 2020,Unknown
+GRID P4 1B,,"2,151",,56,,,,Feb 2024,Unknown
+GRID P4 1Q,,375,,87,,,,May 2024,Desktop
+GRID P4 4Q,,"6,843",,469,,,,Feb 2024,Unknown
+GRID P4 8A,,"3,206",,71,,,,Feb 2024,Unknown
+GRID P4 8Q,,"6,733",,249,,,,Apr 2023,Unknown
+GRID P40 12Q,,"11,028",,500,,,,Dec 2022,Unknown
+GRID P40 1A,,"4,909",,63,,,,Apr 2024,Desktop
+GRID P40 24Q,,"8,719",,479,,,,Oct 2018,Unknown
+GRID P40 2B,,"9,842",,548,,,,Jun 2018,Unknown
+GRID P40 2B4,,"9,111",,267,,,,Jun 2023,Unknown
+GRID P40 2Q,,"4,844",,281,,,,Dec 2018,Unknown
+GRID P40 3Q,,681,,603,,,,Apr 2019,Unknown
+GRID P40 4Q,,"5,365",,670,,,,Apr 2019,Unknown
+GRID P40 6Q,,905,,33,,,,Apr 2023,Unknown
+GRID P40 8Q,,"7,432",,201,,,,Jun 2023,Unknown
+GRID P6 2Q,,"3,926",,337,,,,Sep 2018,Unknown
+GRID P6 4A,,"2,639",,42,,,,Apr 2022,Unknown
+GRID P6 4Q,,"4,429",,586,,,,Mar 2018,Unknown
+GRID RTX6000 1B,,"8,473",,592,,,,Jul 2023,Unknown
+GRID RTX6000 6Q,,"21,987",,782,,,,May 2024,Desktop
+GRID RTX6000P 4Q,,"4,283",,76,,,,Aug 2020,Unknown
+GRID RTX6000P 6Q,,"4,777",,192,,,,Jul 2021,Unknown
+GRID RTX8000 2Q,,"3,574",,86,,,,Oct 2021,Unknown
+GRID RTX8000 4Q,,"3,961",,81,,,,Jun 2020,Unknown
+GRID RTX8000P 12A,,"4,166",,78,,,,Feb 2024,Unknown
+GRID RTX8000P 2Q,,"3,843",,84,,,,Nov 2020,Unknown
+GRID T4 16Q,,"5,055",,83,,,,Aug 2023,Unknown
+GRID T4 1Q,,"3,303",,78,,,,Sep 2020,Unknown
+GRID T4 2B,,"2,601",,62,,,,Mar 2022,Unknown
+GRID T4 2Q,,"3,451",,73,,,,Mar 2021,Unknown
+GRID T4 4Q,,"3,260",,83,,,,Feb 2021,Unknown
+GRID T4 8Q,,"5,680",,272,,,,Mar 2020,Unknown
+GRID V100 2Q,,"3,811",,78,,,,May 2022,Unknown
+GRID V100 8Q,,16,,149,,,,May 2018,Unknown
+GRID V100D 2Q,,"4,668",,79,,,,Jun 2023,Unknown
+GRID V100D 8Q,,"4,156",,518,,,,Aug 2019,Unknown
 GT 430,142.88,223,1.56,325,,,,Apr 2013,Unknown
 IncrediblE HD,,389,,427,,,,Apr 2016,Unknown
 IncrediblE HD 3000,,291,,18,,,,Apr 2021,Unknown
 IncrediblE HD 4000,,517,,520,,,,Jan 2017,Unknown
 IncrediblE HD 4600,,750,,735,,,,Nov 2018,Unknown
-Intel - Express Chipset G41,,57,,325,,,,Dec 2011,Unknown
-Intel - Express Chipset Q45/Q43,,58,,336,,,,Aug 2011,Unknown
+Intel   Express Chipset G41,,57,,325,,,,Dec 2011,Unknown
+Intel   Express Chipset Q45 Q43,,58,,336,,,,Aug 2011,Unknown
 Intel 2nd Generation SandyBridge HD,,169,,122,,,,May 2017,Unknown
 Intel 2nd Generation SandyBridge HD 3000,,205,,555,,,,Oct 2016,Unknown
 Intel 3rd Generation IvyBridge HD GT1,,161,,14,,,,Mar 2023,Unknown
 Intel 4th Generation Haswell HD,,420,,734,,,,Apr 2017,Unknown
 Intel 82845G Controller,,2,,132,,,,Apr 2009,Unknown
-Intel 82845G/GL Controller,,3,,176,,,,Apr 2009,Unknown
-Intel 82845G/GL/GE/PE/GV Controller,,3,,159,,,,Apr 2009,Unknown
-Intel 82852/82855 GM/GME Controller,,1,,107,,,,Jan 2010,Unknown
+Intel 82845G GL Controller,,3,,176,,,,Apr 2009,Unknown
+Intel 82845G GL GE PE GV Controller,,3,,159,,,,Apr 2009,Unknown
+Intel 82852 82855 GM GME Controller,,1,,107,,,,Jan 2010,Unknown
 Intel 82865G Controller,,5,,194,,,,May 2009,Unknown
 Intel 82915G Express,,6,,206,,,,Mar 2010,Unknown
-Intel 82915G/915GV/910GL,,4,,95,,,,Jan 2020,Unknown
-Intel 82915G/GV/910GL Advanced v3.5,,3,,94,,,,Oct 2010,Unknown
-Intel 82915G/GV/910GL Express,,3,,142,,,,Jun 2010,Unknown
+Intel 82915G 915GV 910GL,,4,,95,,,,Jan 2020,Unknown
+Intel 82915G GV 910GL Advanced v3.5,,3,,94,,,,Oct 2010,Unknown
+Intel 82915G GV 910GL Express,,3,,142,,,,Jun 2010,Unknown
 Intel 82945G Express,,11,,11,,,,Apr 2009,Unknown
-Intel 82945G Express-Chipsatzfamilie,,8,,240,,,,May 2016,Unknown
+Intel 82945G Express Chipsatzfamilie,,8,,240,,,,May 2016,Unknown
 Intel 865 Embedded Controller,,4,,20,,,,Jun 2010,Unknown
 "Intel 915G,910G Express",,4,,166,,,,Apr 2015,Unknown
-Intel 915G/915GV/910GL Embedded Controller Functio,,5,,41,,,,Jun 2016,Unknown
+Intel 915G 915GV 910GL Embedded Controller Functio,,5,,41,,,,Jun 2016,Unknown
 Intel 945G Embedded Chipset Function 0,,5,,251,,,,Oct 2016,Unknown
 Intel 946GZ Embedded Chipset,,3,,66,,,,May 2017,Unknown
 Intel 946GZ Express,,3,,34,,,,Apr 2009,Unknown
@@ -806,23 +806,23 @@ Intel Arc Pro A60,,"9,301",,734,,,,Jun 2023,Unknown
 Intel B43 Express Chipset,,135,,80,,,,Dec 2009,Unknown
 Intel Coffee Lake UHD,,"1,158",,918,,,,Nov 2017,Unknown
 Intel Extreme Controller,,2,,136,,,,Jun 2009,Unknown
-Intel G33/G31 Express,,47,,17,,,,Jan 2010,Desktop
+Intel G33 G31 Express,,47,,17,,,,Jan 2010,Desktop
 Intel G35 Express,,"2,097",,259,,,,Sep 2010,Unknown
 Intel G41 Express Chipset,,125,,16,,,,Apr 2009,Unknown
-Intel G41 Express-Chipsatz,,57,,267,,,,Apr 2012,Unknown
-Intel G45/G43 Express Chipset,,121,,21,24,5.06,0,Apr 2009,Desktop
-Intel G45/G43/G41 Express Chipset,,68,,318,,,,Mar 2011,Unknown
+Intel G41 Express Chipsatz,,57,,267,,,,Apr 2012,Unknown
+Intel G45 G43 Express Chipset,,121,,21,24,5.06,0,Apr 2009,Desktop
+Intel G45 G43 G41 Express Chipset,,68,,318,,,,Mar 2011,Unknown
 Intel G965 Express,,223,,45,,,,Apr 2009,Unknown
 Intel GMA 3150 Express,,3,,66,,,,Dec 2009,Unknown
 Intel Graphics,,"3,119",,581,,,,Feb 2024,Unknown
-Intel Haswell HD - GT1,,123,,492,,,,Mar 2014,Unknown
-Intel Haswell HD - GT2,,139,,630,,,,Feb 2014,Unknown
+Intel Haswell HD   GT1,,123,,492,,,,Mar 2014,Unknown
+Intel Haswell HD   GT2,,139,,630,,,,Feb 2014,Unknown
 Intel HD 2000,,213,,456,,,,Jul 2015,Unknown
 Intel HD 3000,945.00,256,0.27,36,,,,Aug 2012,Unknown
 Intel HD 4000,1592.95,346,0.22,192,,,,Aug 2012,Unknown
 Intel HD 4400,,522,,277,,,1700,Sep 2013,Unknown
 Intel HD 4600,,628,,315,45,13.95,0,Mar 2013,Desktop
-Intel HD 4600 manual-gen9_2015-134121,,620,,334,,,,Jul 2024,Desktop
+Intel HD 4600 manual gen9_2015 134121,,620,,334,,,,Jul 2024,Desktop
 Intel HD 500,,299,,81,,,,Sep 2019,Unknown
 Intel HD 5000,625.00,585,0.94,225,,,,Jun 2013,Unknown
 Intel HD 505,,359,,95,,,,Sep 2019,Unknown
@@ -840,13 +840,13 @@ Intel HD 615,,709,,186,,,,Oct 2016,Unknown
 Intel HD 630,,"1,111",,267,,,,Jul 2016,Unknown
 Intel HD Family,,462,,193,,,,Aug 2012,Unknown
 Intel HD Graphics 620,,926,,219,,,,Oct 2016,Unknown
-Intel HD manual-15.28-1861,,63,,72,,,,Jul 2015,Unknown
-Intel HD manual-gen9_2015-133271,,165,,119,,,,Jun 2017,Unknown
+Intel HD manual 15.28 1861,,63,,72,,,,Jul 2015,Unknown
+Intel HD manual gen9_2015 133271,,165,,119,,,,Jun 2017,Unknown
 Intel HD Modded,,112,,303,,,,Dec 2014,Unknown
 Intel HD P3000,,285,,68,,,,Mar 2012,Unknown
 Intel HD P4000,,516,,636,,,,Apr 2012,Unknown
 Intel HD P4600,,605,,963,,,,Jul 2013,Unknown
-Intel HD P4600/P4700,,634,,367,,,,Jul 2013,Unknown
+Intel HD P4600 P4700,,634,,367,,,,Jul 2013,Unknown
 Intel HD P530,,"1,159",,269,,,,Dec 2015,Unknown
 Intel HD P630,,"1,204",,295,,,,Mar 2017,Unknown
 Intel Infoshock HD,,194,,393,,,,Jul 2017,Unknown
@@ -878,9 +878,9 @@ Intel Poison Ivy,,739,,783,,,,Mar 2019,Unknown
 Intel Q33 Express,,6,,19,,,,Apr 2009,Unknown
 Intel Q35 Embedded,,8,,303,,,,Jun 2011,Unknown
 Intel Q35 Express,,77,,19,,,,Apr 2009,Unknown
-Intel Q45/Q43 Express Chipset,,201,,20,,,,Apr 2009,Unknown
-Intel Q45/Q43 Express-Chipsatz,,57,,352,,,,Mar 2010,Unknown
-Intel Q965/Q963 Express,,161,,34,,,,Apr 2009,Unknown
+Intel Q45 Q43 Express Chipset,,201,,20,,,,Apr 2009,Unknown
+Intel Q45 Q43 Express Chipsatz,,57,,352,,,,Mar 2010,Unknown
+Intel Q965 Q963 Express,,161,,34,,,,Apr 2009,Unknown
 Intel Skylake HD DT GT2,,577,,402,,,,Feb 2015,Unknown
 Intel UHD 630,,615,,166,,,,Jun 2024,Desktop
 Intel UHD 770,,"1,017",,673,,,,Aug 2024,Desktop
@@ -902,7 +902,7 @@ Intel US15 Embedded Media and Controller,,7,,67,,,,Sep 2015,Unknown
 ION,229.99,84,0.37,18,,,,Jun 2009,Unknown
 ION LE,,98,,96,,,,Sep 2009,Unknown
 L4,,"11,519",,236,,,,Feb 2024,Unknown
-L40-8Q,,"19,705",,833,,,,Jun 2024,Desktop
+L40 8Q,,"19,705",,833,,,,Jun 2024,Desktop
 L40S,,"14,397",,700,,,,Mar 2024,Unknown
 M860G with Mobility Radeon 4100,,76,,203,,,,Nov 2009,Unknown
 M880G with Mobility Radeon HD 4200,,93,,260,,,,Oct 2009,Unknown
@@ -949,41 +949,41 @@ Microsoft Basic Display Adapter Ryzen 5 3550H,,"3,537",,63,,,,Sep 2023,Unknown
 Microsoft Basic Display Adapter Ryzen 5 5600G,,302,,125,,,,May 2023,Unknown
 Miracast display port driver V3,,"15,910",,604,,,,Feb 2022,Unknown
 MIRRORV3,,"1,081",,421,,,,Jul 2019,Unknown
-Mobile Intel - famiglia Express Chipset 45,,39,,264,,,,Oct 2011,Unknown
-Mobile Intel 4 Express-Chipsatzfamilie,,45,,251,,,,Apr 2013,Unknown
+Mobile Intel   famiglia Express Chipset 45,,39,,264,,,,Oct 2011,Unknown
+Mobile Intel 4 Express Chipsatzfamilie,,45,,251,,,,Apr 2013,Unknown
 Mobile Intel 45 Express,,44,,24,,,,Dec 2010,Unknown
-Mobile Intel 45 Express-Chipsatzfamilie,,117,,270,,,,Oct 2011,Unknown
-Mobile Intel 915GM/GMS/910GML Express,,2,,32,,,,Dec 2012,Unknown
+Mobile Intel 45 Express Chipsatzfamilie,,117,,270,,,,Oct 2011,Unknown
+Mobile Intel 915GM GMS 910GML Express,,2,,32,,,,Dec 2012,Unknown
 Mobile Intel 945 Express,,2,,8,,,,Jan 2011,Unknown
 Mobile Intel 945GM Express,,6,,223,,,,Sep 2011,Unknown
-Mobile Intel 945GM/GU Express,,5,,223,,,,Sep 2011,Unknown
+Mobile Intel 945GM GU Express,,5,,223,,,,Sep 2011,Unknown
 Mobile Intel 965 Express,,47,,12,,,,Jan 2010,Unknown
-Mobile Intel 965 Express - BR-0907-0461 v1839,,8,,124,,,,May 2016,Unknown
-Mobile Intel 965 Express-Chipsatzfamilie,,24,,203,,,,Jul 2014,Unknown
+Mobile Intel 965 Express   BR 0907 0461 v1839,,8,,124,,,,May 2016,Unknown
+Mobile Intel 965 Express Chipsatzfamilie,,24,,203,,,,Jul 2014,Unknown
 Mobile Intel HD,479.98,236,0.49,124,,,,Nov 2011,Unknown
 Mobile Intel serie 4 Express,,45,,232,,,,Mar 2013,Unknown
 Mobile Intel965 Express,,18,,264,,,,Jun 2018,Unknown
 MOBILITY FIREGL 7800,,5,,86,,,64,Apr 2009,Workstation
 MOBILITY FIREGL T2,,41,,171,,,128,Oct 2009,Workstation
-MOBILITY FIREGL T2/T2e,,34,,171,,,128,Feb 2012,Workstation
+MOBILITY FIREGL T2 T2e,,34,,171,,,128,Feb 2012,Workstation
 MOBILITY FireGL V3200,,62,,238,,,128,Apr 2009,Workstation
 MOBILITY FireGL V5000,,82,,223,,,128,Oct 2009,Workstation
 MOBILITY FireGL V5200,,45,,248,,,256,Aug 2012,Workstation
 MOBILITY FireGL V5250,,27,,252,,,512,Apr 2009,Workstation
 Mobility FireGL V5725,,219,,405,,,256,Apr 2009,Workstation
-MOBILITY IGP 9000/9100,,10,,125,,,,Apr 2009,Unknown
+MOBILITY IGP 9000 9100,,10,,125,,,,Apr 2009,Unknown
 Mobility Radeon 4100,,81,,265,,,,May 2010,Unknown
 MOBILITY RADEON 7000 IGP,,6,,151,,,,Apr 2009,Unknown
 MOBILITY RADEON 7500,,4,,103,,,64,Nov 2009,Mobile
 MOBILITY RADEON 9000,,3,,111,,,64,May 2009,Mobile
 MOBILITY RADEON 9000 IGP,,8,,143,,,,Dec 2009,Unknown
-MOBILITY RADEON 9000/9100 IGP,,6,,118,,,,May 2009,Unknown
+MOBILITY RADEON 9000 9100 IGP,,6,,118,,,,May 2009,Unknown
 MOBILITY RADEON 9100 IGP,,3,,128,,,,Oct 2009,Unknown
 MOBILITY RADEON 9200,,3,,145,,,64,Mar 2011,Mobile
 MOBILITY RADEON 9550,,30,,166,,,64,Dec 2012,Mobile
 MOBILITY RADEON 9600,,36,,172,,,128,Jun 2009,Mobile
 MOBILITY RADEON 9600 PRO TURBO,,25,,137,,,,May 2009,Unknown
-MOBILITY RADEON 9600/9700,,39,,165,,,128,Nov 2010,Mobile
+MOBILITY RADEON 9600 9700,,39,,165,,,128,Nov 2010,Mobile
 MOBILITY RADEON 9700,,27,,158,,,128,Apr 2009,Mobile
 MOBILITY RADEON 9800,,46,,110,,,256,Jul 2009,Mobile
 Mobility Radeon HD 2300,,51,,211,,,512,Oct 2012,Mobile
@@ -1052,23 +1052,23 @@ MOBILITY RADEON X700,,67,,200,,,128,Mar 2010,Mobile
 MOBILITY RADEON X700 XL,,60,,189,,,,Feb 2010,Unknown
 MOBILITY RADEON XPRESS 200,,27,,176,,,,Apr 2009,Unknown
 Mobility Radeon. HD 5470,,215,,398,13,16.56,512,Apr 2013,Mobile
-MOBILITY/RADEON 9000,,4,,153,,,,Dec 2011,Unknown
+MOBILITY RADEON 9000,,4,,153,,,,Dec 2011,Unknown
 MONSTER GeForce GTX 675M,,"2,637",,686,,,,Apr 2013,Mobile
 MxGPU,,"1,282",,210,,,,Jan 2017,Unknown
-N16P-GX,,"1,205",,803,,,,Apr 2015,Unknown
-N18E-Q1,,"2,525",,547,,,,Apr 2018,Unknown
+N16P GX,,"1,205",,803,,,,Apr 2015,Unknown
+N18E Q1,,"2,525",,547,,,,Apr 2018,Unknown
 nForce 750a SLI,,83,,351,,,,Dec 2009,Unknown
 nForce 760i SLI,,140,,379,,,,Apr 2009,Unknown
 nForce 780a SLI,,92,,425,,,,Apr 2009,Unknown
-nForce 980a/780a SLI,,82,,367,,,,Aug 2009,Unknown
+nForce 980a 780a SLI,,82,,367,,,,Aug 2009,Unknown
 NV44,,15,,251,,,,Feb 2011,Unknown
 NVIDIA A10,,"22,064",,"1,007",,,,Nov 2022,Unknown
-NVIDIA A10-4Q,,"3,425",,231,,,,Mar 2022,Unknown
+NVIDIA A10 4Q,,"3,425",,231,,,,Mar 2022,Unknown
 NVIDIA A10G,,"18,773",,578,,,,May 2022,Unknown
 NVIDIA A40,,"14,665",,627,,,,Jun 2022,Unknown
-NVIDIA A40-12Q,,"3,371",,111,,,,Mar 2022,Unknown
-NVIDIA A40-4Q,,"4,230",,78,,,,Dec 2022,Unknown
-NVIDIA A40-8Q,,"4,220",,79,,,,Dec 2022,Unknown
+NVIDIA A40 12Q,,"3,371",,111,,,,Mar 2022,Unknown
+NVIDIA A40 4Q,,"4,230",,78,,,,Dec 2022,Unknown
+NVIDIA A40 8Q,,"4,220",,79,,,,Dec 2022,Unknown
 NVIDIA GeForce3 Ti200,,6,,218,,,,Dec 2009,Unknown
 NVIDIA TITAN X,608.10,"13,660",22.46,912,250,54.64,12288,Aug 2016,Desktop
 NVIDIA TITAN Xp,1645.00,"18,769",11.41,903,250,75.08,12288,Apr 2017,Desktop
@@ -1083,10 +1083,10 @@ NVS 5100M,,188,,63,35,5.38,1024,Mar 2010,Workstation
 NVS 5200M,,512,,188,35,14.64,1024,Sep 2012,Workstation
 NVS 5400M,,626,,187,35,17.88,2048,Jul 2012,Workstation
 NVS 810,624.99,"1,179",1.89,297,,,,Feb 2016,Unknown
-OPAL XT/GL,,"1,053",,640,,,,Oct 2015,Unknown
-P104-100,299.99,"3,695",12.32,124,,,,May 2020,Unknown
-P106-090,,"2,343",,101,,,,Jun 2020,Unknown
-P106-100,,"6,407",,250,,,,Feb 2019,Unknown
+OPAL XT GL,,"1,053",,640,,,,Oct 2015,Unknown
+P104 100,299.99,"3,695",12.32,124,,,,May 2020,Unknown
+P106 090,,"2,343",,101,,,,Jun 2020,Unknown
+P106 100,,"6,407",,250,,,,Feb 2019,Unknown
 Parsec Virtual Display Adapter,,"8,600",,561,,,,May 2024,Unknown
 PCI\VEN_1002&DEV_164E&SUBSYS_D0001458&REV_C2 Ryzen,,"1,681",,576,,,,Apr 2022,Unknown
 PCI\VEN_1002&DEV_164E&SUBSYS_D0001458&REV_C3 Ryzen,,"1,654",,583,,,,Nov 2023,Unknown
@@ -1098,7 +1098,7 @@ PHDGD Quantic C3,,117,,351,,,,Nov 2017,Unknown
 PHDGD Sapphire GR for Mobile Intel 965,,26,,243,,,,Dec 2017,Unknown
 PHDGD Solo 1.2.0 x86,,11,,169,,,,Feb 2015,Unknown
 PHDGD Solo 2 x64,,20,,183,,,,Jun 2016,Unknown
-Q12U-1,,"5,164",,600,,,,Dec 2016,Unknown
+Q12U 1,,"5,164",,600,,,,Dec 2016,Unknown
 Quadro 1000M,54.50,570,10.45,193,45,12.66,2048,Aug 2012,Workstation
 Quadro 1100M,,755,,734,,,,Feb 2013,Unknown
 Quadro 2000,213.23,946,4.44,301,62,15.26,1024,Oct 2010,Workstation
@@ -1137,9 +1137,9 @@ Quadro FX 2700,,543,,465,,,,Apr 2014,Unknown
 Quadro FX 2700M,99.95,367,3.67,38,65,5.64,512,Apr 2009,Workstation
 Quadro FX 2800M,190.00,415,2.18,48,75,5.53,1024,Feb 2010,Workstation
 Quadro FX 3000,166.61,69,0.41,178,,,256,Apr 2009,Workstation
-Quadro FX 3400/4400,,104,,239,101,1.03,256,Aug 2012,Workstation
+Quadro FX 3400 4400,,104,,239,101,1.03,256,Aug 2012,Workstation
 Quadro FX 3450,119.99,149,1.24,235,83,1.80,256,Aug 2009,Workstation
-Quadro FX 3450/4000 SDI,,179,,83,,,256,Apr 2009,Workstation
+Quadro FX 3450 4000 SDI,,179,,83,,,256,Apr 2009,Workstation
 Quadro FX 350,,86,,378,21,4.09,128,Apr 2009,Workstation
 Quadro FX 3500,68.98,260,3.77,81,80,3.25,256,Apr 2009,Workstation
 Quadro FX 3500M,99.99,306,3.06,309,45,6.81,512,Sep 2009,Workstation
@@ -1163,8 +1163,8 @@ Quadro FX 4500 X2,,236,,653,,,,Mar 2010,Unknown
 Quadro FX 4600,333.25,431,1.29,127,134,3.21,768,Apr 2009,Workstation
 Quadro FX 4700 X2,,676,,509,,,,Apr 2014,Unknown
 Quadro FX 4800,1659.80,979,0.59,68,150,6.52,1536,Aug 2012,Workstation
-Quadro FX 500/600 PCI,,14,,203,,,,Apr 2009,Unknown
-Quadro FX 500/FX 600,,8,,151,,,,Apr 2009,Unknown
+Quadro FX 500 600 PCI,,14,,203,,,,Apr 2009,Unknown
+Quadro FX 500 FX 600,,8,,151,,,,Apr 2009,Unknown
 Quadro FX 540,59.99,81,1.35,294,35,2.31,128,Apr 2009,Workstation
 Quadro FX 550,287.82,64,0.22,325,25,2.55,128,Apr 2009,Workstation
 Quadro FX 5500,1999.00,242,0.12,394,96,2.53,1024,Apr 2009,Workstation
@@ -1231,7 +1231,7 @@ Quadro NVS 140M,,79,,46,10,7.86,512,Apr 2009,Workstation
 Quadro NVS 150M,,70,,168,10,7.04,256,Apr 2009,Workstation
 Quadro NVS 160M,,136,,28,12,11.30,256,Apr 2009,Workstation
 Quadro NVS 210S,,24,,265,,,,Nov 2009,Unknown
-Quadro NVS 210S / GeForce 6150LE,,21,,272,,,,Sep 2009,Unknown
+Quadro NVS 210S   GeForce 6150LE,,21,,272,,,,Sep 2009,Unknown
 Quadro NVS 280 PCI,130.00,8,0.06,261,,,,Apr 2009,Unknown
 Quadro NVS 280 SD,,2,,119,,,,May 2009,Unknown
 Quadro NVS 285,169.86,42,0.25,127,,,,Mar 2012,Unknown
@@ -1243,42 +1243,42 @@ Quadro NVS 420,150.00,103,0.69,143,,,,Jun 2009,Unknown
 Quadro NVS 440,228.87,38,0.16,358,,,,Apr 2009,Unknown
 Quadro NVS 450,438.00,67,0.15,89,,,,Apr 2009,Unknown
 Quadro NVS 510M,,238,,111,45,5.30,1024,Feb 2010,Workstation
-Quadro NVS 55/280 PCI,,6,,116,,,,May 2009,Unknown
+Quadro NVS 55 280 PCI,,6,,116,,,,May 2009,Unknown
 Quadro P1000,289.99,"4,458",15.37,596,47,94.86,4096,Apr 2017,Workstation
 Quadro P2000,439.60,"6,925",15.75,636,75,92.34,5120,Mar 2017,Workstation
-Quadro P2000 with Max-Q Design,,"5,285",,480,,,,Sep 2018,Unknown
+Quadro P2000 with Max Q Design,,"5,285",,480,,,,Sep 2018,Unknown
 Quadro P2200,459.80,"9,319",20.27,909,75,124.25,5120,Aug 2019,Workstation
 Quadro P3000,,"6,520",,431,75,86.94,6144,Feb 2017,"Mobile, Workstation"
 Quadro P3200,389.30,"8,878",22.80,458,,,,May 2018,Unknown
-Quadro P3200 with Max-Q Design,,"9,305",,557,,,,Aug 2018,Unknown
+Quadro P3200 with Max Q Design,,"9,305",,557,,,,Aug 2018,Unknown
 Quadro P400,201.17,"1,642",8.16,442,30,54.73,2048,Aug 2017,Workstation
 Quadro P4000,556.19,"11,634",20.92,817,105,110.80,8192,Mar 2017,Workstation
-Quadro P4000 with Max-Q Design,,"9,083",,700,80,113.53,16384,Oct 2017,Mobile
+Quadro P4000 with Max Q Design,,"9,083",,700,80,113.53,16384,Oct 2017,Mobile
 Quadro P4200,,"10,488",,496,100,104.88,8192,Jul 2018,Workstation
-Quadro P4200 with Max-Q Design,,"11,447",,606,,,,Oct 2018,Workstation
+Quadro P4200 with Max Q Design,,"11,447",,606,,,,Oct 2018,Workstation
 Quadro P500,,"1,628",,240,,,,Mar 2018,Unknown
 Quadro P5000,1868.99,"12,533",6.71,674,180,69.63,16384,Nov 2016,Workstation
 Quadro P520,1499.00,"2,097",1.40,243,,,,Aug 2019,Unknown
 Quadro P5200,,"12,239",,539,,,,Jan 2018,Mobile
-Quadro P5200 with Max-Q Design,,"12,531",,460,,,,Oct 2018,Unknown
+Quadro P5200 with Max Q Design,,"12,531",,460,,,,Oct 2018,Unknown
 Quadro P600,210.58,"3,293",15.64,508,40,82.33,2048,Apr 2017,Workstation
 Quadro P6000,3250.00,"15,308",4.71,711,250,61.23,24000,Oct 2016,Workstation
 Quadro P620,574.55,"3,644",6.34,550,40,91.10,2048,Jun 2018,Workstation
 Quadro RTX 3000,,"11,088",,514,80,138.59,6144,Jul 2019,"Mobile, Workstation"
-Quadro RTX 3000 with Max-Q Design,,"8,255",,341,60,137.58,6144,Oct 2019,Mobile
+Quadro RTX 3000 with Max Q Design,,"8,255",,341,60,137.58,6144,Oct 2019,Mobile
 Quadro RTX 4000,899.00,"15,385",17.11,878,160,96.16,8192,Feb 2019,Workstation
 Quadro RTX 4000 (Mobile),,"12,404",,540,110,112.77,8192,Jul 2019,Mobile
-Quadro RTX 4000 with Max-Q Design,,"12,487",,555,80,156.09,8192,Nov 2019,Mobile
+Quadro RTX 4000 with Max Q Design,,"12,487",,555,80,156.09,8192,Nov 2019,Mobile
 Quadro RTX 5000,,"15,966",,736,230,69.42,16384,Jan 2019,Workstation
 Quadro RTX 5000 (Mobile),,"14,832",,705,110,134.84,16384,Jul 2019,"Mobile, Workstation"
-Quadro RTX 5000 with Max-Q Design,,"13,481",,569,80,168.51,16384,Sep 2019,"Mobile, Workstation"
+Quadro RTX 5000 with Max Q Design,,"13,481",,569,80,168.51,16384,Sep 2019,"Mobile, Workstation"
 Quadro RTX 6000,6300.00,"18,797",2.98,798,295,63.72,24576,Nov 2018,Workstation
 Quadro RTX 8000,4741.49,"19,278",4.07,858,260,74.15,49152,Mar 2019,Workstation
 Quadro T1000,369.99,"6,455",17.45,417,,,,Jul 2019,Mobile
-Quadro T1000 with Max-Q Design,,"6,706",,436,,,,Sep 2020,Mobile
+Quadro T1000 with Max Q Design,,"6,706",,436,,,,Sep 2020,Mobile
 Quadro T2000,528.35,"7,167",13.56,449,,,,Jul 2019,Mobile
-Quadro T2000 with Max-Q Design,,"6,905",,425,,,,Jun 2020,Mobile
-Quadro2 MXR/EX,,5,,142,,,64,Mar 2010,Workstation
+Quadro T2000 with Max Q Design,,"6,905",,425,,,,Jun 2020,Mobile
+Quadro2 MXR EX,,5,,142,,,64,Mar 2010,Workstation
 Quadro2 Pro,,1,,143,,,64,Apr 2009,Workstation
 Quadro4 380 XGL,,7,,225,,,,Jul 2009,Unknown
 Quadro4 900 XGL,,5,,194,,,,Jun 2009,Unknown
@@ -1294,8 +1294,8 @@ Qualcomm Adreno 7c Gen 3 GPU,,749,,155,,,,Dec 2023,Unknown
 Qualcomm Adreno 7c+ Gen 3,,594,,138,,,,Jun 2023,Unknown
 Qualcomm Adreno 8cx Gen 3,,"1,952",,221,,,,Mar 2022,Unknown
 Qualcomm Adreno 8cx Gen 3 GPU,,"1,864",,497,,,,May 2024,Desktop
-Qualcomm Adreno X1-45 GPU,,"1,591",,350,,,,Sep 2024,Desktop
-Qualcomm Adreno X1-85 GPU,,"2,702",,441,,,,Jul 2024,Desktop
+Qualcomm Adreno X1 45 GPU,,"1,591",,350,,,,Sep 2024,Desktop
+Qualcomm Adreno X1 85 GPU,,"2,702",,441,,,,Jul 2024,Desktop
 QXL KMDOD,,19,,203,,,,Sep 2014,Unknown
 Radeon 2100,190.99,60,0.31,286,,,,Apr 2009,Unknown
 Radeon 3000,319.00,98,0.31,414,,,,Aug 2012,Unknown
@@ -1321,8 +1321,8 @@ Radeon 660M Ryzen 5 6600H,,"6,286",,795,,,,Feb 2024,Mobile
 Radeon 660M Ryzen 5 7535HS,,"3,546",,680,,,,Aug 2023,Mobile
 Radeon 6750M,,911,,570,,,,Sep 2017,Mobile
 Radeon 680M Ryzen 7 7735HS,,"6,167",,827,,,,Jul 2023,Mobile
-Radeon 7000 / Radeon VE,,3,,99,,,,Aug 2009,Unknown
-RADEON 7000 / RADEON VE Family,,4,,107,,,,Jun 2010,Unknown
+Radeon 7000   Radeon VE,,3,,99,,,,Aug 2009,Unknown
+RADEON 7000   RADEON VE Family,,4,,107,,,,Jun 2010,Unknown
 RADEON 7200,599.99,3,0.00,94,,,,Jan 2011,Unknown
 Radeon 740M,,"3,200",,803,,,,Sep 2023,Mobile
 RADEON 7500,177.25,3,0.02,35,,,64,Jan 2012,Desktop
@@ -1342,9 +1342,9 @@ RADEON 9200 PRO Family,,3,,135,,,,Nov 2011,Unknown
 RADEON 9200 SE,,3,,129,,,256,Mar 2010,Desktop
 RADEON 9250,194.00,3,0.01,127,,,256,May 2009,Desktop
 RADEON 9500,40.50,36,0.90,173,,,128,Jun 2011,Desktop
-RADEON 9500 PRO / 9700,,42,,157,,,,Apr 2009,Unknown
+RADEON 9500 PRO   9700,,42,,157,,,,Apr 2009,Unknown
 RADEON 9550,291.74,35,0.12,145,,,256,Jul 2009,Desktop
-Radeon 9550 / X1050,,29,,150,,,,May 2010,Unknown
+Radeon 9550   X1050,,29,,150,,,,May 2010,Unknown
 RADEON 9600 Family,,25,,150,,,,Apr 2009,Unknown
 RADEON 9600 PRO,,43,,163,,,256,Jan 2011,Desktop
 RADEON 9600 PRO Family,,27,,148,,,,Dec 2010,Unknown
@@ -1352,7 +1352,7 @@ RADEON 9600 TX Family,,18,,138,,,,Sep 2010,Unknown
 RADEON 9600 XT,,35,,147,,,256,Dec 2009,Desktop
 RADEON 9600SE,,27,,143,,,,May 2009,Unknown
 RADEON 9700 PRO,,54,,149,,,128,Apr 2009,Desktop
-Radeon 9700 TX w/TV-Out,,44,,152,,,,Mar 2011,Unknown
+Radeon 9700 TX w TV Out,,44,,152,,,,Mar 2011,Unknown
 RADEON 9800,325.00,58,0.18,191,,,128,Oct 2010,Desktop
 RADEON 9800 PRO,,59,,153,,,256,Sep 2009,Desktop
 RADEON 9800 SE,,24,,131,,,256,May 2009,Desktop
@@ -1369,30 +1369,30 @@ Radeon E6465,,231,,354,,,,Oct 2018,Unknown
 Radeon E6760,239.99,877,3.65,485,,,,Jun 2012,Unknown
 Radeon E8860,,"1,686",,436,,,,Mar 2015,Unknown
 Radeon E8870PCIe,,"3,368",,708,,,,Oct 2017,Unknown
-Radeon Eng Sample: 100-000000085-40_35/24_Y,,"1,441",,554,,,,Sep 2020,Unknown
-Radeon Eng Sample: 100-000000146-40_42/35_Y,,"2,464",,730,,,,Feb 2022,Unknown
-Radeon Eng Sample: 100-000000261-50_Y,,"3,490",,862,,,,Apr 2024,Desktop
-Radeon Eng Sample: 100-000000262-30_Y,,"2,416",,785,,,,Jan 2022,Unknown
-Radeon Eng Sample: 100-000000263-30_Y,,"1,684",,708,,,,Apr 2022,Unknown
-Radeon Eng Sample: 100-000000285-40_Y,,"2,267",,640,,,,Nov 2022,Unknown
-Radeon Eng Sample: 100-000000287-40_Y,,"1,862",,586,,,,Feb 2023,Unknown
-Radeon Eng Sample: 100-000000300-30_Y,,"2,707",,698,,,,Apr 2024,Desktop
-Radeon Eng Sample: 100-000000300-40_Y,,"2,670",,747,,,,Aug 2022,Unknown
-Radeon Eng Sample: 100-000000371-40_42/18_Y,,"2,591",,549,,,,Oct 2023,Unknown
-Radeon Eng Sample: 100-000000534-40_Y,,"5,380",,781,,,,Apr 2024,Unknown
-Radeon Eng Sample: 100-000000545-40_Y,,"5,026",,812,,,,Mar 2024,Unknown
-Radeon Eng Sample: 100-000000550-40_Y,,"5,224",,773,,,,May 2024,Desktop
-Radeon Eng Sample: 100-000000560-40_Y,,"4,772",,750,,,,Dec 2023,Unknown
-Radeon Eng Sample: 100-000000561-40_Y,,"4,042",,745,,,,Oct 2023,Unknown
-Radeon Eng Sample: 100-000000562-40_Y,,"3,841",,589,,,,May 2024,Desktop
-Radeon EPYC 4124P 4-Core,,"1,615",,545,,,,Jul 2024,Desktop
-Radeon EPYC 4244P 6-Core,,"1,424",,541,,,,May 2024,Desktop
-Radeon EPYC 4344P 8-Core,,"1,635",,548,,,,May 2024,Desktop
-Radeon EPYC 4364P 8-Core,,"1,611",,561,,,,May 2024,Desktop
-Radeon EPYC 4464P 12-Core,,"1,614",,562,,,,May 2024,Desktop
-Radeon EPYC 4484PX 12-Core,,"1,620",,551,,,,May 2024,Desktop
-Radeon EPYC 4564P 16-Core,,"1,619",,573,,,,May 2024,Desktop
-Radeon EPYC 4584PX 16-Core,,"1,662",,559,,,,May 2024,Desktop
+Radeon Eng Sample: 100 000000085 40_35 24_Y,,"1,441",,554,,,,Sep 2020,Unknown
+Radeon Eng Sample: 100 000000146 40_42 35_Y,,"2,464",,730,,,,Feb 2022,Unknown
+Radeon Eng Sample: 100 000000261 50_Y,,"3,490",,862,,,,Apr 2024,Desktop
+Radeon Eng Sample: 100 000000262 30_Y,,"2,416",,785,,,,Jan 2022,Unknown
+Radeon Eng Sample: 100 000000263 30_Y,,"1,684",,708,,,,Apr 2022,Unknown
+Radeon Eng Sample: 100 000000285 40_Y,,"2,267",,640,,,,Nov 2022,Unknown
+Radeon Eng Sample: 100 000000287 40_Y,,"1,862",,586,,,,Feb 2023,Unknown
+Radeon Eng Sample: 100 000000300 30_Y,,"2,707",,698,,,,Apr 2024,Desktop
+Radeon Eng Sample: 100 000000300 40_Y,,"2,670",,747,,,,Aug 2022,Unknown
+Radeon Eng Sample: 100 000000371 40_42 18_Y,,"2,591",,549,,,,Oct 2023,Unknown
+Radeon Eng Sample: 100 000000534 40_Y,,"5,380",,781,,,,Apr 2024,Unknown
+Radeon Eng Sample: 100 000000545 40_Y,,"5,026",,812,,,,Mar 2024,Unknown
+Radeon Eng Sample: 100 000000550 40_Y,,"5,224",,773,,,,May 2024,Desktop
+Radeon Eng Sample: 100 000000560 40_Y,,"4,772",,750,,,,Dec 2023,Unknown
+Radeon Eng Sample: 100 000000561 40_Y,,"4,042",,745,,,,Oct 2023,Unknown
+Radeon Eng Sample: 100 000000562 40_Y,,"3,841",,589,,,,May 2024,Desktop
+Radeon EPYC 4124P 4 Core,,"1,615",,545,,,,Jul 2024,Desktop
+Radeon EPYC 4244P 6 Core,,"1,424",,541,,,,May 2024,Desktop
+Radeon EPYC 4344P 8 Core,,"1,635",,548,,,,May 2024,Desktop
+Radeon EPYC 4364P 8 Core,,"1,611",,561,,,,May 2024,Desktop
+Radeon EPYC 4464P 12 Core,,"1,614",,562,,,,May 2024,Desktop
+Radeon EPYC 4484PX 12 Core,,"1,620",,551,,,,May 2024,Desktop
+Radeon EPYC 4564P 16 Core,,"1,619",,573,,,,May 2024,Desktop
+Radeon EPYC 4584PX 16 Core,,"1,662",,559,,,,May 2024,Desktop
 Radeon HD 2350,,77,,262,20,3.83,256,Aug 2009,Desktop
 Radeon HD 2400,88.20,121,1.37,298,,,,Jan 2012,Unknown
 Radeon HD 2400 PCI,,14,,86,,,,Apr 2009,Unknown
@@ -1420,7 +1420,7 @@ Radeon HD 4200,,112,,372,,,512,Aug 2012,Desktop
 Radeon HD 4250,,123,,408,,,512,May 2012,Desktop
 Radeon HD 4270,,110,,303,,,,Nov 2010,Unknown
 Radeon HD 4290,,141,,442,,,512,Mar 2010,Desktop
-Radeon HD 4300/4500 Serisi,,156,,347,,,,Sep 2014,Unknown
+Radeon HD 4300 4500 Serisi,,156,,347,,,,Sep 2014,Unknown
 Radeon HD 4330,,115,,29,,,,Aug 2012,Unknown
 Radeon HD 4350,50.99,135,2.65,28,20,6.76,1024,Aug 2012,Desktop
 Radeon HD 4550,156.00,236,1.51,429,20,11.79,1024,Aug 2012,Desktop
@@ -1439,7 +1439,7 @@ Radeon HD 5450,69.99,136,1.95,140,19.1,7.14,2048,Aug 2012,Desktop
 Radeon HD 5470,,268,,298,,,,Nov 2014,Unknown
 Radeon HD 5550,54.99,377,6.85,185,39,9.66,2048,May 2010,Desktop
 Radeon HD 5570,189.12,477,2.52,193,39,12.23,2048,Aug 2012,Desktop
-Radeon HD 5600/5700,,634,,283,,,,Jan 2011,Unknown
+Radeon HD 5600 5700,,634,,283,,,,Jan 2011,Unknown
 Radeon HD 5670,96.81,805,8.31,289,64,12.57,2048,Aug 2012,Desktop
 Radeon HD 5750,128.99,"1,163",9.02,337,86,13.52,1024,Aug 2012,Desktop
 Radeon HD 5770,189.99,"1,340",7.06,334,108,12.41,2048,Aug 2012,Desktop
@@ -1482,7 +1482,7 @@ Radeon HD 6650M,,753,,224,,,1024,Jan 2011,Mobile
 Radeon HD 6670,68.99,726,10.53,244,66,11.01,2048,Aug 2012,Desktop
 Radeon HD 6670 + 6670 Dual,,647,,552,,,,Jan 2013,Unknown
 Radeon HD 6670 + 7660D Dual,,"1,492",,483,,,,Apr 2015,Unknown
-Radeon HD 6670/7670,,946,,320,,,,Dec 2016,Unknown
+Radeon HD 6670 7670,,946,,320,,,,Dec 2016,Unknown
 Radeon HD 6700M,,"1,017",,523,,,,Aug 2012,Mobile
 Radeon HD 6750,79.99,"1,045",13.06,272,86,12.15,1024,Apr 2011,Desktop
 Radeon HD 6750M,,937,,487,,,1024,Feb 2011,Mobile
@@ -1501,7 +1501,7 @@ Radeon HD 6990,498.49,"3,013",6.04,630,375,8.04,2048,Mar 2011,Desktop
 Radeon HD 7290,,112,,48,,,,Dec 2012,Unknown
 Radeon HD 7290M,,123,,90,,,,Sep 2014,Mobile
 Radeon HD 7310,,128,,44,,,,Aug 2012,Unknown
-Radeon HD 7310 - Carte graphique,,174,,120,,,,Aug 2014,Unknown
+Radeon HD 7310   Carte graphique,,174,,120,,,,Aug 2014,Unknown
 Radeon HD 7310G,,181,,119,,,,Apr 2014,Unknown
 Radeon HD 7310M,,166,,127,,,,Oct 2012,Mobile
 Radeon HD 7340,552.69,153,0.28,50,,,,Jun 2012,Unknown
@@ -1517,35 +1517,35 @@ Radeon HD 7470,81.37,289,3.55,152,27,10.71,1024,Jun 2012,Desktop
 Radeon HD 7470M,,408,,393,7,58.24,1024,Jan 2012,Mobile
 Radeon HD 7480D,,279,,119,65,4.29,,Oct 2012,Desktop
 Radeon HD 7500G,,308,,100,,,,Jul 2012,Unknown
-Radeon HD 7500G + 7500M/7600M Dual,,617,,308,,,,Sep 2013,Mobile
+Radeon HD 7500G + 7500M 7600M Dual,,617,,308,,,,Sep 2013,Mobile
 Radeon HD 7500G + 7550M Dual,,497,,263,,,,Apr 2013,Mobile
-Radeon HD 7500G + HD 7500M/7600M Dual,,356,,265,,,,Dec 2015,Mobile
+Radeon HD 7500G + HD 7500M 7600M Dual,,356,,265,,,,Dec 2015,Mobile
 Radeon HD 7520G,,316,,109,,,,Aug 2012,Unknown
 Radeon HD 7520G + 7400M Dual,,487,,280,,,,Feb 2015,Mobile
 Radeon HD 7520G + 7470M Dual,,543,,345,,,,Jan 2013,Mobile
-Radeon HD 7520G + 7500/7600 Dual,,582,,379,,,,Nov 2013,Unknown
+Radeon HD 7520G + 7500 7600 Dual,,582,,379,,,,Nov 2013,Unknown
 Radeon HD 7520G + 7600M Dual,,591,,362,,,,Jan 2013,Mobile
 Radeon HD 7520G + 7610M Dual,,588,,317,,,,Aug 2013,Mobile
 Radeon HD 7520G + 7650M Dual,,453,,345,,,,Oct 2013,Mobile
 Radeon HD 7520G + 7670M Dual,,523,,323,,,,May 2012,Mobile
 Radeon HD 7520G + 7700M Dual,,"1,061",,331,,,,Apr 2013,Mobile
-Radeon HD 7520G + 8600/8700M Dual,,311,,329,,,,Oct 2014,Mobile
+Radeon HD 7520G + 8600 8700M Dual,,311,,329,,,,Oct 2014,Mobile
 Radeon HD 7520G + 8750M Dual,,377,,388,,,,Dec 2014,Mobile
 Radeon HD 7520G + HD 7400M Dual,,545,,315,,,,Nov 2015,Mobile
-Radeon HD 7520G + HD 7500/7600 Dual,,832,,355,,,,Jan 2016,Unknown
+Radeon HD 7520G + HD 7500 7600 Dual,,832,,355,,,,Jan 2016,Unknown
 Radeon HD 7520G + HD 7600M Dual,,447,,150,,,,Nov 2014,Mobile
 Radeon HD 7520G + HD 7670M Dual,,495,,295,,,,Jan 2016,Mobile
 Radeon HD 7520G + HD 7700M Dual,,575,,389,,,,Nov 2016,Mobile
-Radeon HD 7520G + HD 8600/8700M Dual,,624,,291,,,,Oct 2014,Mobile
+Radeon HD 7520G + HD 8600 8700M Dual,,624,,291,,,,Oct 2014,Mobile
 Radeon HD 7520G + HD 8750M Dual,,651,,289,,,,Jul 2015,Mobile
-Radeon HD 7520G N HD 7520G + HD 7500/7600 7500/760,,575,,386,,,,Oct 2013,Unknown
+Radeon HD 7520G N HD 7520G + HD 7500 7600 7500 760,,575,,386,,,,Oct 2013,Unknown
 Radeon HD 7520G N HD 7520G + HD 7600M N HD 7600M D,,365,,263,,,,Dec 2013,Mobile
 Radeon HD 7540D,,332,,129,65,5.11,,Oct 2012,Desktop
 Radeon HD 7540D + 6570 Dual,,720,,469,,,,Jul 2013,Unknown
 Radeon HD 7540D + 7500 Dual,,822,,471,,,,Dec 2014,Unknown
 Radeon HD 7540D + HD 6450 Dual,,643,,444,,,,Apr 2014,Unknown
 Radeon HD 7550M,,465,,403,13,35.76,1024,Jul 2012,Mobile
-Radeon HD 7550M/7650M,,729,,524,13,56.04,1024,Jul 2012,Mobile
+Radeon HD 7550M 7650M,,729,,524,13,56.04,1024,Jul 2012,Mobile
 Radeon HD 7560D,,457,,166,100,4.57,,Aug 2012,Desktop
 Radeon HD 7560D + 6450 Dual,,569,,490,,,,Jan 2013,Unknown
 Radeon HD 7560D + 6570 Dual,,833,,476,,,,Oct 2012,Unknown
@@ -1564,16 +1564,16 @@ Radeon HD 7560D + HD 8570 Dual,,936,,425,,,,Apr 2014,Unknown
 Radeon HD 7560D + R5 235 Dual,,563,,397,,,,Jul 2015,Unknown
 Radeon HD 7570,102.49,612,5.98,258,44,13.92,1024,Aug 2012,Desktop
 Radeon HD 7570M,,427,,189,13,32.81,1024,Jun 2012,Mobile
-Radeon HD 7570M/HD 7670M,,699,,555,25,27.96,1024,Mar 2015,Mobile
+Radeon HD 7570M HD 7670M,,699,,555,25,27.96,1024,Mar 2015,Mobile
 Radeon HD 7580D,,351,,430,,,,Jun 2013,Unknown
 Radeon HD 7600G,,327,,93,,,,Nov 2012,Unknown
 Radeon HD 7600G + 6400M Dual,,377,,257,,,,Jul 2013,Mobile
 Radeon HD 7600G + 7450M Dual,,390,,221,,,,Apr 2013,Mobile
-Radeon HD 7600G + 7500M/7600M Dual,,406,,210,,,,May 2013,Mobile
+Radeon HD 7600G + 7500M 7600M Dual,,406,,210,,,,May 2013,Mobile
 Radeon HD 7600G + 7550M Dual,,423,,247,,,,Apr 2014,Mobile
-Radeon HD 7600G + 8500M/8700M Dual,,334,,131,,,,Dec 2013,Mobile
+Radeon HD 7600G + 8500M 8700M Dual,,334,,131,,,,Dec 2013,Mobile
 Radeon HD 7600G + HD 7400M Dual,,329,,147,,,,Oct 2015,Mobile
-Radeon HD 7600G + HD 7500M/7600M Dual,,477,,126,,,,Jun 2015,Mobile
+Radeon HD 7600G + HD 7500M 7600M Dual,,477,,126,,,,Jun 2015,Mobile
 Radeon HD 7600G + HD 7550M Dual,,509,,202,,,,Dec 2014,Mobile
 Radeon HD 7600G + HD 8670M Dual,,544,,241,,,,Apr 2015,Mobile
 Radeon HD 7600G + HD Dual,,435,,158,,,,Jan 2014,Unknown
@@ -1591,8 +1591,8 @@ Radeon HD 7640G + 6400M Dual,,527,,279,,,,Dec 2012,Mobile
 Radeon HD 7640G + 7400M Dual,,637,,286,,,,Mar 2013,Mobile
 Radeon HD 7640G + 7450M Dual,,754,,353,,,,Jul 2014,Mobile
 Radeon HD 7640G + 7470M Dual,,595,,301,,,,Jun 2012,Mobile
-Radeon HD 7640G + 7500/7600 Dual,,627,,293,,,,Jul 2013,Unknown
-Radeon HD 7640G + 7500M/7600M Dual,,776,,317,,,,Oct 2012,Mobile
+Radeon HD 7640G + 7500 7600 Dual,,627,,293,,,,Jul 2013,Unknown
+Radeon HD 7640G + 7500M 7600M Dual,,776,,317,,,,Oct 2012,Mobile
 Radeon HD 7640G + 7600M Dual,,706,,294,,,,Jul 2012,Mobile
 Radeon HD 7640G + 7610M Dual,,510,,309,,,,Oct 2013,Mobile
 Radeon HD 7640G + 7650M Dual,,747,,188,,,,Jan 2014,Mobile
@@ -1601,12 +1601,12 @@ Radeon HD 7640G + 7690M Dual,,946,,325,,,,Dec 2013,Mobile
 Radeon HD 7640G + 7700M Dual,,691,,324,,,,Nov 2013,Mobile
 Radeon HD 7640G + 8500M Dual,,586,,308,,,,Feb 2014,Mobile
 Radeon HD 7640G + 8570M Dual,,558,,274,,,,Dec 2013,Mobile
-Radeon HD 7640G + 8600/8700M Dual,,689,,308,,,,Oct 2013,Mobile
+Radeon HD 7640G + 8600 8700M Dual,,689,,308,,,,Oct 2013,Mobile
 Radeon HD 7640G + 8600M Dual,,250,,217,,,,Dec 2017,Mobile
 Radeon HD 7640G + 8670M Dual,,558,,316,,,,Jan 2014,Mobile
 Radeon HD 7640G + 8750M Dual,,655,,305,,,,Nov 2013,Mobile
 Radeon HD 7640G + HD 7400M Dual,,621,,297,,,,Oct 2014,Mobile
-Radeon HD 7640G + HD 7500/7600 Dual,,424,,301,,,,Oct 2015,Unknown
+Radeon HD 7640G + HD 7500 7600 Dual,,424,,301,,,,Oct 2015,Unknown
 Radeon HD 7640G + HD 7600M Dual,,704,,277,,,,Oct 2014,Mobile
 Radeon HD 7640G + HD 7600M N HD 7600M Dual,,407,,198,,,,Dec 2013,Mobile
 Radeon HD 7640G + HD 7670M Dual,,519,,97,,,,Aug 2014,Mobile
@@ -1615,7 +1615,7 @@ Radeon HD 7640G + HD 7700M N HD 7700M Dual,,631,,272,,,,May 2015,Mobile
 Radeon HD 7640G + HD 8500M Dual,,607,,305,,,,Jul 2014,Mobile
 Radeon HD 7640G + HD 8500M N HD 8500M Dual,,666,,311,,,,Nov 2013,Mobile
 Radeon HD 7640G + HD 8570M Dual,,475,,196,,,,Jun 2014,Mobile
-Radeon HD 7640G + HD 8600/8700M Dual,,587,,298,,,,Feb 2015,Mobile
+Radeon HD 7640G + HD 8600 8700M Dual,,587,,298,,,,Feb 2015,Mobile
 Radeon HD 7640G + HD 8670M Dual,,677,,249,,,,Aug 2015,Mobile
 Radeon HD 7640G + HD 8750M Dual,,997,,293,,,,Aug 2015,Mobile
 Radeon HD 7640G + R5 M200 Dual,,559,,249,,,,Jul 2015,Unknown
@@ -1648,16 +1648,16 @@ Radeon HD 7660G + 7700M Dual,,757,,311,,,,Aug 2013,Mobile
 Radeon HD 7660G + 7730M Dual,,931,,392,,,,Jan 2014,Mobile
 Radeon HD 7660G + 8600M Dual,,446,,360,,,,Mar 2014,Mobile
 Radeon HD 7660G + 8670M Dual,,588,,333,,,,Mar 2014,Mobile
-Radeon HD 7660G + HD 7500/7600 7500/7600 Dual,,"1,002",,347,,,,Apr 2014,Unknown
-Radeon HD 7660G + HD 7500/7600 Dual,,760,,369,,,,Sep 2016,Unknown
-Radeon HD 7660G + HD 7500M/7600M Dual,,999,,323,,,,Apr 2016,Mobile
+Radeon HD 7660G + HD 7500 7600 7500 7600 Dual,,"1,002",,347,,,,Apr 2014,Unknown
+Radeon HD 7660G + HD 7500 7600 Dual,,760,,369,,,,Sep 2016,Unknown
+Radeon HD 7660G + HD 7500M 7600M Dual,,999,,323,,,,Apr 2016,Mobile
 Radeon HD 7660G + HD 7600M Dual,,568,,90,,,,Apr 2014,Mobile
 Radeon HD 7660G + HD 7600M N HD 7600M Dual,,460,,297,,,,Jul 2014,Mobile
 Radeon HD 7660G + HD 7670M Dual,,707,,317,,,,Jan 2014,Mobile
 Radeon HD 7660G + HD 7700M Dual,,777,,168,,,,Oct 2014,Mobile
 Radeon HD 7660G + HD 7730M Dual,,882,,329,,,,Feb 2016,Mobile
 Radeon HD 7660G + HD 8500M Dual,,758,,355,,,,Sep 2014,Mobile
-Radeon HD 7660G + HD 8600/8700M Dual,,747,,365,,,,Jun 2016,Mobile
+Radeon HD 7660G + HD 8600 8700M Dual,,747,,365,,,,Jun 2016,Mobile
 Radeon HD 7660G + HD 8600M Dual,,364,,337,,,,May 2016,Mobile
 Radeon HD 7660G + HD 8670M Dual,,711,,325,,,,Dec 2015,Mobile
 Radeon HD 7660G N HD 7660G + HD 7600M N HD 7600M D,,723,,292,,,,Nov 2013,Mobile
@@ -1669,21 +1669,21 @@ Radeon HD 7670M,629.99,472,0.75,93,20,23.60,1024,May 2012,Mobile
 Radeon HD 7670M + 7670M Dual,,738,,294,,,,Nov 2012,Mobile
 Radeon HD 7690M,,909,,454,20,45.46,2048,Dec 2012,Mobile
 Radeon HD 7690M XT,,"1,009",,552,25,40.37,2048,Jan 2015,Mobile
-Radeon HD 7700-serie,,"1,899",,533,,,,Dec 2012,Unknown
+Radeon HD 7700 serie,,"1,899",,533,,,,Dec 2012,Unknown
 Radeon HD 7730,232.70,"1,208",5.19,400,47,25.71,1024,Mar 2015,Desktop
 Radeon HD 7730M,,775,,214,25,30.99,2048,Mar 2015,Mobile
 Radeon HD 7750,134.59,"1,700",12.63,425,55,30.91,4096,Jun 2012,Desktop
 Radeon HD 7750M,,"1,191",,693,28,42.55,2048,Apr 2013,Mobile
 Radeon HD 7770,300.00,"2,172",7.24,462,80,27.16,2048,Jun 2012,Desktop
 Radeon HD 7790,139.99,"3,090",22.07,459,85,36.36,2048,Apr 2013,Desktop
-Radeon HD 7800-serie,,"4,029",,708,,,,Oct 2014,Unknown
+Radeon HD 7800 serie,,"4,029",,708,,,,Oct 2014,Unknown
 Radeon HD 7850,169.05,"3,864",22.86,564,130,29.72,2048,May 2012,Desktop
 Radeon HD 7850M,,"1,373",,566,40,34.32,2048,Jun 2012,Mobile
 Radeon HD 7870,176.00,"4,635",26.34,591,175,26.49,2048,Jun 2012,Desktop
 Radeon HD 7870 XT,,"4,470",,661,185,24.16,2048,May 2013,Desktop
 Radeon HD 7870M,,"1,507",,556,45,33.50,2048,Dec 2012,Mobile
-Radeon HD 7950 / R9 280,240.83,"4,765",19.78,691,200,23.82,3072,Jun 2012,Desktop
-Radeon HD 7970 / R9 280X,246.99,"5,248",21.25,730,250,20.99,3072,Aug 2012,Desktop
+Radeon HD 7950   R9 280,240.83,"4,765",19.78,691,200,23.82,3072,Jun 2012,Desktop
+Radeon HD 7970   R9 280X,246.99,"5,248",21.25,730,250,20.99,3072,Aug 2012,Desktop
 Radeon HD 7970M,,"3,529",,506,75,47.06,4096,Jun 2012,Mobile
 Radeon HD 7990,399.99,"5,566",13.91,766,375,14.84,3072,May 2013,Desktop
 Radeon HD 8180,,139,,35,,,,Oct 2013,Unknown
@@ -1704,7 +1704,7 @@ Radeon HD 8400,,266,,78,,,,Jul 2013,Unknown
 Radeon HD 8400E,,276,,113,,,,Dec 2013,Unknown
 Radeon HD 8410G,,435,,263,,,,Apr 2014,Unknown
 Radeon HD 8450G,,349,,143,,,,Jul 2013,Unknown
-Radeon HD 8450G + 8600/8700M Dual,,"1,070",,381,,,,Nov 2013,Mobile
+Radeon HD 8450G + 8600 8700M Dual,,"1,070",,381,,,,Nov 2013,Mobile
 Radeon HD 8450G + 8600M Dual,,545,,356,,,,Dec 2013,Mobile
 Radeon HD 8450G + 8670M Dual,,475,,414,,,,Aug 2013,Mobile
 Radeon HD 8450G + 8750M Dual,,637,,299,,,,Oct 2013,Mobile
@@ -1721,7 +1721,7 @@ Radeon HD 8470D + HD 6670 Dual,,"1,436",,512,,,,Jul 2017,Unknown
 Radeon HD 8470D + HD 7500 Dual,,"1,545",,465,,,,Sep 2018,Unknown
 Radeon HD 8490,89.99,263,2.93,174,35,7.53,1024,Mar 2014,Desktop
 Radeon HD 8500M,,420,,114,,,,Apr 2015,Mobile
-Radeon HD 8500M/8700M,,853,,503,,,,Feb 2015,Mobile
+Radeon HD 8500M 8700M,,853,,503,,,,Feb 2015,Mobile
 Radeon HD 8510G,,358,,102,,,,Aug 2013,Unknown
 Radeon HD 8510G + 8500M Dual,,596,,260,,,,Aug 2014,Mobile
 Radeon HD 8510G + HD 8500M Dual,,630,,191,,,,May 2015,Mobile
@@ -1730,7 +1730,7 @@ Radeon HD 8550G,,412,,117,,,,Jul 2013,Unknown
 Radeon HD 8550G + 7600M Dual,,901,,395,,,,May 2016,Mobile
 Radeon HD 8550G + 8500M Dual,,603,,304,,,,Sep 2013,Mobile
 Radeon HD 8550G + 8570M Dual,,533,,307,,,,Aug 2013,Mobile
-Radeon HD 8550G + 8600/8700M Dual,,803,,336,,,,Aug 2013,Mobile
+Radeon HD 8550G + 8600 8700M Dual,,803,,336,,,,Aug 2013,Mobile
 Radeon HD 8550G + 8600M Dual,,618,,321,,,,Aug 2013,Mobile
 Radeon HD 8550G + 8670M Dual,,579,,334,,,,Aug 2013,Mobile
 Radeon HD 8550G + 8690M Dual,,664,,260,,,,Nov 2013,Mobile
@@ -1738,7 +1738,7 @@ Radeon HD 8550G + 8750M Dual,,796,,321,,,,Aug 2013,Mobile
 Radeon HD 8550G + HD 7600M Dual,,548,,181,,,,Jul 2015,Mobile
 Radeon HD 8550G + HD 8500M Dual,,559,,301,,,,Aug 2014,Mobile
 Radeon HD 8550G + HD 8570M Dual,,529,,260,,,,Mar 2016,Mobile
-Radeon HD 8550G + HD 8600/8700M Dual,,655,,170,,,,Aug 2015,Mobile
+Radeon HD 8550G + HD 8600 8700M Dual,,655,,170,,,,Aug 2015,Mobile
 Radeon HD 8550G + HD 8600M Dual,,594,,322,,,,Dec 2014,Mobile
 Radeon HD 8550G + HD 8670M Dual,,546,,315,,,,Mar 2016,Mobile
 Radeon HD 8550G + HD 8750M Dual,,819,,336,,,,Dec 2014,Mobile
@@ -1762,7 +1762,7 @@ Radeon HD 8570D + R5 235 Dual,,471,,470,,,,Dec 2015,Unknown
 Radeon HD 8570D + R7 200 Dual,,999,,401,,,,May 2014,Unknown
 Radeon HD 8570D + R7 240 Dual,,964,,489,,,,Dec 2014,Unknown
 Radeon HD 8570M,,441,,162,,,,Feb 2015,Mobile
-Radeon HD 8600/8700M,,"1,030",,554,,,,Nov 2014,Mobile
+Radeon HD 8600 8700M,,"1,030",,554,,,,Nov 2014,Mobile
 Radeon HD 8610G,,415,,117,,,,Jul 2013,Unknown
 Radeon HD 8610G + 8500M Dual,,610,,298,,,,Sep 2013,Mobile
 Radeon HD 8610G + 8600M Dual,,589,,320,,,,Nov 2013,Mobile
@@ -1778,14 +1778,14 @@ Radeon HD 8650G + 7670M Dual,,884,,379,,,,Aug 2013,Mobile
 Radeon HD 8650G + 7700M Dual,,"1,126",,399,,,,Jul 2014,Mobile
 Radeon HD 8650G + 8500M Dual,,627,,351,,,,Oct 2013,Mobile
 Radeon HD 8650G + 8570M Dual,,654,,282,,,,Nov 2013,Mobile
-Radeon HD 8650G + 8600/8700M Dual,,832,,374,,,,Jul 2013,Mobile
+Radeon HD 8650G + 8600 8700M Dual,,832,,374,,,,Jul 2013,Mobile
 Radeon HD 8650G + 8600M Dual,,613,,370,,,,Oct 2013,Mobile
 Radeon HD 8650G + 8670M Dual,,635,,355,,,,Aug 2013,Mobile
 Radeon HD 8650G + 8750M Dual,,787,,381,,,,Jul 2013,Mobile
 Radeon HD 8650G + HD 7600M Dual,,820,,346,,,,Mar 2015,Mobile
 Radeon HD 8650G + HD 7670M Dual,,634,,305,,,,Sep 2016,Mobile
 Radeon HD 8650G + HD 8570M Dual,,716,,317,,,,Sep 2014,Mobile
-Radeon HD 8650G + HD 8600/8700M Dual,,764,,356,,,,Mar 2014,Mobile
+Radeon HD 8650G + HD 8600 8700M Dual,,764,,356,,,,Mar 2014,Mobile
 Radeon HD 8650G + HD 8600M Dual,,606,,378,,,,Sep 2014,Mobile
 Radeon HD 8650G + HD 8600M N HD 8600M Dual,,758,,413,,,,Dec 2013,Mobile
 Radeon HD 8650G + HD 8670M Dual,,585,,320,,,,Dec 2015,Mobile
@@ -1794,7 +1794,7 @@ Radeon HD 8650G + HD 8790M Dual,,800,,404,,,,Nov 2014,Mobile
 Radeon HD 8650G + R5 M200 Dual,,723,,323,,,,Jul 2015,Unknown
 Radeon HD 8650G + R5 M230 Dual,,686,,374,,,,Jun 2014,Unknown
 Radeon HD 8650G N HD 8650G + HD 8570M Dual,,773,,368,,,,Aug 2014,Mobile
-Radeon HD 8650G N HD 8650G + HD 8600/8700M Dual,,796,,322,,,,Dec 2013,Mobile
+Radeon HD 8650G N HD 8650G + HD 8600 8700M Dual,,796,,322,,,,Dec 2013,Mobile
 Radeon HD 8650G N HD 8650G + HD 8600M N HD 8600M D,,680,,347,,,,Dec 2013,Mobile
 Radeon HD 8670D,,530,,185,,,,Jun 2013,Unknown
 Radeon HD 8670D + 6670 Dual,,"1,361",,568,,,,Jun 2013,Unknown
@@ -1816,11 +1816,11 @@ Radeon HD 8690M,,984,,768,,,,Feb 2015,Mobile
 Radeon HD 8730M,,770,,178,,,2048,Jan 2015,Mobile
 Radeon HD 8750M,,999,,203,,,2048,Jul 2014,Mobile
 Radeon HD 8790M,,"1,306",,751,,,2048,Dec 2014,Mobile
-Radeon HD 8790M / R9 M290X,,"1,211",,694,,,,Aug 2015,Mobile
+Radeon HD 8790M   R9 M290X,,"1,211",,694,,,,Aug 2015,Mobile
 Radeon HD 8850M,,973,,502,,,2048,Apr 2015,Mobile
-Radeon HD 8850M / R9 M265X,,"1,140",,741,,,,Feb 2016,Mobile
+Radeon HD 8850M   R9 M265X,,"1,140",,741,,,,Feb 2016,Mobile
 Radeon HD 8870M,,"1,638",,629,,,2048,Mar 2014,Mobile
-Radeon HD 8870M / R9 M270X / M370X,,"1,800",,679,,,,Aug 2014,Mobile
+Radeon HD 8870M   R9 M270X   M370X,,"1,800",,679,,,,Aug 2014,Mobile
 Radeon HD 8950,,"2,765",,366,225,12.29,3072,Aug 2014,Desktop
 Radeon HD 8970M,139.99,"3,876",27.69,807,100,38.76,4096,Apr 2014,Mobile
 Radeon HD 8990,,"5,214",,658,375,13.90,3072,Nov 2013,Desktop
@@ -1925,20 +1925,20 @@ Radeon R5 340,,935,,338,,,,Oct 2016,Unknown
 Radeon R5 420,39.95,575,14.39,230,,,,Oct 2017,Unknown
 Radeon R5 430,59.00,915,15.52,302,,,,Aug 2017,Unknown
 Radeon R5 435,,851,,223,,,,Jul 2020,Unknown
-Radeon R5 A10-9600P 4C+6G,,619,,146,,,,Dec 2016,Unknown
-"Radeon R5 A10-9600P RADEON R5, 10 COMPUTE CORES 4C",,698,,148,,,,Sep 2020,Unknown
-Radeon R5 A10-9620P 4C+6G,,732,,196,,,,Aug 2017,Unknown
-"Radeon R5 A10-9620P RADEON R5, 10 COMPUTE CORES 4C",,666,,167,,,,Sep 2020,Unknown
-Radeon R5 A10-9630P 4C+6G,,977,,270,,,,Jul 2017,Unknown
-"Radeon R5 A10-9630P RADEON R5, 10 COMPUTE CORES 4C",,751,,172,,,,Nov 2021,Unknown
+Radeon R5 A10 9600P 4C+6G,,619,,146,,,,Dec 2016,Unknown
+"Radeon R5 A10 9600P RADEON R5, 10 COMPUTE CORES 4C",,698,,148,,,,Sep 2020,Unknown
+Radeon R5 A10 9620P 4C+6G,,732,,196,,,,Aug 2017,Unknown
+"Radeon R5 A10 9620P RADEON R5, 10 COMPUTE CORES 4C",,666,,167,,,,Sep 2020,Unknown
+Radeon R5 A10 9630P 4C+6G,,977,,270,,,,Jul 2017,Unknown
+"Radeon R5 A10 9630P RADEON R5, 10 COMPUTE CORES 4C",,751,,172,,,,Nov 2021,Unknown
 Radeon R5 A240,,576,,802,,,,Aug 2016,Unknown
-Radeon R5 A6-7480,,698,,184,,,,Apr 2019,Unknown
-Radeon R5 A6-8500P,,587,,190,,,,Sep 2018,Unknown
-"Radeon R5 A6-9400 RADEON R5, 6 COMPUTE CORES 2C+4G",,605,,271,,,,Jan 2020,Unknown
-Radeon R5 A6-9500 2C+6G,,853,,249,,,,Oct 2017,Unknown
-"Radeon R5 A6-9500 RADEON R5, 8 COMPUTE CORES 2C+6G",,929,,212,,,,Nov 2020,Unknown
-Radeon R5 A6-9500E 2C+4G,,"1,015",,438,,,,Oct 2018,Unknown
-"Radeon R5 A6-9500E RADEON R5, 6 COMPUTE CORES 2C+4",,727,,223,,,,Dec 2022,Unknown
+Radeon R5 A6 7480,,698,,184,,,,Apr 2019,Unknown
+Radeon R5 A6 8500P,,587,,190,,,,Sep 2018,Unknown
+"Radeon R5 A6 9400 RADEON R5, 6 COMPUTE CORES 2C+4G",,605,,271,,,,Jan 2020,Unknown
+Radeon R5 A6 9500 2C+6G,,853,,249,,,,Oct 2017,Unknown
+"Radeon R5 A6 9500 RADEON R5, 8 COMPUTE CORES 2C+6G",,929,,212,,,,Nov 2020,Unknown
+Radeon R5 A6 9500E 2C+4G,,"1,015",,438,,,,Oct 2018,Unknown
+"Radeon R5 A6 9500E RADEON R5, 6 COMPUTE CORES 2C+4",,727,,223,,,,Dec 2022,Unknown
 Radeon R5 M230,,414,,128,,,4096,Dec 2014,Mobile
 Radeon R5 M240,,450,,159,,,,Aug 2015,Unknown
 Radeon R5 M255,,534,,136,,,4096,Dec 2014,Mobile
@@ -1950,39 +1950,39 @@ Radeon R5 M420,,487,,154,,,,Nov 2017,Unknown
 Radeon R5 M430,,649,,516,,,,Aug 2016,Unknown
 Radeon R5 M435,,800,,172,,,,Jul 2018,Unknown
 Radeon R5 Opteron X3216,,394,,182,,,,Aug 2017,Unknown
-Radeon R5 PRO A10-8730B 4C+6G,,695,,201,,,,Jan 2017,Unknown
-"Radeon R5 PRO A10-8730B R5, 10 COMPUTE CORES 4C+6G",,612,,147,,,,Nov 2020,Unknown
-Radeon R5 PRO A6-8500B 2C+4G,,508,,416,,,,Apr 2017,Unknown
-"Radeon R5 PRO A6-8500B R5, 6 Compute Cores 2C+4G",,478,,136,,,,Dec 2022,Unknown
-Radeon R5 PRO A6-8530B 2C+4G,,690,,354,,,,Jan 2017,Unknown
-"Radeon R5 PRO A6-8530B R5, 6 COMPUTE CORES 2C+4G",,346,,118,,,,Dec 2023,Unknown
-Radeon R5 PRO A6-8570 2C+6G,,847,,292,,,,Jan 2017,Unknown
-"Radeon R5 PRO A6-8570 R5, 8 COMPUTE CORES 2C+6G",,985,,240,,,,Mar 2021,Unknown
-Radeon R5 PRO A6-8570E 2C+4G,,638,,268,,,,Jan 2017,Unknown
-"Radeon R5 PRO A6-8570E R5, 6 COMPUTE CORES 2C+4G",,690,,192,,,,Jan 2021,Unknown
-Radeon R5 PRO A6-9500 2C+6G,,"1,096",,353,,,,Jan 2017,Unknown
-"Radeon R5 PRO A6-9500 R5, 8 COMPUTE CORES 2C+6G",,810,,181,,,,Jun 2021,Unknown
-Radeon R5 PRO A6-9500B 2C+4G,,693,,323,,,,Mar 2017,Unknown
-"Radeon R5 PRO A6-9500B R5, 6 COMPUTE CORES 2C+4G",,408,,120,,,,Dec 2020,Unknown
-Radeon R5 PRO A6-9500E 2C+4G,,771,,288,,,,Jan 2017,Unknown
-Radeon R5 PRO A8-9600B 4C+6G,,659,,224,,,,Jan 2017,Unknown
-"Radeon R5 PRO A8-9600B R5, 10 COMPUTE CORES 4C+6G",,553,,148,,,,Feb 2021,Unknown
+Radeon R5 PRO A10 8730B 4C+6G,,695,,201,,,,Jan 2017,Unknown
+"Radeon R5 PRO A10 8730B R5, 10 COMPUTE CORES 4C+6G",,612,,147,,,,Nov 2020,Unknown
+Radeon R5 PRO A6 8500B 2C+4G,,508,,416,,,,Apr 2017,Unknown
+"Radeon R5 PRO A6 8500B R5, 6 Compute Cores 2C+4G",,478,,136,,,,Dec 2022,Unknown
+Radeon R5 PRO A6 8530B 2C+4G,,690,,354,,,,Jan 2017,Unknown
+"Radeon R5 PRO A6 8530B R5, 6 COMPUTE CORES 2C+4G",,346,,118,,,,Dec 2023,Unknown
+Radeon R5 PRO A6 8570 2C+6G,,847,,292,,,,Jan 2017,Unknown
+"Radeon R5 PRO A6 8570 R5, 8 COMPUTE CORES 2C+6G",,985,,240,,,,Mar 2021,Unknown
+Radeon R5 PRO A6 8570E 2C+4G,,638,,268,,,,Jan 2017,Unknown
+"Radeon R5 PRO A6 8570E R5, 6 COMPUTE CORES 2C+4G",,690,,192,,,,Jan 2021,Unknown
+Radeon R5 PRO A6 9500 2C+6G,,"1,096",,353,,,,Jan 2017,Unknown
+"Radeon R5 PRO A6 9500 R5, 8 COMPUTE CORES 2C+6G",,810,,181,,,,Jun 2021,Unknown
+Radeon R5 PRO A6 9500B 2C+4G,,693,,323,,,,Mar 2017,Unknown
+"Radeon R5 PRO A6 9500B R5, 6 COMPUTE CORES 2C+4G",,408,,120,,,,Dec 2020,Unknown
+Radeon R5 PRO A6 9500E 2C+4G,,771,,288,,,,Jan 2017,Unknown
+Radeon R5 PRO A8 9600B 4C+6G,,659,,224,,,,Jan 2017,Unknown
+"Radeon R5 PRO A8 9600B R5, 10 COMPUTE CORES 4C+6G",,553,,148,,,,Feb 2021,Unknown
 Radeon R5E,,300,,100,,,,Jul 2014,Unknown
 Radeon R6,,619,,138,15,41.27,0,Jul 2014,"Desktop, Mobile"
 Radeon R6 + R7 M265DX Dual,,571,,328,,,,Mar 2015,Unknown
-Radeon R6 A10-8700P,,541,,137,,,,Dec 2016,Unknown
-Radeon R6 A10-9600P 4C+6G,,970,,336,,,,Dec 2018,Unknown
-Radeon R6 A8-8600P,,475,,151,,,,Feb 2017,Unknown
+Radeon R6 A10 8700P,,541,,137,,,,Dec 2016,Unknown
+Radeon R6 A10 9600P 4C+6G,,970,,336,,,,Dec 2018,Unknown
+Radeon R6 A8 8600P,,475,,151,,,,Feb 2017,Unknown
 Radeon R6 M255DX,,605,,116,,,,Sep 2019,Unknown
 Radeon R6 Opteron X3418,,955,,399,,,,Apr 2019,Unknown
-Radeon R6 PRO A10-8700B 4C+6G,,538,,146,,,,Dec 2016,Unknown
-"Radeon R6 PRO A10-8700B R6, 10 Compute Cores 4C+6G",,540,,135,,,,Sep 2020,Unknown
-Radeon R6 PRO A8-8600B 4C+6G,,532,,158,,,,Dec 2016,Unknown
-"Radeon R6 PRO A8-8600B R6, 10 Compute Cores 4C+6G",,590,,153,,,,Oct 2020,Unknown
+Radeon R6 PRO A10 8700B 4C+6G,,538,,146,,,,Dec 2016,Unknown
+"Radeon R6 PRO A10 8700B R6, 10 Compute Cores 4C+6G",,540,,135,,,,Sep 2020,Unknown
+Radeon R6 PRO A8 8600B 4C+6G,,532,,158,,,,Dec 2016,Unknown
+"Radeon R6 PRO A8 8600B R6, 10 Compute Cores 4C+6G",,590,,153,,,,Oct 2020,Unknown
 Radeon R7 + HD 7700 Dual,,"1,962",,498,,,,Dec 2014,Unknown
 Radeon R7 + R5 330 Dual,,"1,028",,531,,,,Mar 2016,Unknown
 Radeon R7 + R5 340 Dual,,"1,235",,471,,,,May 2017,Unknown
-Radeon R7 + R5 435 Dual A10-9700 RADEON,,886,,480,,,,Mar 2017,Unknown
+Radeon R7 + R5 435 Dual A10 9700 RADEON,,886,,480,,,,Mar 2017,Unknown
 Radeon R7 + R5 Dual,,898,,496,,,,Apr 2017,Unknown
 Radeon R7 + R7 200 Dual,,"1,077",,282,,,,Nov 2014,Unknown
 Radeon R7 + R7 240 Dual,,"1,045",,374,,,,Apr 2015,Unknown
@@ -2001,44 +2001,44 @@ Radeon R7 360,145.99,"3,105",21.27,513,100,31.05,2048,Jun 2015,Desktop
 Radeon R7 370,,"4,516",,606,150,30.10,,Apr 2016,Desktop
 Radeon R7 430,150.58,"1,094",7.26,382,,,,May 2017,Unknown
 Radeon R7 450,299.00,"1,931",6.46,525,65,29.71,2048,Oct 2016,Desktop
-Radeon R7 7850A10-7850K,,551,,506,,,,Feb 2019,Unknown
+Radeon R7 7850A10 7850K,,551,,506,,,,Feb 2019,Unknown
 Radeon R7 A10 Extreme Edition,,816,,286,,,,Dec 2016,Unknown
-Radeon R7 A10 PRO-7800B,,828,,253,,,,Oct 2014,Unknown
-Radeon R7 A10 PRO-7850B,,882,,322,,,,Nov 2014,Unknown
-Radeon R7 A10-7700K,,779,,231,,,,Nov 2014,Unknown
-Radeon R7 A10-7800,,717,,189,,,,Nov 2014,Unknown
-Radeon R7 A10-7850K,,962,,278,95,10.12,16384,Oct 2014,Desktop
-Radeon R7 A10-7860K,,927,,227,,,,Mar 2016,Unknown
-Radeon R7 A10-7870K,,"1,113",,264,,,,Jun 2015,Unknown
-Radeon R7 A10-7890K,,975,,272,,,,Apr 2016,Unknown
-Radeon R7 A10-8750,,856,,217,,,,Sep 2015,Unknown
-Radeon R7 A10-8850,,773,,277,,,,Jan 2017,Unknown
-Radeon R7 A10-9700 RADEON,,926,,227,,,,Mar 2017,Unknown
-Radeon R7 A10-9700E RADEON,,900,,251,,,,Jan 2018,Unknown
-Radeon R7 A12-9700P RADEON,435.92,731,1.68,172,,,,Dec 2016,Unknown
-Radeon R7 A12-9720P RADEON,365.48,732,2.00,179,,,,Jul 2017,Unknown
-Radeon R7 A12-9730P RADEON,,"1,027",,269,,,,Jul 2017,Unknown
-Radeon R7 A12-9800 RADEON,,"1,076",,286,,,,Feb 2017,Unknown
-Radeon R7 A12-9800E RADEON,139.19,913,6.56,246,,,,Sep 2017,Unknown
+Radeon R7 A10 PRO 7800B,,828,,253,,,,Oct 2014,Unknown
+Radeon R7 A10 PRO 7850B,,882,,322,,,,Nov 2014,Unknown
+Radeon R7 A10 7700K,,779,,231,,,,Nov 2014,Unknown
+Radeon R7 A10 7800,,717,,189,,,,Nov 2014,Unknown
+Radeon R7 A10 7850K,,962,,278,95,10.12,16384,Oct 2014,Desktop
+Radeon R7 A10 7860K,,927,,227,,,,Mar 2016,Unknown
+Radeon R7 A10 7870K,,"1,113",,264,,,,Jun 2015,Unknown
+Radeon R7 A10 7890K,,975,,272,,,,Apr 2016,Unknown
+Radeon R7 A10 8750,,856,,217,,,,Sep 2015,Unknown
+Radeon R7 A10 8850,,773,,277,,,,Jan 2017,Unknown
+Radeon R7 A10 9700 RADEON,,926,,227,,,,Mar 2017,Unknown
+Radeon R7 A10 9700E RADEON,,900,,251,,,,Jan 2018,Unknown
+Radeon R7 A12 9700P RADEON,435.92,731,1.68,172,,,,Dec 2016,Unknown
+Radeon R7 A12 9720P RADEON,365.48,732,2.00,179,,,,Jul 2017,Unknown
+Radeon R7 A12 9730P RADEON,,"1,027",,269,,,,Jul 2017,Unknown
+Radeon R7 A12 9800 RADEON,,"1,076",,286,,,,Feb 2017,Unknown
+Radeon R7 A12 9800E RADEON,139.19,913,6.56,246,,,,Sep 2017,Unknown
 Radeon R7 A265,,994,,468,,,,Jun 2015,Unknown
 Radeon R7 A360,,608,,223,,,,Mar 2017,Unknown
 Radeon R7 A365,,781,,763,,,,Feb 2016,Unknown
 Radeon R7 A370,,"1,281",,742,,,,Jun 2016,Unknown
-Radeon R7 A8 PRO-7600B,,671,,181,,,,Nov 2014,Unknown
-Radeon R7 A8-7500,,875,,300,,,,Feb 2017,Unknown
-Radeon R7 A8-7500 4C+6G,,853,,390,,,,Apr 2017,Unknown
-Radeon R7 A8-7600,,786,,216,,,,Oct 2014,Unknown
-Radeon R7 A8-7650K,,745,,222,,,,Mar 2015,Unknown
-Radeon R7 A8-7670K,,849,,297,,,,Sep 2015,Unknown
-Radeon R7 A8-7680,,826,,187,,,,Mar 2019,Unknown
-Radeon R7 A8-7690K,,"1,141",,336,,,,May 2023,Unknown
-Radeon R7 A8-7A8-7600,,583,,191,,,,Aug 2023,Unknown
-Radeon R7 A8-8650,,913,,499,,,,Jan 2016,Unknown
-Radeon R7 A8-9600 RADEON,,824,,196,,,,Apr 2017,Unknown
-Radeon R7 Eng Sample: ZM2111C1Y4382_34/21/13/06_98,,422,,126,,,,Jun 2020,Unknown
-Radeon R7 FX-8800P,,830,,193,,,,Dec 2016,Unknown
-Radeon R7 FX-9800P RADEON,530.00,706,1.33,184,,,,Dec 2016,Unknown
-Radeon R7 FX-9830P RADEON,,"1,465",,234,,,,Dec 2016,Unknown
+Radeon R7 A8 PRO 7600B,,671,,181,,,,Nov 2014,Unknown
+Radeon R7 A8 7500,,875,,300,,,,Feb 2017,Unknown
+Radeon R7 A8 7500 4C+6G,,853,,390,,,,Apr 2017,Unknown
+Radeon R7 A8 7600,,786,,216,,,,Oct 2014,Unknown
+Radeon R7 A8 7650K,,745,,222,,,,Mar 2015,Unknown
+Radeon R7 A8 7670K,,849,,297,,,,Sep 2015,Unknown
+Radeon R7 A8 7680,,826,,187,,,,Mar 2019,Unknown
+Radeon R7 A8 7690K,,"1,141",,336,,,,May 2023,Unknown
+Radeon R7 A8 7A8 7600,,583,,191,,,,Aug 2023,Unknown
+Radeon R7 A8 8650,,913,,499,,,,Jan 2016,Unknown
+Radeon R7 A8 9600 RADEON,,824,,196,,,,Apr 2017,Unknown
+Radeon R7 Eng Sample: ZM2111C1Y4382_34 21 13 06_98,,422,,126,,,,Jun 2020,Unknown
+Radeon R7 FX 8800P,,830,,193,,,,Dec 2016,Unknown
+Radeon R7 FX 9800P RADEON,530.00,706,1.33,184,,,,Dec 2016,Unknown
+Radeon R7 FX 9830P RADEON,,"1,465",,234,,,,Dec 2016,Unknown
 Radeon R7 G,,870,,532,,,,Sep 2015,Unknown
 Radeon R7 M260,799.00,498,0.62,120,,,4096,Nov 2014,Mobile
 Radeon R7 M260DX,,817,,195,,,,May 2019,Unknown
@@ -2059,25 +2059,25 @@ Radeon R7 M460,,"1,078",,203,,,,Dec 2016,Unknown
 Radeon R7 M465,,"1,125",,225,,,,May 2017,Unknown
 Radeon R7 M465X,,"1,780",,378,,,,May 2018,Unknown
 Radeon R7 Opteron X3421,,"1,169",,328,,,,Sep 2017,Unknown
-Radeon R7 PRO A10-8750B,,768,,207,,,,Nov 2015,Unknown
-Radeon R7 PRO A10-8770,,899,,231,,,,Jan 2017,Unknown
-Radeon R7 PRO A10-8770E,,825,,204,,,,Jan 2017,Unknown
-Radeon R7 PRO A10-8850B,,945,,552,,,,Jun 2016,Unknown
-Radeon R7 PRO A10-9700,,799,,194,,,,Feb 2017,Unknown
-Radeon R7 PRO A10-9700B,,629,,182,,,,Jan 2018,Unknown
-Radeon R7 PRO A10-9700E,529.00,971,1.84,229,,,,Feb 2017,Unknown
-Radeon R7 PRO A12-8800B,,597,,187,,,,Dec 2016,Unknown
-Radeon R7 PRO A12-8830B,,594,,165,,,,Sep 2017,Unknown
-Radeon R7 PRO A12-8870,,905,,253,,,,Jan 2017,Unknown
-Radeon R7 PRO A12-8870E,,920,,237,,,,Dec 2016,Unknown
-Radeon R7 PRO A12-9800,,877,,246,,,,Jan 2017,Unknown
-Radeon R7 PRO A12-9800B,,702,,189,,,,Jan 2017,Unknown
-Radeon R7 PRO A12-9800E,,957,,245,,,,Jan 2017,Unknown
-Radeon R7 PRO A6-9500 2C+6G,,781,,439,,,,Apr 2019,Unknown
-"Radeon R7 PRO A6-9500 R5, 8 COMPUTE CORES 2C+6G",,"1,293",,290,,,,Feb 2023,Unknown
-Radeon R7 PRO A8-8650B,,719,,195,,,,Dec 2015,Unknown
-Radeon R7 PRO A8-8670E,,"1,310",,442,,,,Aug 2017,Unknown
-Radeon R7 PRO A8-9600,,893,,255,,,,Dec 2016,Unknown
+Radeon R7 PRO A10 8750B,,768,,207,,,,Nov 2015,Unknown
+Radeon R7 PRO A10 8770,,899,,231,,,,Jan 2017,Unknown
+Radeon R7 PRO A10 8770E,,825,,204,,,,Jan 2017,Unknown
+Radeon R7 PRO A10 8850B,,945,,552,,,,Jun 2016,Unknown
+Radeon R7 PRO A10 9700,,799,,194,,,,Feb 2017,Unknown
+Radeon R7 PRO A10 9700B,,629,,182,,,,Jan 2018,Unknown
+Radeon R7 PRO A10 9700E,529.00,971,1.84,229,,,,Feb 2017,Unknown
+Radeon R7 PRO A12 8800B,,597,,187,,,,Dec 2016,Unknown
+Radeon R7 PRO A12 8830B,,594,,165,,,,Sep 2017,Unknown
+Radeon R7 PRO A12 8870,,905,,253,,,,Jan 2017,Unknown
+Radeon R7 PRO A12 8870E,,920,,237,,,,Dec 2016,Unknown
+Radeon R7 PRO A12 9800,,877,,246,,,,Jan 2017,Unknown
+Radeon R7 PRO A12 9800B,,702,,189,,,,Jan 2017,Unknown
+Radeon R7 PRO A12 9800E,,957,,245,,,,Jan 2017,Unknown
+Radeon R7 PRO A6 9500 2C+6G,,781,,439,,,,Apr 2019,Unknown
+"Radeon R7 PRO A6 9500 R5, 8 COMPUTE CORES 2C+6G",,"1,293",,290,,,,Feb 2023,Unknown
+Radeon R7 PRO A8 8650B,,719,,195,,,,Dec 2015,Unknown
+Radeon R7 PRO A8 8670E,,"1,310",,442,,,,Aug 2017,Unknown
+Radeon R7 PRO A8 9600,,893,,255,,,,Dec 2016,Unknown
 Radeon R7E,,565,,159,,,,Sep 2018,Unknown
 Radeon R8 M365DX,,647,,199,,,,Jun 2019,Unknown
 Radeon R8 M445DX,,797,,181,,,,Apr 2019,Unknown
@@ -2085,16 +2085,16 @@ Radeon R8 M535DX,,670,,182,,,,Apr 2019,Unknown
 Radeon R9 255,344.16,"1,420",4.13,388,,,2048,Jun 2014,Desktop
 Radeon R9 260,,"3,182",,586,,,,May 2016,Unknown
 Radeon R9 270,,"4,306",,567,,,,Nov 2018,Unknown
-Radeon R9 270 / R7 370,213.16,"4,260",19.98,645,150,28.40,2048,Dec 2013,Desktop
+Radeon R9 270   R7 370,213.16,"4,260",19.98,645,150,28.40,2048,Dec 2013,Desktop
 Radeon R9 270X,326.50,"4,871",14.92,613,180,27.06,4096,Oct 2013,Desktop
 Radeon R9 280,,"5,558",,665,250,22.23,3072,Apr 2016,Desktop
 Radeon R9 280X,,"6,186",,682,250,24.75,3072,Apr 2016,Desktop
 Radeon R9 285,,"6,680",,597,,,,May 2021,Unknown
-Radeon R9 285 / 380,485.00,"5,550",11.44,655,190,29.21,2048,Jan 2015,Desktop
+Radeon R9 285   380,485.00,"5,550",11.44,655,190,29.21,2048,Jan 2015,Desktop
 Radeon R9 290,,"8,300",,776,,,,Sep 2020,Unknown
-Radeon R9 290 / 390,380.00,"8,150",21.45,695,275,29.64,4096,Nov 2013,Desktop
+Radeon R9 290   390,380.00,"8,150",21.45,695,275,29.64,4096,Nov 2013,Desktop
 Radeon R9 290X,,"8,624",,766,,,,Sep 2020,Unknown
-Radeon R9 290X / 390X,319.99,"8,389",26.22,699,290,28.93,4096,Oct 2013,Desktop
+Radeon R9 290X   390X,319.99,"8,389",26.22,699,290,28.93,4096,Oct 2013,Desktop
 Radeon R9 295X2,499.10,"8,618",17.27,765,500,17.24,8192,May 2014,Desktop
 Radeon R9 350,299.00,"1,994",6.67,497,60,33.23,2048,Oct 2016,Desktop
 Radeon R9 360,133.89,"3,032",22.64,460,85,35.67,2048,Oct 2015,Desktop
@@ -2111,7 +2111,7 @@ Radeon R9 M265X,,"1,133",,207,,,4096,Nov 2014,Mobile
 Radeon R9 M270X,,"1,204",,306,,,4096,Feb 2015,Mobile
 Radeon R9 M275,699.99,"1,115",1.59,569,,,,Oct 2014,Mobile
 Radeon R9 M275X,,"1,537",,307,,,,Jan 2021,Unknown
-Radeon R9 M275X / M375,,"1,575",,467,50,31.50,4096,Dec 2014,Mobile
+Radeon R9 M275X   M375,,"1,575",,467,50,31.50,4096,Dec 2014,Mobile
 Radeon R9 M280X,,814,,247,75,10.85,4096,Jan 2020,Mobile
 Radeon R9 M290X,,"3,263",,426,100,32.63,4096,Jul 2014,Mobile
 Radeon R9 M295X,1449.00,"5,150",3.55,832,125,41.20,4096,Oct 2014,Mobile
@@ -2130,7 +2130,7 @@ Radeon R9 M470,,"2,331",,307,75,31.08,4096,Nov 2016,Mobile
 Radeon R9 M470X,,"3,244",,426,75,43.25,4096,Sep 2016,Mobile
 Radeon R9 M485X,,"3,661",,417,,,,Apr 2017,Unknown
 Radeon RX 460,166.81,"4,103",24.60,574,75,54.70,4096,Aug 2016,Desktop
-Radeon RX 470/570,388.99,"8,006",20.58,726,120,66.72,8192,Aug 2016,Desktop
+Radeon RX 470 570,388.99,"8,006",20.58,726,120,66.72,8192,Aug 2016,Desktop
 Radeon RX 480,339.99,"8,624",25.37,777,150,57.50,8192,Jun 2016,Desktop
 Radeon RX 5300,,"7,561",,712,100,75.61,3072,Jul 2021,Desktop
 Radeon RX 5300M,,"4,307",,367,85,50.68,3072,Dec 2020,Mobile
@@ -2196,12 +2196,12 @@ Radeon RX 7900 GRE,609.99,"26,821",43.97,"1,108",,,,Aug 2023,Unknown
 Radeon RX 7900 XT,689.99,"28,695",41.59,"1,174",315,91.09,20480,Dec 2022,Desktop
 Radeon RX 7900 XTX,899.99,"30,965",34.41,"1,227",355,87.23,24576,Dec 2022,Desktop
 Radeon RX 7900M,,"22,365",,916,,,,Nov 2023,Mobile
-Radeon RX Vega - Renoir Ryzen 3 5300U,,"2,312",,571,,,,Nov 2023,Unknown
+Radeon RX Vega   Renoir Ryzen 3 5300U,,"2,312",,571,,,,Nov 2023,Unknown
 Radeon RX Vega 10,,"1,636",,375,,,,Apr 2019,Unknown
 Radeon RX Vega 10 Ryzen 5 3500U,,"1,778",,456,,,,Jul 2023,Unknown
 Radeon RX Vega 10 Ryzen 7 3700U,,"1,511",,333,,,,Dec 2022,Unknown
 Radeon RX Vega 10 Ryzen 7 3750H,,"1,825",,381,,,,Dec 2022,Unknown
-Radeon RX Vega 10 Ryzen 7 PRO 3700U w/,,"1,521",,360,,,,Feb 2023,Unknown
+Radeon RX Vega 10 Ryzen 7 PRO 3700U w ,,"1,521",,360,,,,Feb 2023,Unknown
 Radeon RX Vega 11,1002.00,"2,116",2.11,524,,,0,Feb 2018,Desktop
 Radeon RX Vega 11 PRD,,"2,402",,601,,,,Aug 2019,Unknown
 Radeon RX Vega 11 Processor,,"1,844",,459,,,,Jan 2021,Unknown
@@ -2251,8 +2251,8 @@ Radeon Ryzen 5 7430U,,"2,180",,584,,,,Apr 2024,Desktop
 Radeon Ryzen 5 7530U,,"2,217",,626,,,,Jan 2023,Unknown
 Radeon Ryzen 5 7535HS,,"3,629",,770,,,,Apr 2023,Unknown
 Radeon Ryzen 5 7535U,,"3,314",,708,,,,Jun 2023,Unknown
-Radeon Ryzen 5 7600 6-Core,,"1,832",,549,,,,Jan 2023,Unknown
-Radeon Ryzen 5 7600X 6-Core,,"1,753",,561,,,,Dec 2022,Unknown
+Radeon Ryzen 5 7600 6 Core,,"1,832",,549,,,,Jan 2023,Unknown
+Radeon Ryzen 5 7600X 6 Core,,"1,753",,561,,,,Dec 2022,Unknown
 Radeon Ryzen 5 Microsoft Surface Edition,,"2,099",,521,,,,Apr 2021,Unknown
 Radeon Ryzen 5 PRO 4500U,,"2,078",,557,,,,Feb 2022,Unknown
 Radeon Ryzen 5 PRO 4655G,,"2,376",,710,,,,May 2023,Unknown
@@ -2263,7 +2263,7 @@ Radeon Ryzen 5 PRO 5675U,,"1,940",,573,,,,Feb 2023,Unknown
 Radeon Ryzen 5 PRO 6650H,,"3,725",,627,,,,Jul 2024,Unknown
 Radeon Ryzen 5 PRO 6650U,,"3,674",,711,,,,Dec 2022,Unknown
 Radeon Ryzen 5 Pro 7535U,,"3,301",,715,,,,Jan 2024,Unknown
-Radeon Ryzen 5 PRO 7645 6-Core,,"1,552",,516,,,,May 2023,Unknown
+Radeon Ryzen 5 PRO 7645 6 Core,,"1,552",,516,,,,May 2023,Unknown
 Radeon Ryzen 7 3700U,,"1,434",,352,,,,Dec 2022,Unknown
 Radeon Ryzen 7 4700G,,"2,613",,697,,,,Mar 2021,Unknown
 Radeon Ryzen 7 4700GE,,"2,610",,661,,,,Apr 2021,Unknown
@@ -2282,14 +2282,14 @@ Radeon Ryzen 7 6800H,,"5,349",,783,,,,Dec 2022,Unknown
 Radeon Ryzen 7 6800HS,,"6,210",,761,,,,Dec 2022,Unknown
 Radeon Ryzen 7 6800HS Creator Edition,,"5,461",,774,,,,Jan 2023,Unknown
 Radeon Ryzen 7 6800U,,"4,572",,568,,,,Dec 2022,Unknown
-Radeon Ryzen 7 7700 8-Core,,"1,683",,542,,,,Jan 2023,Unknown
-Radeon Ryzen 7 7700X 8-Core,,"2,141",,589,,,,Dec 2022,Unknown
+Radeon Ryzen 7 7700 8 Core,,"1,683",,542,,,,Jan 2023,Unknown
+Radeon Ryzen 7 7700X 8 Core,,"2,141",,589,,,,Dec 2022,Unknown
 Radeon Ryzen 7 7730U,,"2,454",,616,,,,Mar 2023,Unknown
 Radeon Ryzen 7 7735H,,"5,191",,799,,,,Mar 2023,Unknown
 Radeon Ryzen 7 7735HS,,"5,353",,815,,,,Jan 2023,Unknown
 Radeon Ryzen 7 7735U,,"5,188",,733,,,,Apr 2023,Unknown
 Radeon Ryzen 7 7736U,,"5,792",,684,,,,Jan 2023,Unknown
-Radeon Ryzen 7 7800X3D 8-Core,,"1,744",,539,,,,Apr 2023,Unknown
+Radeon Ryzen 7 7800X3D 8 Core,,"1,744",,539,,,,Apr 2023,Unknown
 Radeon Ryzen 7 Microsoft Surface Edition,,"2,297",,520,,,,Apr 2021,Unknown
 Radeon Ryzen 7 PRO 4750G,,"2,596",,689,,,,Mar 2021,Unknown
 Radeon Ryzen 7 PRO 4750GE,,"2,368",,627,,,,Mar 2021,Unknown
@@ -2301,20 +2301,20 @@ Radeon Ryzen 7 PRO 6850U,,"5,179",,755,,,,Dec 2022,Unknown
 Radeon Ryzen 7 PRO 6860Z,,"4,594",,713,,,,Jan 2023,Unknown
 Radeon Ryzen 7 PRO 7730U,,"2,318",,603,,,,Mar 2023,Unknown
 Radeon Ryzen 7 Pro 7735U,,"4,436",,627,,,,Jan 2024,Unknown
-Radeon Ryzen 7 PRO 7745 8-Core,,"1,582",,529,,,,May 2023,Unknown
+Radeon Ryzen 7 PRO 7745 8 Core,,"1,582",,529,,,,May 2023,Unknown
 Radeon Ryzen 9 4900H,,"2,554",,658,,,,Jun 2021,Unknown
 Radeon Ryzen 9 5900H,,"2,961",,819,,,,Jan 2022,Unknown
 Radeon Ryzen 9 5980HS,,"2,749",,751,,,,Oct 2022,Unknown
 Radeon Ryzen 9 6900HS,,"7,269",,675,,,,Dec 2022,Unknown
 Radeon Ryzen 9 6900HS Creator Edition,,"6,012",,847,,,,Jun 2024,Unknown
-Radeon Ryzen 9 7900 12-Core,,"2,240",,572,,,,Jan 2023,Unknown
-Radeon Ryzen 9 7900X 12-Core,,"2,570",,584,,,,Dec 2022,Unknown
-Radeon Ryzen 9 7900X3D 12-Core,,"1,655",,534,,,,Nov 2023,Unknown
-Radeon Ryzen 9 7950X 16-Core,,"4,050",,593,,,,Dec 2022,Unknown
-Radeon Ryzen 9 7950X3D 16-Core,,"1,632",,527,,,,Mar 2023,Unknown
+Radeon Ryzen 9 7900 12 Core,,"2,240",,572,,,,Jan 2023,Unknown
+Radeon Ryzen 9 7900X 12 Core,,"2,570",,584,,,,Dec 2022,Unknown
+Radeon Ryzen 9 7900X3D 12 Core,,"1,655",,534,,,,Nov 2023,Unknown
+Radeon Ryzen 9 7950X 16 Core,,"4,050",,593,,,,Dec 2022,Unknown
+Radeon Ryzen 9 7950X3D 16 Core,,"1,632",,527,,,,Mar 2023,Unknown
 Radeon Ryzen 9 PRO 6950H,,"6,210",,855,,,,Mar 2024,Unknown
 Radeon Ryzen 9 PRO 6950HS,,"4,251",,800,,,,Jan 2023,Unknown
-Radeon Ryzen 9 PRO 7945 12-Core,,"1,711",,577,,,,May 2023,Unknown
+Radeon Ryzen 9 PRO 7945 12 Core,,"1,711",,577,,,,May 2023,Unknown
 Radeon Ryzen Embedded R2314,,"1,032",,329,,,,Jan 2024,Unknown
 Radeon Ryzen Embedded R2514,,"1,482",,396,,,,Aug 2023,Unknown
 Radeon Ryzen Embedded R2544,,"1,865",,443,,,,Aug 2023,Unknown
@@ -2328,11 +2328,11 @@ Radeon TM R9 A360,,"2,065",,672,,,,Apr 2016,Unknown
 Radeon VE,,2,,36,,,,Apr 2009,Unknown
 Radeon Vega 10,,"1,563",,367,,,,Apr 2019,Unknown
 Radeon Vega 10 Mobile,,"1,516",,339,,,,Dec 2017,Unknown
-Radeon Vega 10 Ryzen 7 PRO 3700U w/,,"1,638",,356,,,,Jan 2023,Unknown
+Radeon Vega 10 Ryzen 7 PRO 3700U w ,,"1,638",,356,,,,Jan 2023,Unknown
 Radeon Vega 11,,"1,841",,488,,,,Sep 2019,Unknown
 Radeon Vega 11 Ryzen 5 PRO 3350G,,"2,363",,516,,,,Mar 2023,Unknown
 Radeon Vega 11 Ryzen 5 PRO 3400G,,"1,936",,463,,,,Jan 2023,Unknown
-Radeon Vega 11 Ryzen 5 PRO 3400GE w/,,"1,907",,457,,,,Jan 2023,Unknown
+Radeon Vega 11 Ryzen 5 PRO 3400GE w ,,"1,907",,457,,,,Jan 2023,Unknown
 Radeon Vega 2,,506,,244,,,,Sep 2020,Unknown
 Radeon Vega 2 Athlon Silver 3050U,,542,,171,,,,Jun 2023,Unknown
 Radeon Vega 3,2677.99,888,0.33,304,,,,Apr 2018,Unknown
@@ -2344,7 +2344,7 @@ Radeon Vega 3 Athlon 320GE,,694,,276,,,,May 2023,Unknown
 Radeon Vega 3 Athlon Gold 3150G,,"1,334",,467,,,,Jul 2023,Unknown
 Radeon Vega 3 Athlon Gold 3150U,,597,,206,,,,Jan 2023,Unknown
 Radeon Vega 3 Athlon Gold PRO 3150GE,,920,,433,,,,Jan 2023,Unknown
-Radeon Vega 3 Athlon PRO 300GE w/,,935,,383,,,,Feb 2024,Unknown
+Radeon Vega 3 Athlon PRO 300GE w ,,935,,383,,,,Feb 2024,Unknown
 Radeon Vega 3 Athlon Silver 3050e,,508,,171,,,,Jan 2023,Unknown
 Radeon Vega 3 Athlon Silver 3050U,,856,,235,,,,Jan 2023,Unknown
 Radeon Vega 3 Mobile,,"1,034",,314,,,,Dec 2017,Unknown
@@ -2355,17 +2355,17 @@ Radeon Vega 3 Ryzen Embedded R1505G,,737,,265,,,,Dec 2022,Unknown
 Radeon Vega 6,1799.99,"1,311",0.73,341,,,,May 2018,Unknown
 Radeon Vega 6 Ryzen 3 3300U,,"1,320",,308,,,,Feb 2023,Unknown
 Radeon Vega 6 Ryzen 3 3350U,,"1,531",,358,,,,Dec 2022,Unknown
-Radeon Vega 6 Ryzen 3 PRO 3300U w/,,"1,370",,332,,,,Jan 2023,Unknown
+Radeon Vega 6 Ryzen 3 PRO 3300U w ,,"1,370",,332,,,,Jan 2023,Unknown
 Radeon Vega 8,126.86,"1,583",12.48,412,,,0,Feb 2018,"Desktop, Mobile"
 Radeon Vega 8 Mobile,,"1,426",,342,,,,Nov 2017,Unknown
 Radeon Vega 8 Ryzen 3 3200G,,"1,936",,459,,,,Dec 2022,Unknown
 Radeon Vega 8 Ryzen 3 3200GE,,"1,722",,518,,,,Apr 2023,Unknown
 Radeon Vega 8 Ryzen 3 PRO 3200G,,"1,861",,425,,,,Feb 2023,Unknown
-Radeon Vega 8 Ryzen 3 PRO 3200GE w/,,"1,498",,415,,,,Jun 2023,Unknown
+Radeon Vega 8 Ryzen 3 PRO 3200GE w ,,"1,498",,415,,,,Jun 2023,Unknown
 Radeon Vega 8 Ryzen 5 3450U,,"1,223",,314,,,,Jan 2023,Unknown
 Radeon Vega 8 Ryzen 5 3500U,,"1,396",,326,,,,Dec 2022,Unknown
 Radeon Vega 8 Ryzen 5 3550H,,"1,681",,352,,,,Dec 2022,Unknown
-Radeon Vega 8 Ryzen 5 PRO 3500U w/,,"1,499",,339,,,,Jan 2023,Unknown
+Radeon Vega 8 Ryzen 5 PRO 3500U w ,,"1,499",,339,,,,Jan 2023,Unknown
 Radeon Vega 9,,"1,596",,408,,,,Oct 2019,Unknown
 Radeon Vega 9 Ryzen 5 3550H,,"1,561",,358,,,,Apr 2023,Unknown
 Radeon Vega 9 Ryzen 5 Microsoft Surface Edition,,"1,516",,359,,,,Feb 2023,Unknown
@@ -2379,10 +2379,10 @@ Radeon X1270,,31,,169,,,,Oct 2010,Unknown
 Radeon X1300,95.78,58,0.61,237,,,256,Jul 2009,Desktop
 Radeon X1300 PRO,,84,,313,,,,Nov 2009,Unknown
 Radeon X1550,155.00,67,0.43,253,27,2.47,512,Jul 2009,Desktop
-Radeon X1550 64-bit,,48,,257,,,,Dec 2009,Unknown
+Radeon X1550 64 bit,,48,,257,,,,Dec 2009,Unknown
 Radeon X1600,,49,,209,,,,May 2009,Unknown
 Radeon X1600 Pro,,99,,273,41,2.41,512,Oct 2012,Desktop
-Radeon X1600 Pro / X1300XT,,69,,285,,,,Jan 2010,Unknown
+Radeon X1600 Pro   X1300XT,,69,,285,,,,Jan 2010,Unknown
 Radeon X1600 XT,,116,,356,42,2.75,512,Dec 2012,Desktop
 Radeon X1650 GTO,,75,,384,,,,Oct 2009,Unknown
 Radeon X1650 Pro,160.89,85,0.53,241,44,1.93,512,Jan 2010,Desktop
@@ -2408,7 +2408,7 @@ RADEON X700 SE,,71,,348,,,128,Jul 2009,Desktop
 RADEON X800 GT,,84,,423,,,256,Apr 2009,Desktop
 RADEON X800 GTO,,115,,162,,,256,Nov 2010,Desktop
 RADEON X800 PRO,,65,,190,,,256,Jun 2009,Desktop
-RADEON X800 PRO/GTO,,73,,181,,,256,Nov 2009,Desktop
+RADEON X800 PRO GTO,,73,,181,,,256,Nov 2009,Desktop
 RADEON X800 SE,,130,,384,,,256,Apr 2009,Desktop
 RADEON X800 XL,,69,,271,,,256,Mar 2011,Desktop
 RADEON X800 XT,,98,,271,,,256,Aug 2012,Desktop
@@ -2437,12 +2437,12 @@ RadeonT RX Vega 11,,"1,621",,440,,,,May 2023,Unknown
 RadeonT Vega 8,,"1,894",,355,,,,Feb 2023,Unknown
 Rage 128 Pro,,1,,40,,,,Apr 2009,Unknown
 RAGE 128 PRO AGP 4X TMDS,,1,,142,,,,Apr 2009,Unknown
-Rage Fury Pro/Xpert 2000 Pro,,3,,53,,,,May 2009,Unknown
+Rage Fury Pro Xpert 2000 Pro,,3,,53,,,,May 2009,Unknown
 RDPDD Chained DD,,187,,7,,,,Mar 2024,Unknown
 Red Hat QXL controller,,32,,270,,,,Sep 2015,Unknown
 RGH Drivers v3,,11,,312,,,,Sep 2016,Unknown
-RIVA TNT2 Model 64/Model 64 Pro,,4,,107,,,,Sep 2009,Unknown
-RIVA TNT2/TNT2 Pro,,3,,71,,,,Apr 2009,Unknown
+RIVA TNT2 Model 64 Model 64 Pro,,4,,107,,,,Sep 2009,Unknown
+RIVA TNT2 TNT2 Pro,,3,,71,,,,Apr 2009,Unknown
 RTX 1000 Ada Generation Laptop GPU,,"14,012",,613,,,,Mar 2024,Unknown
 RTX 2000 Ada Generation,,"17,973",,"1,164",,,,Mar 2024,Unknown
 RTX 2000 Ada Generation Laptop GPU,,"15,300",,607,,,,Feb 2023,Unknown
@@ -2479,8 +2479,8 @@ RTX A5000 Laptop GPU,,"15,998",,611,165,96.96,16384,Jun 2021,"Mobile, Workstatio
 RTX A5500,2169.99,"22,344",10.30,855,,,,May 2022,Unknown
 RTX A5500 Laptop GPU,,"17,355",,713,,,,Jul 2022,Unknown
 RTX A6000,4109.99,"22,519",5.48,905,300,75.06,49152,Jan 2021,Workstation
-RTXA5000-6Q,,"1,522",,71,,,,Apr 2024,Desktop
-RTXA6000-8Q,,"4,237",,86,,,,Apr 2023,Unknown
+RTXA5000 6Q,,"1,522",,71,,,,Apr 2024,Desktop
+RTXA6000 8Q,,"4,237",,86,,,,Apr 2023,Unknown
 RV530 PRO,,119,,386,,,,Oct 2009,Unknown
 Ryzen 3 4300G with Radeon Graphics,,"2,059",,615,,,,Jul 2020,Unknown
 Ryzen 3 4300GE with Radeon Graphics,,"2,271",,668,,,,Oct 2020,Unknown
@@ -2596,17 +2596,17 @@ S3 Chrome S25 DDR2,,18,,252,,,,Oct 2011,Unknown
 S3 Chrome S27 DDR3,,33,,7,,,,Apr 2022,Unknown
 S3 Inc. Savage4,,3,,21,,,,Aug 2011,Unknown
 S3 ProSavageDDR,,1,,41,,,,Apr 2009,Unknown
-S3 SuperSavage/IXC 1014,,2,,147,,,,Apr 2009,Unknown
+S3 SuperSavage IXC 1014,,2,,147,,,,Apr 2009,Unknown
 SAPPHIRE RADEON 9000 ATLANTIS PRO,,5,,158,,,,Nov 2009,Unknown
 SAPPHIRE RADEON 9600 ATLANTIS,,47,,149,,,,May 2009,Unknown
 SAPPHIRE Radeon X1550,,61,,285,,,,Feb 2010,Unknown
 Sapphire RADEON X800 GT,,113,,274,,,,May 2009,Unknown
 Seria Mobility Radeon HD 3400,,125,,148,,,,Nov 2013,Unknown
 Seria Radeon HD 7700,,"1,604",,201,,,,Jul 2015,Unknown
-Snapdragon X Elite - X1E78100 - Qualcomm Adreno GP,,"2,565",,472,,,,Jun 2024,Desktop
-Snapdragon X Elite - X1E80100 - Qualcomm Adreno GP,,"2,607",,509,,,,Jun 2024,Desktop
-Snapdragon X Elite - X1E84100 - Qualcomm Adreno GP,,"2,953",,573,,,,Jun 2024,Desktop
-Snapdragon X Plus - X1P64100 - Qualcomm Adreno GPU,,"2,591",,377,,,,May 2024,Desktop
+Snapdragon X Elite   X1E78100   Qualcomm Adreno GP,,"2,565",,472,,,,Jun 2024,Desktop
+Snapdragon X Elite   X1E80100   Qualcomm Adreno GP,,"2,607",,509,,,,Jun 2024,Desktop
+Snapdragon X Elite   X1E84100   Qualcomm Adreno GP,,"2,953",,573,,,,Jun 2024,Desktop
+Snapdragon X Plus   X1P64100   Qualcomm Adreno GPU,,"2,591",,377,,,,May 2024,Desktop
 SUMO 9640,,650,,398,,,,Oct 2011,Unknown
 SUMO 9644,,466,,386,,,,Oct 2011,Unknown
 SUMO 964A,,498,,403,,,,Aug 2011,Unknown
@@ -2624,7 +2624,7 @@ T600 Laptop GPU,,"7,070",,449,,,,Jul 2021,Unknown
 TENSOR 1.0 Driver Intel HD 530,,958,,203,,,,Jun 2023,Unknown
 TENSOR 1.0 Driver Intel HD 630,,"1,300",,873,,,,Apr 2019,Unknown
 Tesla C2050,269.99,"3,176",11.76,362,,,,Sep 2010,Unknown
-Tesla C2050 / C2070,,"3,428",,568,238,14.40,6144,May 2013,Workstation
+Tesla C2050   C2070,,"3,428",,568,238,14.40,6144,May 2013,Workstation
 Tesla C2070,604.00,"2,840",4.70,471,247,11.50,6144,Feb 2011,Workstation
 Tesla C2075,646.00,"3,017",4.67,428,,,,Jan 2012,Unknown
 Tesla K20m,,"4,432",,210,,,,Jan 2022,Unknown
@@ -2633,19 +2633,19 @@ Tesla K40c,,"4,495",,325,,,,May 2022,Unknown
 Tesla K40m,,"3,281",,111,,,,Nov 2021,Unknown
 Tesla K80,593.95,"5,852",9.85,374,,,,May 2022,Unknown
 Tesla M10,2695.00,"3,172",1.18,410,,,,May 2019,Unknown
-Tesla M2070-Q,,"1,306",,444,,,,Jan 2014,Unknown
+Tesla M2070 Q,,"1,306",,444,,,,Jan 2014,Unknown
 Tesla M40,600.00,"10,465",17.44,452,,,,May 2021,Unknown
 Tesla M40 24GB,,"10,418",,339,,,,Sep 2021,Unknown
 Tesla M6,199.00,"6,284",31.58,371,,,,Jan 2018,Unknown
 Tesla M60,787.90,"7,551",9.58,513,,,,Jun 2017,Unknown
-Tesla P100-PCIE-16GB,5699.00,"7,225",1.27,572,250,28.90,16384,Jan 2019,Workstation
+Tesla P100 PCIE 16GB,5699.00,"7,225",1.27,572,250,28.90,16384,Jan 2019,Workstation
 Tesla P4,,"8,819",,390,,,,Nov 2022,Unknown
 Tesla P40,,"12,190",,441,250,48.76,24576,May 2022,Workstation
 Tesla T10,,"12,650",,595,,,,Jul 2020,Unknown
 Tesla T4,4420.46,"10,744",2.43,590,,,,Jun 2020,Unknown
-Tesla V100-PCIE-16GB,,"12,328",,484,,,,Aug 2020,Unknown
-Tesla V100-PCIE-32GB,,"8,260",,327,,,,Aug 2021,Unknown
-Tesla V100-SXM2-16GB,,"16,235",,406,,,,Jun 2019,Unknown
+Tesla V100 PCIE 16GB,,"12,328",,484,,,,Aug 2020,Unknown
+Tesla V100 PCIE 32GB,,"8,260",,327,,,,Aug 2021,Unknown
+Tesla V100 SXM2 16GB,,"16,235",,406,,,,Jun 2019,Unknown
 TITAN RTX,2499.00,"19,950",7.98,823,280,71.25,24576,Dec 2018,Workstation
 TITAN V,1999.99,"19,743",9.87,862,250,78.97,12288,Dec 2017,Desktop
 TITAN V CEO Edition,,"16,988",,"1,086",250,67.95,32000,Oct 2018,Desktop
@@ -2654,7 +2654,7 @@ TRINITY DEVASTATOR MOBILE,,699,,335,,,,Sep 2016,Unknown
 TRINITY SCRAPPER MOBILE,,498,,280,,,,May 2016,Unknown
 USB Mobile Monitor Virtual Display,,867,,279,,,,Aug 2024,Unknown
 V9560XT,,6,,86,,,,Jan 2016,Unknown
-Vanta/Vanta LT,,3,,91,,,,Apr 2009,Unknown
+Vanta Vanta LT,,3,,91,,,,Apr 2009,Unknown
 VIA Chrome9 HC IGP,,4,,167,,,,Apr 2009,Unknown
 VIA Chrome9 HC IGP Family,,4,,178,,,,Apr 2009,Unknown
 VIA Chrome9 HC IGP Family WDDM,,4,,165,,,,Apr 2009,Unknown
@@ -2665,19 +2665,19 @@ VIA Chrome9 HC3 IGP,,3,,157,,,,Apr 2009,Unknown
 VIA Chrome9 HC3 IGP WDDM 1.1,,1,,2,,,,Mar 2010,Unknown
 VIA Chrome9 HCM IGP,,2,,94,,,,Oct 2009,Unknown
 VIA Chrome9 HD IGP,,9,,40,,,,Jul 2010,Unknown
-VIA/S3G C-645/640 GPU,,132,,83,,,,Oct 2019,Unknown
-VIA/S3G Chrome 645/640 GPU,,110,,161,,,,Mar 2012,Unknown
-VIA/S3G DeltaChrome IGP,,3,,125,,,,Apr 2009,Unknown
-VIA/S3G KM400/KN400,,4,,124,,,,Apr 2009,Unknown
-VIA/S3G UniChrome IGP,,4,,164,,,,Apr 2009,Unknown
-VIA/S3G UniChrome Pro IGP,,5,,164,,,,Apr 2009,Unknown
-VIA/S3G UniChromeII,,6,,225,,,,Dec 2009,Unknown
+VIA S3G C 645 640 GPU,,132,,83,,,,Oct 2019,Unknown
+VIA S3G Chrome 645 640 GPU,,110,,161,,,,Mar 2012,Unknown
+VIA S3G DeltaChrome IGP,,3,,125,,,,Apr 2009,Unknown
+VIA S3G KM400 KN400,,4,,124,,,,Apr 2009,Unknown
+VIA S3G UniChrome IGP,,4,,164,,,,Apr 2009,Unknown
+VIA S3G UniChrome Pro IGP,,5,,164,,,,Apr 2009,Unknown
+VIA S3G UniChromeII,,6,,225,,,,Dec 2009,Unknown
 Virtual Display Device,,"1,655",,342,,,,Apr 2024,Unknown
 VisionTek Radeon 7000,,2,,117,,,,Mar 2010,Unknown
 WinFast A250 LE,,5,,197,,,,Feb 2014,Unknown
 Winsta0\Default,,"4,125",,250,,,,Apr 2024,Desktop
 Xabre,,5,,28,,,,Jan 2012,Unknown
 XGI Volari Family v1.13.23.D_V,,5,,34,,,,Jun 2009,Unknown
-ZX C-1080,,352,,147,,,,Mar 2024,Unknown
-ZX Chrome 645/640 GPU,,147,,220,,,,Mar 2017,Unknown
+ZX C 1080,,352,,147,,,,Mar 2024,Unknown
+ZX Chrome 645 640 GPU,,147,,220,,,,Mar 2017,Unknown
 zxcvIntel HD 620,,944,,208,,,,Jun 2020,Unknown

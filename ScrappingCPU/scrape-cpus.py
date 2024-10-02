@@ -22,7 +22,7 @@ def parse_html_table(html_content):
     for row in rows[1:]:  # Skip the header row
         cols = row.find_all('td')
         if len(cols) >= 13:  # Ensure enough columns exist in each row
-            cpu_name = clean_text(cols[1].text)
+            cpu_name = clean_text(cols[1].text).replace(' ', '-').replace('/', '-').replace('(', '-').replace(')', '-')
             num_sockets = cols[2].text.strip()
             cores = cols[3].text.strip()
             price = extract_numeric_value(cols[4].text.strip())

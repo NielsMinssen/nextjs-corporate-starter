@@ -153,7 +153,10 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
 
   const handleCompare = () => {
     if (gpu1 && gpu2) {
-      router.push(`/${window.location.pathname.split("/")[1]}/gpu/compare/${encodeURIComponent(gpu1)}/${encodeURIComponent(gpu2)}`);
+      const gpu1Formatted = gpu1.replace(/ /g, '-');
+      const gpu2Formatted = gpu2.replace(/ /g, '-');
+      
+      router.push(`/${userLanguage}/gpu/compare/${gpu1Formatted}-vs-${gpu2Formatted}`);
     }
   };
 

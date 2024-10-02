@@ -22,7 +22,7 @@ def parse_html_table(html_content):
     for row in rows[1:]:  # Skip the header row
         cols = row.find_all('td')
         if len(cols) >= 11:
-            videocard_name = clean_text(cols[1].text)
+            videocard_name = clean_text(cols[1].text).replace('-', ' ').replace('/', ' ')
             price = extract_numeric_value(cols[2].text.strip())
             g3d_mark = cols[3].text.strip()
             videocard_value = cols[4].text.strip()
