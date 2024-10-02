@@ -15,7 +15,10 @@ interface GPUComparisonBubblesProps {
 
 const GPUComparisonBubbles: React.FC<GPUComparisonBubblesProps> = ({ comparisons, lang }) => {
   const getComparisonLink = (gpu1: string, gpu2: string) => {
-    return `/${lang}/gpu/compare/${encodeURIComponent(gpu1)}/${encodeURIComponent(gpu2)}`;
+    const gpu1Formatted = gpu1.replace(/ /g, '-');
+      const gpu2Formatted = gpu2.replace(/ /g, '-');
+
+    return `/${lang}/gpu/compare/${gpu1Formatted}-vs-${gpu2Formatted}`;
   };
 
   // Translations for the title and subtitles based on the language
@@ -35,7 +38,7 @@ const GPUComparisonBubbles: React.FC<GPUComparisonBubblesProps> = ({ comparisons
   };
 
   return (
-    <div>
+    <div className='py-10'>
       <h2 className="text-2xl font-bold text-center mb-4">{translations[lang].title}</h2>
       <p className="text-center mb-6">{translations[lang].subtitle}</p>
       
