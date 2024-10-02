@@ -10,7 +10,6 @@ interface Params {
   'gpu1]-vs-[gpu2': string;
 }
 
-
 // Function to generate metadata based on GPU names and language
 const getMetadata = (params: Params): Metadata => {
   // Extraire la chaîne qui contient gpu1 et gpu2
@@ -18,6 +17,10 @@ const getMetadata = (params: Params): Metadata => {
 
   // Diviser la chaîne sur '-vs-' pour obtenir gpu1 et gpu2
   const [gpu1, gpu2] = gpuComparison.split('-vs-');
+
+  // Déterminer l'URL canonique en utilisant l'ordre alphabétique
+  const canonicalGpus = [gpu1, gpu2].sort(); // Tri alphabétique
+  const canonicalUrl = `https://${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${params.lang}/comparaison/${canonicalGpus[0]}-vs-${canonicalGpus[1]}`;
 
   // Define titles and descriptions in different languages
   const translations: Record<Language, { title: string; description: string }> = {
@@ -35,8 +38,14 @@ const getMetadata = (params: Params): Metadata => {
     },
   };
 
-  // Return the correct metadata based on the language
-  return translations[params.lang] || translations.en;
+  // Return the metadata object
+  return {
+    title: translations[params.lang]?.title || translations.en.title,
+    description: translations[params.lang]?.description || translations.en.description,
+    alternates: {
+      canonical: canonicalUrl, // Ajout de l'URL canonique
+    },
+  };
 };
 
 // Export metadata as a function call
@@ -63,4 +72,3 @@ export default function ComparisonPage({ params }: { params: Params }) {
     />
   );
 }
-
