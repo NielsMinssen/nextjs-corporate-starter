@@ -86,12 +86,17 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
   const [translations, setTranslations] = useState<Translation | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [userLanguage, setUserLanguage] = useState<SupportedLanguage>('en'); // Default language
   const router = useRouter();
 
+  // Define the type for supported languages
   type SupportedLanguage = 'fr' | 'es' | 'en';
 
-  const userLanguage: SupportedLanguage = (window.location.pathname.split("/")[1] as SupportedLanguage) || 'en';
-
+  useEffect(() => {
+    // Set userLanguage based on window.location
+    const language = (window.location.pathname.split("/")[1] as SupportedLanguage) || 'en';
+    setUserLanguage(language);
+  }, []);
 
   const gpuComparisons = [
     { gpu: 'GeForce RTX 3060 12GB vs GeForce RTX 4060' },
@@ -472,22 +477,22 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
                 <div key={attribute} className="p-4 bg-gray-100 rounded-lg shadow-sm">
 
                   <p className="mt-2 text-gray-600">
-                    {typeof translations.gpuComparison.details[attribute] === 'string' ? (
-                      translations.gpuComparison.details[attribute]
-                    ) : (
-                      <div className="space-y-1">
-                        {Object.entries(translations.gpuComparison.details[attribute]).map(
-                          ([key, value]) => (
-                            key === "title" ? (<h3 className="text-2xl font-bold text-gray-800">
+                    <div className="space-y-1">
+                      {Object.entries(translations.gpuComparison.details[attribute]).map(
+                        ([key, value], index) => (
+                          key === "title" ? (
+                            <h3 key={`title-${index}`} className="text-2xl font-bold text-gray-800">
                               <>{value}</>
-                            </h3>)
-                              : (<span key={key} className="block">
-                                <>{value}</>
-                              </span>)
+                            </h3>
+                          ) : (
+                            <span key={`value-${key}-${index}`} className="block">
+                              <>{value}</>
+                            </span>
                           )
-                        )}
-                      </div>
-                    )}
+                        )
+                      )}
+                    </div>
+                    
                   </p>
                   <div className="mt-4 space-y-2">
                     <div>

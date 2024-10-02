@@ -32,14 +32,18 @@ const CPUPage: React.FC = () => {
   const [translations, setTranslations] = useState<Translation | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [userLanguage, setUserLanguage] = useState<SupportedLanguage>('en'); // Default language
   const router = useRouter();
 
   // Define the type for supported languages
   type SupportedLanguage = 'fr' | 'es' | 'en';
-  
-  // Extract the language from the URL and ensure it's a valid language
-  const userLanguage: SupportedLanguage = (window.location.pathname.split("/")[1] as SupportedLanguage) || 'en';
 
+  useEffect(() => {
+    // Set userLanguage based on window.location
+    const language = (window.location.pathname.split("/")[1] as SupportedLanguage) || 'en';
+    setUserLanguage(language);
+  }, []);
+  
     useEffect(() => {
       const fetchData = async () => {
         setIsLoading(true);
