@@ -20,7 +20,7 @@ const getMetadata = (params: Params): Metadata => {
 
   // Déterminer l'URL canonique en utilisant l'ordre alphabétique
   const canonicalGpus = [gpu1, gpu2].sort(); // Tri alphabétique
-  const canonicalUrl = `https://${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${params.lang}/comparaison/${canonicalGpus[0]}-vs-${canonicalGpus[1]}`;
+  const canonicalUrl = `https://${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${params.lang}/gpu/compare/${canonicalGpus[0]}-vs-${canonicalGpus[1]}`;
 
   // Define titles and descriptions in different languages
   const translations: Record<Language, { title: string; description: string }> = {
