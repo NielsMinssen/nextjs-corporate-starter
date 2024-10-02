@@ -87,20 +87,6 @@ export interface SharedDropwonLinks extends Schema.Component {
   };
 }
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    name: 'Metadata';
-    displayName: 'Metadata';
-    icon: 'robot';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
 export interface SectionsTestimonialsGroup extends Schema.Component {
   collectionName: 'components_slices_testimonials_groups';
   info: {
@@ -248,6 +234,20 @@ export interface SectionsBottomActions extends Schema.Component {
     title: Attribute.String;
     buttons: Attribute.Component<'links.button-link', true>;
     description: Attribute.Text;
+  };
+}
+
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
+  info: {
+    name: 'Metadata';
+    displayName: 'Metadata';
+    icon: 'robot';
+    description: '';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -522,7 +522,6 @@ declare module '@strapi/types' {
       'shared.quote': SharedQuote;
       'shared.media': SharedMedia;
       'shared.dropwon-links': SharedDropwonLinks;
-      'meta.metadata': MetaMetadata;
       'sections.testimonials-group': SectionsTestimonialsGroup;
       'sections.rich-text': SectionsRichText;
       'sections.pricing': SectionsPricing;
@@ -534,6 +533,7 @@ declare module '@strapi/types' {
       'sections.feature-rows-group': SectionsFeatureRowsGroup;
       'sections.feature-columns-group': SectionsFeatureColumnsGroup;
       'sections.bottom-actions': SectionsBottomActions;
+      'meta.metadata': MetaMetadata;
       'menu.link': MenuLink;
       'links.social-link': LinksSocialLink;
       'links.link': LinksLink;

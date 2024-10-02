@@ -13,6 +13,8 @@ def extract_numeric_value(text):
     cleaned = re.sub(r'[^\d.]', '', text)  # Remove anything that's not a digit or period
     return cleaned if cleaned else ''
 
+from bs4 import BeautifulSoup
+
 def parse_html_table(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
     table = soup.find('table', id='cputable')
@@ -21,8 +23,8 @@ def parse_html_table(html_content):
     data = []
     for row in rows[1:]:  # Skip the header row
         cols = row.find_all('td')
-        if len(cols) >= 13:  # Ensure enough columns exist in each row
-            cpu_name = clean_text(cols[1].text).replace(' ', '-').replace('/', '-').replace('(', '-').replace(')', '-')
+        if len(cols) >= 14:  # Ensure enough columns exist in each row
+            cpu_name = clean_text(cols[1].text).replace('-', ' ').replace('/', ' ').replace('(', ' ').replace(')', ' ')
             num_sockets = cols[2].text.strip()
             cores = cols[3].text.strip()
             price = extract_numeric_value(cols[4].text.strip())
@@ -36,24 +38,33 @@ def parse_html_table(html_content):
             socket = cols[12].text.strip()
             category = cols[13].text.strip()
 
-            # Append the extracted data to the list
-            data.append([
-                cpu_name,
-                num_sockets if num_sockets != 'NA' else '',
-                cores if cores != 'NA' else '',
-                price if price != 'NA' else '',
-                cpu_mark if cpu_mark != 'NA' else '',
-                cpu_value if cpu_value != 'NA' else '',
-                thread_mark if thread_mark != 'NA' else '',
-                thread_value if thread_value != 'NA' else '',
-                tdp if tdp != 'NA' else '',
-                power_perf if power_perf != 'NA' else '',
-                test_date,
-                socket if socket != 'NA' else '',
-                category
-            ])
+            # Extract year from test_date and check if it's greater than 2015
+            try:
+                # Split test_date and get the year part
+                year = int(test_date.split()[1])  # Get the second part (year) and convert to int
+                if year > 2015:
+                    # Append the extracted data to the list
+                    data.append([
+                        cpu_name,
+                        num_sockets if num_sockets != 'NA' else '',
+                        cores if cores != 'NA' else '',
+                        price if price != 'NA' else '',
+                        cpu_mark if cpu_mark != 'NA' else '',
+                        cpu_value if cpu_value != 'NA' else '',
+                        thread_mark if thread_mark != 'NA' else '',
+                        thread_value if thread_value != 'NA' else '',
+                        tdp if tdp != 'NA' else '',
+                        power_perf if power_perf != 'NA' else '',
+                        test_date,
+                        socket if socket != 'NA' else '',
+                        category
+                    ])
+            except (IndexError, ValueError):
+                # Handle cases where the year extraction fails
+                continue
     
     return data
+
 
 def write_csv(data, filename):
     with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
