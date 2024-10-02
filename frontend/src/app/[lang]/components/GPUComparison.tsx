@@ -380,6 +380,30 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
       <div className="overflow-x-auto bg-gray-50 rounded-xl p-1 md:p-6">
         {comparisonResult && (
           <div className="overflow-x-auto bg-gray-50 rounded-xl p-1 md:p-6">
+            <div className="mt-6 text-center text-xl font-semibold text-gray-800">
+              {(() => {
+                const comparisonData = getOverallComparisonPercentage();
+                if (comparisonData.isEqual) {
+                  return translations.gpuComparison.bothequal;
+                } else {
+                  return (
+                    <>
+                      <span className="text-green-600">{comparisonData.betterGpu}</span>
+                      {' '}
+                      {translations.gpuComparison.is}
+                      {' '}
+                      <span className="text-blue-600">{comparisonData.percentageDifference}%</span>
+                      {' '}
+                      {translations.gpuComparison.betterthan}
+                      {' '}
+                      <span className="text-red-600">{comparisonData.worseGpu}</span>
+                      {' '}
+                      {translations.gpuComparison.basedon}
+                    </>
+                  );
+                }
+              })()}
+            </div>
             <div className="overflow-x-auto bg-gray-50 rounded-xl p-1 md:p-6">
               {/* Mobile-friendly GPU names header */}
               <div className="md:hidden mb-4 flex justify-between font-bold text-sm text-gray-900">
@@ -432,30 +456,6 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
                   ))}
                 </tbody>
               </table>
-            </div>
-            <div className="mt-6 text-center text-xl font-semibold text-gray-800">
-              {(() => {
-                const comparisonData = getOverallComparisonPercentage();
-                if (comparisonData.isEqual) {
-                  return translations.gpuComparison.bothequal;
-                } else {
-                  return (
-                    <>
-                      <span className="text-green-600">{comparisonData.betterGpu}</span>
-                      {' '}
-                      {translations.gpuComparison.is}
-                      {' '}
-                      <span className="text-blue-600">{comparisonData.percentageDifference}%</span>
-                      {' '}
-                      {translations.gpuComparison.betterthan}
-                      {' '}
-                      <span className="text-red-600">{comparisonData.worseGpu}</span>
-                      {' '}
-                      {translations.gpuComparison.basedon}
-                    </>
-                  );
-                }
-              })()}
             </div>
           </div>
         )}

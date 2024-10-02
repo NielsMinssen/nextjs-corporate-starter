@@ -6,6 +6,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/
 import { HelpCircle } from "lucide-react";
 import Loader from "@/app/[lang]/components/Loader";
 import CPUComparisonBubbles from './CPUComparisonBubbles';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/accordion";
 
 interface CPU {
   id: number;
@@ -50,6 +51,9 @@ interface Translation {
     is: string;
     betterthan: string;
     basedon: string;
+    details: {
+      [key: string]: string;
+    };
     tooltips: {
       [key: string]: string;
     };
@@ -364,6 +368,30 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
       <div className="overflow-x-auto bg-gray-50 rounded-xl p-6">
       {comparisonResult && (
         <div className="overflow-x-auto bg-gray-50 rounded-xl p-6">
+          <div className="mt-6 text-center text-xl font-semibold text-gray-800">
+            {(() => {
+              const comparisonData = getOverallComparisonPercentage();
+              if (comparisonData.isEqual) {
+                return translations.cpuComparison.bothequal;
+              } else {
+                return (
+                  <>
+                    <span className="text-green-600">{comparisonData.betterCpu}</span>
+                    {' '}
+                    {translations.cpuComparison.is}
+                    {' '}
+                    <span className="text-blue-600">{comparisonData.percentageDifference}%</span>
+                    {' '}
+                    {translations.cpuComparison.betterthan}
+                    {' '}
+                    <span className="text-red-600">{comparisonData.worseCpu}</span>
+                    {' '}
+                    {translations.cpuComparison.basedon}
+                  </>
+                );
+              }
+            })()}
+          </div>
           <div className="overflow-x-auto bg-gray-50 rounded-xl p-6">
             <div className="md:hidden mb-4 flex justify-between font-bold text-sm text-gray-900">
               <div className="w-1/2 px-2">{comparisonResult[0].cpu_name}</div>
@@ -416,32 +444,51 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
               </tbody>
             </table>
           </div>
-          <div className="mt-6 text-center text-xl font-semibold text-gray-800">
-            {(() => {
-              const comparisonData = getOverallComparisonPercentage();
-              if (comparisonData.isEqual) {
-                return translations.cpuComparison.bothequal;
-              } else {
-                return (
-                  <>
-                    <span className="text-green-600">{comparisonData.betterCpu}</span>
-                    {' '}
-                    {translations.cpuComparison.is}
-                    {' '}
-                    <span className="text-blue-600">{comparisonData.percentageDifference}%</span>
-                    {' '}
-                    {translations.cpuComparison.betterthan}
-                    {' '}
-                    <span className="text-red-600">{comparisonData.worseCpu}</span>
-                    {' '}
-                    {translations.cpuComparison.basedon}
-                  </>
-                );
-              }
-            })()}
-          </div>
         </div>
       )}
+      </div>
+      <div className="my-8">
+        <Accordion type="single" collapsible>
+          <AccordionItem value="detail">
+            <AccordionTrigger className="text-lg font-semibold hover:text-blue-600">
+              {translations.cpuComparison.details.title}
+            </AccordionTrigger>
+            <AccordionContent className="space-y-6">
+              {comparisonAttributes.map((attribute) => (
+                <div key={attribute} className="p-4 bg-gray-100 rounded-lg shadow-sm">
+
+                  <p className="mt-2 text-gray-600">
+                    {typeof translations.cpuComparison.details[attribute] === 'string' ? (
+                      translations.cpuComparison.details[attribute]
+                    ) : (
+                      <div className="space-y-1">
+                        {Object.entries(translations.cpuComparison.details[attribute]).map(
+                          ([key, value]) => (
+                            key === "title" ? (<h3 className="text-2xl font-bold text-gray-800">
+                              <>{value}</>
+                            </h3>)
+                              : (<span key={key} className="block">
+                                <>{value}</>
+                              </span>)
+                          )
+                        )}
+                      </div>
+                    )}
+                  </p>
+                  <div className="mt-4 space-y-2">
+                    <div>
+                      <strong className="text-blue-700">{comparisonResult[0].cpu_name}</strong>: {comparisonResult[0][attribute]}
+                    </div>
+                    <div>
+                      <strong className="text-blue-700">{comparisonResult[1].cpu_name}</strong>: {comparisonResult[1][attribute]}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+
       </div>
       <CPUComparisonBubbles comparisons={cpuComparisons} lang={userLanguage} />
     </div>
