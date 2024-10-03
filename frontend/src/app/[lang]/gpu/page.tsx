@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import Select, { SingleValue } from "react-select";
 import Loader from "../components/Loader";
 import GPUComparisonBubbles from "../components/GPUComparisonBubbles";
-
+import { useLanguage } from "../components/LanguageContext";
 interface GPU {
   id: number;
   videocard_name: string;
@@ -28,25 +28,20 @@ const GPUPage: React.FC = () => {
   const [translations, setTranslations] = useState<Translation | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [userLanguage, setUserLanguage] = useState<SupportedLanguage>('en'); // Default language
   const router = useRouter();
+  const lang = useLanguage();
 
   // Define the type for supported languages
   type SupportedLanguage = 'fr' | 'es' | 'en';
-
-  useEffect(() => {
-    // Set userLanguage based on window.location
-    const language = (window.location.pathname.split("/")[1] as SupportedLanguage) || 'en';
-    setUserLanguage(language);
-  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       setError(null);
       try {
+
         const [translationsResponse, gpusResponse] = await Promise.all([
-          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/gpudescription?locale=${userLanguage}`),
+          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/gpudescription?locale=${lang}`),
           fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/gpus`)
         ]);
 
@@ -82,14 +77,14 @@ const GPUPage: React.FC = () => {
     };
 
     fetchData();
-  }, [userLanguage]); // Add userLanguage to the dependency array
+  }, []); // Add userLanguage to the dependency array
 
   const handleCompare = () => {
     if (gpu1 && gpu2) {
       const gpu1Formatted = gpu1.replace(/ /g, '-');
       const gpu2Formatted = gpu2.replace(/ /g, '-');
       
-      router.push(`/${userLanguage}/gpu/compare/${gpu1Formatted}-vs-${gpu2Formatted}`);
+      router.push(`/${lang}/gpu/compare/${gpu1Formatted}-vs-${gpu2Formatted}`);
     }
   };
   
@@ -172,7 +167,7 @@ const GPUPage: React.FC = () => {
           {translations.gpuComparison.compareButton}
         </button>
       </div>
-      <GPUComparisonBubbles comparisons={gpuComparisons} lang={userLanguage} />
+      <GPUComparisonBubbles comparisons={gpuComparisons} lang={lang} />
     </div>
   );
 };

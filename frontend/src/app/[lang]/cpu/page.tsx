@@ -6,6 +6,7 @@ import { HelpCircle } from "lucide-react";
 import Loader from "../components/Loader";
 import { useRouter } from "next/navigation";
 import CPUComparisonBubbles from "../components/CPUComparisonBubbles";
+import { useLanguage } from "../components/LanguageContext";
 
 interface CPU {
   id: number;
@@ -32,25 +33,16 @@ const CPUPage: React.FC = () => {
   const [translations, setTranslations] = useState<Translation | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [userLanguage, setUserLanguage] = useState<SupportedLanguage>('en'); // Default language
   const router = useRouter();
+  const lang = useLanguage();
 
-  // Define the type for supported languages
-  type SupportedLanguage = 'fr' | 'es' | 'en';
-
-  useEffect(() => {
-    // Set userLanguage based on window.location
-    const language = (window.location.pathname.split("/")[1] as SupportedLanguage) || 'en';
-    setUserLanguage(language);
-  }, []);
-  
     useEffect(() => {
       const fetchData = async () => {
         setIsLoading(true);
         setError(null);
         try {
           const [translationsResponse, cpusResponse] = await Promise.all([
-            fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpudescription?locale=${userLanguage}`),
+            fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpudescription?locale=${lang}`),
             fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpus`)
           ]);
   
@@ -86,14 +78,14 @@ const CPUPage: React.FC = () => {
       };
   
       fetchData();
-    }, [userLanguage]); // Add userLanguage to the dependency array
+    }, []); // Add userLanguage to the dependency array
 
     const handleCompare = () => {
       if (cpu1 && cpu2) {
         const cpu1Formatted = encodeURI(cpu1.replace(/ /g, '-'));
         const cpu2Formatted = encodeURI(cpu2.replace(/ /g, '-'));
         
-        router.push(`/${userLanguage}/cpu/compare/${cpu1Formatted}-vs-${cpu2Formatted}`);
+        router.push(`/${lang}/cpu/compare/${cpu1Formatted}-vs-${cpu2Formatted}`);
       }
     };
 
@@ -175,7 +167,7 @@ const CPUPage: React.FC = () => {
           {translations.cpuComparison.compareButton}
         </button>
       </div>
-      <CPUComparisonBubbles comparisons={cpuComparisons} lang={userLanguage} />
+      <CPUComparisonBubbles comparisons={cpuComparisons} lang={lang} />
     </div>
   );
 };
