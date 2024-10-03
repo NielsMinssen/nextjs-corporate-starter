@@ -382,10 +382,10 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
         </button>
       </div>
 
-      <div className="overflow-x-auto bg-gray-50 rounded-xl p-1 md:p-6">
+      <div className="overflow-x-auto bg-gray-50 rounded-xl px-1 md:p-6">
         {comparisonResult && (
-          <div className="overflow-x-auto bg-gray-50 rounded-xl p-1 md:p-6">
-            <div className="mt-6 text-center text-xl font-semibold text-gray-800">
+          <div className="overflow-x-auto bg-gray-50 rounded-xl px-1 md:p-6">
+            <div className="mt-6 pb-6 text-center text-xl font-semibold text-gray-800">
               {(() => {
                 const comparisonData = getOverallComparisonPercentage();
                 if (comparisonData.isEqual) {
@@ -434,13 +434,12 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
                   {comparisonAttributes.map((attribute) => (
                     <React.Fragment key={attribute}>
                       <tr className="md:hidden border-b border-gray-200 bg-gray-50">
-                        <td colSpan={2} className="px-6 py-2 text-sm font-medium text-gray-700">
+                        <td colSpan={2} className="px-6 py-2 text-sm font-semibold text-gray-700">
                           <>{translations.gpuComparison[attribute] || attribute}</>
-                          <AttributeWithTooltip attribute={attribute} />
                         </td>
                       </tr>
                       <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
-                        <td className="hidden md:flex md:items-center px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700">
+                        <td className="hidden md:flex md:items-center px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
                           <>{translations.gpuComparison[attribute] || attribute}</>
                           <AttributeWithTooltip attribute={attribute} />
                         </td>

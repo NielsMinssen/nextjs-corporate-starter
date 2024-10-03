@@ -237,20 +237,6 @@ export interface SectionsBottomActions extends Schema.Component {
   };
 }
 
-export interface MenuLink extends Schema.Component {
-  collectionName: 'components_menu_links';
-  info: {
-    displayName: 'link';
-    icon: 'link';
-  };
-  attributes: {
-    name: Attribute.String;
-    url: Attribute.String;
-    description: Attribute.String;
-    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
 export interface MetaMetadata extends Schema.Component {
   collectionName: 'components_meta_metadata';
   info: {
@@ -262,6 +248,20 @@ export interface MetaMetadata extends Schema.Component {
   attributes: {
     metaTitle: Attribute.String & Attribute.Required;
     metaDescription: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface MenuLink extends Schema.Component {
+  collectionName: 'components_menu_links';
+  info: {
+    displayName: 'link';
+    icon: 'link';
+  };
+  attributes: {
+    name: Attribute.String;
+    url: Attribute.String;
+    description: Attribute.String;
+    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -533,8 +533,8 @@ declare module '@strapi/types' {
       'sections.feature-rows-group': SectionsFeatureRowsGroup;
       'sections.feature-columns-group': SectionsFeatureColumnsGroup;
       'sections.bottom-actions': SectionsBottomActions;
-      'menu.link': MenuLink;
       'meta.metadata': MetaMetadata;
+      'menu.link': MenuLink;
       'links.social-link': LinksSocialLink;
       'links.link': LinksLink;
       'links.dropdown-links': LinksDropdownLinks;
