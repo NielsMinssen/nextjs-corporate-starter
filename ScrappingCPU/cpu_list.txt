@@ -1,0 +1,49 @@
+Intel Core i9-13900K
+Intel Core i9-13900KF
+Intel Core i7-13700K
+Intel Core i7-13700KF
+Intel Core i5-13600K
+Intel Core i5-13600KF
+Intel Core i5-13500
+Intel Core i5-12400
+Intel Core i5-12400F
+Intel Core i9-12900K
+Intel Core i9-12900KF
+Intel Core i7-12700K
+Intel Core i7-12700KF
+Intel Core i5-12600K
+Intel Core i5-12600KF
+Intel Core i5-12500
+Intel Core i3-12100F
+Intel Core i3-12100
+Intel Core i9-10900K
+Intel Core i7-10700K
+Intel Core i5-10600K
+Intel Core i5-10400
+Intel Core i3-10100
+AMD Ryzen 9 7950X
+AMD Ryzen 9 7900X
+AMD Ryzen 9 7950X3D
+AMD Ryzen 9 7900X3D
+AMD Ryzen 7 7800X3D
+AMD Ryzen 7 7700X
+AMD Ryzen 7 7700
+AMD Ryzen 7 5800X3D
+AMD Ryzen 7 5800X
+AMD Ryzen 5 7600X
+AMD Ryzen 5 7600
+AMD Ryzen 5 7500F
+AMD Ryzen 5 5600X
+AMD Ryzen 5 5600
+AMD Ryzen 5 5500
+AMD Ryzen 5 3600
+AMD Ryzen 5 2600
+AMD Ryzen 5 1600
+AMD Ryzen 9 5900X
+AMD Ryzen 9 5900
+AMD Ryzen 7 3800X
+AMD Ryzen 7 3700X
+AMD Ryzen 9 3900X
+AMD Ryzen 9 3950X
+AMD Ryzen 3 3300X
+AMD Ryzen 3 3100
