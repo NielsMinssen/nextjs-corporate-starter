@@ -50,7 +50,7 @@ export function middleware(request: NextRequest) {
 
         // e.g. incoming request is /products
         // The new URL is now /en-US/products
-        return NextResponse.redirect(new URL(`/${locale}/${pathname}`, request.url));
+        return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url));
     }
 }
 
