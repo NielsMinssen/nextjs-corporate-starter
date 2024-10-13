@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Select, { SingleValue } from "react-select";
@@ -466,12 +467,12 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
                 className={`block p-4 mt-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out
                   }`}
               >
-                <div className="flex items-center justify-between text-black">
+                <div className="flex flex-col md:flex-row items-center justify-between text-black">
                   <div className='flex flex-col hover:underline'>
                     <span className="font-bold text-xl">{cpu.cpu_name}</span>
                     <span className="font-bold text-lg">{translations.cpuComparison.buyonamazon}</span>
                   </div>
-                  <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/amazon-logo.png`} alt="Amazon logo" className="w-40" />
+                  <Image src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/amazon-logo.png`} alt="Amazon logo" width={100} height={50} className='py-4 md:py-0'/>
                 </div>
               </a>
             )
