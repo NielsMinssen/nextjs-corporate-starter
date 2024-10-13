@@ -453,7 +453,7 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
       )}
       </div>
       <div className="my-8">
-        <Accordion type="single" collapsible>
+        <Accordion type="single" collapsible defaultValue='detail'>
           <AccordionItem value="detail">
             <AccordionTrigger className="text-lg font-semibold hover:text-blue-600">
               {translations.cpuComparison.details.title}
