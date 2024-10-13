@@ -20,6 +20,7 @@ interface GPU {
   vram: number;
   test_date: string;
   category: string;
+  amazonLink?: string;
 }
 
 interface Translation {
@@ -45,6 +46,7 @@ interface Translation {
     is: string;
     betterthan: string;
     basedon: string;
+    buyonamazon: string;
     details: {
       [key: string]: string;
     };
@@ -464,6 +466,30 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
           </div>
         )}
       </div>
+      {comparisonResult.length > 0 && (
+        <div className="grid grid-cols-2 gap-4">
+          {comparisonResult.map((gpu, index) => (
+            gpu.amazonLink && (
+              <a
+                key={index}
+                href={gpu.amazonLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`block p-4 mt-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out
+                  }`}
+              >
+                <div className="flex items-center justify-between text-black">
+                  <div className='flex flex-col hover:underline'>
+                    <span className="font-bold text-xl">{gpu.videocard_name}</span>
+                    <span className="font-bold text-lg">{translations.gpuComparison.buyonamazon}</span>
+                  </div>
+                  <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/amazon-logo.png`} alt="Amazon logo" className="w-40" />
+                </div>
+              </a>
+            )
+          ))}
+        </div>
+      )}
       {/* Détail section */}
       <div className="my-8">
         <Accordion type="single" collapsible defaultValue='detail'>
@@ -491,7 +517,7 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
                         )
                       )}
                     </div>
-                    
+
                   </div>
                   <div className="mt-4 space-y-2">
                     <div>
