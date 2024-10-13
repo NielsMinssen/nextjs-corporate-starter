@@ -97,7 +97,7 @@ function DropdownComponent({ title, links, isMobile = false, closeMenu }: Dropdo
         <ChevronDownIcon className={`ml-2 h-5 w-5 transform ${isOpen ? "rotate-180" : ""} transition-transform duration-200`} />
       </button>
       {isOpen && (
-        <div className={`${isMobile ? "" : "absolute left-0 mt-2 w-48"} rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5`}>
+        <div className={`${isMobile ? "" : "absolute left-0 mt-2 w-48"} z-10 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5`}>
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
             {links.map((link) => (
               <Link
