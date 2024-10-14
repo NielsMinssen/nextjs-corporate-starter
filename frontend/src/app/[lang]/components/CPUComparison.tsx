@@ -54,6 +54,7 @@ interface Translation {
     betterthan: string;
     basedon: string;
     buyonamazon: string;
+    amazondisclaimer:string;
     details: {
       [key: string]: string;
     };
@@ -467,9 +468,10 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
                   }`}
               >
                 <div className="flex flex-col md:flex-row items-center justify-between text-black">
-                  <div className='flex flex-col hover:underline'>
-                    <span className="font-bold text-xl">{cpu.cpu_name}</span>
-                    <span className="font-bold text-lg">{translations.cpuComparison.buyonamazon}</span>
+                  <div className='flex flex-col'>
+                    <span className="font-bold text-xl hover:underline">{cpu.cpu_name}</span>
+                    <span className="font-bold text-lg hover:underline">{translations.cpuComparison.buyonamazon}</span>
+                    <span className="font-light text-xs my-2">{translations.cpuComparison.amazondisclaimer}</span>
                   </div>
                   <Image src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/amazon-logo.png`} alt="Amazon logo" width={100} height={50} className='py-4 md:py-0' />
                 </div>
