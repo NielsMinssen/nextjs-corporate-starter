@@ -137,10 +137,10 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
             ...item.attributes.CPU,
           }));
           setCpuList(cpus);
-          
+
           const selectedCpu1 = cpus.find((cpu: CPU) => cpu.cpu_name === cpu1);
           const selectedCpu2 = cpus.find((cpu: CPU) => cpu.cpu_name === cpu2);
-          
+
           if (selectedCpu1 && selectedCpu2) {
             setComparisonResult([selectedCpu1, selectedCpu2]);
           } else {
@@ -164,7 +164,7 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
     if (cpu1 && cpu2) {
       const cpu1Formatted = cpu1.replace(/ /g, '-');
       const cpu2Formatted = cpu2.replace(/ /g, '-');
-      
+
       router.push(`/${userLanguage}/cpu/compare/${cpu1Formatted}-vs-${cpu2Formatted}`);
     }
   };
@@ -361,99 +361,98 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
           />
         </div>
       </div>
-      
+
       <div className="text-center mb-10">
         <button
           onClick={handleCompare}
           disabled={!cpu1 || !cpu2}
-          className={`px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 ${
-            (!cpu1 || !cpu2) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
-          }`}
+          className={`px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 ${(!cpu1 || !cpu2) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+            }`}
         >
           {translations.cpuComparison.compareButton}
         </button>
       </div>
 
       <div className="overflow-x-auto bg-gray-50 rounded-xl px-1 md:p-6">
-      {comparisonResult && (
-        <div className="overflow-x-auto bg-gray-50 rounded-xl px-1 md:p-6">
-          <div className="mt-6 pb-6 text-center text-xl font-semibold text-gray-800">
-            {(() => {
-              const comparisonData = getOverallComparisonPercentage();
-              if (comparisonData.isEqual) {
-                return translations.cpuComparison.bothequal;
-              } else {
-                return (
-                  <>
-                    <span className="text-green-600">{comparisonData.betterCpu}</span>
-                    {' '}
-                    {translations.cpuComparison.is}
-                    {' '}
-                    <span className="text-blue-600">{comparisonData.percentageDifference}%</span>
-                    {' '}
-                    {translations.cpuComparison.betterthan}
-                    {' '}
-                    <span className="text-red-600">{comparisonData.worseCpu}</span>
-                    {' '}
-                    {translations.cpuComparison.basedon}
-                  </>
-                );
-              }
-            })()}
-          </div>
-          <div className="overflow-x-auto bg-gray-50 rounded-xl p-6">
-            <div className="md:hidden mb-4 flex justify-between font-bold text-sm text-gray-900">
-              <div className="w-1/2 px-2">{comparisonResult[0].cpu_name}</div>
-              <div className="w-1/2 px-2">{comparisonResult[1].cpu_name}</div>
+        {comparisonResult && (
+          <div className="overflow-x-auto bg-gray-50 rounded-xl px-1 md:p-6">
+            <div className="mt-6 pb-6 text-center text-xl font-semibold text-gray-800">
+              {(() => {
+                const comparisonData = getOverallComparisonPercentage();
+                if (comparisonData.isEqual) {
+                  return translations.cpuComparison.bothequal;
+                } else {
+                  return (
+                    <>
+                      <span className="text-green-600">{comparisonData.betterCpu}</span>
+                      {' '}
+                      {translations.cpuComparison.is}
+                      {' '}
+                      <span className="text-blue-600">{comparisonData.percentageDifference}%</span>
+                      {' '}
+                      {translations.cpuComparison.betterthan}
+                      {' '}
+                      <span className="text-red-600">{comparisonData.worseCpu}</span>
+                      {' '}
+                      {translations.cpuComparison.basedon}
+                    </>
+                  );
+                }
+              })()}
             </div>
+            <div className="overflow-x-auto bg-gray-50 rounded-xl p-6">
+              <div className="md:hidden mb-4 flex justify-between font-bold text-sm text-gray-900">
+                <div className="w-1/2 px-2">{comparisonResult[0].cpu_name}</div>
+                <div className="w-1/2 px-2">{comparisonResult[1].cpu_name}</div>
+              </div>
 
-            <table className="w-full">
-              <thead className="hidden md:table-header-group">
-                <tr className="border-b-2 border-gray-200">
-                  <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                    {translations.cpuComparison.attribute}
-                  </th>
-                  <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                    {comparisonResult[0].cpu_name}
-                  </th>
-                  <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                    {comparisonResult[1].cpu_name}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonAttributes.map((attribute) => (
-                  <React.Fragment key={attribute}>
-                    <tr className="md:hidden border-b border-gray-200 bg-gray-50">
-                      <td colSpan={2} className="px-6 py-2 text-sm font-semibold text-gray-700">
-                        <>{translations.cpuComparison[attribute] || attribute}</>
-                      </td>
-                    </tr>
-                    <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
-                      <td className="hidden md:flex md:items-center px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
-                        <>{translations.cpuComparison[attribute] || attribute}</>
-                        <AttributeWithTooltip attribute={attribute} translations={translations}/>
-                      </td>
-                      <td
-                        className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
-                        style={getBarStyle(attribute, 0)}
-                      >
-                        {comparisonResult[0][attribute]}
-                      </td>
-                      <td
-                        className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
-                        style={getBarStyle(attribute, 1)}
-                      >
-                        {comparisonResult[1][attribute]}
-                      </td>
-                    </tr>
-                  </React.Fragment>
-                ))}
-              </tbody>
-            </table>
+              <table className="w-full">
+                <thead className="hidden md:table-header-group">
+                  <tr className="border-b-2 border-gray-200">
+                    <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
+                      {translations.cpuComparison.attribute}
+                    </th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
+                      {comparisonResult[0].cpu_name}
+                    </th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
+                      {comparisonResult[1].cpu_name}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonAttributes.map((attribute) => (
+                    <React.Fragment key={attribute}>
+                      <tr key={`${attribute}-header`} className="md:hidden border-b border-gray-200 bg-gray-50">
+                        <td colSpan={2} className="px-6 py-2 text-sm font-semibold text-gray-700">
+                          <>{translations.cpuComparison[attribute] || attribute}</>
+                        </td>
+                      </tr>
+                      <tr key={`${attribute}-data`} className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
+                        <td className="hidden md:flex md:items-center px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
+                          <>{translations.cpuComparison[attribute] || attribute}</>
+                          <AttributeWithTooltip attribute={attribute} translations={translations} />
+                        </td>
+                        <td
+                          className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
+                          style={getBarStyle(attribute, 0)}
+                        >
+                          {comparisonResult[0][attribute]}
+                        </td>
+                        <td
+                          className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
+                          style={getBarStyle(attribute, 1)}
+                        >
+                          {comparisonResult[1][attribute]}
+                        </td>
+                      </tr>
+                    </React.Fragment>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      )}
+        )}
       </div>
       {comparisonResult.length > 0 && (
         <div className="grid grid-cols-2 gap-4">
@@ -472,7 +471,7 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
                     <span className="font-bold text-xl">{cpu.cpu_name}</span>
                     <span className="font-bold text-lg">{translations.cpuComparison.buyonamazon}</span>
                   </div>
-                  <Image src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/amazon-logo.png`} alt="Amazon logo" width={100} height={50} className='py-4 md:py-0'/>
+                  <Image src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/amazon-logo.png`} alt="Amazon logo" width={100} height={50} className='py-4 md:py-0' />
                 </div>
               </a>
             )
@@ -487,40 +486,41 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
             </AccordionTrigger>
             <AccordionContent className="space-y-6">
               {comparisonAttributes.map((attribute) => (
-                <div key={attribute} className="p-4 bg-gray-100 rounded-lg shadow-sm">
-
+                <div key={`detail-${attribute}`} className="p-4 bg-gray-100 rounded-lg shadow-sm">
                   <div className="mt-2 text-gray-600">
                     {typeof translations.cpuComparison.details[attribute] === 'string' ? (
                       translations.cpuComparison.details[attribute]
                     ) : (
                       <div className="space-y-1">
                         {Object.entries(translations.cpuComparison.details[attribute]).map(
-                          ([key, value]) => (
-                            key === "title" ? (<div className="text-2xl font-bold text-gray-800">
-                              <>{value}</>
-                            </div>)
-                              : (<span key={key} className="block">
-                                <>{value}</>
-                              </span>)
+                          ([key, value], index) => (
+                            <React.Fragment key={`${attribute}-${key}-${index}`}>
+                              {key === "title" ? (
+                                <div className="text-2xl font-bold text-gray-800"><>{value}</></div>
+                              ) : (
+                                <span className="block"><>{value}</></span>
+                              )}
+                            </React.Fragment>
                           )
                         )}
                       </div>
                     )}
                   </div>
-                  <div className="mt-4 space-y-2">
-                    <div>
-                      <strong className="text-blue-700">{comparisonResult[0].cpu_name}</strong>: {comparisonResult[0][attribute]}
+                  {comparisonResult && comparisonResult.length > 1 && (
+                    <div className="mt-4 space-y-2">
+                      <div>
+                        <strong className="text-blue-700">{comparisonResult[0].cpu_name}</strong>: {comparisonResult[0][attribute]}
+                      </div>
+                      <div>
+                        <strong className="text-blue-700">{comparisonResult[1].cpu_name}</strong>: {comparisonResult[1][attribute]}
+                      </div>
                     </div>
-                    <div>
-                      <strong className="text-blue-700">{comparisonResult[1].cpu_name}</strong>: {comparisonResult[1][attribute]}
-                    </div>
-                  </div>
+                  )}
                 </div>
               ))}
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-
       </div>
       <CPUComparisonBubbles comparisons={cpuComparisons} lang={userLanguage} />
     </div>
