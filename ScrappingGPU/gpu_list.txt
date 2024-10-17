@@ -4,10 +4,9 @@ GeForce RTX 4070 Ti
 GeForce RTX 4070
 GeForce RTX 4060 Ti
 GeForce RTX 4060
-GeForce RTX 4050
 GeForce GTX 1660 Ti
-GeForce GTX 1660 Super
-GeForce GTX 1650 Super
+GeForce GTX 1660 SUPER
+GeForce GTX 1650 SUPER
 GeForce GTX 1650
 GeForce RTX 3090
 GeForce RTX 3080 Ti
@@ -16,7 +15,7 @@ GeForce RTX 3070 Ti
 GeForce RTX 3070
 GeForce RTX 3060 Ti
 GeForce RTX 3060 12GB
-GeForce RTX 3050
+GeForce RTX 3050 8GB
 Radeon RX 7900 XTX
 Radeon RX 7900 XT
 Radeon RX 7800 XT
@@ -33,8 +32,8 @@ Radeon RX 6400
 Radeon RX 580
 Radeon RX 5700 XT
 GeForce RTX 2080 Ti
-GeForce RTX 2080 Super
-GeForce RTX 2070 Super
+GeForce RTX 2080 SUPER
+GeForce RTX 2070 SUPER
 GeForce RTX 2060 SUPER
 GeForce GTX 1080 Ti
 GeForce GTX 1080

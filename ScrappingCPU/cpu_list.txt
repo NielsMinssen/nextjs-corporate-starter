@@ -16,11 +16,11 @@ Intel Core i5-12600KF
 Intel Core i5-12500
 Intel Core i3-12100F
 Intel Core i3-12100
-Intel Core i9-10900K
-Intel Core i7-10700K
-Intel Core i5-10600K
-Intel Core i5-10400
-Intel Core i3-10100
+Intel Core i9 10900K @ 3.70GHz
+Intel Core i7 10700K @ 3.80GHz
+Intel Core i5 10600K @ 4.10GHz
+Intel Core i5 10400 @ 2.90GHz
+Intel Core i3 10100 @ 3.60GHz
 AMD Ryzen 9 7950X
 AMD Ryzen 9 7900X
 AMD Ryzen 9 7950X3D
