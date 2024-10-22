@@ -17,7 +17,7 @@ const getMetadata = (params: Params): Metadata => {
   const [cpu1, cpu2] = cpuComparison.split('-vs-');
   // Determine the canonical URL using alphabetical order
   const canonicalCpus = [cpu1, cpu2].sort(); // Alphabetical sort
-  const canonicalUrl = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${params.lang}/cpu/compare/${canonicalCpus[0]}-vs-${canonicalCpus[1]}`;
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/${params.lang}/cpu/compare/${canonicalCpus[0]}-vs-${canonicalCpus[1]}`;
 
   // Define titles and descriptions in different languages
   const translations: Record<Language, { title: string; description: string }> = {
