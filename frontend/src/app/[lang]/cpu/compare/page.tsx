@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import Select, { SingleValue } from "react-select";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/[lang]/components/tooltip";
 import { HelpCircle } from "lucide-react";
-import Loader from "../components/Loader";
+import Loader from "../../components/Loader";
 import { useRouter } from "next/navigation";
-import CPUComparisonBubbles from "../components/CPUComparisonBubbles";
-import { useLanguage } from "../components/LanguageContext";
+import CPUComparisonBubbles from "../../components/CPUComparisonBubbles";
+import { useLanguage } from "../../components/LanguageContext";
 
 interface CPU {
   id: number;

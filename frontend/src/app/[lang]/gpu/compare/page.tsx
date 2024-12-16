@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation';
 import Select, { SingleValue } from "react-select";
-import Loader from "../components/Loader";
-import GPUComparisonBubbles from "../components/GPUComparisonBubbles";
-import { useLanguage } from "../components/LanguageContext";
+import Loader from "../../components/Loader";
+import GPUComparisonBubbles from "../../components/GPUComparisonBubbles";
+import { useLanguage } from "../../components/LanguageContext";
 interface GPU {
   id: number;
   videocard_name: string;
