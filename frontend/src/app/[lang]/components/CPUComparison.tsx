@@ -8,6 +8,7 @@ import { HelpCircle } from "lucide-react";
 import Loader from "@/app/[lang]/components/Loader";
 import CPUComparisonBubbles from './CPUComparisonBubbles';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
+import CPUPerformanceRadar from '@/app/[lang]/components//CPUPerformanceRadar';
 
 interface CPU {
   id: number;
@@ -54,7 +55,7 @@ interface Translation {
     betterthan: string;
     basedon: string;
     buyonamazon: string;
-    amazondisclaimer:string;
+    amazondisclaimer: string;
     details: {
       [key: string]: string;
     };
@@ -455,7 +456,14 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
           </div>
         )}
       </div>
-      {comparisonResult.length > 0 && (
+      {comparisonResult && (
+        <CPUPerformanceRadar
+          cpu1={comparisonResult[0]}
+          cpu2={comparisonResult[1]}
+          translations={translations}
+        />
+      )}
+      {/* {comparisonResult.length > 0 && (
         <div className="grid grid-cols-2 gap-4">
           {comparisonResult.map((cpu, index) => (
             cpu.amazonLink && (
@@ -479,7 +487,7 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
             )
           ))}
         </div>
-      )}
+      )} */}
       <div className="my-8">
         <Accordion type="single" collapsible defaultValue='detail'>
           <AccordionItem value="detail">

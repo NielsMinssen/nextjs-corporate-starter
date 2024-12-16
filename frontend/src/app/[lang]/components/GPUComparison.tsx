@@ -8,6 +8,7 @@ import { HelpCircle } from "lucide-react";
 import Loader from "@/app/[lang]/components/Loader";
 import GPUComparisonBubbles from './GPUComparisonBubbles';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
+import GPUPerformanceRadar from './GPUPerformanceRadar';
 
 interface GPU {
   id: number;
@@ -468,7 +469,14 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
           </div>
         )}
       </div>
-      {comparisonResult.length > 0 && (
+      {comparisonResult && (
+        <GPUPerformanceRadar
+          gpu1={comparisonResult[0]}
+          gpu2={comparisonResult[1]}
+          translations={translations}
+        />
+      )}
+      {/* {comparisonResult.length > 0 && (
         <div className="grid grid-cols-2 gap-4">
           {comparisonResult.map((gpu, index) => (
             gpu.amazonLink && (
@@ -492,7 +500,7 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
             )
           ))}
         </div>
-      )}
+      )} */}
       {/* Détail section */}
       <div className="my-8">
         <Accordion type="single" collapsible defaultValue='detail'>
