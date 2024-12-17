@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip, Legend } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 interface GPU {
     id: number;
@@ -99,46 +99,48 @@ const GPUPerformanceRadar: React.FC<GPUPerformanceRadarProps> = ({ gpu1, gpu2, t
 
     return (
         <div className="bg-gray-50 rounded-xl shadow-lg p-6 my-4">
-            <RadarChart
-                width={650}
-                height={400}
-                data={data}
-                margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
-                className="mx-auto"
-            >
-                <PolarGrid />
-                <PolarAngleAxis dataKey="subject" />
-                <PolarRadiusAxis angle={30} domain={[0, 100]} tickCount={6} />
-                <Radar
-                    name={gpu1.videocard_name}
-                    dataKey={gpu1.videocard_name}
-                    stroke="#8884d8"
-                    fill="#8884d8"
-                    fillOpacity={0}
-                    strokeWidth={2}
-                />
-                <Radar
-                    name={gpu2.videocard_name}
-                    dataKey={gpu2.videocard_name}
-                    stroke="#82ca9d"
-                    fill="#82ca9d"
-                    fillOpacity={0}
-                    strokeWidth={2}
-                />
-                <Tooltip
-                    labelFormatter={(label) => label}
-                    formatter={(value: any, name: string, props: any) => {
-                        const payload = props.payload;
-                        const actualValue = payload?.actualValues?.[name] ?? 'N/A';
-                        const normalizedValue = typeof value === 'number' ? value.toFixed(2) : value;
-                        return [
-                            `${actualValue} (Normalized: ${normalizedValue})`,
-                            name
-                        ];
-                    }}
-                />
-                <Legend />
-            </RadarChart>
+            <ResponsiveContainer width="100%" height={400}>
+                <RadarChart
+                    width={650}
+                    height={400}
+                    data={data}
+                    margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+                    className="mx-auto"
+                >
+                    <PolarGrid />
+                    <PolarAngleAxis dataKey="subject" />
+                    <PolarRadiusAxis angle={30} domain={[0, 100]} tickCount={6} />
+                    <Radar
+                        name={gpu1.videocard_name}
+                        dataKey={gpu1.videocard_name}
+                        stroke="#8884d8"
+                        fill="#8884d8"
+                        fillOpacity={0}
+                        strokeWidth={2}
+                    />
+                    <Radar
+                        name={gpu2.videocard_name}
+                        dataKey={gpu2.videocard_name}
+                        stroke="#82ca9d"
+                        fill="#82ca9d"
+                        fillOpacity={0}
+                        strokeWidth={2}
+                    />
+                    <Tooltip
+                        labelFormatter={(label) => label}
+                        formatter={(value: any, name: string, props: any) => {
+                            const payload = props.payload;
+                            const actualValue = payload?.actualValues?.[name] ?? 'N/A';
+                            const normalizedValue = typeof value === 'number' ? value.toFixed(2) : value;
+                            return [
+                                `${actualValue} (Normalized: ${normalizedValue})`,
+                                name
+                            ];
+                        }}
+                    />
+                    <Legend />
+                </RadarChart>
+            </ResponsiveContainer>
         </div>
     );
 };

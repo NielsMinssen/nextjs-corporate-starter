@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip, Legend } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 interface CPU {
     id: number;
@@ -109,6 +109,7 @@ const CPUPerformanceRadar: React.FC<CPUPerformanceRadarProps> = ({ cpu1, cpu2, t
 
     return (
         <div className="bg-gray-50 rounded-xl shadow-lg p-6 my-4">
+            <ResponsiveContainer width="100%" height={400}>
             <RadarChart
                 width={600}
                 height={400}
@@ -149,6 +150,7 @@ const CPUPerformanceRadar: React.FC<CPUPerformanceRadarProps> = ({ cpu1, cpu2, t
                 />
                 <Legend />
             </RadarChart>
+            </ResponsiveContainer>
         </div>
     );
 };
