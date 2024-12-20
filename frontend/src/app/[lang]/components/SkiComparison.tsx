@@ -4,6 +4,9 @@ import { useRouter } from 'next/navigation';
 import Select from "react-select";
 import Loader from "@/app/[lang]/components/Loader";
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Legend, Tooltip as RechartsTooltip } from 'recharts';
+import Image from 'next/image';
+import ski from "./../../../../public/ski.png"
+import { env } from 'process';
 
 interface SkiDimensions {
   tip_width: number;
@@ -183,22 +186,12 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div>
               <Select
-                value={{ value: ski1, label: ski1!.name }}
-                onChange={(option) => option && setSki1(option.value)}
-                options={skiList.map((ski) => ({ value: ski, label: ski.name }))}
-              />
-              <Select
                 value={{ value: selectedSize1, label: `${selectedSize1} cm` }}
                 onChange={(option) => option && setSelectedSize1(option.value)}
                 options={skiData1.sizes.map((size) => ({ value: size.length, label: `${size.length} cm` }))}
               />
             </div>
             <div>
-              <Select
-                value={{ value: ski2, label: ski2!.name }}
-                onChange={(option) => option && setSki2(option.value)}
-                options={skiList.map((ski) => ({ value: ski, label: ski.name }))}
-              />
               <Select
                 value={{ value: selectedSize2, label: `${selectedSize2} cm` }}
                 onChange={(option) => option && setSelectedSize2(option.value)}
@@ -219,21 +212,64 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
             </div>
 
             {/* Central Ski */}
-            <div className="w-2 bg-gray-400 h-64 relative">
-              <div
-                className="absolute left-[-20px] text-sm text-blue-500"
-                style={{ top: "10%" }}
-              >
-                {selectedSki1.dimensions.tip_width} mm
+            <div className="relative h-64 flex flex-col items-center">
+              {/* Ski Body */}
+              <div className="">
+              <Image src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/ski.svg`} alt="haha" width={50} height={100}/>
+                {/* Tip Width */}
+                <div
+                  className="absolute left-[-60px] text-sm text-blue-500"
+                  style={{ top: "5%" }}
+                >
+                  {selectedSki1?.dimensions.tip_width} mm
+                </div>
+                <div
+                  className="absolute right-[-60px] text-sm text-green-500"
+                  style={{ top: "5%" }}
+                >
+                  {selectedSki2?.dimensions.tip_width} mm
+                </div>
+
+                {/* Waist Width */}
+                <div
+                  className="absolute left-[-60px] text-sm text-blue-500"
+                  style={{ top: "50%" }}
+                >
+                  {selectedSki1?.dimensions.waist_width} mm
+                </div>
+                <div
+                  className="absolute right-[-60px] text-sm text-green-500"
+                  style={{ top: "50%" }}
+                >
+                  {selectedSki2?.dimensions.waist_width} mm
+                </div>
+
+                {/* Tail Width */}
+                <div
+                  className="absolute left-[-60px] text-sm text-blue-500"
+                  style={{ bottom: "5%" }}
+                >
+                  {selectedSki1?.dimensions.tail_width} mm
+                </div>
+                <div
+                  className="absolute right-[-60px] text-sm text-green-500"
+                  style={{ bottom: "5%" }}
+                >
+                  {selectedSki2?.dimensions.tail_width} mm
+                </div>
               </div>
-              <div
-                className="absolute right-[-20px] text-sm text-green-500"
-                style={{ top: "10%" }}
-              >
-                {selectedSki2.dimensions.tip_width} mm
+              {/* Labels */}
+              <div className="absolute top-[3%] text-xs text-gray-700">
+                Tip
               </div>
-              {/* Repeat for Waist and Tail */}
+              <div className="absolute top-[67%] text-xs text-gray-700">
+                Waist
+              </div>
+              <div className="absolute bottom-[-1%] text-xs text-gray-700">
+                Tail
+              </div>
             </div>
+
 
             {/* Right Ski */}
             <div className="flex flex-col items-center text-green-500">
@@ -321,8 +357,8 @@ const formatSkiValue = (ski: Ski, key: string, selectedSize?: number): string =>
       // Dynamically update radius based on selected size if applicable
       if (selectedSize) {
         const radiusIndex = ski.available_sizes.indexOf(selectedSize);
-          const Radius = ski.sizes[radiusIndex].radius;
-          return `${Radius}m`;
+        const Radius = ski.sizes[radiusIndex].radius;
+        return `${Radius}m`;
       }
     case 'available_sizes':
       return ski.sizes.join(', ');
