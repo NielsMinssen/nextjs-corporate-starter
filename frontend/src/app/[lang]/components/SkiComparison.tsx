@@ -11,15 +11,17 @@ interface SkiDimensions {
   tail_width: number;
 }
 
+interface SkiSize {
+  length: number;
+  dimensions: SkiDimensions;
+  radius: number;
+  weight: number;
+}
+
 interface RockerProfile {
   front: string;
   middle: string;
   tail: string;
-}
-
-interface Radius {
-  min: number;
-  max: number;
 }
 
 interface AveragePrice {
@@ -39,8 +41,7 @@ interface Ski {
   type: string;
   available_sizes: number[];
   dimensions: SkiDimensions;
-  radius: Radius;
-  weight_per_ski: number;
+  sizes: SkiSize[];
   materials: string[];
   rocker_profile: RockerProfile;
   terrain: string[];
@@ -71,11 +72,13 @@ interface Translation {
 const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: string }> = ({
   initialSki1,
   initialSki2,
-  lang
+  lang,
 }) => {
   const [skiList, setSkiList] = useState<Ski[]>([]);
-  const [ski1, setSki1] = useState<string>(initialSki1);
-  const [ski2, setSki2] = useState<string>(initialSki2);
+  const [ski1, setSki1] = useState<Ski | null>(null);
+  const [ski2, setSki2] = useState<Ski | null>(null);
+  const [selectedSize1, setSelectedSize1] = useState<number | null>(null);
+  const [selectedSize2, setSelectedSize2] = useState<number | null>(null);
   const [comparisonResult, setComparisonResult] = useState<[Ski, Ski] | null>(null);
   const [translations, setTranslations] = useState<Translation | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -87,7 +90,7 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
       try {
         const [translationsResponse, skisResponse] = await Promise.all([
           fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/skidescription?locale=${lang}`),
-          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/skis`)
+          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/skis`),
         ]);
 
         if (!translationsResponse.ok || !skisResponse.ok) {
@@ -96,7 +99,6 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
 
         const translationsData = await translationsResponse.json();
         const skisData = await skisResponse.json();
-        console.log(skisData);
 
         if (translationsData.data && translationsData.data.attributes) {
           setTranslations(translationsData.data.attributes.skidescription);
@@ -110,13 +112,18 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
             ...item.attributes.ski,
           }));
           setSkiList(skis);
-          console.log("les skis", skis)
 
-          const selectedSki1 = skis.find((ski: Ski) => ski.name === ski1);
-          const selectedSki2 = skis.find((ski: Ski) => ski.name === ski2);
+          const selectedSki1 = skis.find((ski: Ski) => ski.name === initialSki1);
+          const selectedSki2 = skis.find((ski: Ski) => ski.name === initialSki2);
 
           if (selectedSki1 && selectedSki2) {
+            setSki1(selectedSki1);
+            setSki2(selectedSki2);
             setComparisonResult([selectedSki1, selectedSki2]);
+
+            // Set selected sizes
+            setSelectedSize1(selectedSki1.sizes[0].length);
+            setSelectedSize2(selectedSki2.sizes[0].length);
           } else {
             throw new Error("One or both selected skis not found");
           }
@@ -131,7 +138,7 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
     };
 
     fetchData();
-  }, [lang, ski1, ski2]);
+  }, [lang, initialSki1, initialSki2]);
 
   const handleCompare = () => {
     if (ski1 && ski2) {
@@ -139,29 +146,14 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
     }
   };
 
-  // Create data for the dimension comparison chart
-  const getDimensionsData = (ski1: Ski, ski2: Ski) => {
-    return [
-      {
-        position: 'Tip',
-        [ski1.name]: ski1.dimensions.tip_width,
-        [ski2.name]: ski2.dimensions.tip_width,
-      },
-      {
-        position: 'Waist',
-        [ski1.name]: ski1.dimensions.waist_width,
-        [ski2.name]: ski2.dimensions.waist_width,
-      },
-      {
-        position: 'Tail',
-        [ski1.name]: ski1.dimensions.tail_width,
-        [ski2.name]: ski2.dimensions.tail_width,
-      },
-    ];
-  };
-
   if (isLoading) return <Loader />;
   if (!translations || !comparisonResult) return null;
+
+  const [skiData1, skiData2] = comparisonResult;
+
+  const selectedSki1 = skiData1.sizes.find((size) => size.length === selectedSize1)!;
+  const selectedSki2 = skiData2.sizes.find((size) => size.length === selectedSize2)!;
+
 
   return (
     <div className="max-w-4xl mx-auto p-8 bg-white rounded-xl shadow-lg">
@@ -171,15 +163,15 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <Select
-          value={{ value: ski1, label: ski1 }}
+          value={{ value: ski1, label: ski1!.name }}
           onChange={(option) => option && setSki1(option.value)}
-          options={skiList.map(ski => ({ value: ski.name, label: ski.name }))}
+          options={skiList.map(ski => ({ value: ski, label: ski.name }))}
           className="w-full"
         />
         <Select
-          value={{ value: ski2, label: ski2 }}
+          value={{ value: ski2, label: ski2!.name }}
           onChange={(option) => option && setSki2(option.value)}
-          options={skiList.map(ski => ({ value: ski.name, label: ski.name }))}
+          options={skiList.map(ski => ({ value: ski, label: ski.name }))}
           className="w-full"
         />
       </div>
@@ -187,28 +179,70 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
       {comparisonResult && (
         <>
           {/* Dimensions Comparison Chart */}
-          <div className="mb-8 p-6 bg-gray-50 rounded-xl">
-            <h2 className="text-xl font-semibold mb-4">Ski Dimensions Comparison</h2>
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={getDimensionsData(comparisonResult[0], comparisonResult[1])}>
-                <XAxis dataKey="position" />
-                <YAxis />
-                <Legend />
-                <RechartsTooltip />
-                <Line
-                  type="monotone"
-                  dataKey={comparisonResult[0].name}
-                  stroke="#8884d8"
-                  strokeWidth={2}
-                />
-                <Line
-                  type="monotone"
-                  dataKey={comparisonResult[1].name}
-                  stroke="#82ca9d"
-                  strokeWidth={2}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+          {/* Ski Selection */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div>
+              <Select
+                value={{ value: ski1, label: ski1!.name }}
+                onChange={(option) => option && setSki1(option.value)}
+                options={skiList.map((ski) => ({ value: ski, label: ski.name }))}
+              />
+              <Select
+                value={{ value: selectedSize1, label: `${selectedSize1} cm` }}
+                onChange={(option) => option && setSelectedSize1(option.value)}
+                options={skiData1.sizes.map((size) => ({ value: size.length, label: `${size.length} cm` }))}
+              />
+            </div>
+            <div>
+              <Select
+                value={{ value: ski2, label: ski2!.name }}
+                onChange={(option) => option && setSki2(option.value)}
+                options={skiList.map((ski) => ({ value: ski, label: ski.name }))}
+              />
+              <Select
+                value={{ value: selectedSize2, label: `${selectedSize2} cm` }}
+                onChange={(option) => option && setSelectedSize2(option.value)}
+                options={skiData2.sizes.map((size) => ({ value: size.length, label: `${size.length} cm` }))}
+              />
+            </div>
+          </div>
+
+          {/* Ski Comparison Visualization */}
+          <div className="relative flex justify-between items-center bg-gray-50 p-6 rounded-xl">
+            {/* Left Ski */}
+            <div className="flex flex-col items-center text-blue-500">
+              <p>Tip: {selectedSki1.dimensions.tip_width} mm</p>
+              <p>Waist: {selectedSki1.dimensions.waist_width} mm</p>
+              <p>Tail: {selectedSki1.dimensions.tail_width} mm</p>
+              <p>Weight: {selectedSki1.weight} g</p>
+              <p>Radius: {selectedSki1.radius} m</p>
+            </div>
+
+            {/* Central Ski */}
+            <div className="w-2 bg-gray-400 h-64 relative">
+              <div
+                className="absolute left-[-20px] text-sm text-blue-500"
+                style={{ top: "10%" }}
+              >
+                {selectedSki1.dimensions.tip_width} mm
+              </div>
+              <div
+                className="absolute right-[-20px] text-sm text-green-500"
+                style={{ top: "10%" }}
+              >
+                {selectedSki2.dimensions.tip_width} mm
+              </div>
+              {/* Repeat for Waist and Tail */}
+            </div>
+
+            {/* Right Ski */}
+            <div className="flex flex-col items-center text-green-500">
+              <p>Tip: {selectedSki2.dimensions.tip_width} mm</p>
+              <p>Waist: {selectedSki2.dimensions.waist_width} mm</p>
+              <p>Tail: {selectedSki2.dimensions.tail_width} mm</p>
+              <p>Weight: {selectedSki2.weight} g</p>
+              <p>Radius: {selectedSki2.radius} m</p>
+            </div>
           </div>
 
           {/* Detailed Comparison Table */}
@@ -261,16 +295,37 @@ const formatBindingCompatibility = (binding: BindingCompatibility): string => {
 };
 
 // Updated formatSkiValue function with better handling of complex objects
-const formatSkiValue = (ski: Ski, key: string): string => {
+const formatSkiValue = (ski: Ski, key: string, selectedSize?: number): string => {
+  // Helper to get dimension values based on selected size
+  const getDimensionValue = (dimension: keyof SkiDimensions) => {
+    if (selectedSize) {
+      const sizeIndex = ski.available_sizes.indexOf(selectedSize);
+      if (sizeIndex !== -1) {
+        // Assuming dimensions are arrays for each size
+        return ski.sizes[sizeIndex].dimensions[dimension];
+      }
+    }
+  };
+
   switch (key) {
     case 'name':
       return formatSkiName(ski.name);
     case 'dimensions':
-      return `${ski.dimensions.tip_width}/${ski.dimensions.waist_width}/${ski.dimensions.tail_width}`;
-    case 'radius':
-      return `${ski.radius.min}m - ${ski.radius.max}m`;
+      // Dynamically update dimensions based on selected size
+      if (selectedSize) {
+        const tip = getDimensionValue('tip_width');
+        const waist = getDimensionValue('waist_width');
+        const tail = getDimensionValue('tail_width');
+        return `${tip}/${waist}/${tail}`;
+      }
+      // Dynamically update radius based on selected size if applicable
+      if (selectedSize) {
+        const radiusIndex = ski.available_sizes.indexOf(selectedSize);
+          const Radius = ski.sizes[radiusIndex].radius;
+          return `${Radius}m`;
+      }
     case 'available_sizes':
-      return ski.available_sizes.join(', ');
+      return ski.sizes.join(', ');
     case 'materials':
       return ski.materials.join(', ');
     case 'terrain':
@@ -284,10 +339,17 @@ const formatSkiValue = (ski: Ski, key: string): string => {
     case 'binding_compatibility':
       return formatBindingCompatibility(ski.binding_compatibility);
     case 'weight_per_ski':
-      return `${ski.weight_per_ski}g`;
+      // Dynamically update weight based on selected size
+      if (selectedSize) {
+        const weightIndex = ski.available_sizes.indexOf(selectedSize);
+        if (weightIndex !== -1) {
+          return `${ski.sizes[weightIndex].weight}g`;
+        }
+      }
     default:
       return String(ski[key as keyof Ski] || '');
   }
 };
+
 
 export default SkiComparison;
