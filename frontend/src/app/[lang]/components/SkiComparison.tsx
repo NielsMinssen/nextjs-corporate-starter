@@ -7,6 +7,7 @@ import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Legend, Tooltip as 
 import Image from 'next/image';
 import ski from "./../../../../public/ski.png"
 import { env } from 'process';
+import { Ruler, Weight, CircleDot } from 'lucide-react';
 
 interface SkiDimensions {
   tip_width: number;
@@ -200,84 +201,132 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
             </div>
           </div>
 
-          {/* Ski Comparison Visualization */}
-          <div className="relative flex justify-between items-center bg-gray-50 p-6 rounded-xl">
-            {/* Left Ski */}
-            <div className="flex flex-col items-center text-blue-500">
-              <p>Tip: {selectedSki1.dimensions.tip_width} mm</p>
-              <p>Waist: {selectedSki1.dimensions.waist_width} mm</p>
-              <p>Tail: {selectedSki1.dimensions.tail_width} mm</p>
-              <p>Weight: {selectedSki1.weight} g</p>
-              <p>Radius: {selectedSki1.radius} m</p>
-            </div>
-
-            {/* Central Ski */}
-            <div className="relative h-64 flex flex-col items-center">
-              {/* Ski Body */}
-              <div className="">
-              <Image src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/ski.svg`} alt="haha" width={50} height={100}/>
-                {/* Tip Width */}
-                <div
-                  className="absolute left-[-60px] text-sm text-blue-500"
-                  style={{ top: "5%" }}
-                >
-                  {selectedSki1?.dimensions.tip_width} mm
-                </div>
-                <div
-                  className="absolute right-[-60px] text-sm text-green-500"
-                  style={{ top: "5%" }}
-                >
-                  {selectedSki2?.dimensions.tip_width} mm
+          <div className="relative bg-gray-50 p-6 rounded-xl">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center space-y-8 md:space-y-0 md:space-x-4">
+              {/* Left Ski Stats */}
+              <div className="flex flex-col space-y-4 w-full md:w-auto">
+                <div className="flex items-center space-x-3">
+                  <Ruler className="h-5 w-5 text-blue-500" />
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium text-gray-600">Tip</span>
+                    <span className="text-lg font-semibold text-blue-500">{selectedSki1.dimensions.tip_width} mm</span>
+                  </div>
                 </div>
 
-                {/* Waist Width */}
-                <div
-                  className="absolute left-[-60px] text-sm text-blue-500"
-                  style={{ top: "50%" }}
-                >
-                  {selectedSki1?.dimensions.waist_width} mm
-                </div>
-                <div
-                  className="absolute right-[-60px] text-sm text-green-500"
-                  style={{ top: "50%" }}
-                >
-                  {selectedSki2?.dimensions.waist_width} mm
+                <div className="flex items-center space-x-3">
+                  <Ruler className="h-5 w-5 text-blue-500" />
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium text-gray-600">Waist</span>
+                    <span className="text-lg font-semibold text-blue-500">{selectedSki1.dimensions.waist_width} mm</span>
+                  </div>
                 </div>
 
-                {/* Tail Width */}
-                <div
-                  className="absolute left-[-60px] text-sm text-blue-500"
-                  style={{ bottom: "5%" }}
-                >
-                  {selectedSki1?.dimensions.tail_width} mm
+                <div className="flex items-center space-x-3">
+                  <Ruler className="h-5 w-5 text-blue-500" />
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium text-gray-600">Tail</span>
+                    <span className="text-lg font-semibold text-blue-500">{selectedSki1.dimensions.tail_width} mm</span>
+                  </div>
                 </div>
-                <div
-                  className="absolute right-[-60px] text-sm text-green-500"
-                  style={{ bottom: "5%" }}
-                >
-                  {selectedSki2?.dimensions.tail_width} mm
+
+                <div className="flex items-center space-x-3">
+                  <Weight className="h-5 w-5 text-blue-500" />
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium text-gray-600">Weight</span>
+                    <span className="text-lg font-semibold text-blue-500">{selectedSki1.weight} g</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3">
+                  <CircleDot className="h-5 w-5 text-blue-500" />
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium text-gray-600">Radius</span>
+                    <span className="text-lg font-semibold text-blue-500">{selectedSki1.radius} m</span>
+                  </div>
                 </div>
               </div>
-              {/* Labels */}
-              <div className="absolute top-[3%] text-xs text-gray-700">
-                Tip
-              </div>
-              <div className="absolute top-[67%] text-xs text-gray-700">
-                Waist
-              </div>
-              <div className="absolute bottom-[-1%] text-xs text-gray-700">
-                Tail
-              </div>
-            </div>
 
+              {/* Central Ski Diagram */}
+              <div className="relative h-64 flex flex-col items-center">
+                <div className="relative">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/ski.svg`}
+                    alt="Ski diagram"
+                    width={50}
+                    height={100}
+                    className="mx-auto"
+                  />
 
-            {/* Right Ski */}
-            <div className="flex flex-col items-center text-green-500">
-              <p>Tip: {selectedSki2.dimensions.tip_width} mm</p>
-              <p>Waist: {selectedSki2.dimensions.waist_width} mm</p>
-              <p>Tail: {selectedSki2.dimensions.tail_width} mm</p>
-              <p>Weight: {selectedSki2.weight} g</p>
-              <p>Radius: {selectedSki2.radius} m</p>
+                  {/* Measurements */}
+                  <div className="absolute left-[-60px] text-sm font-medium text-blue-500" style={{ top: "3%" }}>
+                    {selectedSki1?.dimensions.tip_width} mm
+                  </div>
+                  <div className="absolute right-[-60px] text-sm font-medium text-green-500" style={{ top: "3%" }}>
+                    {selectedSki2?.dimensions.tip_width} mm
+                  </div>
+
+                  <div className="absolute left-[-60px] text-sm font-medium text-blue-500" style={{ top: "45%" }}>
+                    {selectedSki1?.dimensions.waist_width} mm
+                  </div>
+                  <div className="absolute right-[-60px] text-sm font-medium text-green-500" style={{ top: "45%" }}>
+                    {selectedSki2?.dimensions.waist_width} mm
+                  </div>
+
+                  <div className="absolute left-[-60px] text-sm font-medium text-blue-500" style={{ bottom: "5%" }}>
+                    {selectedSki1?.dimensions.tail_width} mm
+                  </div>
+                  <div className="absolute right-[-60px] text-sm font-medium text-green-500" style={{ bottom: "5%" }}>
+                    {selectedSki2?.dimensions.tail_width} mm
+                  </div>
+                </div>
+
+                {/* Labels */}
+                <div className="absolute top-[3%] text-xs font-medium text-gray-700">Tip</div>
+                <div className="absolute bottom-[-1%] text-xs font-medium text-gray-700">Tail</div>
+              </div>
+
+              {/* Right Ski Stats */}
+              <div className="flex flex-col space-y-4 w-full md:w-auto">
+                <div className="flex items-center space-x-3">
+                  <Ruler className="h-5 w-5 text-green-500" />
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium text-gray-600">Tip</span>
+                    <span className="text-lg font-semibold text-green-500">{selectedSki2.dimensions.tip_width} mm</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3">
+                  <Ruler className="h-5 w-5 text-green-500" />
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium text-gray-600">Waist</span>
+                    <span className="text-lg font-semibold text-green-500">{selectedSki2.dimensions.waist_width} mm</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3">
+                  <Ruler className="h-5 w-5 text-green-500" />
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium text-gray-600">Tail</span>
+                    <span className="text-lg font-semibold text-green-500">{selectedSki2.dimensions.tail_width} mm</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3">
+                  <Weight className="h-5 w-5 text-green-500" />
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium text-gray-600">Weight</span>
+                    <span className="text-lg font-semibold text-green-500">{selectedSki2.weight} g</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3">
+                  <CircleDot className="h-5 w-5 text-green-500" />
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium text-gray-600">Radius</span>
+                    <span className="text-lg font-semibold text-green-500">{selectedSki2.radius} m</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
