@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "skidescriptions",
+  "info": {
+    "singularName": "skidescription",
+    "pluralName": "skidescriptions",
+    "displayName": "skidescription",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "skidescription": {
+      "type": "json",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

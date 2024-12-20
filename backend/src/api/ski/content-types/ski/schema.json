@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "skis",
+  "info": {
+    "singularName": "ski",
+    "pluralName": "skis",
+    "displayName": "ski"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ski": {
+      "type": "json"
+    }
+  }
+}

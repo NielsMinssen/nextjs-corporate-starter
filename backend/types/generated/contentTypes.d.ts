@@ -977,76 +977,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
-export interface ApiCpuCpu extends Schema.CollectionType {
-  collectionName: 'cpus';
-  info: {
-    singularName: 'cpu';
-    pluralName: 'cpus';
-    displayName: 'CPU';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    CPU: Attribute.JSON;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::cpu.cpu', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::cpu.cpu', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCpudescriptionCpudescription extends Schema.SingleType {
-  collectionName: 'cpudescriptions';
-  info: {
-    singularName: 'cpudescription';
-    pluralName: 'cpudescriptions';
-    displayName: 'cpudescription';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    cpudescription: Attribute.JSON &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::cpudescription.cpudescription',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::cpudescription.cpudescription',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::cpudescription.cpudescription',
-      'oneToMany',
-      'api::cpudescription.cpudescription'
-    >;
-    locale: Attribute.String;
-  };
-}
-
 export interface ApiGlobalGlobal extends Schema.SingleType {
   collectionName: 'globals';
   info: {
@@ -1114,74 +1044,6 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
       'api::global.global',
       'oneToMany',
       'api::global.global'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiGpuGpu extends Schema.CollectionType {
-  collectionName: 'gpus';
-  info: {
-    singularName: 'gpu';
-    pluralName: 'gpus';
-    displayName: 'GPU';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    GPU: Attribute.JSON;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::gpu.gpu', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::gpu.gpu', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiGpudescriptionGpudescription extends Schema.SingleType {
-  collectionName: 'gpudescriptions';
-  info: {
-    singularName: 'gpudescription';
-    pluralName: 'gpudescriptions';
-    displayName: 'gpudescription';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    gpudescription: Attribute.JSON &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::gpudescription.gpudescription',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::gpudescription.gpudescription',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::gpudescription.gpudescription',
-      'oneToMany',
-      'api::gpudescription.gpudescription'
     >;
     locale: Attribute.String;
   };
@@ -1337,6 +1199,75 @@ export interface ApiProductFeatureProductFeature extends Schema.CollectionType {
   };
 }
 
+export interface ApiSkiSki extends Schema.CollectionType {
+  collectionName: 'skis';
+  info: {
+    singularName: 'ski';
+    pluralName: 'skis';
+    displayName: 'ski';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ski: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::ski.ski', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::ski.ski', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSkidescriptionSkidescription extends Schema.SingleType {
+  collectionName: 'skidescriptions';
+  info: {
+    singularName: 'skidescription';
+    pluralName: 'skidescriptions';
+    displayName: 'skidescription';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    skidescription: Attribute.JSON &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::skidescription.skidescription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::skidescription.skidescription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::skidescription.skidescription',
+      'oneToMany',
+      'api::skidescription.skidescription'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1358,14 +1289,12 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
-      'api::cpu.cpu': ApiCpuCpu;
-      'api::cpudescription.cpudescription': ApiCpudescriptionCpudescription;
       'api::global.global': ApiGlobalGlobal;
-      'api::gpu.gpu': ApiGpuGpu;
-      'api::gpudescription.gpudescription': ApiGpudescriptionGpudescription;
       'api::lead-form-submission.lead-form-submission': ApiLeadFormSubmissionLeadFormSubmission;
       'api::page.page': ApiPagePage;
       'api::product-feature.product-feature': ApiProductFeatureProductFeature;
+      'api::ski.ski': ApiSkiSki;
+      'api::skidescription.skidescription': ApiSkidescriptionSkidescription;
     }
   }
 }
