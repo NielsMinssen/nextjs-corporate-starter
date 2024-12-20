@@ -110,7 +110,7 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
             ...item.attributes.ski,
           }));
           setSkiList(skis);
-          console.log("les skis",skis)
+          console.log("les skis", skis)
 
           const selectedSki1 = skis.find((ski: Ski) => ski.name === ski1);
           const selectedSki2 = skis.find((ski: Ski) => ski.name === ski2);
@@ -168,7 +168,7 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
       <h1 className="text-4xl font-bold mb-6 text-center">
         {translations.pages.comparison_page.title}
       </h1>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <Select
           value={{ value: ski1, label: ski1 }}
@@ -216,40 +216,28 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
             <table className="w-full">
               <thead>
                 <tr className="border-b-2 border-gray-200">
-                  <th className="px-6 py-3 text-left">Specification</th>
-                  <th className="px-6 py-3 text-left">{comparisonResult[0].name}</th>
-                  <th className="px-6 py-3 text-left">{comparisonResult[1].name}</th>
+                  <th className="px-6 py-3 text-left"></th>
+                  <th className="px-6 py-3 text-left">{formatSkiName(comparisonResult[0].name)}</th>
+                  <th className="px-6 py-3 text-left">{formatSkiName(comparisonResult[1].name)}</th>
                 </tr>
               </thead>
               <tbody>
-                {Object.entries(translations.pages.comparison_page.table_headers).map(([key, label]) => (
-                  <tr key={key} className="border-b border-gray-200">
-                    <td className="px-6 py-4 font-semibold">{label}</td>
-                    <td className="px-6 py-4">
-                      {formatSkiValue(comparisonResult[0], key)}
-                    </td>
-                    <td className="px-6 py-4">
-                      {formatSkiValue(comparisonResult[1], key)}
-                    </td>
-                  </tr>
-                ))}
+                {Object.entries(translations.pages.comparison_page.table_headers)
+                  .filter(([key]) => key !== 'model' && key !== 'name') // Skip model/name entries
+                  .map(([key, label]) => (
+                    <tr key={key} className="border-b border-gray-200">
+                      <td className="px-6 py-4 font-semibold">{label}</td>
+                      <td className="px-6 py-4">
+                        {formatSkiValue(comparisonResult[0], key)}
+                      </td>
+                      <td className="px-6 py-4">
+                        {formatSkiValue(comparisonResult[1], key)}
+                      </td>
+                    </tr>
+                  ))
+                }
               </tbody>
             </table>
-          </div>
-
-          {/* Rocker Profile Visualization */}
-          <div className="mt-8 p-6 bg-gray-50 rounded-xl">
-            <h2 className="text-xl font-semibold mb-4">Rocker Profile</h2>
-            {comparisonResult.map((ski, index) => (
-              <div key={index} className="mb-4">
-                <h3 className="font-medium mb-2">{ski.name}</h3>
-                <div className="flex justify-between items-center">
-                  <span>{ski.rocker_profile.front}</span>
-                  <span>{ski.rocker_profile.middle}</span>
-                  <span>{ski.rocker_profile.tail}</span>
-                </div>
-              </div>
-            ))}
           </div>
         </>
       )}
@@ -257,9 +245,26 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
   );
 };
 
-// Helper function to format ski values for display
+// Function to format the ski name by replacing underscores with spaces
+const formatSkiName = (name: string): string => {
+  return name.replace(/_/g, ' ');
+};
+
+// Function to format the rocker profile object
+const formatRockerProfile = (profile: RockerProfile): string => {
+  return `${profile.front} / ${profile.middle} / ${profile.tail}`;
+};
+
+// Function to format binding compatibility
+const formatBindingCompatibility = (binding: BindingCompatibility): string => {
+  return `DIN ${binding.DIN_range} - ${binding.binding_system}`;
+};
+
+// Updated formatSkiValue function with better handling of complex objects
 const formatSkiValue = (ski: Ski, key: string): string => {
   switch (key) {
+    case 'name':
+      return formatSkiName(ski.name);
     case 'dimensions':
       return `${ski.dimensions.tip_width}/${ski.dimensions.waist_width}/${ski.dimensions.tail_width}`;
     case 'radius':
@@ -274,6 +279,12 @@ const formatSkiValue = (ski: Ski, key: string): string => {
       return ski.skill_level.join(', ');
     case 'average_price':
       return `${ski.average_price.value} ${ski.average_price.currency}`;
+    case 'rocker_profile':
+      return formatRockerProfile(ski.rocker_profile);
+    case 'binding_compatibility':
+      return formatBindingCompatibility(ski.binding_compatibility);
+    case 'weight_per_ski':
+      return `${ski.weight_per_ski}g`;
     default:
       return String(ski[key as keyof Ski] || '');
   }
