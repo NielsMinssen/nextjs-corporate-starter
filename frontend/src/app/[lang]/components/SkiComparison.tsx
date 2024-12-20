@@ -174,11 +174,12 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
   );
 
   const renderSkiStats = (ski: Ski | null, selectedSize: number | null, selectedSizeData: SkiSize, color: string) => (
-    <div className="flex flex-col space-y-4 w-full">
+    <div className="flex flex-col items-center space-y-4 w-full">
       <span className={`font-bold text-lg text-center ${color === 'blue' ? 'text-blue-500' : 'text-green-500'}`}>
         {formatSkiName(ski?.name!)}
       </span>
       {/* Stats items */}
+      <div>
       {[
         { icon: Ruler, label: 'Length', value: `${selectedSizeData.length} mm` },
         { icon: Ruler, label: 'Tip', value: `${selectedSizeData.dimensions.tip_width} mm` },
@@ -197,6 +198,7 @@ const SkiComparison: React.FC<{ initialSki1: string; initialSki2: string; lang: 
           </div>
         </div>
       ))}
+      </div>
     </div>
   );
 
