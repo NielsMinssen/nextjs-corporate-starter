@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { getStrapiMedia, getStrapiURL } from "./utils/api-helpers";
 import { fetchAPI } from "./utils/fetch-api";
+import PlausibleProvider from 'next-plausible'
 
 import { i18n } from "../../../i18n-config";
 import Banner from "./components/Banner";
@@ -96,6 +97,9 @@ export default async function RootLayout({
 
   return (
     <html lang={params.lang}>
+       <head>
+        <PlausibleProvider domain="siliconcompare.com" />
+      </head>
       <body>
       <Navbar
           links={links} // Pass normal links
