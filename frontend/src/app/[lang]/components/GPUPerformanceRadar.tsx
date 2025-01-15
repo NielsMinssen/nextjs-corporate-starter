@@ -98,17 +98,20 @@ const GPUPerformanceRadar: React.FC<GPUPerformanceRadarProps> = ({ gpu1, gpu2, t
     });
 
     return (
-        <div className="bg-gray-50 rounded-xl shadow-lg p-6 my-4">
-            <ResponsiveContainer width="100%" height={400}>
+        <div className="bg-gray-50 rounded-xl p-6 my-4">
+            <ResponsiveContainer width="100%" height={500}>
                 <RadarChart
                     width={650}
-                    height={400}
+                    height={500}
                     data={data}
-                    margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+                    margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
                     className="mx-auto"
                 >
                     <PolarGrid />
-                    <PolarAngleAxis dataKey="subject" />
+                    <PolarAngleAxis
+                        dataKey="subject"
+                        tick={{ fontSize: 12 }}
+                    />
                     <PolarRadiusAxis angle={30} domain={[0, 100]} tickCount={6} />
                     <Radar
                         name={gpu1.videocard_name}
