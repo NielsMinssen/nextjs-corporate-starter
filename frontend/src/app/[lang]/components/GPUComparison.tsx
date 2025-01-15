@@ -9,7 +9,8 @@ import Loader from "@/app/[lang]/components/Loader";
 import GPUComparisonBubbles from './GPUComparisonBubbles';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
 import GPUPerformanceRadar from './GPUPerformanceRadar';
-import DetailSection from './DetailSection';
+import DetailSection from './GPUDetailSection';
+import GPUDetailSection from './GPUDetailSection';
 
 interface GPU {
   id: number;
@@ -511,7 +512,7 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
             </AccordionTrigger>
             <AccordionContent className="space-y-6">
               {comparisonAttributes.map((attribute) => (
-                <DetailSection
+                <GPUDetailSection
                   key={attribute}
                   attribute={attribute}
                   translations={translations}

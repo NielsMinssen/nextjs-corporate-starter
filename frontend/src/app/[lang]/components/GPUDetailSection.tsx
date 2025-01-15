@@ -32,7 +32,7 @@ const getAttributeIcon = (attribute: string) => {
     return icons[attribute as keyof typeof icons] || null;
 };
 
-const DetailSection = ({
+const GPUDetailSection = ({
     attribute,
     translations,
     gpu1,
@@ -78,12 +78,12 @@ const DetailSection = ({
                     </div>
                     {isNumeric ? (
                         <div className="flex items-center gap-4">
-                            <span className="w-20 text-right">{gpu1[attribute]}</span>
                             <AttributeBar
                                 value={gpu1[attribute]}
                                 maxValue={maxValue}
                                 color="#8884d8"
                             />
+                            <span className="w-20 text-right font-bold">{gpu1[attribute]}</span>
                         </div>
                     ) : attribute === 'test_date' ? (
                         <div className="relative w-full h-12">
@@ -135,12 +135,12 @@ const DetailSection = ({
                     </div>
                     {isNumeric ? (
                         <div className="flex items-center gap-4">
-                            <span className="w-20 text-right">{gpu2[attribute]}</span>
                             <AttributeBar
                                 value={gpu2[attribute]}
                                 maxValue={maxValue}
                                 color="#82ca9d"
                             />
+                            <span className="w-20 text-right font-bold">{gpu2[attribute]}</span>
                         </div>
                     ) : attribute === 'test_date' ? null : (
                         <div>{gpu2[attribute]}</div>
@@ -151,4 +151,4 @@ const DetailSection = ({
     );
 };
 
-export default DetailSection;
+export default GPUDetailSection;
