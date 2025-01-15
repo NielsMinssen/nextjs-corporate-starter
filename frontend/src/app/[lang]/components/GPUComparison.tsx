@@ -9,6 +9,7 @@ import Loader from "@/app/[lang]/components/Loader";
 import GPUComparisonBubbles from './GPUComparisonBubbles';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
 import GPUPerformanceRadar from './GPUPerformanceRadar';
+import DetailSection from './DetailSection';
 
 interface GPU {
   id: number;
@@ -49,7 +50,7 @@ interface Translation {
     betterthan: string;
     basedon: string;
     buyonamazon: string;
-    amazondisclaimer:string;
+    amazondisclaimer: string;
     details: {
       [key: string]: string;
     };
@@ -510,40 +511,18 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
             </AccordionTrigger>
             <AccordionContent className="space-y-6">
               {comparisonAttributes.map((attribute) => (
-                <div key={attribute} className="p-4 bg-gray-100 rounded-lg shadow-sm">
-
-                  <div className="mt-2 text-gray-600">
-                    <div className="space-y-1">
-                      {Object.entries(translations.gpuComparison.details[attribute]).map(
-                        ([key, value], index) => (
-                          key === "title" ? (
-                            <div key={`title-${index}`} className="text-2xl font-bold text-gray-800">
-                              <>{value}</>
-                            </div>
-                          ) : (
-                            <span key={`value-${key}-${index}`} className="block">
-                              <>{value}</>
-                            </span>
-                          )
-                        )
-                      )}
-                    </div>
-
-                  </div>
-                  <div className="mt-4 space-y-2">
-                    <div>
-                      <strong className="text-blue-700">{comparisonResult[0].videocard_name}</strong>: {comparisonResult[0][attribute]}
-                    </div>
-                    <div>
-                      <strong className="text-blue-700">{comparisonResult[1].videocard_name}</strong>: {comparisonResult[1][attribute]}
-                    </div>
-                  </div>
-                </div>
+                <DetailSection
+                  key={attribute}
+                  attribute={attribute}
+                  translations={translations}
+                  gpu1={comparisonResult[0]}
+                  gpu2={comparisonResult[1]}
+                  numericAttributes={numericAttributes}
+                />
               ))}
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-
       </div>
       <GPUComparisonBubbles comparisons={gpuComparisons} lang={userLanguage} />
     </div>
