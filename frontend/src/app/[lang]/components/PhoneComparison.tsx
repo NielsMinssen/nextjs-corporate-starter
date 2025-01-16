@@ -345,11 +345,11 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
         "Performance.max_memory_size_gb" as keyof PhoneSpecs,
     ];
 
-    const getBarStyle = (attribute: keyof PhoneSpecs, index: number) => {
-        if (!comparisonResult || !numericAttributes.includes(attribute)) return {};
+    const getBarStyle = (attribute: keyof PhoneSpecs, subAttribute: string, index: number) => {
+        if (!comparisonResult || !numericAttributes.includes(`${attribute}.${subAttribute}` as keyof PhoneSpecs)) return {};
 
-        const value1 = (comparisonResult[0][attribute] as unknown) as number;
-        const value2 = (comparisonResult[1][attribute] as unknown) as number;
+        const value1 = (comparisonResult[0][attribute] as any)[subAttribute] as number;
+        const value2 = (comparisonResult[1][attribute] as any)[subAttribute] as number;
 
         // If one of the values doesn't exist, use pastel blue for the other existing value
         if (value1 == null || value2 == null) {
@@ -374,9 +374,9 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
 
         const maxValue = Math.max(value1, value2);
         const minValue = Math.min(value1, value2);
-        const currentValue = (comparisonResult[index][attribute] as unknown) as number;
-        const isBestValue = (attribute === "Design.weight_g" as keyof PhoneSpecs) ? currentValue === minValue : currentValue === maxValue;
-        const otherValue = comparisonResult[1 - index][attribute] as unknown as number;
+        const currentValue = (comparisonResult[index][attribute] as any)[subAttribute] as number;
+        const isBestValue = (attribute === "Design" && subAttribute === "weight_g") ? currentValue === minValue : currentValue === maxValue;
+        const otherValue = (comparisonResult[1 - index][attribute] as any)[subAttribute] as number;
 
         // Determine the difference ratio
         const differenceRatio = Math.abs(currentValue - otherValue) / Math.max(maxValue, 1); // Avoid division by zero
@@ -553,13 +553,20 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                                     <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
                                                         <td className="hidden md:flex md:items-center px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
                                                             <>{translations.phoneComparison.details[attribute][subAttribute]?.title || subAttribute}</>
+                                                            {/* <AttributeWithTooltip attribute={subAttribute} /> */}
                                                         </td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                                        <td
+                                                            className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
+                                                            style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 0)}
+                                                        >
                                                             {typeof (comparisonResult[0][attribute] as any)[subAttribute] === 'boolean'
                                                                 ? (comparisonResult[0][attribute] as any)[subAttribute] ? 'Yes' : 'No'
                                                                 : (comparisonResult[0][attribute] as any)[subAttribute]}
                                                         </td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                                        <td
+                                                            className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
+                                                            style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 1)}
+                                                        >
                                                             {typeof (comparisonResult[1][attribute] as any)[subAttribute] === 'boolean'
                                                                 ? (comparisonResult[1][attribute] as any)[subAttribute] ? 'Yes' : 'No'
                                                                 : (comparisonResult[1][attribute] as any)[subAttribute]}
