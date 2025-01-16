@@ -1306,6 +1306,82 @@ export interface ApiPagePage extends Schema.CollectionType {
   };
 }
 
+export interface ApiPhonePhone extends Schema.CollectionType {
+  collectionName: 'phones';
+  info: {
+    singularName: 'phone';
+    pluralName: 'phones';
+    displayName: 'phone';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    phone: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::phone.phone',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::phone.phone',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPhonedescriptionPhonedescription extends Schema.SingleType {
+  collectionName: 'phonedescriptions';
+  info: {
+    singularName: 'phonedescription';
+    pluralName: 'phonedescriptions';
+    displayName: 'phonedescription';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    phonedescription: Attribute.JSON &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::phonedescription.phonedescription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::phonedescription.phonedescription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::phonedescription.phonedescription',
+      'oneToMany',
+      'api::phonedescription.phonedescription'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiProductFeatureProductFeature extends Schema.CollectionType {
   collectionName: 'product_features';
   info: {
@@ -1365,6 +1441,8 @@ declare module '@strapi/types' {
       'api::gpudescription.gpudescription': ApiGpudescriptionGpudescription;
       'api::lead-form-submission.lead-form-submission': ApiLeadFormSubmissionLeadFormSubmission;
       'api::page.page': ApiPagePage;
+      'api::phone.phone': ApiPhonePhone;
+      'api::phonedescription.phonedescription': ApiPhonedescriptionPhonedescription;
       'api::product-feature.product-feature': ApiProductFeatureProductFeature;
     }
   }

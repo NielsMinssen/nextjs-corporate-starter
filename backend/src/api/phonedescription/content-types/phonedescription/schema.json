@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "phonedescriptions",
+  "info": {
+    "singularName": "phonedescription",
+    "pluralName": "phonedescriptions",
+    "displayName": "phonedescription"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "phonedescription": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json"
+    }
+  }
+}
