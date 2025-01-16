@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Select, { SingleValue } from "react-select";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/[lang]/components/tooltip";
-import { HelpCircle } from "lucide-react";
+import { CheckCircle, HelpCircle, XCircle } from "lucide-react";
 import Loader from "@/app/[lang]/components/Loader";
 import PhoneComparisonBubbles from './PhoneComparisonBubbles';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
@@ -523,61 +523,69 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                 <div className="w-1/2 px-2">{comparisonResult[1].brand_and_full_name}</div>
                             </div>
 
-                            {comparisonAttributes.map((attribute) => (
-                                <div key={attribute} className="mb-8">
-                                    <h2 className="text-2xl font-bold mb-4 text-gray-800">
-                                        {typeof translations.phoneComparison[attribute] === 'string' ? translations.phoneComparison[attribute] as string : attribute}
-                                    </h2>
-                                    <table className="w-full">
-                                        <thead className="hidden md:table-header-group">
-                                            <tr className="border-b-2 border-gray-200">
-                                                <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                                                    {translations.phoneComparison.attribute}
-                                                </th>
-                                                <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                                                    {comparisonResult[0].brand_and_full_name}
-                                                </th>
-                                                <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                                                    {comparisonResult[1].brand_and_full_name}
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {Object.keys(comparisonResult[0][attribute]).map((subAttribute) => (
-                                                <React.Fragment key={subAttribute}>
-                                                    <tr className="md:hidden border-b border-gray-200 bg-gray-50">
-                                                        <td colSpan={2} className="px-6 py-2 text-sm font-semibold text-gray-700">
-                                                            <>{translations.phoneComparison.details[attribute][subAttribute]?.title || subAttribute}</>
-                                                        </td>
+                            <Accordion type="multiple" defaultValue={comparisonAttributes}>
+                                {comparisonAttributes.map((attribute, index) => (
+                                    <AccordionItem key={attribute} value={attribute}>
+                                        <AccordionTrigger className="text-lg font-semibold hover:text-blue-600">
+                                            {typeof translations.phoneComparison[attribute] === 'string' ? translations.phoneComparison[attribute] as string : attribute}
+                                        </AccordionTrigger>
+                                        <AccordionContent className="space-y-6">
+                                            <table className="w-full table-fixed">
+                                                <thead className="hidden md:table-header-group">
+                                                    <tr className="border-b-2 border-gray-200">
+                                                        <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 uppercase">
+                                                            {translations.phoneComparison.attribute}
+                                                        </th>
+                                                        <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 uppercase">
+                                                            {comparisonResult[0].brand_and_full_name}
+                                                        </th>
+                                                        <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 uppercase">
+                                                            {comparisonResult[1].brand_and_full_name}
+                                                        </th>
                                                     </tr>
-                                                    <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
-                                                        <td className="hidden md:flex md:items-center px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
-                                                            <>{translations.phoneComparison.details[attribute][subAttribute]?.title || subAttribute}</>
-                                                            {/* <AttributeWithTooltip attribute={subAttribute} /> */}
-                                                        </td>
-                                                        <td
-                                                            className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
-                                                            style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 0)}
-                                                        >
-                                                            {typeof (comparisonResult[0][attribute] as any)[subAttribute] === 'boolean'
-                                                                ? (comparisonResult[0][attribute] as any)[subAttribute] ? 'Yes' : 'No'
-                                                                : (comparisonResult[0][attribute] as any)[subAttribute]}
-                                                        </td>
-                                                        <td
-                                                            className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
-                                                            style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 1)}
-                                                        >
-                                                            {typeof (comparisonResult[1][attribute] as any)[subAttribute] === 'boolean'
-                                                                ? (comparisonResult[1][attribute] as any)[subAttribute] ? 'Yes' : 'No'
-                                                                : (comparisonResult[1][attribute] as any)[subAttribute]}
-                                                        </td>
-                                                    </tr>
-                                                </React.Fragment>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            ))}
+                                                </thead>
+                                                <tbody>
+                                                    {Object.keys(comparisonResult[0][attribute]).map((subAttribute) => (
+                                                        <React.Fragment key={subAttribute}>
+                                                            <tr className="md:hidden border-b border-gray-200 bg-gray-50">
+                                                                <td colSpan={2} className="px-6 py-2 text-sm font-semibold text-gray-700">
+                                                                    <>{translations.phoneComparison.details[attribute][subAttribute]?.title || subAttribute}</>
+                                                                </td>
+                                                            </tr>
+                                                            <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
+                                                                <td className="hidden md:flex md:items-center px-6 py-4 text-sm font-semibold text-gray-700">
+                                                                    <>{translations.phoneComparison.details[attribute][subAttribute]?.title || subAttribute}</>
+                                                                    {/* <AttributeWithTooltip attribute={subAttribute} /> */}
+                                                                </td>
+                                                                <td
+                                                                    className="px-6 py-4 text-sm text-gray-600 text-center"
+                                                                    style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 0)}
+                                                                >
+                                                                    {typeof (comparisonResult[0][attribute] as any)[subAttribute] === 'boolean'
+                                                                        ? (comparisonResult[0][attribute] as any)[subAttribute]
+                                                                            ? <span className="text-green-600"><CheckCircle className="inline-block h-5 w-5" /></span>
+                                                                            : <span className="text-red-600"><XCircle className="inline-block h-5 w-5" /></span>
+                                                                        : (comparisonResult[0][attribute] as any)[subAttribute] ?? <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>}
+                                                                </td>
+                                                                <td
+                                                                    className="px-6 py-4 text-sm text-gray-600 text-center"
+                                                                    style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 1)}
+                                                                >
+                                                                    {typeof (comparisonResult[1][attribute] as any)[subAttribute] === 'boolean'
+                                                                        ? (comparisonResult[1][attribute] as any)[subAttribute]
+                                                                            ? <span className="text-green-600"><CheckCircle className="inline-block h-5 w-5" /></span>
+                                                                            : <span className="text-red-600"><XCircle className="inline-block h-5 w-5" /></span>
+                                                                        : (comparisonResult[1][attribute] as any)[subAttribute] ?? <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>}
+                                                                </td>
+                                                            </tr>
+                                                        </React.Fragment>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
                         </div>
                     </div>
                 )}
