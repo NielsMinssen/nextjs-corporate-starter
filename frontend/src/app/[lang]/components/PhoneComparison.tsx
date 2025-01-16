@@ -372,15 +372,29 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
             };
         }
 
+        // Attributes that are not necessarily better or worse based on their value
+        const neutralAttributes = [
+            "Design.width_mm",
+            "Design.height_mm",
+            "Design.volume_cm3",
+            "Screen.screen_size_in",
+        ];
+
         const maxValue = Math.max(value1, value2);
         const minValue = Math.min(value1, value2);
         const currentValue = (comparisonResult[index][attribute] as any)[subAttribute] as number;
-        const isBestValue = (attribute === "Design" && subAttribute === "weight_g") ? currentValue === minValue : currentValue === maxValue;
+        const isBestValue = (attribute === "Design" && (subAttribute === "weight_g" || subAttribute === "thickness_mm")) ? currentValue === minValue : currentValue === maxValue;
         const otherValue = (comparisonResult[1 - index][attribute] as any)[subAttribute] as number;
 
         // Determine the difference ratio
         const differenceRatio = Math.abs(currentValue - otherValue) / Math.max(maxValue, 1); // Avoid division by zero
         const percentage = (currentValue / maxValue) * 100;
+
+        if (neutralAttributes.includes(`${attribute}.${subAttribute}`)) {
+            return {
+                background: `linear-gradient(90deg, hsl(210, 50%, 80%) ${percentage}%, transparent ${percentage}%)`, // pastel blue for neutral attributes
+            };
+        }
 
         // Base color for the best value (always green)
         let color = `hsl(120, 70%, 60%)`; // green
@@ -446,6 +460,8 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
             };
         }
     };
+
+
     return (
         <div className="max-w-4xl mx-auto p-8 bg-white rounded-xl">
             <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">{translations.phoneComparison.title}</h1>
