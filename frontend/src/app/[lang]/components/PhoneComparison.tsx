@@ -1055,7 +1055,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                         <AccordionItem key={attribute} value={attribute}>
                                             <AccordionTrigger className="text-lg font-semibold">
                                                 <div className="flex w-full">
-                                                    <div className="md:w-1/4 md:text-left flex items-center">
+                                                    <div className="md:w-1/4 md:text-left flex pr-2 items-center">
                                                         {(() => {
                                                             switch (attribute) {
                                                                 case "Design":
