@@ -345,6 +345,17 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
         "Performance.max_memory_size_gb" as keyof PhoneSpecs,
     ];
 
+    // Attributes that are not necessarily better or worse based on their value
+    const neutralAttributes = [
+        "Design.width_mm",
+        "Design.height_mm",
+        "Design.volume_cm3",
+        "Screen.screen_size_in",
+    ];
+
+    const attributesWhereLowerIsBetter = ["Design.weight_g", "Design.thickness_mm"];
+
+
     const getBarStyle = (attribute: keyof PhoneSpecs, subAttribute: string, index: number) => {
         if (!comparisonResult || !numericAttributes.includes(`${attribute}.${subAttribute}` as keyof PhoneSpecs)) return {};
 
@@ -372,18 +383,11 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
             };
         }
 
-        // Attributes that are not necessarily better or worse based on their value
-        const neutralAttributes = [
-            "Design.width_mm",
-            "Design.height_mm",
-            "Design.volume_cm3",
-            "Screen.screen_size_in",
-        ];
 
         const maxValue = Math.max(value1, value2);
         const minValue = Math.min(value1, value2);
         const currentValue = (comparisonResult[index][attribute] as any)[subAttribute] as number;
-        const isBestValue = (attribute === "Design" && (subAttribute === "weight_g" || subAttribute === "thickness_mm")) ? currentValue === minValue : currentValue === maxValue;
+        const isBestValue = attributesWhereLowerIsBetter.includes(`${attribute}.${subAttribute}`) ? currentValue === minValue : currentValue === maxValue;
         const otherValue = (comparisonResult[1 - index][attribute] as any)[subAttribute] as number;
 
         // Determine the difference ratio
@@ -414,6 +418,74 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
         betterPhone: string | null,
         worsePhone: string | null,
         percentageDifference: number | null,
+        isEqual: boolean,
+    } => {
+        if (!comparisonResult) {
+            return {
+                betterPhone: null,
+                worsePhone: null,
+                percentageDifference: null,
+                isEqual: false,
+            };
+        }
+
+        let totalImprovement = 0;
+        let totalAttributes = 0;
+
+        // Sum up the percentage differences for each attribute
+        comparisonAttributes.forEach((attribute) => {
+            const comparison = getAttributeComparisonPercentage(attribute);
+            if (comparison.percentageDifference !== null) {
+                const difference = comparison.betterPhone === comparisonResult[0].brand_and_full_name
+                    ? comparison.percentageDifference
+                    : -comparison.percentageDifference;
+
+                totalImprovement += difference;
+                totalAttributes++;
+            } else {
+                totalAttributes++;
+            }
+        });
+
+        // If no attributes were compared, return equal
+        if (totalAttributes === 0) {
+            return {
+                betterPhone: null,
+                worsePhone: null,
+                percentageDifference: null,
+                isEqual: true,
+            };
+        }
+
+        const averageImprovement = totalImprovement / totalAttributes;
+
+        // If the difference is negligible, consider them equal
+        if (Math.abs(averageImprovement) < 0.01) {
+            return {
+                betterPhone: null,
+                worsePhone: null,
+                percentageDifference: null,
+                isEqual: true,
+            };
+        }
+
+        // Return the comparison result based on the average improvement
+        return {
+            betterPhone: averageImprovement > 0
+                ? comparisonResult[0].brand_and_full_name
+                : comparisonResult[1].brand_and_full_name,
+            worsePhone: averageImprovement > 0
+                ? comparisonResult[1].brand_and_full_name
+                : comparisonResult[0].brand_and_full_name,
+            percentageDifference: Number(Math.abs(averageImprovement).toFixed(2)),
+            isEqual: false,
+        };
+    };
+
+    const getAttributeComparisonPercentage = (attribute: keyof PhoneSpecs): {
+        betterPhone: string | null,
+        worsePhone: string | null,
+        percentageDifference: number | null,
         isEqual: boolean
     } => {
         if (!comparisonResult) return { betterPhone: null, worsePhone: null, percentageDifference: null, isEqual: false };
@@ -421,19 +493,40 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
         let totalImprovement = 0;
         let totalAttributesCounted = 0;
 
-        performanceAttributes.forEach((attribute) => {
-            const value1 = comparisonResult[0][attribute] as unknown as number;
-            const value2 = comparisonResult[1][attribute] as unknown as number;
-
-            if (value1 != null && value2 != null && value1 !== 0 && value2 !== 0) {
+        const calculateImprovement = (value1: number, value2: number, lowerIsBetter: boolean) => {
+            if (lowerIsBetter) {
+                if (value1 < value2) {
+                    return ((value2 - value1) / value2) * 100;
+                } else if (value2 < value1) {
+                    return -((value1 - value2) / value1) * 100;
+                }
+            } else {
                 if (value1 > value2) {
-                    const improvementPercentage = ((value1 - value2) / value2) * 100;
+                    return ((value1 - value2) / value2) * 100;
+                } else if (value2 > value1) {
+                    return -((value2 - value1) / value1) * 100;
+                }
+            }
+            return 0;
+        };
+
+        Object.keys(comparisonResult[0][attribute]).forEach((subAttribute) => {
+            if (neutralAttributes.includes(`${attribute}.${subAttribute}`)) return;
+
+            const value1 = (comparisonResult[0][attribute] as any)[subAttribute];
+            const value2 = (comparisonResult[1][attribute] as any)[subAttribute];
+            const lowerIsBetter = attributesWhereLowerIsBetter.includes(`${attribute}.${subAttribute}`);
+
+            if (value1 != null && value2 != null) {
+                if (typeof value1 === 'number' && typeof value2 === 'number' && value1 !== 0 && value2 !== 0) {
+                    const improvementPercentage = calculateImprovement(value1, value2, lowerIsBetter);
                     totalImprovement += improvementPercentage;
                     totalAttributesCounted++;
-                } else if (value2 > value1) {
-                    const improvementPercentage = ((value2 - value1) / value1) * 100;
-                    totalImprovement -= improvementPercentage;
-                    totalAttributesCounted++;
+                } else if (typeof value1 === 'boolean' && typeof value2 === 'boolean') {
+                    if (value1 !== value2) {
+                        totalImprovement += value1 ? 100 : -100;
+                        totalAttributesCounted++;
+                    }
                 }
             }
         });
@@ -460,7 +553,6 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
             };
         }
     };
-
 
     return (
         <div className="max-w-4xl mx-auto p-8 bg-white rounded-xl">
@@ -540,67 +632,86 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                             </div>
 
                             <Accordion type="multiple" defaultValue={comparisonAttributes}>
-                                {comparisonAttributes.map((attribute, index) => (
-                                    <AccordionItem key={attribute} value={attribute}>
-                                        <AccordionTrigger className="text-lg font-semibold hover:text-blue-600">
-                                            {typeof translations.phoneComparison[attribute] === 'string' ? translations.phoneComparison[attribute] as string : attribute}
-                                        </AccordionTrigger>
-                                        <AccordionContent className="space-y-6">
-                                            <table className="w-full table-fixed">
-                                                <thead className="hidden md:table-header-group">
-                                                    <tr className="border-b-2 border-gray-200">
-                                                        <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 uppercase">
-                                                            {translations.phoneComparison.attribute}
-                                                        </th>
-                                                        <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 uppercase">
-                                                            {comparisonResult[0].brand_and_full_name}
-                                                        </th>
-                                                        <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 uppercase">
-                                                            {comparisonResult[1].brand_and_full_name}
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {Object.keys(comparisonResult[0][attribute]).map((subAttribute) => (
-                                                        <React.Fragment key={subAttribute}>
-                                                            <tr className="md:hidden border-b border-gray-200 bg-gray-50">
-                                                                <td colSpan={2} className="px-6 py-2 text-sm font-semibold text-gray-700">
-                                                                    <>{translations.phoneComparison.details[attribute][subAttribute]?.title || subAttribute}</>
-                                                                </td>
-                                                            </tr>
-                                                            <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
-                                                                <td className="hidden md:flex md:items-center px-6 py-4 text-sm font-semibold text-gray-700">
-                                                                    <>{translations.phoneComparison.details[attribute][subAttribute]?.title || subAttribute}</>
-                                                                    {/* <AttributeWithTooltip attribute={subAttribute} /> */}
-                                                                </td>
-                                                                <td
-                                                                    className="px-6 py-4 text-sm text-gray-600 text-center"
-                                                                    style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 0)}
-                                                                >
-                                                                    {typeof (comparisonResult[0][attribute] as any)[subAttribute] === 'boolean'
-                                                                        ? (comparisonResult[0][attribute] as any)[subAttribute]
-                                                                            ? <span className="text-green-600"><CheckCircle className="inline-block h-5 w-5" /></span>
-                                                                            : <span className="text-red-600"><XCircle className="inline-block h-5 w-5" /></span>
-                                                                        : (comparisonResult[0][attribute] as any)[subAttribute] ?? <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>}
-                                                                </td>
-                                                                <td
-                                                                    className="px-6 py-4 text-sm text-gray-600 text-center"
-                                                                    style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 1)}
-                                                                >
-                                                                    {typeof (comparisonResult[1][attribute] as any)[subAttribute] === 'boolean'
-                                                                        ? (comparisonResult[1][attribute] as any)[subAttribute]
-                                                                            ? <span className="text-green-600"><CheckCircle className="inline-block h-5 w-5" /></span>
-                                                                            : <span className="text-red-600"><XCircle className="inline-block h-5 w-5" /></span>
-                                                                        : (comparisonResult[1][attribute] as any)[subAttribute] ?? <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>}
-                                                                </td>
-                                                            </tr>
-                                                        </React.Fragment>
-                                                    ))}
-                                                </tbody>
-                                            </table>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                ))}
+                                {comparisonAttributes.map((attribute) => {
+                                    const attributeComparison = getAttributeComparisonPercentage(attribute);
+                                    return (
+                                        <AccordionItem key={attribute} value={attribute}>
+                                            <AccordionTrigger className="text-lg font-semibold hover:text-blue-600">
+                                                {typeof translations.phoneComparison[attribute] === 'string' ? translations.phoneComparison[attribute] as string : attribute}
+                                                {' '}
+                                                {attributeComparison.isEqual ? (
+                                                    <span className="text-gray-600">({translations.phoneComparison.bothequal})</span>
+                                                ) : (
+                                                    <>
+                                                        <span className="text-green-600">{attributeComparison.betterPhone}</span>
+                                                        {' '}
+                                                        {translations.phoneComparison.is}
+                                                        {' '}
+                                                        <span className="text-blue-600">{attributeComparison.percentageDifference}%</span>
+                                                        {' '}
+                                                        {translations.phoneComparison.betterthan}
+                                                        {' '}
+                                                        <span className="text-red-600">{attributeComparison.worsePhone}</span>
+                                                    </>
+                                                )}
+                                            </AccordionTrigger>
+                                            <AccordionContent className="space-y-6">
+                                                <table className="w-full table-fixed">
+                                                    <thead className="hidden md:table-header-group">
+                                                        <tr className="border-b-2 border-gray-200">
+                                                            <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 uppercase">
+                                                                {translations.phoneComparison.attribute}
+                                                            </th>
+                                                            <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 uppercase">
+                                                                {comparisonResult[0].brand_and_full_name}
+                                                            </th>
+                                                            <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 uppercase">
+                                                                {comparisonResult[1].brand_and_full_name}
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {Object.keys(comparisonResult[0][attribute]).map((subAttribute) => (
+                                                            <React.Fragment key={subAttribute}>
+                                                                <tr className="md:hidden border-b border-gray-200 bg-gray-50">
+                                                                    <td colSpan={2} className="px-6 py-2 text-sm font-semibold text-gray-700">
+                                                                        <>{translations.phoneComparison.details[attribute][subAttribute]?.title || subAttribute}</>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
+                                                                    <td className="hidden md:flex md:items-center px-6 py-4 text-sm font-semibold text-gray-700">
+                                                                        <>{translations.phoneComparison.details[attribute][subAttribute]?.title || subAttribute}</>
+                                                                        {/* <AttributeWithTooltip attribute={subAttribute} /> */}
+                                                                    </td>
+                                                                    <td
+                                                                        className="px-6 py-4 text-sm text-gray-600 text-center"
+                                                                        style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 0)}
+                                                                    >
+                                                                        {typeof (comparisonResult[0][attribute] as any)[subAttribute] === 'boolean'
+                                                                            ? (comparisonResult[0][attribute] as any)[subAttribute]
+                                                                                ? <span className="text-green-600"><CheckCircle className="inline-block h-5 w-5" /></span>
+                                                                                : <span className="text-red-600"><XCircle className="inline-block h-5 w-5" /></span>
+                                                                            : (comparisonResult[0][attribute] as any)[subAttribute] ?? <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>}
+                                                                    </td>
+                                                                    <td
+                                                                        className="px-6 py-4 text-sm text-gray-600 text-center"
+                                                                        style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 1)}
+                                                                    >
+                                                                        {typeof (comparisonResult[1][attribute] as any)[subAttribute] === 'boolean'
+                                                                            ? (comparisonResult[1][attribute] as any)[subAttribute]
+                                                                                ? <span className="text-green-600"><CheckCircle className="inline-block h-5 w-5" /></span>
+                                                                                : <span className="text-red-600"><XCircle className="inline-block h-5 w-5" /></span>
+                                                                            : (comparisonResult[1][attribute] as any)[subAttribute] ?? <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>}
+                                                                    </td>
+                                                                </tr>
+                                                            </React.Fragment>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    );
+                                })}
                             </Accordion>
                         </div>
                     </div>

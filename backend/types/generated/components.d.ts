@@ -1,19 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    name: 'Metadata';
-    displayName: 'Metadata';
-    icon: 'robot';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
 export interface SharedVideoEmbed extends Schema.Component {
   collectionName: 'components_sections_video_embeds';
   info: {
@@ -98,6 +84,20 @@ export interface SharedDropwonLinks extends Schema.Component {
   };
   attributes: {
     Link: Attribute.Component<'links.link', true>;
+  };
+}
+
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
+  info: {
+    name: 'Metadata';
+    displayName: 'Metadata';
+    icon: 'robot';
+    description: '';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -510,7 +510,6 @@ export interface ElementsFeatureColumn extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'meta.metadata': MetaMetadata;
       'shared.video-embed': SharedVideoEmbed;
       'shared.slider': SharedSlider;
       'shared.seo': SharedSeo;
@@ -518,6 +517,7 @@ declare module '@strapi/types' {
       'shared.quote': SharedQuote;
       'shared.media': SharedMedia;
       'shared.dropwon-links': SharedDropwonLinks;
+      'meta.metadata': MetaMetadata;
       'sections.testimonials-group': SectionsTestimonialsGroup;
       'sections.rich-text': SectionsRichText;
       'sections.pricing': SectionsPricing;
