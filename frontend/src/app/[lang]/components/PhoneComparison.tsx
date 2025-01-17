@@ -9,6 +9,7 @@ import Loader from "@/app/[lang]/components/Loader";
 import PhoneComparisonBubbles from './PhoneComparisonBubbles';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
 import { InfoCircledIcon } from '@radix-ui/react-icons';
+import PhonePerformanceRadar from './PhonePerformanceRadar';
 // import PhonePerformanceRadar from './PhonePerformanceRadar';
 // import DetailSection from './PhoneDetailSection';
 // import PhoneDetailSection from './PhoneDetailSection';
@@ -893,12 +894,13 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
         };
     };
 
-    const getAttributeComparisonPercentage = (attribute: keyof PhoneSpecs): {
+    const getAttributeComparisonPercentage = (attribute: string): {
         betterPhone: string | null,
         worsePhone: string | null,
         percentageDifference: number | null,
         isEqual: boolean
     } => {
+        const phoneAttribute = attribute as keyof PhoneSpecs;
         if (!comparisonResult) return { betterPhone: null, worsePhone: null, percentageDifference: null, isEqual: false };
 
         let totalImprovement = 0;
@@ -920,12 +922,10 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
             }
             return 0;
         };
-
-        Object.keys(comparisonResult[0][attribute]).forEach((subAttribute) => {
+        Object.keys(comparisonResult[0][attribute as keyof PhoneSpecs]).forEach((subAttribute) => {
             if (neutralAttributes.includes(`${attribute}.${subAttribute}`)) return;
-
-            const value1 = (comparisonResult[0][attribute] as any)[subAttribute];
-            const value2 = (comparisonResult[1][attribute] as any)[subAttribute];
+            const value1 = (comparisonResult[0][phoneAttribute] as any)[subAttribute];
+            const value2 = (comparisonResult[1][phoneAttribute] as any)[subAttribute];
             const lowerIsBetter = attributesWhereLowerIsBetter.includes(`${attribute}.${subAttribute}`);
 
             if (value1 != null && value2 != null) {
@@ -1035,6 +1035,12 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                 }
                             })()}
                         </div>
+                        <PhonePerformanceRadar
+                            phone1={comparisonResult[0]}
+                            phone2={comparisonResult[1]}
+                            comparisonAttributes={comparisonAttributes}
+                            getAttributeComparisonPercentage={getAttributeComparisonPercentage}
+                        />
                         <div className="overflow-x-auto bg-gray-50 rounded-xl p-1 md:p-6">
                             <Accordion type="multiple" defaultValue={comparisonAttributes}>
                                 {comparisonAttributes.map((attribute) => {
