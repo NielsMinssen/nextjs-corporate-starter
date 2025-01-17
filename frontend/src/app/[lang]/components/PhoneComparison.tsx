@@ -1041,12 +1041,12 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                     const attributeComparison = getAttributeComparisonPercentage(attribute);
                                     return (
                                         <AccordionItem key={attribute} value={attribute}>
-                                            <AccordionTrigger className="text-lg font-semibold hover:text-blue-600">
+                                            <AccordionTrigger className="text-lg font-semibold">
                                                 <div className="flex w-full">
-                                                    <div className="text-left">
+                                                    <div className="w-1/4 text-left">
                                                         {translations.phoneComparison.details[attribute]?.title || attribute}
                                                     </div>
-                                                    <div className="text-cener flex-1">
+                                                    <div className="w-3/4 text-left flex-1">
                                                         {attributeComparison.isEqual ? (
                                                             <div className="text-base font-normal">
                                                                 <span className="font-normal">{translations.phoneComparison.equivalent}</span>
