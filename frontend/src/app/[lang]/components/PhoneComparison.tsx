@@ -8,6 +8,7 @@ import { CheckCircle, HelpCircle, XCircle } from "lucide-react";
 import Loader from "@/app/[lang]/components/Loader";
 import PhoneComparisonBubbles from './PhoneComparisonBubbles';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
+import { InfoCircledIcon } from '@radix-ui/react-icons';
 // import PhonePerformanceRadar from './PhonePerformanceRadar';
 // import DetailSection from './PhoneDetailSection';
 // import PhoneDetailSection from './PhoneDetailSection';
@@ -703,22 +704,6 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
         label: phone.brand_and_full_name,
     }));
 
-    // const AttributeWithTooltip: React.FC<{ attribute: string }> = ({ attribute }) => {
-    //     return (
-    //         <TooltipProvider>
-    //             <Tooltip>
-    //                 <TooltipTrigger asChild>
-    //                     <span className="flex items-center">
-    //                         <HelpCircle className="ml-1 h-4 w-4 text-gray-400" />
-    //                     </span>
-    //                 </TooltipTrigger>
-    //                 <TooltipContent>
-    //                     <p>{translations.phoneComparison.tooltips[attribute] || "No description available"}</p>
-    //                 </TooltipContent>
-    //             </Tooltip>
-    //         </TooltipProvider>
-    //     );
-    // };
 
     const comparisonAttributes: (keyof PhoneSpecs)[] = [
         "Design",
@@ -1107,13 +1092,23 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                                             <React.Fragment key={subAttribute}>
                                                                 <tr className="md:hidden border-b border-gray-200 bg-gray-50">
                                                                     <td colSpan={2} className="px-6 py-2 text-sm font-semibold text-gray-700">
-                                                                        <>{translations.phoneComparison.details[attribute][subAttribute]?.title || subAttribute}</>
+                                                                        <>{(translations.phoneComparison.details[attribute] as any)[subAttribute]?.title || subAttribute}</>
                                                                     </td>
                                                                 </tr>
                                                                 <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
                                                                     <td className="hidden md:flex md:items-center px-6 py-4 text-sm font-semibold text-gray-700">
-                                                                        <>{translations.phoneComparison.details[attribute][subAttribute]?.title || subAttribute}</>
-                                                                        {/* <AttributeWithTooltip attribute={subAttribute} /> */}
+                                                                        {<TooltipProvider>
+                                                                            <Tooltip>
+                                                                                <TooltipTrigger asChild>
+                                                                                    <span className="flex items-center cursor-pointer">
+                                                                                        <>{(translations.phoneComparison.details[attribute] as any)[subAttribute]?.title || subAttribute}</>
+                                                                                    </span>
+                                                                                </TooltipTrigger>
+                                                                                <TooltipContent>
+                                                                                    <p>{(translations.phoneComparison.details[attribute] as any)[subAttribute]?.description}</p>
+                                                                                </TooltipContent>
+                                                                            </Tooltip>
+                                                                        </TooltipProvider>}
                                                                     </td>
                                                                     <td
                                                                         className="px-6 py-4 text-sm text-gray-600 text-center"
