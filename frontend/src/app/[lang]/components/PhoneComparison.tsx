@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Select, { SingleValue } from "react-select";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/[lang]/components/tooltip";
-import { CheckCircle, HelpCircle, XCircle } from "lucide-react";
+import { Battery, Camera, CheckCircle, Cpu, HelpCircle, ListPlus, Monitor, Settings2, Smartphone, Volume2, XCircle } from "lucide-react";
 import Loader from "@/app/[lang]/components/Loader";
 import PhoneComparisonBubbles from './PhoneComparisonBubbles';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
@@ -1043,7 +1043,29 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                         <AccordionItem key={attribute} value={attribute}>
                                             <AccordionTrigger className="text-lg font-semibold">
                                                 <div className="flex w-full">
-                                                    <div className="w-1/4 text-left">
+                                                    <div className="w-1/4 text-left flex items-center">
+                                                        {(() => {
+                                                            switch (attribute) {
+                                                                case "Design":
+                                                                    return <Smartphone className="mr-2 h-5 w-5" />;
+                                                                case "Screen":
+                                                                    return <Monitor className="mr-2 h-5 w-5" />;
+                                                                case "Performance":
+                                                                    return <Cpu className="mr-2 h-5 w-5" />;
+                                                                case "Cameras":
+                                                                    return <Camera className="mr-2 h-5 w-5" />;
+                                                                case "Operating_System":
+                                                                    return <Settings2 className="mr-2 h-5 w-5" />;
+                                                                case "Battery":
+                                                                    return <Battery className="mr-2 h-5 w-5" />;
+                                                                case "Audio":
+                                                                    return <Volume2 className="mr-2 h-5 w-5" />;
+                                                                case "Features":
+                                                                    return <ListPlus className="mr-2 h-5 w-5" />;
+                                                                default:
+                                                                    return null;
+                                                            }
+                                                        })()}
                                                         {translations.phoneComparison.details[attribute]?.title || attribute}
                                                     </div>
                                                     <div className="w-3/4 text-left flex-1">
