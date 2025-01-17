@@ -1020,7 +1020,9 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                 } else {
                                     return (
                                         <>
-                                            <span className="text-green-600">{comparisonData.betterPhone}</span>
+                                            <span className={comparisonData.betterPhone === comparisonResult[0].brand_and_full_name ? "text-[#b83f39]" : "text-[#514bbd]"}>
+                                                {comparisonData.betterPhone}
+                                            </span>
                                             {' '}
                                             {translations.phoneComparison.is}
                                             {' '}
@@ -1028,7 +1030,9 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                             {' '}
                                             {translations.phoneComparison.betterthan}
                                             {' '}
-                                            <span className="text-red-600">{comparisonData.worsePhone}</span>
+                                            <span className={comparisonData.worsePhone === comparisonResult[0].brand_and_full_name ? "text-[#b83f39]" : "text-[#514bbd]"}>
+                                                {comparisonData.worsePhone}
+                                            </span>
                                             {' '}
                                             {translations.phoneComparison.basedon}
                                         </>
@@ -1083,7 +1087,9 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                                             </div>
                                                         ) : (
                                                             <div className="text-base font-normal">
-                                                                <span className="text-green-600">{attributeComparison.betterPhone}</span>
+                                                                <span className={attributeComparison.betterPhone === comparisonResult[0].brand_and_full_name ? "text-[#b83f39]" : "text-[#514bbd]"}>
+                                                                    {attributeComparison.betterPhone}
+                                                                </span>
                                                                 {' '}
                                                                 <span className="font-normal">{translations.phoneComparison.is}</span>
                                                                 {' '}
@@ -1091,7 +1097,9 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                                                 {' '}
                                                                 <span className="font-normal">{translations.phoneComparison.betterthan}</span>
                                                                 {' '}
-                                                                <span className="text-red-600">{attributeComparison.worsePhone}</span>
+                                                                <span className={attributeComparison.worsePhone === comparisonResult[0].brand_and_full_name ? "text-[#b83f39]" : "text-[#514bbd]"}>
+                                                                    {attributeComparison.worsePhone}
+                                                                </span>
                                                             </div>
                                                         )}
                                                     </div>
