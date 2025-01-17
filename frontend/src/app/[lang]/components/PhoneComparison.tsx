@@ -135,6 +135,7 @@ interface PhoneSpecs {
     };
 }
 
+
 interface Translation {
     phoneComparison: {
         title: string;
@@ -151,7 +152,7 @@ interface Translation {
         basedon: string;
         buyonamazon: string;
         amazondisclaimer: string;
-        details: {
+        details: { [key: string]: { title: string; description: string } } & {
             title: string;
             brand_and_full_name: {
                 title: string;
@@ -1040,6 +1041,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                             phone2={comparisonResult[1]}
                             comparisonAttributes={comparisonAttributes}
                             getAttributeComparisonPercentage={getAttributeComparisonPercentage}
+                            translations={translations}
                         />
                         <div className="overflow-x-auto bg-gray-50 rounded-xl p-1 md:p-6">
                             <Accordion type="multiple" defaultValue={comparisonAttributes}>
@@ -1049,7 +1051,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                         <AccordionItem key={attribute} value={attribute}>
                                             <AccordionTrigger className="text-lg font-semibold">
                                                 <div className="flex w-full">
-                                                    <div className="w-1/4 text-left flex items-center">
+                                                    <div className="md:w-1/4 md:text-left flex items-center">
                                                         {(() => {
                                                             switch (attribute) {
                                                                 case "Design":
@@ -1074,7 +1076,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                                         })()}
                                                         {translations.phoneComparison.details[attribute]?.title || attribute}
                                                     </div>
-                                                    <div className="w-3/4 text-left flex-1">
+                                                    <div className="md:w-3/4 md:text-left flex-1">
                                                         {attributeComparison.isEqual ? (
                                                             <div className="text-base font-normal">
                                                                 <span className="font-normal">{translations.phoneComparison.equivalent}</span>
