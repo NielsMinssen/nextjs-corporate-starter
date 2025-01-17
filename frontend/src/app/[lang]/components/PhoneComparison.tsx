@@ -143,18 +143,443 @@ interface Translation {
         compareButton: string;
         attribute: string;
         bothequal: string;
+        equivalent: string;
         is: string;
         betterthan: string;
         basedon: string;
         buyonamazon: string;
         amazondisclaimer: string;
         details: {
-            [key: string]: string;
+            title: string;
+            brand_and_full_name: {
+                title: string;
+                description: string;
+            };
+            Design: {
+                title: string;
+                weight_g: {
+                    title: string;
+                    description: string;
+                };
+                thickness_mm: {
+                    title: string;
+                    description: string;
+                };
+                width_mm: {
+                    title: string;
+                    description: string;
+                };
+                height_mm: {
+                    title: string;
+                    description: string;
+                };
+                water_resistance: {
+                    title: string;
+                    description: string;
+                };
+                IP_rating: {
+                    title: string;
+                    description: string;
+                };
+                volume_cm3: {
+                    title: string;
+                    description: string;
+                };
+            };
+            Screen: {
+                title: string;
+                screen_size_in: {
+                    title: string;
+                    description: string;
+                };
+                screen_type: {
+                    title: string;
+                    description: string;
+                };
+                pixel_density_ppi: {
+                    title: string;
+                    description: string;
+                };
+                resolution: {
+                    title: string;
+                    description: string;
+                };
+                refresh_rate_hz: {
+                    title: string;
+                    description: string;
+                };
+                typical_brightness_nits: {
+                    title: string;
+                    description: string;
+                };
+                HDR10_compatible: {
+                    title: string;
+                    description: string;
+                };
+                Dolby_Vision_compatible: {
+                    title: string;
+                    description: string;
+                };
+            };
+            Performance: {
+                title: string;
+                storage_options_gb: {
+                    title: string;
+                    description: string;
+                };
+                RAM_gb: {
+                    title: string;
+                    description: string;
+                };
+                AnTuTu_benchmark_score: {
+                    title: string;
+                    description: string;
+                };
+                GPU_name: {
+                    title: string;
+                    description: string;
+                };
+                processor_speed_ghz: {
+                    title: string;
+                    description: string;
+                };
+                RAM_speed_mhz: {
+                    title: string;
+                    description: string;
+                };
+                semiconductor_size_nm: {
+                    title: string;
+                    description: string;
+                };
+                supports_64_bit: {
+                    title: string;
+                    description: string;
+                };
+                uses_big_LITTLE_technology: {
+                    title: string;
+                    description: string;
+                };
+                processor_threads: {
+                    title: string;
+                    description: string;
+                };
+                supports_ECC_memory: {
+                    title: string;
+                    description: string;
+                };
+                max_memory_size_gb: {
+                    title: string;
+                    description: string;
+                };
+                uses_multithreading: {
+                    title: string;
+                    description: string;
+                };
+            };
+            Cameras: {
+                title: string;
+                main_camera_megapixels: {
+                    title: string;
+                    description: string;
+                };
+                front_camera_megapixels: {
+                    title: string;
+                    description: string;
+                };
+                built_in_optical_image_stabilization: {
+                    title: string;
+                    description: string;
+                };
+                video_recording: {
+                    title: string;
+                    description: string;
+                };
+                largest_aperture_f: {
+                    title: string;
+                    description: string;
+                };
+                continuous_autofocus_during_video_recording: {
+                    title: string;
+                    description: string;
+                };
+                can_record_slow_motion_videos: {
+                    title: string;
+                    description: string;
+                };
+                IGD_mode: {
+                    title: string;
+                    description: string;
+                };
+                flash: {
+                    title: string;
+                    description: string;
+                };
+                optical_zoom_x: {
+                    title: string;
+                    description: string;
+                };
+                CMOS_sensor: {
+                    title: string;
+                    description: string;
+                };
+                manual_ISO: {
+                    title: string;
+                    description: string;
+                };
+                burst_mode: {
+                    title: string;
+                    description: string;
+                };
+                manual_focus: {
+                    title: string;
+                    description: string;
+                };
+                manual_white_balance: {
+                    title: string;
+                    description: string;
+                };
+                takes_raw_images: {
+                    title: string;
+                    description: string;
+                };
+                AF_touch: {
+                    title: string;
+                    description: string;
+                };
+                manual_shutter_speed: {
+                    title: string;
+                    description: string;
+                };
+                in_camera_panoramas: {
+                    title: string;
+                    description: string;
+                };
+                large_aperture_front_camera_f: {
+                    title: string;
+                    description: string;
+                };
+                Dolby_Vision_recording: {
+                    title: string;
+                    description: string;
+                };
+            };
+            Operating_System: {
+                title: string;
+                Android_version: {
+                    title: string;
+                    description: string;
+                };
+                clipboard_warning_message: {
+                    title: string;
+                    description: string;
+                };
+                location_privacy_options: {
+                    title: string;
+                    description: string;
+                };
+                camera_and_microphone_privacy_options: {
+                    title: string;
+                    description: string;
+                };
+                theme_customization: {
+                    title: string;
+                    description: string;
+                };
+                dark_mode: {
+                    title: string;
+                    description: string;
+                };
+                WiFi_password_sharing: {
+                    title: string;
+                    description: string;
+                };
+                battery_health_check: {
+                    title: string;
+                    description: string;
+                };
+                extra_dim_mode: {
+                    title: string;
+                    description: string;
+                };
+                Focus_mode: {
+                    title: string;
+                    description: string;
+                };
+                dynamic_theming: {
+                    title: string;
+                    description: string;
+                };
+                offload_apps: {
+                    title: string;
+                    description: string;
+                };
+                customizable_notifications: {
+                    title: string;
+                    description: string;
+                };
+                live_text: {
+                    title: string;
+                    description: string;
+                };
+                SharePlay: {
+                    title: string;
+                    description: string;
+                };
+                screen_sharing: {
+                    title: string;
+                    description: string;
+                };
+                direct_OS_updates: {
+                    title: string;
+                    description: string;
+                };
+                AirPlay: {
+                    title: string;
+                    description: string;
+                };
+                more_languages: {
+                    title: string;
+                    description: string;
+                };
+                quick_start: {
+                    title: string;
+                    description: string;
+                };
+            };
+            Battery: {
+                title: string;
+                battery_capacity_mAh: {
+                    title: string;
+                    description: string;
+                };
+                wireless_charging: {
+                    title: string;
+                    description: string;
+                };
+                fast_charging: {
+                    title: string;
+                    description: string;
+                };
+                charging_speed_w: {
+                    title: string;
+                    description: string;
+                };
+                wireless_charging_speed_w: {
+                    title: string;
+                    description: string;
+                };
+                battery_level_indicator: {
+                    title: string;
+                    description: string;
+                };
+                battery_life_h: {
+                    title: string;
+                    description: string;
+                };
+            };
+            Audio: {
+                title: string;
+                built_in_stereo_speaker: {
+                    title: string;
+                    description: string;
+                };
+                aptX: {
+                    title: string;
+                    description: string;
+                };
+                LDAC: {
+                    title: string;
+                    description: string;
+                };
+                aptX_HD: {
+                    title: string;
+                    description: string;
+                };
+            };
+            Features: {
+                title: string;
+                supports_5G: {
+                    title: string;
+                    description: string;
+                };
+                WiFi_version: {
+                    title: string;
+                    description: string;
+                };
+                download_speed_mbps: {
+                    title: string;
+                    description: string;
+                };
+                upload_speed_mbps: {
+                    title: string;
+                    description: string;
+                };
+                USB_Type_C_ports: {
+                    title: string;
+                    description: string;
+                };
+                USB_version: {
+                    title: string;
+                    description: string;
+                };
+                NFC_device: {
+                    title: string;
+                    description: string;
+                };
+                SIM_cards: {
+                    title: string;
+                    description: string;
+                };
+                fingerprint_reader: {
+                    title: string;
+                    description: string;
+                };
+                emergency_communication_via_satellite: {
+                    title: string;
+                    description: string;
+                };
+                detects_car_accidents: {
+                    title: string;
+                    description: string;
+                };
+                Bluetooth_version: {
+                    title: string;
+                    description: string;
+                };
+                gyroscope: {
+                    title: string;
+                    description: string;
+                };
+                GPS: {
+                    title: string;
+                    description: string;
+                };
+                compass: {
+                    title: string;
+                    description: string;
+                };
+                WiFi_compatible: {
+                    title: string;
+                    description: string;
+                };
+                infrared_sensor: {
+                    title: string;
+                    description: string;
+                };
+                accelerometer: {
+                    title: string;
+                    description: string;
+                };
+                barometer: {
+                    title: string;
+                    description: string;
+                };
+                supports_Galileo: {
+                    title: string;
+                    description: string;
+                };
+            };
         };
-        tooltips: {
-            [key: string]: string;
-        };
-        [key: string]: string | { [key: string]: string };
     };
 }
 
@@ -327,6 +752,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
         "Cameras.main_camera_megapixels" as keyof PhoneSpecs,
         "Cameras.front_camera_megapixels" as keyof PhoneSpecs,
         "Cameras.largest_aperture_f" as keyof PhoneSpecs,
+        "Cameras.large_aperture_front_camera_f" as keyof PhoneSpecs,
         "Cameras.optical_zoom_x" as keyof PhoneSpecs,
         "Battery.battery_capacity_mAh" as keyof PhoneSpecs,
         "Battery.charging_speed_w" as keyof PhoneSpecs,
@@ -555,7 +981,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-8 bg-white rounded-xl">
+        <div className="max-w-4xl mx-auto md:p-8 p-2 bg-white rounded-xl">
             <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">{translations.phoneComparison.title}</h1>
             <p className="text-xl mb-8 text-center text-gray-600">{translations.phoneComparison.description}</p>
 
@@ -625,37 +1051,43 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                             })()}
                         </div>
                         <div className="overflow-x-auto bg-gray-50 rounded-xl p-1 md:p-6">
-                            {/* Mobile-friendly phone names header */}
-                            <div className="md:hidden mb-4 flex justify-between font-bold text-sm text-gray-900">
-                                <div className="w-1/2 px-2">{comparisonResult[0].brand_and_full_name}</div>
-                                <div className="w-1/2 px-2">{comparisonResult[1].brand_and_full_name}</div>
-                            </div>
-
                             <Accordion type="multiple" defaultValue={comparisonAttributes}>
                                 {comparisonAttributes.map((attribute) => {
                                     const attributeComparison = getAttributeComparisonPercentage(attribute);
                                     return (
                                         <AccordionItem key={attribute} value={attribute}>
                                             <AccordionTrigger className="text-lg font-semibold hover:text-blue-600">
-                                                {typeof translations.phoneComparison[attribute] === 'string' ? translations.phoneComparison[attribute] as string : attribute}
-                                                {' '}
-                                                {attributeComparison.isEqual ? (
-                                                    <span className="text-gray-600">({translations.phoneComparison.bothequal})</span>
-                                                ) : (
-                                                    <>
-                                                        <span className="text-green-600">{attributeComparison.betterPhone}</span>
-                                                        {' '}
-                                                        {translations.phoneComparison.is}
-                                                        {' '}
-                                                        <span className="text-blue-600">{attributeComparison.percentageDifference}%</span>
-                                                        {' '}
-                                                        {translations.phoneComparison.betterthan}
-                                                        {' '}
-                                                        <span className="text-red-600">{attributeComparison.worsePhone}</span>
-                                                    </>
-                                                )}
+                                                <div className="flex w-full">
+                                                    <div className="text-left">
+                                                        {translations.phoneComparison.details[attribute]?.title || attribute}
+                                                    </div>
+                                                    <div className="text-cener flex-1">
+                                                        {attributeComparison.isEqual ? (
+                                                            <div className="text-base font-normal">
+                                                                <span className="font-normal">{translations.phoneComparison.equivalent}</span>
+                                                            </div>
+                                                        ) : (
+                                                            <div className="text-base font-normal">
+                                                                <span className="text-green-600">{attributeComparison.betterPhone}</span>
+                                                                {' '}
+                                                                <span className="font-normal">{translations.phoneComparison.is}</span>
+                                                                {' '}
+                                                                <span className="text-blue-600">{attributeComparison.percentageDifference}%</span>
+                                                                {' '}
+                                                                <span className="font-normal">{translations.phoneComparison.betterthan}</span>
+                                                                {' '}
+                                                                <span className="text-red-600">{attributeComparison.worsePhone}</span>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </div>
                                             </AccordionTrigger>
                                             <AccordionContent className="space-y-6">
+                                                {/* Mobile-friendly phone names header */}
+                                                <div className="md:hidden mb-4 flex justify-between font-bold text-sm text-gray-900">
+                                                    <div className="w-1/2 text-center px-2">{comparisonResult[0].brand_and_full_name}</div>
+                                                    <div className="w-1/2 text-center px-2">{comparisonResult[1].brand_and_full_name}</div>
+                                                </div>
                                                 <table className="w-full table-fixed">
                                                     <thead className="hidden md:table-header-group">
                                                         <tr className="border-b-2 border-gray-200">
@@ -716,36 +1148,6 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                         </div>
                     </div>
                 )}
-            </div>
-            {/* {
-        comparisonResult && (
-            <PhonePerformanceRadar
-                phone1={comparisonResult[0]}
-                phone2={comparisonResult[1]}
-                translations={translations}
-            />
-        )
-    } */}
-            <div className="my-8">
-                <Accordion type="single" collapsible defaultValue='detail'>
-                    <AccordionItem value="detail">
-                        <AccordionTrigger className="text-lg font-semibold hover:text-blue-600">
-                            {translations.phoneComparison.details.title}
-                        </AccordionTrigger>
-                        <AccordionContent className="space-y-6">
-                            {/* {comparisonAttributes.map((attribute) => (
-                                    <PhoneDetailSection
-                                        key={attribute}
-                                        attribute={attribute}
-                                        translations={translations}
-                                        phone1={comparisonResult[0]}
-                                        phone2={comparisonResult[1]}
-                                        numericAttributes={numericAttributes}
-                                    />
-                                ))} */}
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
             </div>
             <PhoneComparisonBubbles comparisons={phoneComparisons} lang={userLanguage} />
         </div >
