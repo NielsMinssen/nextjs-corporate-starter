@@ -583,19 +583,8 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
                     />
                     <Tooltip
                         labelFormatter={(label) => label}
-                        formatter={(value: any, name: string, props: any) => {
-                            const payload = props.payload;
-                            const comparison = payload.actualComparison;
-
-                            if (comparison.isEqual) {
-                                return [`${value.toFixed(2)}% (Equal)`, name];
-                            }
-
-                            const isBetter = comparison.betterPhone === name;
-                            const difference = comparison.difference;
-                            const comparisonText = isBetter
-                                ? `${value.toFixed(2)}% (Better by ${difference}%)`
-                                : `${value.toFixed(2)}% (Worse by ${difference}%)`;
+                        formatter={(value: any, name: string) => {
+                            const comparisonText = value.toFixed(2);
 
                             return [comparisonText, name];
                         }}
