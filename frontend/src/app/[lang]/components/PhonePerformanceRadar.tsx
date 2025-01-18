@@ -1,6 +1,8 @@
 import { Trophy } from 'lucide-react';
 import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
+
 
 interface PhoneSpecs {
     // Add other spec properties as needed
@@ -22,6 +24,7 @@ interface Translation {
         selectPhone2: string;
         select: string;
         compareButton: string;
+        points: string;
         attribute: string;
         bothequal: string;
         equivalent: string;
@@ -474,6 +477,8 @@ interface PhonePerformanceRadarProps {
         worsePhone: string | null,
         percentageDifference: number | null,
         isEqual: boolean,
+        averageScorePhone1: number,
+        averageScorePhone2: number
     };
     getAttributeComparisonPercentage(attribute: string): {
         betterPhone: string | null,
@@ -519,7 +524,25 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
     return (
         <div className="bg-gray-50 rounded-xl p-6 my-4 relative">
             <div className="absolute top-0 left-0 w-1/2 h-full flex flex-col items-center justify-center">
-                <span className="text-[#b83f39] font-bold pt-2">{phone1.brand_and_full_name}</span>
+                <div className="flex items-center mb-2 w-full flex-col">
+                    <div className="w-1/3 md:w-1/6">
+                        <CircularProgressbarWithChildren
+                            value={getOverallComparisonPercentage.averageScorePhone1}
+                            maxValue={100}
+                            styles={buildStyles({
+                                pathColor: '#b83f39',
+                                textColor: '#b83f39',
+                                trailColor: '#d6d6d6',
+                            })}
+                        >
+                            <div style={{ fontSize: '12px', textAlign: 'center', fontWeight: 'bold' }}>
+                                {`${getOverallComparisonPercentage.averageScorePhone1.toFixed(0)}`}<br />
+                                {translations.phoneComparison.points}
+                            </div>
+                        </CircularProgressbarWithChildren >
+                    </div>
+                    <span className="text-[#b83f39] font-bold pt-2">{phone1.brand_and_full_name}</span>
+                </div>
                 <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/${decodeURI(phone1.brand_and_full_name.replace(/\s+/g, '-'))}.webp`} alt={phone1.brand_and_full_name} className="w-full h-full object-contain opacity-30" />
                 {winningPhone === phone1.brand_and_full_name && (
                     <div className="absolute top-4 left-8 flex items-center gap-2 bg-[#b83f39] rounded-full p-2 shadow-lg">
@@ -529,7 +552,25 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
                 )}
             </div>
             <div className="absolute top-0 right-0 w-1/2 h-full flex flex-col items-center justify-center">
-                <span className="text-[#514bbd] font-bold pt-2">{phone2.brand_and_full_name}</span>
+                <div className="flex items-center mb-2 w-full flex-col">
+                    <div className="w-1/3 md:w-1/6">
+                        <CircularProgressbarWithChildren
+                            value={getOverallComparisonPercentage.averageScorePhone2}
+                            maxValue={100}
+                            styles={buildStyles({
+                                pathColor: '#514bbd',
+                                textColor: '#514bbd',
+                                trailColor: '#d6d6d6',
+                            })}
+                        >
+                            <div style={{ fontSize: '12px', textAlign: 'center', fontWeight: 'bold' }}>
+                                {`${getOverallComparisonPercentage.averageScorePhone2.toFixed(0)}`}<br />
+                                {translations.phoneComparison.points}
+                            </div>
+                        </CircularProgressbarWithChildren >
+                    </div>
+                    <span className="text-[#514bbd] font-bold p">{phone2.brand_and_full_name}</span>
+                </div>
                 <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/${decodeURI(phone2.brand_and_full_name.replace(/\s+/g, '-'))}.webp`} alt={phone2.brand_and_full_name} className="w-full h-full object-contain opacity-30" />
                 {winningPhone === phone2.brand_and_full_name && (
                     <div className="absolute top-12 md:top-0 md:right-0 flex items-center gap-2 bg-[#514bbd] rounded-full p-2 shadow-lg">
@@ -577,7 +618,7 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
                     <Tooltip
                         labelFormatter={(label) => label}
                         formatter={(value: any, name: string) => {
-                            const comparisonText = value.toFixed(2);
+                            const comparisonText = value.toFixed(2) + ' ' + translations.phoneComparison.points;
 
                             return [comparisonText, name];
                         }}
