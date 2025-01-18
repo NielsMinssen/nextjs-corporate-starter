@@ -464,11 +464,27 @@ interface Translation {
     };
 }
 
+
 interface PhonePerformanceRadarProps {
     phone1: PhoneSpecs;
     phone2: PhoneSpecs;
     comparisonAttributes: string[];
-    getAttributeComparisonPercentage: (attribute: string) => ComparisonResult;
+    getOverallComparisonPercentage: {
+        betterPhone: string | null,
+        worsePhone: string | null,
+        percentageDifference: number | null,
+        isEqual: boolean,
+    };
+    getAttributeComparisonPercentage(attribute: string): {
+        betterPhone: string | null,
+        worsePhone: string | null,
+        percentageDifference: number | null,
+        isEqual: boolean,
+        scores: {
+            normalized: { [phone: string]: number },
+            notNormalized: { [phone: string]: number }
+        },
+    }
     translations: Translation;
 }
 
@@ -476,41 +492,16 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
     phone1,
     phone2,
     comparisonAttributes,
+    getOverallComparisonPercentage,
     getAttributeComparisonPercentage,
     translations
 }) => {
-    const getWinningPhone = () => {
-        let phone1Wins = 0;
-        let phone2Wins = 0;
-
-        comparisonAttributes.forEach((attribute) => {
-            const comparison = getAttributeComparisonPercentage(attribute);
-            if (!comparison.isEqual && comparison.betterPhone === phone1.brand_and_full_name) {
-                phone1Wins++;
-            } else if (!comparison.isEqual && comparison.betterPhone === phone2.brand_and_full_name) {
-                phone2Wins++;
-            }
-        });
-
-        if (phone1Wins > phone2Wins) return phone1.brand_and_full_name;
-        if (phone2Wins > phone1Wins) return phone2.brand_and_full_name;
-        return null; // In case of a tie
-    };
-
-    const winningPhone = getWinningPhone();
+    const winningPhone = getOverallComparisonPercentage.isEqual ? null : getOverallComparisonPercentage.betterPhone;
 
     const data = comparisonAttributes.map((attribute) => {
         const comparison = getAttributeComparisonPercentage(attribute);
-        let phone1Value = 100;
-        let phone2Value = 100;
-
-        if (!comparison.isEqual && comparison.percentageDifference !== null) {
-            if (comparison.betterPhone === phone1.brand_and_full_name) {
-                phone2Value = 100 - comparison.percentageDifference;
-            } else {
-                phone1Value = 100 - comparison.percentageDifference;
-            }
-        }
+        let phone1Value = comparison.scores.normalized[phone1.brand_and_full_name];
+        let phone2Value = comparison.scores.normalized[phone2.brand_and_full_name];
 
         return {
             subject: translations.phoneComparison.details[attribute].title,
@@ -564,7 +555,7 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
                             dy: 5
                         }}
                     />
-                    <PolarRadiusAxis angle={30} domain={[0, 100]} tickCount={0} />
+                    <PolarRadiusAxis angle={30} domain={[0, 100]} tickCount={1} />
                     <Radar
                         name={phone1.brand_and_full_name}
                         dataKey={phone1.brand_and_full_name}
