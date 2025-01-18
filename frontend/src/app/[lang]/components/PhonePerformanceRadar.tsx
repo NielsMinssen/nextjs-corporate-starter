@@ -522,7 +522,7 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
     });
 
     return (
-        <div className="bg-gray-50 rounded-xl p-6 my-4 relative md:pt-20">
+        <div className="bg-gray-50 rounded-xl p-6 relative pt-20">
             <div className="absolute top-0 left-0 w-1/2 h-full flex flex-col items-center justify-center">
                 <div className="flex items-center mb-2 w-full flex-col">
                     <div className="w-1/3 md:w-1/6">
@@ -543,7 +543,7 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
                     </div>
                     <span className="text-[#b83f39] font-bold pt-2">{phone1.brand_and_full_name}</span>
                 </div>
-                <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/${decodeURI(phone1.brand_and_full_name.replace(/\s+/g, '-'))}.webp`} alt={phone1.brand_and_full_name} className="w-full h-full object-contain opacity-30" />
+                <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/${decodeURI(phone1.brand_and_full_name.replace(/\s+/g, '-'))}.webp`} alt={phone1.brand_and_full_name} className="w-full h-full object-contain opacity-20" />
             </div>
             <div className="absolute top-0 right-0 w-1/2 h-full flex flex-col items-center justify-center">
                 <div className="flex items-center mb-2 w-full flex-col">
@@ -565,12 +565,12 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
                     </div>
                     <span className="text-[#514bbd] font-bold p">{phone2.brand_and_full_name}</span>
                 </div>
-                <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/${decodeURI(phone2.brand_and_full_name.replace(/\s+/g, '-'))}.webp`} alt={phone2.brand_and_full_name} className="w-full h-full object-contain opacity-30" />
+                <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/${decodeURI(phone2.brand_and_full_name.replace(/\s+/g, '-'))}.webp`} alt={phone2.brand_and_full_name} className="w-full h-full object-contain opacity-20" />
             </div>
-            <ResponsiveContainer width="100%" height={500}>
+            <ResponsiveContainer width="100%" height={400}>
                 <RadarChart
                     width={850}
-                    height={500}
+                    height={400}
                     data={data}
                     margin={{ top: 10, right: 48, bottom: 10, left: 45 }}
                     className="mx-auto"
