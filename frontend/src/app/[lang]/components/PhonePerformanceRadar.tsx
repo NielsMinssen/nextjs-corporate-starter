@@ -518,7 +518,8 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
 
     return (
         <div className="bg-gray-50 rounded-xl p-6 my-4 relative">
-            <div className="absolute top-0 left-0 w-1/2 h-full">
+            <div className="absolute top-0 left-0 w-1/2 h-full flex flex-col items-center justify-center">
+                <span className="text-[#b83f39] font-bold pt-2">{phone1.brand_and_full_name}</span>
                 <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/${decodeURI(phone1.brand_and_full_name.replace(/\s+/g, '-'))}.webp`} alt={phone1.brand_and_full_name} className="w-full h-full object-contain opacity-30" />
                 {winningPhone === phone1.brand_and_full_name && (
                     <div className="absolute top-4 left-8 flex items-center gap-2 bg-[#b83f39] rounded-full p-2 shadow-lg">
@@ -527,10 +528,11 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
                     </div>
                 )}
             </div>
-            <div className="absolute top-0 right-0 w-1/2 h-full">
+            <div className="absolute top-0 right-0 w-1/2 h-full flex flex-col items-center justify-center">
+                <span className="text-[#514bbd] font-bold pt-2">{phone2.brand_and_full_name}</span>
                 <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/${decodeURI(phone2.brand_and_full_name.replace(/\s+/g, '-'))}.webp`} alt={phone2.brand_and_full_name} className="w-full h-full object-contain opacity-30" />
                 {winningPhone === phone2.brand_and_full_name && (
-                    <div className="absolute top-4 right-0 flex items-center gap-2 bg-[#514bbd] rounded-full p-2 shadow-lg">
+                    <div className="absolute top-12 md:top-0 md:right-0 flex items-center gap-2 bg-[#514bbd] rounded-full p-2 shadow-lg">
                         <Trophy className="w-6 h-6 text-white" />
                         <span className="text-white font-bold pr-2">Winner</span>
                     </div>
@@ -578,12 +580,6 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
                             const comparisonText = value.toFixed(2);
 
                             return [comparisonText, name];
-                        }}
-                    />
-                    <Legend
-                        wrapperStyle={{
-                            fontSize: window?.innerWidth >= 768 ? 16 : 12,
-                            fontWeight: 'bold'
                         }}
                     />
                 </RadarChart>

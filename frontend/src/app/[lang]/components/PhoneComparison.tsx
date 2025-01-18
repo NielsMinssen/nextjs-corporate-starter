@@ -144,6 +144,7 @@ interface Translation {
         selectPhone2: string;
         select: string;
         compareButton: string;
+        points: string;
         attribute: string;
         bothequal: string;
         equivalent: string;
@@ -1165,13 +1166,13 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                                     <div className="w-1/2 text-center px-2">{comparisonResult[0].brand_and_full_name}
                                                         <div className={attributeComparison.betterPhone === comparisonResult[0].brand_and_full_name ? "text-[#b83f39]" : "text-[#514bbd]"}>
                                                             {attributeComparison.scores && attributeComparison.scores.normalized[comparisonResult[0].brand_and_full_name] ?
-                                                                `${attributeComparison.scores.normalized[comparisonResult[0].brand_and_full_name].toFixed(0)}` : ''}
+                                                                `${attributeComparison.scores.normalized[comparisonResult[0].brand_and_full_name].toFixed(0)} ${translations.phoneComparison.points}` : ''}
                                                         </div>
                                                     </div>
                                                     <div className="w-1/2 text-center px-2">{comparisonResult[1].brand_and_full_name}
                                                         <div className={attributeComparison.betterPhone === comparisonResult[1].brand_and_full_name ? "text-[#b83f39]" : "text-[#514bbd]"}>
                                                             {attributeComparison.scores && attributeComparison.scores.normalized[comparisonResult[1].brand_and_full_name] ?
-                                                                `${attributeComparison.scores.normalized[comparisonResult[1].brand_and_full_name].toFixed(0)}` : ''}
+                                                                `${attributeComparison.scores.normalized[comparisonResult[1].brand_and_full_name].toFixed(0)} ${translations.phoneComparison.points}` : ''}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1181,18 +1182,18 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                                             <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 uppercase">
                                                                 {translations.phoneComparison.attribute}
                                                             </th>
-                                                            <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 uppercase">
+                                                            <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 ">
                                                                 {comparisonResult[0].brand_and_full_name}
                                                                 <div className={attributeComparison.betterPhone === comparisonResult[0].brand_and_full_name ? "text-[#b83f39]" : "text-[#514bbd]"}>
                                                                     {attributeComparison.scores && attributeComparison.scores.normalized[comparisonResult[0].brand_and_full_name] ?
-                                                                        `${attributeComparison.scores.normalized[comparisonResult[0].brand_and_full_name].toFixed(0)}` : ''}
+                                                                        `${attributeComparison.scores.normalized[comparisonResult[0].brand_and_full_name].toFixed(0)} ${translations.phoneComparison.points}` : ''}
                                                                 </div>
                                                             </th>
-                                                            <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 uppercase">
+                                                            <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 ">
                                                                 {comparisonResult[1].brand_and_full_name}
                                                                 <div className={attributeComparison.betterPhone === comparisonResult[1].brand_and_full_name ? "text-[#b83f39]" : "text-[#514bbd]"}>
                                                                     {attributeComparison.scores && attributeComparison.scores.normalized[comparisonResult[1].brand_and_full_name] ?
-                                                                        `${attributeComparison.scores.normalized[comparisonResult[1].brand_and_full_name].toFixed(0)}` : ''}
+                                                                        `${attributeComparison.scores.normalized[comparisonResult[1].brand_and_full_name].toFixed(0)} ${translations.phoneComparison.points}` : ''}
                                                                 </div>
                                                             </th>
                                                         </tr>
