@@ -522,7 +522,7 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
     });
 
     return (
-        <div className="bg-gray-50 rounded-xl p-6 my-4 relative">
+        <div className="bg-gray-50 rounded-xl p-6 my-4 relative md:pt-20">
             <div className="absolute top-0 left-0 w-1/2 h-full flex flex-col items-center justify-center">
                 <div className="flex items-center mb-2 w-full flex-col">
                     <div className="w-1/3 md:w-1/6">
@@ -544,12 +544,6 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
                     <span className="text-[#b83f39] font-bold pt-2">{phone1.brand_and_full_name}</span>
                 </div>
                 <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/${decodeURI(phone1.brand_and_full_name.replace(/\s+/g, '-'))}.webp`} alt={phone1.brand_and_full_name} className="w-full h-full object-contain opacity-30" />
-                {winningPhone === phone1.brand_and_full_name && (
-                    <div className="absolute top-4 left-8 flex items-center gap-2 bg-[#b83f39] rounded-full p-2 shadow-lg">
-                        <Trophy className="w-6 h-6 text-white" />
-                        <span className="text-white font-bold pr-2">Winner</span>
-                    </div>
-                )}
             </div>
             <div className="absolute top-0 right-0 w-1/2 h-full flex flex-col items-center justify-center">
                 <div className="flex items-center mb-2 w-full flex-col">
@@ -572,12 +566,6 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
                     <span className="text-[#514bbd] font-bold p">{phone2.brand_and_full_name}</span>
                 </div>
                 <img src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/${decodeURI(phone2.brand_and_full_name.replace(/\s+/g, '-'))}.webp`} alt={phone2.brand_and_full_name} className="w-full h-full object-contain opacity-30" />
-                {winningPhone === phone2.brand_and_full_name && (
-                    <div className="absolute top-12 md:top-0 md:right-0 flex items-center gap-2 bg-[#514bbd] rounded-full p-2 shadow-lg">
-                        <Trophy className="w-6 h-6 text-white" />
-                        <span className="text-white font-bold pr-2">Winner</span>
-                    </div>
-                )}
             </div>
             <ResponsiveContainer width="100%" height={500}>
                 <RadarChart
