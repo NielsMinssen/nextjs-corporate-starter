@@ -52,3 +52,5 @@ export const neutralAttributes = [
     "Design.volume_cm3",
     "Screen.screen_size_in",
 ];
+
+export const attributesWhereLowerIsBetter = ["Design.weight_g", "Design.thickness_mm"];

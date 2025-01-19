@@ -1,7 +1,6 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Select, { SingleValue } from "react-select";
+import React, { useState } from 'react';
+import Select from "react-select";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/[lang]/components/tooltip";
 import { Battery, Camera, CheckCircle, Cpu, HelpCircle, ListPlus, Monitor, Settings2, Smartphone, Volume2, XCircle } from "lucide-react";
 import Loader from "@/app/[lang]/components/Loader";
@@ -9,7 +8,7 @@ import PhoneComparisonBubbles from './PhoneComparisonBubbles';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
 import PhonePerformanceRadar from './PhonePerformanceRadar';
 import { useComparison, usePhoneData } from '@/app/hooks/usePhoneData';
-import { neutralAttributes, numericAttributes } from '../utils/constants';
+import { getAttributeComparisonPercentage, getBarStyle, getOverallComparisonPercentage } from '../utils/comparisonCalculations';
 
 interface PhoneComparisonProps {
     initialPhone1: string;
@@ -51,264 +50,6 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
         label: phone.brand_and_full_name,
     }));
 
-
-    const attributesWhereLowerIsBetter = ["Design.weight_g", "Design.thickness_mm"];
-
-
-    const getBarStyle = (attribute: keyof PhoneSpecs, subAttribute: string, index: number) => {
-        if (!comparisonResult || !numericAttributes.includes(`${attribute}.${subAttribute}` as keyof PhoneSpecs)) return {};
-
-        const value1 = (comparisonResult[0][attribute] as any)[subAttribute] as number;
-        const value2 = (comparisonResult[1][attribute] as any)[subAttribute] as number;
-
-        // If one of the values doesn't exist, use pastel blue for the other existing value
-        if (value1 == null || value2 == null) {
-            if (index === 0 && value1 != null) {
-                return {
-                    background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for the existing value
-                };
-            } else if (index === 1 && value2 != null) {
-                return {
-                    background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for the existing value
-                };
-            }
-            return {}; // No styling if the value doesn't exist
-        }
-
-        // If values are the same, return full pastel blue for both
-        if (value1 === value2) {
-            return {
-                background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for equal values
-            };
-        }
-
-
-        const maxValue = Math.max(value1, value2);
-        const minValue = Math.min(value1, value2);
-        const currentValue = (comparisonResult[index][attribute] as any)[subAttribute] as number;
-        const isBestValue = attributesWhereLowerIsBetter.includes(`${attribute}.${subAttribute}`) ? currentValue === minValue : currentValue === maxValue;
-        const otherValue = (comparisonResult[1 - index][attribute] as any)[subAttribute] as number;
-
-        // Determine the difference ratio
-        const differenceRatio = Math.abs(currentValue - otherValue) / Math.max(maxValue, 1); // Avoid division by zero
-        const percentage = (currentValue / maxValue) * 100;
-
-        if (neutralAttributes.includes(`${attribute}.${subAttribute}`)) {
-            return {
-                background: `linear-gradient(90deg, hsl(210, 50%, 80%) ${percentage}%, transparent ${percentage}%)`, // pastel blue for neutral attributes
-            };
-        }
-
-        // Base color for the best value (always green)
-        let color = `hsl(120, 70%, 60%)`; // green
-
-        if (!isBestValue) {
-            // Color transitions from green (120 hue) to red (0 hue) based on how far the values are
-            const hue = 100 - (differenceRatio * 120); // Shift hue from 120 (green) to 0 (red) based on the difference
-            color = `hsl(${hue}, 70%, 60%)`; // Softened, pastel color
-        }
-
-        return {
-            background: `linear-gradient(90deg, ${color} ${percentage}%, transparent ${percentage}%)`,
-        };
-    };
-
-    const getOverallComparisonPercentage = (): {
-        betterPhone: string | null,
-        worsePhone: string | null,
-        percentageDifference: number | null,
-        isEqual: boolean,
-        averageScorePhone1: number,
-        averageScorePhone2: number
-    } => {
-        if (!comparisonResult) {
-            return {
-                betterPhone: null,
-                worsePhone: null,
-                percentageDifference: null,
-                isEqual: false,
-                averageScorePhone1: 0,
-                averageScorePhone2: 0
-            };
-        }
-
-        let totalScorePhone1 = 0;
-        let totalScorePhone2 = 0;
-        let totalAttributes = 0;
-
-        // Sum up the normalized scores for each attribute
-        comparisonAttributes.forEach((attribute) => {
-            const comparison = getAttributeComparisonPercentage(attribute);
-            if (comparison.scores.normalized[comparisonResult[0].brand_and_full_name] !== undefined &&
-                comparison.scores.normalized[comparisonResult[1].brand_and_full_name] !== undefined) {
-                totalScorePhone1 += comparison.scores.normalized[comparisonResult[0].brand_and_full_name];
-                totalScorePhone2 += comparison.scores.normalized[comparisonResult[1].brand_and_full_name];
-                totalAttributes++;
-            }
-        });
-
-        // If no attributes were compared, return equal
-        if (totalAttributes === 0) {
-            return {
-                betterPhone: null,
-                worsePhone: null,
-                percentageDifference: null,
-                isEqual: true,
-                averageScorePhone1: 0,
-                averageScorePhone2: 0
-            };
-        }
-
-        const averageScorePhone1 = totalScorePhone1 / totalAttributes;
-        const averageScorePhone2 = totalScorePhone2 / totalAttributes;
-
-        // If the difference is negligible, consider them equal
-        if (Math.abs(averageScorePhone1 - averageScorePhone2) < 0.01) {
-            return {
-                betterPhone: null,
-                worsePhone: null,
-                percentageDifference: null,
-                isEqual: true,
-                averageScorePhone1: 0,
-                averageScorePhone2: 0
-            };
-        }
-
-        console.log(averageScorePhone1, averageScorePhone2)
-        // Return the comparison result based on the average scores
-        return {
-            betterPhone: averageScorePhone1 > averageScorePhone2
-                ? comparisonResult[0].brand_and_full_name
-                : comparisonResult[1].brand_and_full_name,
-            worsePhone: averageScorePhone1 > averageScorePhone2
-                ? comparisonResult[1].brand_and_full_name
-                : comparisonResult[0].brand_and_full_name,
-            percentageDifference: Number(((Math.abs(averageScorePhone1 - averageScorePhone2) / Math.min(averageScorePhone1, averageScorePhone2)) * 100).toFixed(1)),
-            isEqual: false,
-            averageScorePhone1: Number(averageScorePhone1.toFixed(2)),
-            averageScorePhone2: Number(averageScorePhone2.toFixed(2)),
-        };
-    };
-
-    const getAttributeComparisonPercentage = (attribute: string): {
-        betterPhone: string | null,
-        worsePhone: string | null,
-        percentageDifference: number | null,
-        isEqual: boolean,
-        scores: {
-            normalized: { [phone: string]: number },
-            notNormalized: { [phone: string]: number }
-        },
-    } => {
-        const phoneAttribute = attribute as keyof PhoneSpecs;
-        if (!comparisonResult) return {
-            betterPhone: null,
-            worsePhone: null,
-            percentageDifference: null,
-            isEqual: false,
-            scores: {
-                normalized: {},
-                notNormalized: {}
-            },
-        };
-
-        let totalScorePhone1 = 0;
-        let totalScorePhone2 = 0;
-        let totalMetrics = 0;
-
-        const calculateScore = (value1: any, value2: any, subAttribute: string): [number, number] => {
-            // For numeric values
-            if (typeof value1 === 'number' && typeof value2 === 'number' && value1 !== 0 && value2 !== 0) {
-                const maxValue = Math.max(value1, value2);
-                const minValue = Math.min(value1, value2);
-
-                if (neutralAttributes.includes(`${attribute}.${subAttribute}`)) {
-                    return [0, 0]; // Neutral attributes do not contribute to the score
-                }
-
-                if (attributesWhereLowerIsBetter.includes(`${attribute}.${subAttribute}`)) {
-                    const score1 = (minValue / value1) * 10;
-                    const score2 = (minValue / value2) * 10;
-                    return [score1, score2];
-                } else {
-                    const score1 = (value1 / maxValue) * 10;
-                    const score2 = (value2 / maxValue) * 10;
-                    return [score1, score2];
-                }
-            }
-
-            // For boolean values
-            if (typeof value1 === 'boolean' && typeof value2 === 'boolean') {
-                const score1 = value1 ? 10 : 0;
-                const score2 = value2 ? 10 : 0;
-                return [score1, score2];
-            }
-
-            // For unknown values (?)
-            if (value1 === '?' || value2 === '?') {
-                return [0, 0]; // Average value for unknowns
-            }
-
-            return [0, 0]; // Default value
-        };
-
-        Object.keys(comparisonResult[0][phoneAttribute as keyof PhoneSpecs]).forEach((subAttribute) => {
-            const value1 = (comparisonResult[0][phoneAttribute] as any)[subAttribute];
-            const value2 = (comparisonResult[1][phoneAttribute] as any)[subAttribute];
-
-            const [score1, score2] = calculateScore(value1, value2, subAttribute);
-            if (score1 !== 0 || score2 !== 0) {
-                totalScorePhone1 += score1;
-                totalScorePhone2 += score2;
-            }
-            if ((typeof value1 === 'number' || typeof value1 === 'boolean') && !neutralAttributes.includes(`${attribute}.${subAttribute}`)) {
-                totalMetrics += 1;
-            }
-        });
-
-        if (totalMetrics === 0) {
-            return {
-                betterPhone: null,
-                worsePhone: null,
-                percentageDifference: null,
-                isEqual: true,
-                scores: {
-                    normalized: {},
-                    notNormalized: {}
-                },
-            };
-        }
-
-        // Calculate average scores
-        const normalizedScorePhone1 = (totalScorePhone1 / totalMetrics * 10);
-        const normalizedScorePhone2 = (totalScorePhone2 / totalMetrics * 10);
-
-        const isEqual = Math.abs(normalizedScorePhone1 - normalizedScorePhone2) < 0.1;
-        const betterPhone = normalizedScorePhone1 > normalizedScorePhone2
-            ? comparisonResult[0].brand_and_full_name
-            : comparisonResult[1].brand_and_full_name;
-        const worsePhone = normalizedScorePhone1 < normalizedScorePhone2
-            ? comparisonResult[0].brand_and_full_name
-            : comparisonResult[1].brand_and_full_name;
-        const percentageDifference = Math.abs(normalizedScorePhone1 - normalizedScorePhone2);
-
-        return {
-            betterPhone: isEqual ? null : betterPhone,
-            worsePhone: isEqual ? null : worsePhone,
-            percentageDifference: isEqual ? null : Number(percentageDifference.toFixed(2)),
-            isEqual,
-            scores: {
-                normalized: {
-                    [comparisonResult[0].brand_and_full_name]: normalizedScorePhone1,
-                    [comparisonResult[1].brand_and_full_name]: normalizedScorePhone2
-                },
-                notNormalized: {
-                    [comparisonResult[0].brand_and_full_name]: totalScorePhone1,
-                    [comparisonResult[1].brand_and_full_name]: totalScorePhone2
-                }
-            },
-        };
-    };
 
 
     return (
@@ -359,7 +100,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                     <div className="overflow-x-auto bg-gray-50 rounded-xl px-1 md:p-6">
                         <div className="mt-6 pb-6 text-center text-xl font-semibold text-gray-800">
                             {(() => {
-                                const comparisonData = getOverallComparisonPercentage();
+                                const comparisonData = getOverallComparisonPercentage(comparisonResult, comparisonAttributes);
                                 if (comparisonData.isEqual) {
                                     return translations.phoneComparison.bothequal;
                                 } else {
@@ -389,14 +130,13 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                             phone1={comparisonResult[0]}
                             phone2={comparisonResult[1]}
                             comparisonAttributes={comparisonAttributes}
-                            getOverallComparisonPercentage={getOverallComparisonPercentage()}
-                            getAttributeComparisonPercentage={getAttributeComparisonPercentage}
+                            comparisonResult={comparisonResult}
                             translations={translations}
                         />
                         <div className="overflow-x-auto bg-gray-50 rounded-xl p-1 md:p-6">
                             <Accordion type="multiple" defaultValue={[comparisonAttributes[0]]}>
                                 {comparisonAttributes.map((attribute) => {
-                                    const attributeComparison = getAttributeComparisonPercentage(attribute);
+                                    const attributeComparison = getAttributeComparisonPercentage(attribute, comparisonResult);
                                     return (
                                         <AccordionItem key={attribute} value={attribute}>
                                             <AccordionTrigger className="text-lg font-semibold">
@@ -512,7 +252,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                                                     </td>
                                                                     <td
                                                                         className="px-6 py-4 text-sm text-gray-600 text-center"
-                                                                        style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 0)}
+                                                                        style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 0, comparisonResult)}
                                                                     >
                                                                         {typeof (comparisonResult[0][attribute] as any)[subAttribute] === 'boolean'
                                                                             ? (comparisonResult[0][attribute] as any)[subAttribute]
@@ -522,7 +262,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                                                                     </td>
                                                                     <td
                                                                         className="px-6 py-4 text-sm text-gray-600 text-center"
-                                                                        style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 1)}
+                                                                        style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 1, comparisonResult)}
                                                                     >
                                                                         {typeof (comparisonResult[1][attribute] as any)[subAttribute] === 'boolean'
                                                                             ? (comparisonResult[1][attribute] as any)[subAttribute]
