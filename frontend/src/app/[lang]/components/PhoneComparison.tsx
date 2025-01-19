@@ -1,5 +1,4 @@
 "use client";
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Select, { SingleValue } from "react-select";
@@ -9,107 +8,30 @@ import Loader from "@/app/[lang]/components/Loader";
 import PhoneComparisonBubbles from './PhoneComparisonBubbles';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
 import PhonePerformanceRadar from './PhonePerformanceRadar';
+import { useComparison, usePhoneData } from '@/app/hooks/usePhoneData';
+import { neutralAttributes, numericAttributes } from '../utils/constants';
 
 interface PhoneComparisonProps {
     initialPhone1: string;
     initialPhone2: string;
-    lang: string;
+    lang: "fr" | "es" | "en";
 }
 
 const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initialPhone2, lang }) => {
-    const [phoneList, setPhoneList] = useState<PhoneSpecs[]>([]);
     const [phone1, setPhone1] = useState<string>(initialPhone1);
     const [phone2, setPhone2] = useState<string>(initialPhone2);
-    const [comparisonResult, setComparisonResult] = useState<[PhoneSpecs, PhoneSpecs] | null>(null);
-    const [translations, setTranslations] = useState<Translation | null>(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-    const [userLanguage, setUserLanguage] = useState<SupportedLanguage>('en'); // Default language
-    const router = useRouter();
-
-    // Define the type for supported languages
-    type SupportedLanguage = 'fr' | 'es' | 'en';
-
-    useEffect(() => {
-        // Set userLanguage based on window.location
-        const language = (window.location.pathname.split("/")[1] as SupportedLanguage) || 'en';
-        setUserLanguage(language);
-    }, []);
 
     const phoneComparisons = [
         { phone: 'Apple iPhone 7 256GB vs POCO X6 Pro' },
     ];
 
-    useEffect(() => {
-        const fetchData = async () => {
-            setIsLoading(true);
-            setError(null);
-
-            try {
-                const [translationsResponse, phonesResponse] = await Promise.all([
-                    fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/phonedescription?locale=${lang}`),
-                    fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/phones`)
-                ]);
-
-                if (!translationsResponse.ok || !phonesResponse.ok) {
-                    throw new Error("One or more network responses were not ok");
-                }
-
-                const translationsData = await translationsResponse.json();
-                const phonesData = await phonesResponse.json();
-
-                if (translationsData.data && translationsData.data.attributes) {
-                    setTranslations(translationsData.data.attributes.phonedescription);
-                } else {
-                    throw new Error("Invalid translations data structure");
-                }
-
-                if (phonesData.data) {
-                    const phones = phonesData.data.map((item: any) => ({
-                        id: item.id,
-                        ...item.attributes.phone,
-                    }));
-                    setPhoneList(phones);
-
-                    const selectedPhone1 = phones.find((phone: PhoneSpecs) => phone.brand_and_full_name === phone1);
-                    const selectedPhone2 = phones.find((phone: PhoneSpecs) => phone.brand_and_full_name === phone2);
-
-                    if (selectedPhone1 && selectedPhone2) {
-                        setComparisonResult([selectedPhone1, selectedPhone2]);
-                    } else {
-                        throw new Error("One or both selected phones not found");
-                    }
-                } else {
-                    throw new Error("Invalid phone data structure");
-                }
-            } catch (error) {
-                console.error("Error fetching data:", error);
-                setError("An error occurred while fetching data. Please try again later.");
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchData();
-    }, [lang]);
-
-    const handleCompare = () => {
-        if (phone1 && phone2) {
-            const phone1Formatted = phone1.replace(/ /g, '-');
-            const phone2Formatted = phone2.replace(/ /g, '-');
-
-            router.push(`/${userLanguage}/phone/compare/${phone1Formatted}-vs-${phone2Formatted}`);
-        }
-    };
-
-    const handleSelectChange = (
-        selectedOption: SingleValue<{ value: string; label: string }>,
-        setter: (value: string) => void
-    ) => {
-        if (selectedOption) {
-            setter(selectedOption.value);
-        }
-    };
+    const { phoneList, translations, isLoading, error } = usePhoneData(lang);
+    const {
+        comparisonResult,
+        comparisonAttributes,
+        handleSelectChange,
+        handleCompare,
+    } = useComparison(phone1, phone2, phoneList, lang);
 
     if (isLoading) {
         return <Loader />;
@@ -123,70 +45,12 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
         return <div className="text-center">Data not available</div>;
     }
 
+
     const phoneOptions = phoneList.map((phone) => ({
         value: phone.brand_and_full_name,
         label: phone.brand_and_full_name,
     }));
 
-
-    const comparisonAttributes: (keyof PhoneSpecs)[] = [
-        "Performance",
-        "Cameras",
-        "Battery",
-        "Screen",
-        "Design",
-        "Operating_System",
-        "Audio",
-        "Features",
-    ];
-
-    const numericAttributes: (keyof PhoneSpecs)[] = [
-        "Design.weight_g" as keyof PhoneSpecs,
-        "Design.thickness_mm" as keyof PhoneSpecs,
-        "Design.width_mm" as keyof PhoneSpecs,
-        "Design.height_mm" as keyof PhoneSpecs,
-        "Design.volume_cm3" as keyof PhoneSpecs,
-        "Screen.screen_size_in" as keyof PhoneSpecs,
-        "Screen.pixel_density_ppi" as keyof PhoneSpecs,
-        "Screen.refresh_rate_hz" as keyof PhoneSpecs,
-        "Screen.typical_brightness_nits" as keyof PhoneSpecs,
-        "Performance.storage_options_gb" as keyof PhoneSpecs,
-        "Performance.RAM_gb" as keyof PhoneSpecs,
-        "Performance.AnTuTu_benchmark_score" as keyof PhoneSpecs,
-        "Performance.processor_speed_ghz" as keyof PhoneSpecs,
-        "Performance.RAM_speed_mhz" as keyof PhoneSpecs,
-        "Performance.semiconductor_size_nm" as keyof PhoneSpecs,
-        "Performance.processor_threads" as keyof PhoneSpecs,
-        "Performance.max_memory_size_gb" as keyof PhoneSpecs,
-        "Cameras.main_camera_megapixels" as keyof PhoneSpecs,
-        "Cameras.front_camera_megapixels" as keyof PhoneSpecs,
-        "Cameras.largest_aperture_f" as keyof PhoneSpecs,
-        "Cameras.large_aperture_front_camera_f" as keyof PhoneSpecs,
-        "Cameras.optical_zoom_x" as keyof PhoneSpecs,
-        "Battery.battery_capacity_mAh" as keyof PhoneSpecs,
-        "Battery.charging_speed_w" as keyof PhoneSpecs,
-        "Battery.wireless_charging_speed_w" as keyof PhoneSpecs,
-        "Battery.battery_life_h" as keyof PhoneSpecs,
-        "Features.download_speed_mbps" as keyof PhoneSpecs,
-        "Features.upload_speed_mbps" as keyof PhoneSpecs,
-    ];
-
-    const performanceAttributes: (keyof PhoneSpecs)[] = [
-        "Performance.AnTuTu_benchmark_score" as keyof PhoneSpecs,
-        "Performance.processor_speed_ghz" as keyof PhoneSpecs,
-        "Performance.RAM_speed_mhz" as keyof PhoneSpecs,
-        "Performance.semiconductor_size_nm" as keyof PhoneSpecs,
-        "Performance.processor_threads" as keyof PhoneSpecs,
-        "Performance.max_memory_size_gb" as keyof PhoneSpecs,
-    ];
-
-    // Attributes that are not necessarily better or worse based on their value
-    const neutralAttributes = [
-        "Design.width_mm",
-        "Design.height_mm",
-        "Design.volume_cm3",
-        "Screen.screen_size_in",
-    ];
 
     const attributesWhereLowerIsBetter = ["Design.weight_g", "Design.thickness_mm"];
 
@@ -680,7 +544,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                     </div>
                 )}
             </div>
-            <PhoneComparisonBubbles comparisons={phoneComparisons} lang={userLanguage} />
+            <PhoneComparisonBubbles comparisons={phoneComparisons} lang={lang} />
         </div >
     );
 };

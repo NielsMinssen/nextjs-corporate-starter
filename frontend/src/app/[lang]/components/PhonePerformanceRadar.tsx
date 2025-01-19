@@ -1,4 +1,3 @@
-import { Trophy } from 'lucide-react';
 import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
@@ -36,7 +35,6 @@ const PhonePerformanceRadar: React.FC<PhonePerformanceRadarProps> = ({
     getAttributeComparisonPercentage,
     translations
 }) => {
-    const winningPhone = getOverallComparisonPercentage.isEqual ? null : getOverallComparisonPercentage.betterPhone;
 
     const data = comparisonAttributes.map((attribute) => {
         const comparison = getAttributeComparisonPercentage(attribute);
