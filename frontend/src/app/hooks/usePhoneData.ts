@@ -1,11 +1,9 @@
-"use client"
 import { useState, useEffect } from 'react';
 export const usePhoneData = (lang: string) => {
     const [phoneList, setPhoneList] = useState<PhoneSpecs[]>([]);
     const [translations, setTranslations] = useState<Translation | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const router = useRouter();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -136,35 +134,3 @@ export const useLanguage = () => {
 
     return userLanguage;
 };
-
-// Example usage:
-/*
-import { usePhoneData, useComparison, useLanguage } from './hooks';
-
-const MyComponent = () => {
-    const lang = useLanguage();
-    const { phoneList, translations, isLoading, error } = usePhoneData(lang);
-    const { 
-        comparisonResult, 
-        comparisonAttributes, 
-        handleSelectChange, 
-        handleCompare 
-    } = useComparison('phone1', 'phone2', phoneList);
-
-    if (isLoading) {
-        return <Loader />;
-    }
-
-    if (error) {
-        return <div className="text-center text-red-500">{error}</div>;
-    }
-
-      if (!translations || !comparisonResult) {
-        return <div className="text-center">Data not available</div>;
-    }
-
-    return (
-        // Component JSX
-    );
-};
-*/
