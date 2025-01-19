@@ -215,7 +215,7 @@ export const getAttributeComparisonPercentage = (attribute: string, comparisonRe
             totalScorePhone1 += score1;
             totalScorePhone2 += score2;
         }
-        if (!neutralAttributes.includes(`${attribute}.${subAttribute}`)) {
+        if (!neutralAttributes.includes(`${attribute}.${subAttribute}`) && typeof value1 !== 'string' && typeof value2 !== 'string') {
             totalMetrics += 1;
         }
     });
