@@ -7,8 +7,8 @@ import Loader from "@/app/[lang]/components/Loader";
 import PhoneComparisonBubbles from './PhoneComparisonBubbles';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
 import PhonePerformanceRadar from './PhonePerformanceRadar';
-import { useComparison, usePhoneData } from '@/app/hooks/usePhoneData';
-import { getAttributeComparisonPercentage, getBarStyle, getOverallComparisonPercentage } from '../utils/comparisonCalculations';
+import { useComparison, usePhoneData } from '@/app/hooks/phone/usePhoneData';
+import { getAttributeComparisonPercentage, getBarStyle, getOverallComparisonPercentage } from '../utils/phone/comparisonCalculations';
 
 interface PhoneComparisonProps {
     initialPhone1: string;

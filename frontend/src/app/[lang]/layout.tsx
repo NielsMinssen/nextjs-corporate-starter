@@ -8,7 +8,7 @@ import { i18n } from "../../../i18n-config";
 import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import { FALLBACK_SEO } from "@/app/[lang]/utils/constants";
+import { FALLBACK_SEO } from "@/app/[lang]/utils/phone/constants";
 
 
 async function getGlobal(lang: string): Promise<any> {
