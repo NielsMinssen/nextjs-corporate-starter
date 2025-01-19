@@ -5,7 +5,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/
 import { HelpCircle } from "lucide-react";
 import Loader from "../../components/Loader";
 import { useRouter } from "next/navigation";
-import CPUComparisonBubbles from "../../components/CPUComparisonBubbles";
+import CPUComparisonBubbles from "../../components/cpu/CPUComparisonBubbles";
 import { useLanguage } from "../../components/LanguageContext";
 
 interface CPU {
@@ -21,7 +21,7 @@ interface Translation {
     selectCPU2: string;
     select: string;
     compareButton: string;
-   
+
     [key: string]: string;
   };
 }
@@ -36,58 +36,58 @@ const CPUPage: React.FC = () => {
   const router = useRouter();
   const lang = useLanguage();
 
-    useEffect(() => {
-      const fetchData = async () => {
-        setIsLoading(true);
-        setError(null);
-        try {
-          const [translationsResponse, cpusResponse] = await Promise.all([
-            fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpudescription?locale=${lang}`),
-            fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpus`)
-          ]);
-  
-          if (!translationsResponse.ok || !cpusResponse.ok) {
-            throw new Error("One or more network responses were not ok");
-          }
-  
-          const translationsData = await translationsResponse.json();
-          const cpusData = await cpusResponse.json();
-  
-          if (translationsData.data && translationsData.data.attributes) {
-            setTranslations(translationsData.data.attributes.cpudescription);
-          } else {
-            throw new Error("Invalid translations data structure");
-          }
-  
-          if (cpusData.data) {
-            setCpuList(
-              cpusData.data.map((item: any) => ({
-                id: item.id,
-                cpu_name: item.attributes.CPU.cpu_name ,
-              }))
-            );
-          } else {
-            throw new Error("Invalid CPU data structure");
-          }
-        } catch (error) {
-          console.error("Error fetching data:", error);
-          setError("An error occurred while fetching data. Please try again later.");
-        } finally {
-          setIsLoading(false);
-        }
-      };
-  
-      fetchData();
-    }, []); // Add userLanguage to the dependency array
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      setError(null);
+      try {
+        const [translationsResponse, cpusResponse] = await Promise.all([
+          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpudescription?locale=${lang}`),
+          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpus`)
+        ]);
 
-    const handleCompare = () => {
-      if (cpu1 && cpu2) {
-        const cpu1Formatted = encodeURI(cpu1.replace(/ /g, '-'));
-        const cpu2Formatted = encodeURI(cpu2.replace(/ /g, '-'));
-        
-        router.push(`/${lang}/cpu/compare/${cpu1Formatted}-vs-${cpu2Formatted}`);
+        if (!translationsResponse.ok || !cpusResponse.ok) {
+          throw new Error("One or more network responses were not ok");
+        }
+
+        const translationsData = await translationsResponse.json();
+        const cpusData = await cpusResponse.json();
+
+        if (translationsData.data && translationsData.data.attributes) {
+          setTranslations(translationsData.data.attributes.cpudescription);
+        } else {
+          throw new Error("Invalid translations data structure");
+        }
+
+        if (cpusData.data) {
+          setCpuList(
+            cpusData.data.map((item: any) => ({
+              id: item.id,
+              cpu_name: item.attributes.CPU.cpu_name,
+            }))
+          );
+        } else {
+          throw new Error("Invalid CPU data structure");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError("An error occurred while fetching data. Please try again later.");
+      } finally {
+        setIsLoading(false);
       }
     };
+
+    fetchData();
+  }, []); // Add userLanguage to the dependency array
+
+  const handleCompare = () => {
+    if (cpu1 && cpu2) {
+      const cpu1Formatted = encodeURI(cpu1.replace(/ /g, '-'));
+      const cpu2Formatted = encodeURI(cpu2.replace(/ /g, '-'));
+
+      router.push(`/${lang}/cpu/compare/${cpu1Formatted}-vs-${cpu2Formatted}`);
+    }
+  };
 
   const handleSelectChange = (
     selectedOption: SingleValue<{ value: string; label: string }>,
@@ -160,9 +160,8 @@ const CPUPage: React.FC = () => {
         <button
           onClick={handleCompare}
           disabled={!cpu1 || !cpu2}
-          className={`px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 ${
-            (!cpu1 || !cpu2) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
-          }`}
+          className={`px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 ${(!cpu1 || !cpu2) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+            }`}
         >
           {translations.cpuComparison.compareButton}
         </button>

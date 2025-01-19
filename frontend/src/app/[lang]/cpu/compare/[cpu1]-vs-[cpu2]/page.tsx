@@ -1,5 +1,5 @@
 import React from 'react';
-import CPUComparison from '@/app/[lang]/components/CPUComparison';
+import CPUComparison from '@/app/[lang]/components/cpu/CPUComparison';
 import type { Metadata } from 'next';
 
 type Language = 'en' | 'fr' | 'es';

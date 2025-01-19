@@ -6,45 +6,50 @@ import Select, { SingleValue } from "react-select";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/[lang]/components/tooltip";
 import { HelpCircle } from "lucide-react";
 import Loader from "@/app/[lang]/components/Loader";
-import GPUComparisonBubbles from './GPUComparisonBubbles';
+import CPUComparisonBubbles from './CPUComparisonBubbles';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
-import GPUPerformanceRadar from './GPUPerformanceRadar';
-import DetailSection from './GPUDetailSection';
-import GPUDetailSection from './GPUDetailSection';
+import CPUPerformanceRadar from '@/app/[lang]/components/cpu/CPUPerformanceRadar';
+import CPUDetailSection from './CPUDetailSection';
 
-interface GPU {
+interface CPU {
   id: number;
-  videocard_name: string;
-  price: number;
-  g3d_mark: number;
-  videocard_value: number;
-  g2d_mark: number;
-  tdp: number;
-  power_perf: number;
-  vram: number;
+  cpu_name: string;
+  num_sockets: number;
+  cores: number;
+  price: number | null;
+  cpu_mark: number;
+  cpu_value: number | null;
+  thread_mark: number;
+  thread_value: number | null;
+  tdp: number | null;
+  power_perf: number | null;
   test_date: string;
+  socket: string;
   category: string;
   amazonLink?: string;
 }
 
 interface Translation {
-  gpuComparison: {
+  cpuComparison: {
     title: string;
     description: string;
-    selectGPU1: string;
-    selectGPU2: string;
+    selectCPU1: string;
+    selectCPU2: string;
     select: string;
     compareButton: string;
     attribute: string;
-    videocard_name: string;
+    cpu_name: string;
+    num_sockets: string;
+    cores: string;
     price: string;
-    g3d_mark: string;
-    videocard_value: string;
-    g2d_mark: string;
+    cpu_mark: string;
+    cpu_value: string;
+    thread_mark: string;
+    thread_value: string;
     tdp: string;
     power_perf: string;
-    vram: string;
     test_date: string;
+    socket: string;
     category: string;
     bothequal: string;
     is: string;
@@ -72,24 +77,24 @@ const AttributeWithTooltip: React.FC<{ attribute: string; translations: Translat
           </span>
         </TooltipTrigger>
         <TooltipContent>
-          <p>{translations.gpuComparison.tooltips[attribute] || "No description available"}</p>
+          <p>{translations.cpuComparison.tooltips[attribute] || "No description available"}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );
 };
 
-interface GPUComparisonProps {
-  initialGpu1: string;
-  initialGpu2: string;
+interface CPUComparisonProps {
+  initialCpu1: string;
+  initialCpu2: string;
   lang: string;
 }
 
-const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2, lang }) => {
-  const [gpuList, setGpuList] = useState<GPU[]>([]);
-  const [gpu1, setGpu1] = useState<string>(initialGpu1);
-  const [gpu2, setGpu2] = useState<string>(initialGpu2);
-  const [comparisonResult, setComparisonResult] = useState<[GPU, GPU] | null>(null);
+const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2, lang }) => {
+  const [cpuList, setCpuList] = useState<CPU[]>([]);
+  const [cpu1, setCpu1] = useState<string>(initialCpu1);
+  const [cpu2, setCpu2] = useState<string>(initialCpu2);
+  const [comparisonResult, setComparisonResult] = useState<[CPU, CPU] | null>(null);
   const [translations, setTranslations] = useState<Translation | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -105,56 +110,47 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
     setUserLanguage(language);
   }, []);
 
-  const gpuComparisons = [
-    { gpu: 'GeForce RTX 3060 12GB vs GeForce RTX 4060' },
-    { gpu: 'GeForce RTX 3060 Ti vs GeForce RTX 4060' },
-    { gpu: 'GeForce RTX 3070 vs GeForce RTX 4060' },
-    { gpu: 'GeForce RTX 4060 vs GeForce RTX 4060 Ti' },
-    { gpu: 'GeForce GTX 1060 5GB vs Radeon RX 580' },
-    { gpu: 'GeForce RTX 2060 SUPER vs GeForce RTX 3060 12GB' },
-  ];
-
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       setError(null);
 
       try {
-        const [translationsResponse, gpusResponse] = await Promise.all([
-          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/gpudescription?locale=${lang}`),
-          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/gpus`)
+        const [translationsResponse, cpusResponse] = await Promise.all([
+          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpudescription?locale=${lang}`),
+          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpus`)
         ]);
 
-        if (!translationsResponse.ok || !gpusResponse.ok) {
+        if (!translationsResponse.ok || !cpusResponse.ok) {
           throw new Error("One or more network responses were not ok");
         }
 
         const translationsData = await translationsResponse.json();
-        const gpusData = await gpusResponse.json();
+        const cpusData = await cpusResponse.json();
 
         if (translationsData.data && translationsData.data.attributes) {
-          setTranslations(translationsData.data.attributes.gpudescription);
+          setTranslations(translationsData.data.attributes.cpudescription);
         } else {
           throw new Error("Invalid translations data structure");
         }
 
-        if (gpusData.data) {
-          const gpus = gpusData.data.map((item: any) => ({
+        if (cpusData.data) {
+          const cpus = cpusData.data.map((item: any) => ({
             id: item.id,
-            ...item.attributes.GPU,
+            ...item.attributes.CPU,
           }));
-          setGpuList(gpus);
+          setCpuList(cpus);
 
-          const selectedGpu1 = gpus.find((gpu: GPU) => gpu.videocard_name === gpu1);
-          const selectedGpu2 = gpus.find((gpu: GPU) => gpu.videocard_name === gpu2);
+          const selectedCpu1 = cpus.find((cpu: CPU) => cpu.cpu_name === cpu1);
+          const selectedCpu2 = cpus.find((cpu: CPU) => cpu.cpu_name === cpu2);
 
-          if (selectedGpu1 && selectedGpu2) {
-            setComparisonResult([selectedGpu1, selectedGpu2]);
+          if (selectedCpu1 && selectedCpu2) {
+            setComparisonResult([selectedCpu1, selectedCpu2]);
           } else {
-            throw new Error("One or both selected GPUs not found");
+            throw new Error("One or both selected CPUs not found");
           }
         } else {
-          throw new Error("Invalid GPU data structure");
+          throw new Error("Invalid CPU data structure");
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -168,11 +164,11 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
   }, [lang]);
 
   const handleCompare = () => {
-    if (gpu1 && gpu2) {
-      const gpu1Formatted = gpu1.replace(/ /g, '-');
-      const gpu2Formatted = gpu2.replace(/ /g, '-');
+    if (cpu1 && cpu2) {
+      const cpu1Formatted = cpu1.replace(/ /g, '-');
+      const cpu2Formatted = cpu2.replace(/ /g, '-');
 
-      router.push(`/${userLanguage}/gpu/compare/${gpu1Formatted}-vs-${gpu2Formatted}`);
+      router.push(`/${userLanguage}/cpu/compare/${cpu1Formatted}-vs-${cpu2Formatted}`);
     }
   };
 
@@ -197,76 +193,62 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
     return <div className="text-center">Data not available</div>;
   }
 
-  const gpuOptions = gpuList.map((gpu) => ({
-    value: gpu.videocard_name,
-    label: gpu.videocard_name,
+  const cpuOptions = cpuList.map((cpu) => ({
+    value: cpu.cpu_name,
+    label: cpu.cpu_name,
   }));
 
-  const AttributeWithTooltip: React.FC<{ attribute: string }> = ({ attribute }) => {
-    return (
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <span className="flex items-center">
-              <HelpCircle className="ml-1 h-4 w-4 text-gray-400" />
-            </span>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>{translations.gpuComparison.tooltips[attribute] || "No description available"}</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
-    );
-  };
-
-  const comparisonAttributes: (keyof GPU)[] = [
+  const comparisonAttributes: (keyof CPU)[] = [
+    "num_sockets",
+    "cores",
     "price",
-    "g3d_mark",
-    "videocard_value",
-    "g2d_mark",
+    "cpu_mark",
+    "cpu_value",
+    "thread_mark",
+    "thread_value",
     "tdp",
     "power_perf",
-    "vram",
     "test_date",
+    "socket",
     "category",
   ];
 
-  const numericAttributes: (keyof GPU)[] = [
+  const numericAttributes: (keyof CPU)[] = [
+    "num_sockets",
+    "cores",
     "price",
-    "g3d_mark",
-    "videocard_value",
-    "g2d_mark",
+    "cpu_mark",
+    "cpu_value",
+    "thread_mark",
+    "thread_value",
     "tdp",
     "power_perf",
-    "vram",
   ];
 
-  const performanceAttributes: (keyof GPU)[] = ["g3d_mark", "g2d_mark", "tdp", "power_perf", "vram"];
+  const performanceAttributes: (keyof CPU)[] = ["cpu_mark", "thread_mark", "cores", "tdp", "power_perf"];
 
-  const getBarStyle = (attribute: keyof GPU, index: number) => {
+  const getBarStyle = (attribute: keyof CPU, index: number) => {
     if (!comparisonResult || !numericAttributes.includes(attribute)) return {};
 
     const value1 = comparisonResult[0][attribute] as number;
     const value2 = comparisonResult[1][attribute] as number;
 
-    // If one of the values doesn't exist, use pastel blue for the other existing value
     if (value1 == null || value2 == null) {
       if (index === 0 && value1 != null) {
         return {
-          background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for the existing value
+          background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`,
         };
       } else if (index === 1 && value2 != null) {
         return {
-          background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for the existing value
+          background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`,
         };
       }
-      return {}; // No styling if the value doesn't exist
+      return {};
     }
 
-    // If values are the same, return full pastel blue for both
     if (value1 === value2) {
       return {
-        background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for equal values
+        background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`,
       };
     }
 
@@ -276,17 +258,14 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
     const isBestValue = (attribute === "price" || attribute === "tdp") ? currentValue === minValue : currentValue === maxValue;
     const otherValue = comparisonResult[1 - index][attribute] as number;
 
-    // Determine the difference ratio
-    const differenceRatio = Math.abs(currentValue - otherValue) / Math.max(maxValue, 1); // Avoid division by zero
+    const differenceRatio = Math.abs(currentValue - otherValue) / Math.max(maxValue, 1);
     const percentage = (currentValue / maxValue) * 100;
 
-    // Base color for the best value (always green)
-    let color = `hsl(120, 70%, 60%)`; // green
+    let color = `hsl(120, 70%, 60%)`;
 
     if (!isBestValue) {
-      // Color transitions from green (120 hue) to red (0 hue) based on how far the values are
-      const hue = 100 - (differenceRatio * 120); // Shift hue from 120 (green) to 0 (red) based on the difference
-      color = `hsl(${hue}, 70%, 60%)`; // Softened, pastel color
+      const hue = 100 - (differenceRatio * 120);
+      color = `hsl(${hue}, 70%, 60%)`;
     }
 
     return {
@@ -295,12 +274,12 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
   };
 
   const getOverallComparisonPercentage = (): {
-    betterGpu: string | null,
-    worseGpu: string | null,
+    betterCpu: string | null,
+    worseCpu: string | null,
     percentageDifference: number | null,
     isEqual: boolean
   } => {
-    if (!comparisonResult) return { betterGpu: null, worseGpu: null, percentageDifference: null, isEqual: false };
+    if (!comparisonResult) return { betterCpu: null, worseCpu: null, percentageDifference: null, isEqual: false };
 
     let totalImprovement = 0;
     let totalAttributesCounted = 0;
@@ -323,55 +302,63 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
     });
 
     if (totalAttributesCounted === 0) {
-      return { betterGpu: null, worseGpu: null, percentageDifference: null, isEqual: true };
+      return { betterCpu: null, worseCpu: null, percentageDifference: null, isEqual: true };
     }
 
     const averageImprovement = totalImprovement / totalAttributesCounted;
 
     if (averageImprovement > 0) {
       return {
-        betterGpu: comparisonResult[0].videocard_name,
-        worseGpu: comparisonResult[1].videocard_name,
+        betterCpu: comparisonResult[0].cpu_name,
+        worseCpu: comparisonResult[1].cpu_name,
         percentageDifference: Number(averageImprovement.toFixed(2)),
         isEqual: false
       };
     } else {
       return {
-        betterGpu: comparisonResult[1].videocard_name,
-        worseGpu: comparisonResult[0].videocard_name,
+        betterCpu: comparisonResult[1].cpu_name,
+        worseCpu: comparisonResult[0].cpu_name,
         percentageDifference: Number(Math.abs(averageImprovement).toFixed(2)),
         isEqual: false
       };
     }
   };
 
+  const cpuComparisons = [
+    { cpu: 'Intel Core i5 12400F vs AMD Ryzen 5 5600' },
+    { cpu: 'AMD Ryzen 5 5600X vs Intel Core i5 12400F' },
+    { cpu: 'AMD Ryzen 5 5600 vs AMD Ryzen 5 5500' },
+    { cpu: 'Intel Core i5 12400F vs AMD Ryzen 5 7500F' },
+    { cpu: 'Intel Core i5 12400F vs AMD Ryzen 5 5500' },
+    { cpu: 'AMD Ryzen 5 3600 vs AMD Ryzen 5 5500' },
+  ];
 
   return (
     <div className="max-w-4xl mx-auto p-8 bg-white rounded-xl">
-      <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">{translations.gpuComparison.title}</h1>
-      <p className="text-xl mb-8 text-center text-gray-600">{translations.gpuComparison.description}</p>
+      <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">{translations.cpuComparison.title}</h1>
+      <p className="text-xl mb-8 text-center text-gray-600">{translations.cpuComparison.description}</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            {translations.gpuComparison.selectGPU1}
+            {translations.cpuComparison.selectCPU1}
           </label>
           <Select
-            value={gpuOptions.find((option) => option.value === gpu1) || null}
-            onChange={(option) => handleSelectChange(option, setGpu1)}
-            options={gpuOptions}
+            value={cpuOptions.find((option) => option.value === cpu1) || null}
+            onChange={(option) => handleSelectChange(option, setCpu1)}
+            options={cpuOptions}
             classNamePrefix="react-select"
             className="w-full"
           />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            {translations.gpuComparison.selectGPU2}
+            {translations.cpuComparison.selectCPU2}
           </label>
           <Select
-            value={gpuOptions.find((option) => option.value === gpu2) || null}
-            onChange={(option) => handleSelectChange(option, setGpu2)}
-            options={gpuOptions}
+            value={cpuOptions.find((option) => option.value === cpu2) || null}
+            onChange={(option) => handleSelectChange(option, setCpu2)}
+            options={cpuOptions}
             classNamePrefix="react-select"
             className="w-full"
           />
@@ -381,11 +368,11 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
       <div className="text-center mb-10">
         <button
           onClick={handleCompare}
-          disabled={!gpu1 || !gpu2}
-          className={`px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 ${(!gpu1 || !gpu2) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+          disabled={!cpu1 || !cpu2}
+          className={`px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 ${(!cpu1 || !cpu2) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
             }`}
         >
-          {translations.gpuComparison.compareButton}
+          {translations.cpuComparison.compareButton}
         </button>
       </div>
 
@@ -396,59 +383,58 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
               {(() => {
                 const comparisonData = getOverallComparisonPercentage();
                 if (comparisonData.isEqual) {
-                  return translations.gpuComparison.bothequal;
+                  return translations.cpuComparison.bothequal;
                 } else {
                   return (
                     <>
-                      <span className="text-green-600">{comparisonData.betterGpu}</span>
+                      <span className="text-green-600">{comparisonData.betterCpu}</span>
                       {' '}
-                      {translations.gpuComparison.is}
+                      {translations.cpuComparison.is}
                       {' '}
                       <span className="text-blue-600">{comparisonData.percentageDifference}%</span>
                       {' '}
-                      {translations.gpuComparison.betterthan}
+                      {translations.cpuComparison.betterthan}
                       {' '}
-                      <span className="text-red-600">{comparisonData.worseGpu}</span>
+                      <span className="text-red-600">{comparisonData.worseCpu}</span>
                       {' '}
-                      {translations.gpuComparison.basedon}
+                      {translations.cpuComparison.basedon}
                     </>
                   );
                 }
               })()}
             </div>
-            <div className="overflow-x-auto bg-gray-50 rounded-xl p-1 md:p-6">
-              {/* Mobile-friendly GPU names header */}
+            <div className="overflow-x-auto bg-gray-50 rounded-xl p-6">
               <div className="md:hidden mb-4 flex justify-between font-bold text-sm text-gray-900">
-                <div className="w-1/2 px-2">{comparisonResult[0].videocard_name}</div>
-                <div className="w-1/2 px-2">{comparisonResult[1].videocard_name}</div>
+                <div className="w-1/2 px-2">{comparisonResult[0].cpu_name}</div>
+                <div className="w-1/2 px-2">{comparisonResult[1].cpu_name}</div>
               </div>
 
               <table className="w-full">
                 <thead className="hidden md:table-header-group">
                   <tr className="border-b-2 border-gray-200">
                     <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                      {translations.gpuComparison.attribute}
+                      {translations.cpuComparison.attribute}
                     </th>
                     <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                      {comparisonResult[0].videocard_name}
+                      {comparisonResult[0].cpu_name}
                     </th>
                     <th className="px-6 py-3 text-left text-sm font-bold text-gray-900 uppercase tracking-wider">
-                      {comparisonResult[1].videocard_name}
+                      {comparisonResult[1].cpu_name}
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {comparisonAttributes.map((attribute) => (
                     <React.Fragment key={attribute}>
-                      <tr className="md:hidden border-b border-gray-200 bg-gray-50">
+                      <tr key={`${attribute}-header`} className="md:hidden border-b border-gray-200 bg-gray-50">
                         <td colSpan={2} className="px-6 py-2 text-sm font-semibold text-gray-700">
-                          <>{translations.gpuComparison[attribute] || attribute}</>
+                          <>{translations.cpuComparison[attribute] || attribute}</>
                         </td>
                       </tr>
-                      <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
+                      <tr key={`${attribute}-data`} className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
                         <td className="hidden md:flex md:items-center px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
-                          <>{translations.gpuComparison[attribute] || attribute}</>
-                          <AttributeWithTooltip attribute={attribute} />
+                          <>{translations.cpuComparison[attribute] || attribute}</>
+                          <AttributeWithTooltip attribute={attribute} translations={translations} />
                         </td>
                         <td
                           className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
@@ -472,19 +458,19 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
         )}
       </div>
       {comparisonResult && (
-        <GPUPerformanceRadar
-          gpu1={comparisonResult[0]}
-          gpu2={comparisonResult[1]}
+        <CPUPerformanceRadar
+          cpu1={comparisonResult[0]}
+          cpu2={comparisonResult[1]}
           translations={translations}
         />
       )}
       {/* {comparisonResult.length > 0 && (
         <div className="grid grid-cols-2 gap-4">
-          {comparisonResult.map((gpu, index) => (
-            gpu.amazonLink && (
+          {comparisonResult.map((cpu, index) => (
+            cpu.amazonLink && (
               <a
                 key={index}
-                href={gpu.amazonLink}
+                href={cpu.amazonLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`block p-4 mt-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out
@@ -492,32 +478,31 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
               >
                 <div className="flex flex-col md:flex-row items-center justify-between text-black">
                   <div className='flex flex-col'>
-                    <span className="font-bold text-xl hover:underline">{gpu.videocard_name}</span>
-                    <span className="font-bold text-lg hover:underline">{translations.gpuComparison.buyonamazon}</span>
-                    <span className="font-light text-xs my-2">{translations.gpuComparison.amazondisclaimer}</span>
+                    <span className="font-bold text-xl hover:underline">{cpu.cpu_name}</span>
+                    <span className="font-bold text-lg hover:underline">{translations.cpuComparison.buyonamazon}</span>
+                    <span className="font-light text-xs my-2">{translations.cpuComparison.amazondisclaimer}</span>
                   </div>
-                  <Image src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/amazon-logo.png`} alt="Amazon logo" width={100} height={50} className='py-4 md:py-0'/>
+                  <Image src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/amazon-logo.png`} alt="Amazon logo" width={100} height={50} className='py-4 md:py-0' />
                 </div>
               </a>
             )
           ))}
         </div>
       )} */}
-      {/* Détail section */}
       <div className="my-8">
         <Accordion type="single" collapsible defaultValue='detail'>
           <AccordionItem value="detail">
             <AccordionTrigger className="text-lg font-semibold hover:text-blue-600">
-              {translations.gpuComparison.details.title}
+              {translations.cpuComparison.details.title}
             </AccordionTrigger>
             <AccordionContent className="space-y-6">
               {comparisonAttributes.map((attribute) => (
-                <GPUDetailSection
+                <CPUDetailSection
                   key={attribute}
                   attribute={attribute}
                   translations={translations}
-                  gpu1={comparisonResult[0]}
-                  gpu2={comparisonResult[1]}
+                  cpu1={comparisonResult[0]}
+                  cpu2={comparisonResult[1]}
                   numericAttributes={numericAttributes}
                 />
               ))}
@@ -525,9 +510,9 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
           </AccordionItem>
         </Accordion>
       </div>
-      <GPUComparisonBubbles comparisons={gpuComparisons} lang={userLanguage} />
+      <CPUComparisonBubbles comparisons={cpuComparisons} lang={userLanguage} />
     </div>
   );
 };
 
-export default GPUComparison;
+export default CPUComparison;

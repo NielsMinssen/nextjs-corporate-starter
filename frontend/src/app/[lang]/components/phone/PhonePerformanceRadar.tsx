@@ -1,7 +1,7 @@
 import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
-import { getAttributeComparisonPercentage, getOverallComparisonPercentage } from '../utils/phone/comparisonCalculations';
+import { getAttributeComparisonPercentage, getOverallComparisonPercentage } from '../../utils/phone/comparisonCalculations';
 
 
 interface PhonePerformanceRadarProps {

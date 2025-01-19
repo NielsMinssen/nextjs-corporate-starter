@@ -1,5 +1,5 @@
 import React from 'react';
-import PhoneComparison from '@/app/[lang]/components/PhoneComparison';
+import PhoneComparison from '@/app/[lang]/components/phone/PhoneComparison';
 
 import type { Metadata } from 'next';
 

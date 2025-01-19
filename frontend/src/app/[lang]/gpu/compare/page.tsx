@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation';
 import Select, { SingleValue } from "react-select";
 import Loader from "../../components/Loader";
-import GPUComparisonBubbles from "../../components/GPUComparisonBubbles";
+import GPUComparisonBubbles from "../../components/gpu/GPUComparisonBubbles";
 import { useLanguage } from "../../components/LanguageContext";
 interface GPU {
   id: number;
@@ -83,11 +83,11 @@ const GPUPage: React.FC = () => {
     if (gpu1 && gpu2) {
       const gpu1Formatted = gpu1.replace(/ /g, '-');
       const gpu2Formatted = gpu2.replace(/ /g, '-');
-      
+
       router.push(`/${lang}/gpu/compare/${gpu1Formatted}-vs-${gpu2Formatted}`);
     }
   };
-  
+
 
   const handleSelectChange = (
     selectedOption: SingleValue<{ value: string; label: string }>,
@@ -160,9 +160,8 @@ const GPUPage: React.FC = () => {
         <button
           onClick={handleCompare}
           disabled={!gpu1 || !gpu2}
-          className={`px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 ${
-            (!gpu1 || !gpu2) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
-          }`}
+          className={`px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 ${(!gpu1 || !gpu2) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+            }`}
         >
           {translations.gpuComparison.compareButton}
         </button>

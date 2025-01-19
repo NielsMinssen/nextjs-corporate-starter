@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation';
 import Select, { SingleValue } from "react-select";
 import Loader from "../../components/Loader";
-import PhoneComparisonBubbles from "../../components/PhoneComparisonBubbles";
+import PhoneComparisonBubbles from "../../components/phone/PhoneComparisonBubbles";
 import { useLanguage } from "../../components/LanguageContext";
 
 interface Phone {

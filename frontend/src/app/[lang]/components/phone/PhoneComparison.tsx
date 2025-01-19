@@ -8,7 +8,7 @@ import PhoneComparisonBubbles from './PhoneComparisonBubbles';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/[lang]/components/Accordion";
 import PhonePerformanceRadar from './PhonePerformanceRadar';
 import { useComparison, usePhoneData } from '@/app/hooks/phone/usePhoneData';
-import { getAttributeComparisonPercentage, getBarStyle, getOverallComparisonPercentage } from '../utils/phone/comparisonCalculations';
+import { getAttributeComparisonPercentage, getBarStyle, getOverallComparisonPercentage } from '../../utils/phone/comparisonCalculations';
 
 interface PhoneComparisonProps {
     initialPhone1: string;
@@ -17,14 +17,12 @@ interface PhoneComparisonProps {
 }
 
 const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initialPhone2, lang }) => {
+
     const [phone1, setPhone1] = useState<string>(initialPhone1);
     const [phone2, setPhone2] = useState<string>(initialPhone2);
 
-    const phoneComparisons = [
-        { phone: 'Apple iPhone 7 256GB vs POCO X6 Pro' },
-    ];
-
     const { phoneList, translations, isLoading, error } = usePhoneData(lang);
+
     const {
         comparisonResult,
         comparisonAttributes,
@@ -40,6 +38,8 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
         return <div className="text-center text-red-500">{error}</div>;
     }
 
+
+
     if (!translations || !comparisonResult) {
         return <div className="text-center">Data not available</div>;
     }
@@ -50,7 +50,9 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
         label: phone.brand_and_full_name,
     }));
 
-
+    const phoneComparisons = [
+        { phone: 'Apple iPhone 7 256GB vs POCO X6 Pro' },
+    ];
 
     return (
         <div className="max-w-4xl mx-auto md:p-8 p-2 bg-white rounded-xl">
