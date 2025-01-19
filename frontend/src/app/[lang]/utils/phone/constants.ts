@@ -54,3 +54,53 @@ export const neutralAttributes = [
 ];
 
 export const attributesWhereLowerIsBetter = ["Design.weight_g", "Design.thickness_mm"];
+
+// Define ranges for each numeric attribute
+interface AttributeRange {
+    min: number;
+    max: number;
+    lowerIsBetter?: boolean;
+}
+
+
+export const attributeRanges: Record<string, AttributeRange> = {
+    // Design attributes
+    "Design.weight_g": { min: 130, max: 240, lowerIsBetter: true },
+    "Design.thickness_mm": { min: 5, max: 12, lowerIsBetter: true },
+    "Design.width_mm": { min: 65, max: 85, lowerIsBetter: true },
+    "Design.height_mm": { min: 130, max: 175, lowerIsBetter: true },
+    "Design.volume_cm3": { min: 50, max: 120, lowerIsBetter: true },
+
+    // Screen attributes
+    "Screen.screen_size_in": { min: 5.5, max: 7.5 },
+    "Screen.pixel_density_ppi": { min: 300, max: 500 },
+    "Screen.refresh_rate_hz": { min: 60, max: 165 },
+    "Screen.typical_brightness_nits": { min: 500, max: 2000 },
+
+    // Performance attributes
+    "Performance.storage_options_gb": { min: 64, max: 1024 },
+    "Performance.RAM_gb": { min: 4, max: 16 },
+    "Performance.AnTuTu_benchmark_score": { min: 400000, max: 1500000 },
+    "Performance.processor_speed_ghz": { min: 2.0, max: 3.5 },
+    "Performance.RAM_speed_mhz": { min: 1600, max: 4800 },
+    "Performance.semiconductor_size_nm": { min: 3, max: 10, lowerIsBetter: true },
+    "Performance.processor_threads": { min: 4, max: 16 },
+    "Performance.max_memory_size_gb": { min: 256, max: 2048 },
+
+    // Camera attributes
+    "Cameras.main_camera_megapixels": { min: 12, max: 200 },
+    "Cameras.front_camera_megapixels": { min: 8, max: 60 },
+    "Cameras.largest_aperture_f": { min: 1.4, max: 2.8, lowerIsBetter: true },
+    "Cameras.large_aperture_front_camera_f": { min: 1.8, max: 2.8, lowerIsBetter: true },
+    "Cameras.optical_zoom_x": { min: 1, max: 10 },
+
+    // Battery attributes
+    "Battery.battery_capacity_mAh": { min: 3000, max: 6000 },
+    "Battery.charging_speed_w": { min: 15, max: 120 },
+    "Battery.wireless_charging_speed_w": { min: 5, max: 50 },
+    "Battery.battery_life_h": { min: 8, max: 24 },
+
+    // Features attributes
+    "Features.download_speed_mbps": { min: 100, max: 10000 },
+    "Features.upload_speed_mbps": { min: 50, max: 2000 },
+};

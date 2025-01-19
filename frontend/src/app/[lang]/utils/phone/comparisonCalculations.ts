@@ -1,4 +1,4 @@
-import { attributesWhereLowerIsBetter, neutralAttributes, numericAttributes } from "./constants";
+import { attributeRanges, attributesWhereLowerIsBetter, neutralAttributes, numericAttributes } from "./constants";
 
 // utils/comparisonCalculations.ts
 export const getBarStyle = (attribute: keyof PhoneSpecs, subAttribute: string, index: number, comparisonResult: [PhoneSpecs, PhoneSpecs] | null) => {
@@ -167,22 +167,28 @@ export const getAttributeComparisonPercentage = (attribute: string, comparisonRe
     const calculateScore = (value1: any, value2: any, subAttribute: string): [number, number] => {
         // For numeric values
         if (typeof value1 === 'number' && typeof value2 === 'number' && value1 !== 0 && value2 !== 0) {
-            const maxValue = Math.max(value1, value2);
-            const minValue = Math.min(value1, value2);
+            const range = attributeRanges[`${attribute}.${subAttribute}`];
+
+            if (!range) {
+                return [0, 0]; // Return 0 if no range is defined
+            }
 
             if (neutralAttributes.includes(`${attribute}.${subAttribute}`)) {
                 return [0, 0]; // Neutral attributes do not contribute to the score
             }
 
-            if (attributesWhereLowerIsBetter.includes(`${attribute}.${subAttribute}`)) {
-                const score1 = (minValue / value1) * 10;
-                const score2 = (minValue / value2) * 10;
-                return [score1, score2];
-            } else {
-                const score1 = (value1 / maxValue) * 10;
-                const score2 = (value2 / maxValue) * 10;
-                return [score1, score2];
-            }
+            const calculateSingleScore = (value: number): number => {
+                // Clamp the value between min and max
+                const clampedValue = Math.max(Math.min(value, range.max), range.min);
+
+                // Calculate the score based on the position within the range
+                const score = ((clampedValue - range.min) / (range.max - range.min)) * 10;
+
+                // Invert the score if lower is better
+                return range.lowerIsBetter ? 10 - score : score;
+            };
+
+            return [calculateSingleScore(value1), calculateSingleScore(value2)];
         }
 
         // For boolean values
@@ -194,7 +200,7 @@ export const getAttributeComparisonPercentage = (attribute: string, comparisonRe
 
         // For unknown values (?)
         if (value1 === '?' || value2 === '?') {
-            return [0, 0]; // Average value for unknowns
+            return [0, 0];
         }
 
         return [0, 0]; // Default value
@@ -209,7 +215,7 @@ export const getAttributeComparisonPercentage = (attribute: string, comparisonRe
             totalScorePhone1 += score1;
             totalScorePhone2 += score2;
         }
-        if ((typeof value1 === 'number' || typeof value1 === 'boolean') && !neutralAttributes.includes(`${attribute}.${subAttribute}`)) {
+        if (!neutralAttributes.includes(`${attribute}.${subAttribute}`)) {
             totalMetrics += 1;
         }
     });
@@ -227,18 +233,27 @@ export const getAttributeComparisonPercentage = (attribute: string, comparisonRe
         };
     }
 
-    // Calculate average scores
-    const normalizedScorePhone1 = (totalScorePhone1 / totalMetrics * 10);
-    const normalizedScorePhone2 = (totalScorePhone2 / totalMetrics * 10);
+    // Calculate average scores (without extra normalization)
+    const averageScorePhone1 = (totalScorePhone1 * 100) / (totalMetrics * 10);
+    const averageScorePhone2 = (totalScorePhone2 * 100) / (totalMetrics * 10);
 
-    const isEqual = Math.abs(normalizedScorePhone1 - normalizedScorePhone2) < 0.1;
-    const betterPhone = normalizedScorePhone1 > normalizedScorePhone2
+    const isEqual = Math.abs(averageScorePhone1 - averageScorePhone2) < 0.1;
+
+    // Determine which phone is better
+    const phone1IsBetter = averageScorePhone1 > averageScorePhone2;
+    const betterPhone = phone1IsBetter
         ? comparisonResult[0].brand_and_full_name
         : comparisonResult[1].brand_and_full_name;
-    const worsePhone = normalizedScorePhone1 < normalizedScorePhone2
-        ? comparisonResult[0].brand_and_full_name
-        : comparisonResult[1].brand_and_full_name;
-    const percentageDifference = Math.abs(normalizedScorePhone1 - normalizedScorePhone2);
+    const worsePhone = phone1IsBetter
+        ? comparisonResult[1].brand_and_full_name
+        : comparisonResult[0].brand_and_full_name;
+
+    // Calculate percentage difference as (better/worse - 1) * 100
+    const betterScore = Math.max(averageScorePhone1, averageScorePhone2);
+    const worseScore = Math.min(averageScorePhone1, averageScorePhone2);
+    const percentageDifference = ((betterScore / worseScore) - 1) * 100;
+
+    console.log(averageScorePhone1, averageScorePhone2, percentageDifference);
 
     return {
         betterPhone: isEqual ? null : betterPhone,
@@ -247,8 +262,8 @@ export const getAttributeComparisonPercentage = (attribute: string, comparisonRe
         isEqual,
         scores: {
             normalized: {
-                [comparisonResult[0].brand_and_full_name]: normalizedScorePhone1,
-                [comparisonResult[1].brand_and_full_name]: normalizedScorePhone2
+                [comparisonResult[0].brand_and_full_name]: averageScorePhone1,
+                [comparisonResult[1].brand_and_full_name]: averageScorePhone2
             },
             notNormalized: {
                 [comparisonResult[0].brand_and_full_name]: totalScorePhone1,
