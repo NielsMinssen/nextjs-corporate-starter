@@ -13,8 +13,8 @@ import {
     XCircle,
     HelpCircle,
 } from 'lucide-react';
-import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '../tooltip';
 import { getAttributeComparisonPercentage, getBarStyle } from '../../utils/phone/comparisonCalculations';
+import { Popover, PopoverContent, PopoverTrigger } from '../popover';
 
 const AccordionComparison = ({ comparisonResult, comparisonAttributes, translations }: {
     comparisonResult: [PhoneSpecs, PhoneSpecs];
@@ -120,24 +120,31 @@ const AccordionComparison = ({ comparisonResult, comparisonAttributes, translati
                                         {Object.keys(comparisonResult[0][attribute]).map((subAttribute) => (
                                             <React.Fragment key={subAttribute}>
                                                 <tr className="md:hidden border-b border-gray-200 bg-gray-50">
-                                                    <td colSpan={2} className="px-6 py-2 text-sm font-semibold text-gray-700">
-                                                        <>{(translations.phoneComparison.details[attribute] as any)[subAttribute]?.title || subAttribute}</>
+                                                    <td colSpan={2} className="py-2 text-sm font-semibold text-gray-700">
+                                                        {<Popover>
+                                                            <PopoverTrigger asChild>
+                                                                <span className="flex cursor-pointer underline">
+                                                                    <>{(translations.phoneComparison.details[attribute] as any)[subAttribute]?.title || subAttribute}</>
+                                                                </span>
+                                                            </PopoverTrigger>
+                                                            <PopoverContent>
+                                                                <p>{(translations.phoneComparison.details[attribute] as any)[subAttribute]?.description}</p>
+                                                            </PopoverContent>
+                                                        </Popover>}
                                                     </td>
                                                 </tr>
                                                 <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
                                                     <td className="hidden md:flex md:items-center px-6 py-4 text-sm font-semibold text-gray-700">
-                                                        {<TooltipProvider>
-                                                            <Tooltip>
-                                                                <TooltipTrigger asChild>
-                                                                    <span className="flex items-center cursor-pointer">
-                                                                        <>{(translations.phoneComparison.details[attribute] as any)[subAttribute]?.title || subAttribute}</>
-                                                                    </span>
-                                                                </TooltipTrigger>
-                                                                <TooltipContent>
-                                                                    <p>{(translations.phoneComparison.details[attribute] as any)[subAttribute]?.description}</p>
-                                                                </TooltipContent>
-                                                            </Tooltip>
-                                                        </TooltipProvider>}
+                                                        {<Popover>
+                                                            <PopoverTrigger asChild>
+                                                                <span className="flex items-center cursor-pointer underline">
+                                                                    <>{(translations.phoneComparison.details[attribute] as any)[subAttribute]?.title || subAttribute}</>
+                                                                </span>
+                                                            </PopoverTrigger>
+                                                            <PopoverContent>
+                                                                <p>{(translations.phoneComparison.details[attribute] as any)[subAttribute]?.description}</p>
+                                                            </PopoverContent>
+                                                        </Popover>}
                                                     </td>
                                                     <td
                                                         className="px-6 py-4 text-sm text-gray-600 text-center"

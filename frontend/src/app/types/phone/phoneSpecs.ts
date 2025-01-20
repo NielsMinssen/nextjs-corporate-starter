@@ -58,7 +58,7 @@ interface PhoneSpecs {
         Dolby_Vision_recording: boolean;
     };
     Operating_System: {
-        Android_version: string;
+        version: string;
         location_privacy_options: boolean;
         camera_and_microphone_privacy_options: boolean;
         theme_customization: boolean;
