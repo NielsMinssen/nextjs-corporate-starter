@@ -12,6 +12,7 @@ import {
     CheckCircle,
     XCircle,
     HelpCircle,
+    Trophy,
 } from 'lucide-react';
 import { getAttributeComparisonPercentage, getBarStyle } from '../../utils/phone/comparisonCalculations';
 import { Popover, PopoverContent, PopoverTrigger } from '../popover';
@@ -55,24 +56,32 @@ const AccordionComparison = ({ comparisonResult, comparisonAttributes, translati
                                         })()}
                                         {translations.phoneComparison.details[attribute]?.title || attribute}
                                     </div>
-                                    <div className="md:w-3/4 md:text-left flex-1">
+                                    <div className="md:w-3/4 md:text-left flex-1 flex items-center">
                                         {attributeComparison.isEqual ? (
                                             <div className="text-base font-normal">
                                                 <span className="font-normal">{translations.phoneComparison.equivalent}</span>
                                             </div>
                                         ) : (
-                                            <div className="text-base font-normal">
-                                                <span className={attributeComparison.betterPhone === comparisonResult[0].brand_and_full_name ? "text-[#b83f39]" : "text-[#514bbd]"}>
-                                                    {attributeComparison.betterPhone}
-                                                </span>
-                                                {' '}
-                                                <span className="font-normal">{translations.phoneComparison.is}</span>
-                                                {' '}
-                                                <span className="font-normal">{translations.phoneComparison.betterthan}</span>
-                                                {' '}
-                                                <span className={attributeComparison.worsePhone === comparisonResult[0].brand_and_full_name ? "text-[#b83f39]" : "text-[#514bbd]"}>
-                                                    {attributeComparison.worsePhone}
-                                                </span>
+                                            <div>
+                                                <div className="max-sm:hidden text-base font-normal">
+                                                    <span className={attributeComparison.betterPhone === comparisonResult[0].brand_and_full_name ? "text-[#b83f39]" : "text-[#514bbd]"}>
+                                                        {attributeComparison.betterPhone}
+                                                    </span>
+                                                    {' '}
+                                                    <span className="font-normal">{translations.phoneComparison.is}</span>
+                                                    {' '}
+                                                    <span className="font-normal">{translations.phoneComparison.betterthan}</span>
+                                                    {' '}
+                                                    <span className={attributeComparison.worsePhone === comparisonResult[0].brand_and_full_name ? "text-[#b83f39]" : "text-[#514bbd]"}>
+                                                        {attributeComparison.worsePhone}
+                                                    </span>
+                                                </div>
+                                                <div className="sm:hidden text-base font-normal flex items-center">
+                                                    <div className={`flex items-center ${attributeComparison.betterPhone === comparisonResult[0].brand_and_full_name ? "text-[#b83f39]" : "text-[#514bbd]"}`}>
+                                                        {attributeComparison.betterPhone}
+                                                        <Trophy className="h-4 w-4 ml-1" />
+                                                    </div>
+                                                </div>
                                             </div>
                                         )}
                                     </div>
@@ -83,13 +92,13 @@ const AccordionComparison = ({ comparisonResult, comparisonAttributes, translati
                                 <div className="md:hidden mb-4 flex justify-between font-bold text-sm text-gray-900">
                                     <div className="w-1/2 text-center px-2">{comparisonResult[0].brand_and_full_name}
                                         <div className={"text-[#b83f39]"}>
-                                            {attributeComparison.scores && attributeComparison.scores.normalized[comparisonResult[0].brand_and_full_name] ?
+                                            {attributeComparison.scores && attributeComparison.scores.normalized[comparisonResult[0].brand_and_full_name] != null ?
                                                 `${attributeComparison.scores.normalized[comparisonResult[0].brand_and_full_name].toFixed(0)} ${translations.phoneComparison.points}` : ''}
                                         </div>
                                     </div>
                                     <div className="w-1/2 text-center px-2">{comparisonResult[1].brand_and_full_name}
                                         <div className={"text-[#514bbd]"}>
-                                            {attributeComparison.scores && attributeComparison.scores.normalized[comparisonResult[1].brand_and_full_name] ?
+                                            {attributeComparison.scores && attributeComparison.scores.normalized[comparisonResult[1].brand_and_full_name] != null ?
                                                 `${attributeComparison.scores.normalized[comparisonResult[1].brand_and_full_name].toFixed(0)} ${translations.phoneComparison.points}` : ''}
                                         </div>
                                     </div>
@@ -103,14 +112,14 @@ const AccordionComparison = ({ comparisonResult, comparisonAttributes, translati
                                             <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 ">
                                                 {comparisonResult[0].brand_and_full_name}
                                                 <div className={"text-[#b83f39]"}>
-                                                    {attributeComparison.scores && attributeComparison.scores.normalized[comparisonResult[0].brand_and_full_name] ?
+                                                    {attributeComparison.scores && attributeComparison.scores.normalized[comparisonResult[0].brand_and_full_name] != null ?
                                                         `${attributeComparison.scores.normalized[comparisonResult[0].brand_and_full_name].toFixed(0)} ${translations.phoneComparison.points}` : ''}
                                                 </div>
                                             </th>
                                             <th className="px-6 py-3 text-center text-sm font-bold text-gray-900 ">
                                                 {comparisonResult[1].brand_and_full_name}
                                                 <div className={"text-[#514bbd]"}>
-                                                    {attributeComparison.scores && attributeComparison.scores.normalized[comparisonResult[1].brand_and_full_name] ?
+                                                    {attributeComparison.scores && attributeComparison.scores.normalized[comparisonResult[1].brand_and_full_name] != null ?
                                                         `${attributeComparison.scores.normalized[comparisonResult[1].brand_and_full_name].toFixed(0)} ${translations.phoneComparison.points}` : ''}
                                                 </div>
                                             </th>
