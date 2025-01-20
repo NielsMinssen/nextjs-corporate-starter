@@ -31,7 +31,6 @@ interface PhoneSpecs {
         uses_big_LITTLE_technology: boolean;
         processor_threads: number;
         supports_ECC_memory: boolean;
-        max_memory_size_gb: number;
         uses_multithreading: boolean;
     };
     Cameras: {
@@ -60,7 +59,6 @@ interface PhoneSpecs {
     };
     Operating_System: {
         Android_version: string;
-        clipboard_warning_message: boolean;
         location_privacy_options: boolean;
         camera_and_microphone_privacy_options: boolean;
         theme_customization: boolean;
@@ -73,11 +71,8 @@ interface PhoneSpecs {
         offload_apps: boolean;
         customizable_notifications: boolean;
         live_text: boolean;
-        SharePlay: boolean;
         screen_sharing: boolean;
         direct_OS_updates: boolean;
-        AirPlay: boolean;
-        more_languages: string;
         quick_start: boolean;
     };
     Battery: {
@@ -86,7 +81,6 @@ interface PhoneSpecs {
         fast_charging: boolean;
         charging_speed_w: number;
         wireless_charging_speed_w: number;
-        battery_level_indicator: boolean;
         battery_life_h: number;
     };
     Audio: {

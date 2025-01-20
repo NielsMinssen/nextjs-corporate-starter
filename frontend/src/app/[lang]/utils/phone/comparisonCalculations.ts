@@ -166,7 +166,7 @@ export const getAttributeComparisonPercentage = (attribute: string, comparisonRe
 
     const calculateScore = (value1: any, value2: any, subAttribute: string): [number, number] => {
         // For numeric values
-        if (typeof value1 === 'number' && typeof value2 === 'number' && value1 !== 0 && value2 !== 0) {
+        if (typeof value1 === 'number' && typeof value2 === 'number') {
             const range = attributeRanges[`${attribute}.${subAttribute}`];
 
             if (!range) {

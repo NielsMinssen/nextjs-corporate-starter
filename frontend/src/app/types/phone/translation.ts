@@ -133,10 +133,6 @@ interface Translation {
                     title: string;
                     description: string;
                 };
-                max_memory_size_gb: {
-                    title: string;
-                    description: string;
-                };
                 uses_multithreading: {
                     title: string;
                     description: string;
@@ -231,11 +227,7 @@ interface Translation {
             };
             Operating_System: {
                 title: string;
-                Android_version: {
-                    title: string;
-                    description: string;
-                };
-                clipboard_warning_message: {
+                version: {
                     title: string;
                     description: string;
                 };
@@ -287,23 +279,11 @@ interface Translation {
                     title: string;
                     description: string;
                 };
-                SharePlay: {
-                    title: string;
-                    description: string;
-                };
                 screen_sharing: {
                     title: string;
                     description: string;
                 };
                 direct_OS_updates: {
-                    title: string;
-                    description: string;
-                };
-                AirPlay: {
-                    title: string;
-                    description: string;
-                };
-                more_languages: {
                     title: string;
                     description: string;
                 };
@@ -331,10 +311,6 @@ interface Translation {
                     description: string;
                 };
                 wireless_charging_speed_w: {
-                    title: string;
-                    description: string;
-                };
-                battery_level_indicator: {
                     title: string;
                     description: string;
                 };

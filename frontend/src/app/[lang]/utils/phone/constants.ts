@@ -31,7 +31,6 @@ export const numericAttributes: (keyof PhoneSpecs)[] = [
     "Performance.RAM_speed_mhz" as keyof PhoneSpecs,
     "Performance.semiconductor_size_nm" as keyof PhoneSpecs,
     "Performance.processor_threads" as keyof PhoneSpecs,
-    "Performance.max_memory_size_gb" as keyof PhoneSpecs,
     "Cameras.main_camera_megapixels" as keyof PhoneSpecs,
     "Cameras.front_camera_megapixels" as keyof PhoneSpecs,
     "Cameras.largest_aperture_f" as keyof PhoneSpecs,
@@ -53,7 +52,7 @@ export const neutralAttributes = [
     "Screen.screen_size_in",
 ];
 
-export const attributesWhereLowerIsBetter = ["Design.weight_g", "Design.thickness_mm"];
+export const attributesWhereLowerIsBetter = ["Design.weight_g", "Design.thickness_mm", "Performance.semiconductor_size_nm", "Cameras.largest_aperture_f", "Cameras.large_aperture_front_camera_f"];
 
 // Define ranges for each numeric attribute
 interface AttributeRange {
@@ -67,9 +66,6 @@ export const attributeRanges: Record<string, AttributeRange> = {
     // Design attributes
     "Design.weight_g": { min: 130, max: 240, lowerIsBetter: true },
     "Design.thickness_mm": { min: 5, max: 12, lowerIsBetter: true },
-    "Design.width_mm": { min: 65, max: 85, lowerIsBetter: true },
-    "Design.height_mm": { min: 130, max: 175, lowerIsBetter: true },
-    "Design.volume_cm3": { min: 50, max: 120, lowerIsBetter: true },
 
     // Screen attributes
     "Screen.screen_size_in": { min: 5.5, max: 7.5 },
@@ -85,7 +81,6 @@ export const attributeRanges: Record<string, AttributeRange> = {
     "Performance.RAM_speed_mhz": { min: 1600, max: 4800 },
     "Performance.semiconductor_size_nm": { min: 3, max: 10, lowerIsBetter: true },
     "Performance.processor_threads": { min: 4, max: 16 },
-    "Performance.max_memory_size_gb": { min: 256, max: 2048 },
 
     // Camera attributes
     "Cameras.main_camera_megapixels": { min: 12, max: 200 },
