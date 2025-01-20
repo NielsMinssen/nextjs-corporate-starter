@@ -1,0 +1,22 @@
+{
+  "brand_and_full_name": "Realme 14 Pro Plus",
+  "Design": {
+    "weight_g": 182.0,
+    "thickness_mm": 7.6,
+    "width_mm": 74.9,
+    "height_mm": 162.8,
+    "water_resistance": null,
+    "IP_rating": null,
+    "volume_cm3": 92.67
+  },
+  "Screen": {
+    "screen_size_in": null,
+    "screen_type": null,
+    "pixel_density_ppi": null,
+    "resolution": "1080 x 2392 px",
+    "refresh_rate_hz": null,
+    "typical_brightness_nits": null,
+    "HDR10_compatible": null,
+    "Dolby_Vision_compatible": null
+  }
+}

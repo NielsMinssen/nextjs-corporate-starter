@@ -39,10 +39,6 @@ interface Translation {
                     title: string;
                     description: string;
                 };
-                water_resistance: {
-                    title: string;
-                    description: string;
-                };
                 IP_rating: {
                     title: string;
                     description: string;

@@ -5,7 +5,6 @@ interface PhoneSpecs {
         thickness_mm: number;
         width_mm: number;
         height_mm: number;
-        water_resistance: string;
         IP_rating: string;
         volume_cm3: number;
     };
