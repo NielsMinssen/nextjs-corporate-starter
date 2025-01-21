@@ -72,7 +72,6 @@ interface PhoneSpecs {
         offload_apps: boolean;
         customizable_notifications: boolean;
         live_text: boolean;
-        screen_sharing: boolean;
         direct_OS_updates: boolean;
         quick_start: boolean;
     };

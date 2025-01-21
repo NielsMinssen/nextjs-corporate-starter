@@ -119,7 +119,7 @@ def parse_phone_specs(html_content):
         "largest_aperture_f": None,
         "continuous_autofocus_during_video_recording": None,
         "can_record_slow_motion_videos": None,
-        "IGD_mode": None,
+        "HDR_mode": None,
         "optical_zoom_x": None,
         "CMOS_sensor": None,
         "manual_ISO": None,
@@ -146,7 +146,6 @@ def parse_phone_specs(html_content):
         "offload_apps": None,
         "customizable_notifications": None,
         "live_text": None,
-        "screen_sharing": None,
         "direct_OS_updates": None,
         "quick_start": None
     },
@@ -155,7 +154,6 @@ def parse_phone_specs(html_content):
         "wireless_charging": None,
         "fast_charging": None,
         "charging_speed_w": None,
-        "wireless_charging_speed_w": None,
         "battery_life_h": None
     },
     "Audio": {
@@ -343,8 +341,6 @@ def parse_phone_specs(html_content):
             specs["Operating_System"]["customizable_notifications"] = value_text
         elif label_text == "dispose de la fonctionnalité Texte en direct":
             specs["Operating_System"]["live_text"] = value_text
-        elif label_text == "dispose de la fonctionnalité partage d'écran":
-            specs["Operating_System"]["screen_sharing"] = value_text
         elif label_text == "obtient des mises à jour directes de l'OS":
             specs["Operating_System"]["direct_OS_updates"] = value_text
         elif label_text == "dispose de la fonctionnalité démarrage rapide":

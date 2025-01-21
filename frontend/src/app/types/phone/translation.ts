@@ -271,10 +271,6 @@ interface Translation {
                     title: string;
                     description: string;
                 };
-                screen_sharing: {
-                    title: string;
-                    description: string;
-                };
                 direct_OS_updates: {
                     title: string;
                     description: string;
