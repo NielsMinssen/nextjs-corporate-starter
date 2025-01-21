@@ -23,7 +23,10 @@ interface PhoneSpecs {
         RAM_gb: number;
         AnTuTu_benchmark_score: number;
         GPU_name: string;
-        processor_speed_ghz: number;
+        processor_speed_ghz: {
+            text: string;
+            value: number;
+        };
         RAM_speed_mhz: number;
         semiconductor_size_nm: number;
         supports_64_bit: boolean;
@@ -33,7 +36,10 @@ interface PhoneSpecs {
         uses_multithreading: boolean;
     };
     Cameras: {
-        main_camera_megapixels: number;
+        main_camera_megapixels: {
+            text: string;
+            value: number;
+        }
         front_camera_megapixels: number;
         built_in_optical_image_stabilization: boolean;
         video_recording: string;
@@ -41,18 +47,15 @@ interface PhoneSpecs {
         continuous_autofocus_during_video_recording: boolean;
         can_record_slow_motion_videos: boolean;
         IGD_mode: boolean;
-        flash: boolean;
         optical_zoom_x: number;
         CMOS_sensor: boolean;
         manual_ISO: boolean;
         burst_mode: boolean;
         manual_focus: boolean;
-        front_camera: boolean;
         manual_white_balance: boolean;
         takes_raw_images: boolean;
         AF_touch: boolean;
         manual_shutter_speed: boolean;
-        in_camera_panoramas: boolean;
         large_aperture_front_camera_f: number;
         Dolby_Vision_recording: boolean;
     };
@@ -79,10 +82,10 @@ interface PhoneSpecs {
         wireless_charging: boolean;
         fast_charging: boolean;
         charging_speed_w: number;
-        wireless_charging_speed_w: number;
         battery_life_h: number;
     };
     Audio: {
+        mini_jack: boolean;
         built_in_stereo_speaker: boolean;
         aptX: boolean;
         LDAC: boolean;

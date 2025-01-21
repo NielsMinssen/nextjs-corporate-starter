@@ -38,7 +38,6 @@ export const numericAttributes: (keyof PhoneSpecs)[] = [
     "Cameras.optical_zoom_x" as keyof PhoneSpecs,
     "Battery.battery_capacity_mAh" as keyof PhoneSpecs,
     "Battery.charging_speed_w" as keyof PhoneSpecs,
-    "Battery.wireless_charging_speed_w" as keyof PhoneSpecs,
     "Battery.battery_life_h" as keyof PhoneSpecs,
     "Features.download_speed_mbps" as keyof PhoneSpecs,
     "Features.upload_speed_mbps" as keyof PhoneSpecs,
@@ -77,7 +76,7 @@ export const attributeRanges: Record<string, AttributeRange> = {
     "Performance.storage_options_gb": { min: 64, max: 1024 },
     "Performance.RAM_gb": { min: 4, max: 16 },
     "Performance.AnTuTu_benchmark_score": { min: 400000, max: 1500000 },
-    "Performance.processor_speed_ghz": { min: 2.0, max: 3.5 },
+    "Performance.processor_speed_ghz": { min: 2.0, max: 25 },
     "Performance.RAM_speed_mhz": { min: 1600, max: 4800 },
     "Performance.semiconductor_size_nm": { min: 3, max: 10, lowerIsBetter: true },
     "Performance.processor_threads": { min: 4, max: 16 },
@@ -92,7 +91,6 @@ export const attributeRanges: Record<string, AttributeRange> = {
     // Battery attributes
     "Battery.battery_capacity_mAh": { min: 3000, max: 6000 },
     "Battery.charging_speed_w": { min: 15, max: 120 },
-    "Battery.wireless_charging_speed_w": { min: 5, max: 50 },
     "Battery.battery_life_h": { min: 8, max: 24 },
 
     // Features attributes

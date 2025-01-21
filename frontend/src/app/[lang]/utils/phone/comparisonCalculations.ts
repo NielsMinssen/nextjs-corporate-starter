@@ -4,8 +4,12 @@ import { attributeRanges, attributesWhereLowerIsBetter, neutralAttributes, numer
 export const getBarStyle = (attribute: keyof PhoneSpecs, subAttribute: string, index: number, comparisonResult: [PhoneSpecs, PhoneSpecs] | null) => {
     if (!comparisonResult || !numericAttributes.includes(`${attribute}.${subAttribute}` as keyof PhoneSpecs)) return {};
 
-    const value1 = (comparisonResult[0][attribute] as any)[subAttribute] as number;
-    const value2 = (comparisonResult[1][attribute] as any)[subAttribute] as number;
+    const rawValue1 = (comparisonResult[0][attribute] as any)[subAttribute];
+    const rawValue2 = (comparisonResult[1][attribute] as any)[subAttribute];
+
+    // Extract values from objects if needed
+    const value1 = typeof rawValue1 === 'object' && rawValue1 !== null ? rawValue1.value : rawValue1;
+    const value2 = typeof rawValue2 === 'object' && rawValue2 !== null ? rawValue2.value : rawValue2;
 
     // If one of the values doesn't exist, use pastel blue for the other existing value
     if (value1 == null || value2 == null) {
@@ -28,12 +32,13 @@ export const getBarStyle = (attribute: keyof PhoneSpecs, subAttribute: string, i
         };
     }
 
-
     const maxValue = Math.max(value1, value2);
     const minValue = Math.min(value1, value2);
-    const currentValue = (comparisonResult[index][attribute] as any)[subAttribute] as number;
+    const rawCurrentValue = (comparisonResult[index][attribute] as any)[subAttribute];
+    const currentValue = typeof rawCurrentValue === 'object' && rawCurrentValue !== null ? rawCurrentValue.value : rawCurrentValue;
     const isBestValue = attributesWhereLowerIsBetter.includes(`${attribute}.${subAttribute}`) ? currentValue === minValue : currentValue === maxValue;
-    const otherValue = (comparisonResult[1 - index][attribute] as any)[subAttribute] as number;
+    const rawOtherValue = (comparisonResult[1 - index][attribute] as any)[subAttribute];
+    const otherValue = typeof rawOtherValue === 'object' && rawOtherValue !== null ? rawOtherValue.value : rawOtherValue;
 
     // Determine the difference ratio
     const differenceRatio = Math.abs(currentValue - otherValue) / Math.max(maxValue, 1); // Avoid division by zero
@@ -164,7 +169,11 @@ export const getAttributeComparisonPercentage = (attribute: string, comparisonRe
     let totalScorePhone2 = 0;
     let totalMetrics = 0;
 
-    const calculateScore = (value1: any, value2: any, subAttribute: string): [number, number] => {
+    const calculateScore = (rawValue1: any, rawValue2: any, subAttribute: string): [number, number] => {
+        // Extract values from objects if needed
+        const value1 = typeof rawValue1 === 'object' && rawValue1 !== null ? rawValue1.value : rawValue1;
+        const value2 = typeof rawValue2 === 'object' && rawValue2 !== null ? rawValue2.value : rawValue2;
+
         // For numeric values
         if (typeof value1 === 'number' && typeof value2 === 'number') {
             const range = attributeRanges[`${attribute}.${subAttribute}`];
@@ -215,11 +224,14 @@ export const getAttributeComparisonPercentage = (attribute: string, comparisonRe
             totalScorePhone1 += score1;
             totalScorePhone2 += score2;
         }
-        if (!neutralAttributes.includes(`${attribute}.${subAttribute}`) && typeof value1 !== 'string' && typeof value2 !== 'string') {
+        const effectiveValue1 = typeof value1 === 'object' && value1 !== null ? value1.value : value1;
+        const effectiveValue2 = typeof value2 === 'object' && value2 !== null ? value2.value : value2;
+        if (!neutralAttributes.includes(`${attribute}.${subAttribute}`) && typeof effectiveValue1 !== 'string' && typeof effectiveValue2 !== 'string') {
             totalMetrics += 1;
         }
     });
 
+    // Rest of the function remains the same...
     if (totalMetrics === 0) {
         return {
             betterPhone: null,
@@ -233,14 +245,12 @@ export const getAttributeComparisonPercentage = (attribute: string, comparisonRe
         };
     }
 
-    // Calculate average scores (without extra normalization)
     const averageScorePhone1 = (totalScorePhone1 * 100) / (totalMetrics * 10);
     const averageScorePhone2 = (totalScorePhone2 * 100) / (totalMetrics * 10);
 
     console.log(attribute, averageScorePhone1, averageScorePhone2);
     const isEqual = Math.abs(averageScorePhone1 - averageScorePhone2) < 0.1;
 
-    // Determine which phone is better
     const phone1IsBetter = averageScorePhone1 > averageScorePhone2;
     const betterPhone = phone1IsBetter
         ? comparisonResult[0].brand_and_full_name
@@ -249,7 +259,6 @@ export const getAttributeComparisonPercentage = (attribute: string, comparisonRe
         ? comparisonResult[1].brand_and_full_name
         : comparisonResult[0].brand_and_full_name;
 
-    // Calculate percentage difference as (better/worse - 1) * 100
     const betterScore = Math.max(averageScorePhone1, averageScorePhone2);
     const worseScore = Math.min(averageScorePhone1, averageScorePhone2);
     const percentageDifference = ((betterScore / worseScore) - 1) * 100;

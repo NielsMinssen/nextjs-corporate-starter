@@ -306,10 +306,6 @@ interface Translation {
                     title: string;
                     description: string;
                 };
-                wireless_charging_speed_w: {
-                    title: string;
-                    description: string;
-                };
                 battery_life_h: {
                     title: string;
                     description: string;

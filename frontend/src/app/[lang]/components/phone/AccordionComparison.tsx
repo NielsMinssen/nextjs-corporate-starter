@@ -159,21 +159,33 @@ const AccordionComparison = ({ comparisonResult, comparisonAttributes, translati
                                                         className="px-6 py-4 text-sm text-gray-600 text-center"
                                                         style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 0, comparisonResult)}
                                                     >
-                                                        {typeof (comparisonResult[0][attribute] as any)[subAttribute] === 'boolean'
-                                                            ? (comparisonResult[0][attribute] as any)[subAttribute]
-                                                                ? <span className="text-green-600"><CheckCircle className="inline-block h-5 w-5" /></span>
-                                                                : <span className="text-red-600"><XCircle className="inline-block h-5 w-5" /></span>
-                                                            : (comparisonResult[0][attribute] as any)[subAttribute] ?? <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>}
+                                                        {(comparisonResult[0][attribute] as any)?.[subAttribute] === null ? (
+                                                            <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>
+                                                        ) : typeof (comparisonResult[0][attribute] as any)?.[subAttribute] === 'boolean' ? (
+                                                            (comparisonResult[0][attribute] as any)[subAttribute] ? (
+                                                                <span className="text-green-600"><CheckCircle className="inline-block h-5 w-5" /></span>
+                                                            ) : (
+                                                                <span className="text-red-600"><XCircle className="inline-block h-5 w-5" /></span>
+                                                            )
+                                                        ) : typeof (comparisonResult[0][attribute] as any)?.[subAttribute] === 'object' ? (
+                                                            ((comparisonResult[0][attribute] as any)[subAttribute]?.text || (comparisonResult[0][attribute] as any)[subAttribute]?.value) ?? <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>
+                                                        ) : (comparisonResult[0][attribute] as any)?.[subAttribute] ?? <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>}
                                                     </td>
                                                     <td
                                                         className="px-6 py-4 text-sm text-gray-600 text-center"
                                                         style={getBarStyle(attribute, subAttribute as keyof PhoneSpecs, 1, comparisonResult)}
                                                     >
-                                                        {typeof (comparisonResult[1][attribute] as any)[subAttribute] === 'boolean'
-                                                            ? (comparisonResult[1][attribute] as any)[subAttribute]
-                                                                ? <span className="text-green-600"><CheckCircle className="inline-block h-5 w-5" /></span>
-                                                                : <span className="text-red-600"><XCircle className="inline-block h-5 w-5" /></span>
-                                                            : (comparisonResult[1][attribute] as any)[subAttribute] ?? <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>}
+                                                        {(comparisonResult[1][attribute] as any)?.[subAttribute] === null ? (
+                                                            <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>
+                                                        ) : typeof (comparisonResult[1][attribute] as any)?.[subAttribute] === 'boolean' ? (
+                                                            (comparisonResult[1][attribute] as any)[subAttribute] ? (
+                                                                <span className="text-green-600"><CheckCircle className="inline-block h-5 w-5" /></span>
+                                                            ) : (
+                                                                <span className="text-red-600"><XCircle className="inline-block h-5 w-5" /></span>
+                                                            )
+                                                        ) : typeof (comparisonResult[1][attribute] as any)?.[subAttribute] === 'object' ? (
+                                                            ((comparisonResult[1][attribute] as any)[subAttribute]?.text || (comparisonResult[1][attribute] as any)[subAttribute]?.value) ?? <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>
+                                                        ) : (comparisonResult[1][attribute] as any)?.[subAttribute] ?? <span className="text-gray-400"><HelpCircle className="inline-block h-5 w-5" /></span>}
                                                     </td>
                                                 </tr>
                                             </React.Fragment>
