@@ -1,8 +1,117 @@
 from bs4 import BeautifulSoup
 import json
 import re
-import os
 from pathlib import Path
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+import time
+
+def setup_driver():
+    """Setup and return a Chrome webdriver with appropriate options"""
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')  # Run in headless mode
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    # Add more convincing user agent and browser properties
+    options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
+    # Disable automation flags
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('useAutomationExtension', False)
+    driver = webdriver.Chrome(options=options)
+    # Additional stealth settings
+    driver.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'})
+    driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+    return driver
+
+def expand_all_sections(driver):
+    """Click all 'Voir plus' buttons on the page, up to 11 times"""
+    try:
+        print("Starting to expand sections...")
+        time.sleep(0.2)
+        
+        for attempt in range(11):  # Loop 11 times maximum
+            print(f"Expansion attempt {attempt + 1}/11")
+            
+            # Find all 'Voir plus' buttons
+            more_buttons = driver.find_elements(By.XPATH, "//button[contains(text(), '+ Voir plus +')]")
+            
+            if not more_buttons:
+                print("No more 'Voir plus' buttons found")
+                break
+                
+            print(f"Found {len(more_buttons)} buttons")
+            
+            for i, button in enumerate(more_buttons, 1):
+                try:
+                    print(f"Attempting to click button {i} of {len(more_buttons)}")
+                    driver.execute_script("arguments[0].scrollIntoView(true);", button)
+                    time.sleep(0.2)
+                    driver.execute_script("arguments[0].click();", button)
+                    print(f"Successfully clicked button {i}")
+                    time.sleep(0.2)
+                except Exception as e:
+                    print(f"Error clicking button {i}: {str(e)}")
+                    continue
+                    
+    except Exception as e:
+        print(f"Fatal error expanding sections: {str(e)}")
+
+def scrape_phones_from_urls(urls, output_folder="resultsWeb"):
+    """
+    Scrape phone specifications from a list of URLs
+    """
+    # Create output folder if it doesn't exist
+    output_path = Path(output_folder)
+    output_path.mkdir(exist_ok=True)
+    
+    # Setup the webdriver
+    driver = setup_driver()
+    
+    try:
+        for url in urls:
+            try:
+                print(f"Processing URL: {url}")
+                
+                # Load the page
+                driver.get(url)
+                
+                # Wait for the main content to load
+                WebDriverWait(driver, 10).until(
+                    EC.presence_of_element_located((By.CLASS_NAME, "summaryName"))
+                )
+                
+                # Expand all sections
+                expand_all_sections(driver)
+                
+                # Get the page source after all expansions
+                html_content = driver.page_source
+                
+                # Parse specifications using existing function
+                specs = parse_phone_specs(html_content)
+                
+                if not specs["brand_and_full_name"]:
+                    print(f"Warning: Could not extract name from {url}")
+                    # Use part of URL as filename
+                    output_filename = re.sub(r'[^a-zA-Z0-9]', '_', url.split('/')[-1]) + ".json"
+                else:
+                    # Create safe filename from brand_and_full_name
+                    safe_name = re.sub(r'[<>:"/\\|?*]', '_', specs["brand_and_full_name"])
+                    output_filename = f"{safe_name}.json"
+                
+                # Save to output folder
+                output_file = output_path / output_filename
+                save_specs_to_json(specs, output_file)
+                print(f"Processed: {url} -> {output_filename}")
+                
+            except Exception as e:
+                print(f"Error processing URL {url}: {str(e)}")
+                continue
+                
+    finally:
+        driver.quit()
 
 def process_megapixels(value_text):
     """
@@ -437,44 +546,10 @@ def save_specs_to_json(specs, output_path):
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(specs, f, ensure_ascii=False, indent=2)
 
-def process_html_folder(input_folder="html", output_folder="results"):
-    """
-    Process all HTML files in the input folder and save results to output folder
-    """
-    # Create output folder if it doesn't exist
-    output_path = Path(output_folder)
-    output_path.mkdir(exist_ok=True)
-    
-    # Get list of all HTML files
-    input_path = Path(input_folder)
-    html_files = list(input_path.glob("*.html"))
-    
-    print(f"Found {len(html_files)} HTML files to process")
-    
-    for html_file in html_files:
-        try:
-            # Read HTML content
-            with open(html_file, "r", encoding="utf-8") as f:
-                html_content = f.read()
-            
-            # Parse specifications
-            specs = parse_phone_specs(html_content)
-            
-            if not specs["brand_and_full_name"]:
-                print(f"Warning: Could not extract name from {html_file}")
-                output_filename = html_file.stem + ".json"
-            else:
-                # Create safe filename from brand_and_full_name
-                safe_name = re.sub(r'[<>:"/\\|?*]', '_', specs["brand_and_full_name"])
-                output_filename = f"{safe_name}.json"
-            
-            # Save to output folder
-            output_file = output_path / output_filename
-            save_specs_to_json(specs, output_file)
-            print(f"Processed: {html_file.name} -> {output_filename}")
-            
-        except Exception as e:
-            print(f"Error processing {html_file}: {str(e)}")
-
 if __name__ == "__main__":
-    process_html_folder()
+    # Example usage
+    urls = [
+        "https://versus.com/fr/oneplus-7-pro-256gb-8gb-ram",
+        "https://versus.com/fr/oneplus-7-pro-128gb-6gb-ram"
+    ]
+    scrape_phones_from_urls(urls)
