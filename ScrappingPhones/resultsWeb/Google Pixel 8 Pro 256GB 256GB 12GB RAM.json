@@ -1,0 +1,113 @@
+{
+  "brand_and_full_name": "Google Pixel 8 Pro 256GB 256GB 12GB RAM",
+  "Design": {
+    "weight_g": 213.0,
+    "thickness_mm": 8.8,
+    "width_mm": 76.5,
+    "height_mm": 162.6,
+    "IP_rating": "IP68",
+    "volume_cm3": 109.46
+  },
+  "Screen": {
+    "screen_size_in": 6.7,
+    "screen_type": "OLED/AMOLED",
+    "pixel_density_ppi": 489.0,
+    "resolution": "1344 x 2992 px",
+    "refresh_rate_hz": 120.0,
+    "typical_brightness_nits": 1600.0,
+    "HDR10_compatible": true,
+    "Dolby_Vision_compatible": false
+  },
+  "Performance": {
+    "storage_options_gb": 256.0,
+    "RAM_gb": 12.0,
+    "AnTuTu_benchmark_score": 876300.0,
+    "GPU_name": "Mali G715 MP7Google Pixel 8 Pro 256GB",
+    "processor_speed_ghz": {
+      "text": "1 x 2.91 GHz & 4 x 2.37 GHz & 4 x 1.7 GHz",
+      "value": 19.19
+    },
+    "RAM_speed_mhz": 4200.0,
+    "semiconductor_size_nm": 4.0,
+    "supports_64_bit": true,
+    "uses_big_LITTLE_technology": true,
+    "processor_threads": 9.0,
+    "uses_multithreading": false
+  },
+  "Cameras": {
+    "main_camera_megapixels": {
+      "text": "50 MP & 48 MP & 48 MP",
+      "value": 146.0
+    },
+    "front_camera_megapixels": 10.5,
+    "built_in_optical_image_stabilization": true,
+    "video_recording": "2160 x 60 fps",
+    "largest_aperture_f": 1.7,
+    "continuous_autofocus_during_video_recording": true,
+    "can_record_slow_motion_videos": true,
+    "HDR_mode": true,
+    "optical_zoom_x": 5.0,
+    "CMOS_sensor": true,
+    "manual_ISO": true,
+    "burst_mode": true,
+    "manual_focus": true,
+    "manual_white_balance": true,
+    "takes_raw_images": true,
+    "AF_touch": true,
+    "manual_shutter_speed": true,
+    "large_aperture_front_camera_f": 2.2,
+    "Dolby_Vision_recording": false
+  },
+  "Operating_System": {
+    "version": "Android 14",
+    "location_privacy_options": true,
+    "camera_and_microphone_privacy_options": true,
+    "theme_customization": true,
+    "dark_mode": true,
+    "WiFi_password_sharing": true,
+    "battery_health_check": true,
+    "extra_dim_mode": true,
+    "Focus_mode": true,
+    "dynamic_theming": true,
+    "offload_apps": true,
+    "customizable_notifications": true,
+    "live_text": false,
+    "direct_OS_updates": true,
+    "quick_start": false
+  },
+  "Battery": {
+    "battery_capacity_mAh": 5050.0,
+    "wireless_charging": true,
+    "fast_charging": true,
+    "charging_speed_w": 30.0,
+    "battery_life_h": null
+  },
+  "Audio": {
+    "built_in_stereo_speaker": true,
+    "aptX": true,
+    "LDAC": true,
+    "aptX_HD": true
+  },
+  "Features": {
+    "supports_5G": true,
+    "WiFi_version": "Wi-Fi 6E (802.11ax), Wi-Fi 6 (802.11ax), Wi-Fi 5 (802.11ac), Wi-Fi 4 (802.11n), Wi-Fi 7 (802.11be)",
+    "download_speed_mbps": null,
+    "upload_speed_mbps": null,
+    "USB_Type_C_ports": true,
+    "USB_version": "3.2",
+    "NFC_device": true,
+    "SIM_cards": "1 SIM, 1 eSIM",
+    "fingerprint_reader": true,
+    "emergency_communication_via_satellite": false,
+    "detects_car_accidents": true,
+    "Bluetooth_version": "5.3",
+    "gyroscope": true,
+    "GPS": true,
+    "compass": true,
+    "WiFi_compatible": true,
+    "infrared_sensor": false,
+    "accelerometer": true,
+    "barometer": true,
+    "supports_Galileo": true
+  }
+}

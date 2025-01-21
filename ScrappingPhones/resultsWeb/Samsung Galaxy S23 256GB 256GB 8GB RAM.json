@@ -1,0 +1,113 @@
+{
+  "brand_and_full_name": "Samsung Galaxy S23 256GB 256GB 8GB RAM",
+  "Design": {
+    "weight_g": 167.0,
+    "thickness_mm": 7.6,
+    "width_mm": 70.9,
+    "height_mm": 146.3,
+    "IP_rating": "IP68",
+    "volume_cm3": 78.83
+  },
+  "Screen": {
+    "screen_size_in": 6.1,
+    "screen_type": "OLED/AMOLED",
+    "pixel_density_ppi": 422.0,
+    "resolution": "1080 x 2340 px",
+    "refresh_rate_hz": 120.0,
+    "typical_brightness_nits": 1200.0,
+    "HDR10_compatible": true,
+    "Dolby_Vision_compatible": false
+  },
+  "Performance": {
+    "storage_options_gb": 256.0,
+    "RAM_gb": 8.0,
+    "AnTuTu_benchmark_score": 1486260.0,
+    "GPU_name": "Adreno 740Samsung Galaxy S23 256GB",
+    "processor_speed_ghz": {
+      "text": "1 x 3.2 GHz & 4 x 2.8 GHz & 3 x 2 GHz",
+      "value": 20.4
+    },
+    "RAM_speed_mhz": 4200.0,
+    "semiconductor_size_nm": 4.0,
+    "supports_64_bit": true,
+    "uses_big_LITTLE_technology": true,
+    "processor_threads": 8.0,
+    "uses_multithreading": true
+  },
+  "Cameras": {
+    "main_camera_megapixels": {
+      "text": "50 MP & 12 MP & 10 MP",
+      "value": 72.0
+    },
+    "front_camera_megapixels": 12.0,
+    "built_in_optical_image_stabilization": true,
+    "video_recording": "4320 x 30 fps",
+    "largest_aperture_f": 1.8,
+    "continuous_autofocus_during_video_recording": true,
+    "can_record_slow_motion_videos": true,
+    "HDR_mode": true,
+    "optical_zoom_x": 3.0,
+    "CMOS_sensor": true,
+    "manual_ISO": true,
+    "burst_mode": true,
+    "manual_focus": true,
+    "manual_white_balance": true,
+    "takes_raw_images": true,
+    "AF_touch": true,
+    "manual_shutter_speed": true,
+    "large_aperture_front_camera_f": 2.2,
+    "Dolby_Vision_recording": false
+  },
+  "Operating_System": {
+    "version": "Android 13",
+    "location_privacy_options": true,
+    "camera_and_microphone_privacy_options": true,
+    "theme_customization": true,
+    "dark_mode": true,
+    "WiFi_password_sharing": true,
+    "battery_health_check": true,
+    "extra_dim_mode": true,
+    "Focus_mode": true,
+    "dynamic_theming": true,
+    "offload_apps": true,
+    "customizable_notifications": true,
+    "live_text": false,
+    "direct_OS_updates": false,
+    "quick_start": false
+  },
+  "Battery": {
+    "battery_capacity_mAh": 3900.0,
+    "wireless_charging": true,
+    "fast_charging": true,
+    "charging_speed_w": 25.0,
+    "battery_life_h": null
+  },
+  "Audio": {
+    "built_in_stereo_speaker": true,
+    "aptX": true,
+    "LDAC": false,
+    "aptX_HD": false
+  },
+  "Features": {
+    "supports_5G": true,
+    "WiFi_version": "Wi-Fi 4 (802.11n), Wi-Fi 6E (802.11ax), Wi-Fi 6 (802.11ax), Wi-Fi 5 (802.11ac)",
+    "download_speed_mbps": 10000.0,
+    "upload_speed_mbps": 3000.0,
+    "USB_Type_C_ports": true,
+    "USB_version": "3.2",
+    "NFC_device": true,
+    "SIM_cards": "1 SIM, 1 eSIM",
+    "fingerprint_reader": true,
+    "emergency_communication_via_satellite": false,
+    "detects_car_accidents": false,
+    "Bluetooth_version": "5.3",
+    "gyroscope": true,
+    "GPS": true,
+    "compass": true,
+    "WiFi_compatible": true,
+    "infrared_sensor": false,
+    "accelerometer": true,
+    "barometer": true,
+    "supports_Galileo": true
+  }
+}

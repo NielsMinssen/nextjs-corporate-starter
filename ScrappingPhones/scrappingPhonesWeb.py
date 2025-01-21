@@ -547,9 +547,14 @@ def save_specs_to_json(specs, output_path):
         json.dump(specs, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
-    # Example usage
-    urls = [
-        "https://versus.com/fr/oneplus-7-pro-256gb-8gb-ram",
-        "https://versus.com/fr/oneplus-7-pro-128gb-6gb-ram"
-    ]
-    scrape_phones_from_urls(urls)
+    # Read URLs from urls.txt file
+    try:
+        with open('urls.txt', 'r') as f:
+            urls = [line.strip() for line in f if line.strip() and line.startswith('http')]
+        if not urls:
+            print("Error: No valid URLs found in urls.txt. Each line should contain a valid URL starting with http")
+        else:
+            print(f"Found {len(urls)} valid URLs to process")
+            scrape_phones_from_urls(urls)
+    except FileNotFoundError:
+        print("Error: urls.txt file not found. Please create it with one URL per line.")

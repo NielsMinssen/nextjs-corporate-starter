@@ -1,0 +1,113 @@
+{
+  "brand_and_full_name": "Sony Xperia XZ 32GB 3GB RAM",
+  "Design": {
+    "weight_g": 161.0,
+    "thickness_mm": 8.1,
+    "width_mm": 72.0,
+    "height_mm": 146.0,
+    "IP_rating": "IP68",
+    "volume_cm3": 85.15
+  },
+  "Screen": {
+    "screen_size_in": 5.2,
+    "screen_type": "IPS, LCD",
+    "pixel_density_ppi": 424.0,
+    "resolution": "1080 x 1920 px",
+    "refresh_rate_hz": null,
+    "typical_brightness_nits": null,
+    "HDR10_compatible": false,
+    "Dolby_Vision_compatible": false
+  },
+  "Performance": {
+    "storage_options_gb": 32.0,
+    "RAM_gb": 3.0,
+    "AnTuTu_benchmark_score": null,
+    "GPU_name": "Adreno 530Sony Xperia XZ",
+    "processor_speed_ghz": {
+      "text": "4 x 2.15 GHz",
+      "value": 8.6
+    },
+    "RAM_speed_mhz": 1866.0,
+    "semiconductor_size_nm": 14.0,
+    "supports_64_bit": true,
+    "uses_big_LITTLE_technology": true,
+    "processor_threads": 4.0,
+    "uses_multithreading": false
+  },
+  "Cameras": {
+    "main_camera_megapixels": {
+      "text": "23 MP",
+      "value": 23.0
+    },
+    "front_camera_megapixels": 13.0,
+    "built_in_optical_image_stabilization": false,
+    "video_recording": "2160 x 30 fps",
+    "largest_aperture_f": 2.0,
+    "continuous_autofocus_during_video_recording": true,
+    "can_record_slow_motion_videos": true,
+    "HDR_mode": true,
+    "optical_zoom_x": 0.0,
+    "CMOS_sensor": true,
+    "manual_ISO": true,
+    "burst_mode": true,
+    "manual_focus": true,
+    "manual_white_balance": true,
+    "takes_raw_images": false,
+    "AF_touch": true,
+    "manual_shutter_speed": true,
+    "large_aperture_front_camera_f": null,
+    "Dolby_Vision_recording": false
+  },
+  "Operating_System": {
+    "version": "Android 6 Marshmallow",
+    "location_privacy_options": false,
+    "camera_and_microphone_privacy_options": false,
+    "theme_customization": false,
+    "dark_mode": false,
+    "WiFi_password_sharing": false,
+    "battery_health_check": false,
+    "extra_dim_mode": false,
+    "Focus_mode": false,
+    "dynamic_theming": false,
+    "offload_apps": false,
+    "customizable_notifications": true,
+    "live_text": false,
+    "direct_OS_updates": false,
+    "quick_start": false
+  },
+  "Battery": {
+    "battery_capacity_mAh": 2900.0,
+    "wireless_charging": false,
+    "fast_charging": false,
+    "charging_speed_w": null,
+    "battery_life_h": null
+  },
+  "Audio": {
+    "built_in_stereo_speaker": true,
+    "aptX": false,
+    "LDAC": false,
+    "aptX_HD": false
+  },
+  "Features": {
+    "supports_5G": false,
+    "WiFi_version": "Wi-Fi 5 (802.11ac), Wi-Fi 4 (802.11n)",
+    "download_speed_mbps": 450.0,
+    "upload_speed_mbps": 50.0,
+    "USB_Type_C_ports": true,
+    "USB_version": "2",
+    "NFC_device": true,
+    "SIM_cards": "1 SIM",
+    "fingerprint_reader": true,
+    "emergency_communication_via_satellite": false,
+    "detects_car_accidents": false,
+    "Bluetooth_version": "4.2",
+    "gyroscope": true,
+    "GPS": true,
+    "compass": true,
+    "WiFi_compatible": true,
+    "infrared_sensor": false,
+    "accelerometer": true,
+    "barometer": true,
+    "supports_Galileo": false
+  }
+}

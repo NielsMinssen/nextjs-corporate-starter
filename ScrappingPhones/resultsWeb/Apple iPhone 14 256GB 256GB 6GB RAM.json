@@ -1,0 +1,113 @@
+{
+  "brand_and_full_name": "Apple iPhone 14 256GB 256GB 6GB RAM",
+  "Design": {
+    "weight_g": 174.0,
+    "thickness_mm": 7.8,
+    "width_mm": 71.5,
+    "height_mm": 146.7,
+    "IP_rating": "IP68",
+    "volume_cm3": 81.81
+  },
+  "Screen": {
+    "screen_size_in": 6.1,
+    "screen_type": "OLED/AMOLED",
+    "pixel_density_ppi": 460.0,
+    "resolution": "1170 x 2532 px",
+    "refresh_rate_hz": 60.0,
+    "typical_brightness_nits": 800.0,
+    "HDR10_compatible": true,
+    "Dolby_Vision_compatible": true
+  },
+  "Performance": {
+    "storage_options_gb": 256.0,
+    "RAM_gb": 6.0,
+    "AnTuTu_benchmark_score": 1324887.0,
+    "GPU_name": "A15 Bionic ChipApple iPhone 14 256GB",
+    "processor_speed_ghz": {
+      "text": "2 x 3.2 GHz & 4 x 2 GHz",
+      "value": 14.4
+    },
+    "RAM_speed_mhz": null,
+    "semiconductor_size_nm": 5.0,
+    "supports_64_bit": true,
+    "uses_big_LITTLE_technology": true,
+    "processor_threads": 6.0,
+    "uses_multithreading": false
+  },
+  "Cameras": {
+    "main_camera_megapixels": {
+      "text": "12 MP & 12 MP",
+      "value": 24.0
+    },
+    "front_camera_megapixels": 12.0,
+    "built_in_optical_image_stabilization": true,
+    "video_recording": "2160 x 60 fps",
+    "largest_aperture_f": 2.4,
+    "continuous_autofocus_during_video_recording": true,
+    "can_record_slow_motion_videos": true,
+    "HDR_mode": true,
+    "optical_zoom_x": 2.0,
+    "CMOS_sensor": true,
+    "manual_ISO": true,
+    "burst_mode": true,
+    "manual_focus": true,
+    "manual_white_balance": true,
+    "takes_raw_images": false,
+    "AF_touch": true,
+    "manual_shutter_speed": false,
+    "large_aperture_front_camera_f": 1.9,
+    "Dolby_Vision_recording": true
+  },
+  "Operating_System": {
+    "version": null,
+    "location_privacy_options": true,
+    "camera_and_microphone_privacy_options": true,
+    "theme_customization": false,
+    "dark_mode": true,
+    "WiFi_password_sharing": true,
+    "battery_health_check": true,
+    "extra_dim_mode": false,
+    "Focus_mode": true,
+    "dynamic_theming": false,
+    "offload_apps": true,
+    "customizable_notifications": true,
+    "live_text": true,
+    "direct_OS_updates": true,
+    "quick_start": true
+  },
+  "Battery": {
+    "battery_capacity_mAh": 3279.0,
+    "wireless_charging": true,
+    "fast_charging": true,
+    "charging_speed_w": 20.0,
+    "battery_life_h": null
+  },
+  "Audio": {
+    "built_in_stereo_speaker": true,
+    "aptX": false,
+    "LDAC": false,
+    "aptX_HD": false
+  },
+  "Features": {
+    "supports_5G": true,
+    "WiFi_version": "Wi-Fi 6 (802.11ax), Wi-Fi 5 (802.11ac), Wi-Fi 4 (802.11n)",
+    "download_speed_mbps": 7500.0,
+    "upload_speed_mbps": 3000.0,
+    "USB_Type_C_ports": false,
+    "USB_version": "2",
+    "NFC_device": true,
+    "SIM_cards": "1 SIM, 1 eSIM",
+    "fingerprint_reader": false,
+    "emergency_communication_via_satellite": true,
+    "detects_car_accidents": true,
+    "Bluetooth_version": "5.3",
+    "gyroscope": true,
+    "GPS": true,
+    "compass": true,
+    "WiFi_compatible": true,
+    "infrared_sensor": false,
+    "accelerometer": true,
+    "barometer": true,
+    "supports_Galileo": true
+  }
+}
