@@ -125,10 +125,6 @@ interface Translation {
                     title: string;
                     description: string;
                 };
-                supports_ECC_memory: {
-                    title: string;
-                    description: string;
-                };
                 uses_multithreading: {
                     title: string;
                     description: string;

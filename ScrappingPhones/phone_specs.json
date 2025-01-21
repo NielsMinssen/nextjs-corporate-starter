@@ -23,17 +23,22 @@
     "RAM_gb": 12.0,
     "AnTuTu_benchmark_score": null,
     "GPU_name": "Adreno 710Realme 14 Pro Plus",
-    "processor_speed_ghz": "1 x 2.5 GHz & 3 x 2.4 GHz & 4 x 1.8 GHz (Qualcomm Snapdragon 7s Gen 3)",
+    "processor_speed_ghz": {
+      "text": "1 x 2.5 GHz & 3 x 2.4 GHz & 4 x 1.8 GHz",
+      "value": 16.9
+    },
     "RAM_speed_mhz": 3200.0,
     "semiconductor_size_nm": 4.0,
     "supports_64_bit": true,
     "uses_big_LITTLE_technology": true,
     "processor_threads": null,
-    "supports_ECC_memory": false,
     "uses_multithreading": true
   },
   "Cameras": {
-    "main_camera_megapixels": 50.0,
+    "main_camera_megapixels": {
+      "text": "50 MP & 50 MP & 8 MP",
+      "value": 108.0
+    },
     "front_camera_megapixels": 32.0,
     "built_in_optical_image_stabilization": true,
     "video_recording": "2160 x 30 fps",

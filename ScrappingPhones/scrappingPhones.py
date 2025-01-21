@@ -1,6 +1,52 @@
 from bs4 import BeautifulSoup
 import json
 import re
+def process_megapixels(value_text):
+    """
+    Process megapixel string like "50 MP & 50 MP & 8 MP"
+    Returns a tuple of (original_text, sum_of_megapixels)
+    """
+    if not value_text:
+        return None, None
+        
+    # Keep original text
+    original_text = value_text
+    
+    # Split by & and process each part
+    total_mp = 0
+    parts = value_text.split('&')
+    for part in parts:
+        # Extract number before 'MP'
+        mp_value = float(part.strip().split('MP')[0].strip())
+        total_mp += mp_value
+        
+    return original_text, total_mp
+
+def process_processor_speed(value_text):
+    """
+    Process processor speed string like "1 x 2.5 GHz & 3 x 2.4 GHz & 4 x 1.8 GHz"
+    Returns a tuple of (original_text, total_ghz)
+    """
+    if not value_text:
+        return None, None
+        
+    # Keep original text (remove any text in parentheses)
+    original_text = value_text.split('(')[0].strip()
+    
+    # Split by & and process each part
+    total_ghz = 0
+    parts = value_text.split('&')
+    for part in parts:
+        # Remove any text in parentheses
+        part = part.split('(')[0].strip()
+        # Extract numbers: cores x speed
+        nums = part.split('x')
+        cores = float(nums[0].strip())
+        # Extract GHz value
+        ghz = float(nums[1].split('GHz')[0].strip())
+        total_ghz += cores * ghz
+        
+    return original_text, total_ghz
 
 def extract_number(text):
     """Extract number from text string"""
@@ -51,17 +97,22 @@ def parse_phone_specs(html_content):
         "RAM_gb": None,
         "AnTuTu_benchmark_score": None,
         "GPU_name": None,
-        "processor_speed_ghz": None,
+        "processor_speed_ghz": {
+            "text": None,
+            "value": None
+        },
         "RAM_speed_mhz": None,
         "semiconductor_size_nm": None,
         "supports_64_bit": None,
         "uses_big_LITTLE_technology": None,
         "processor_threads": None,
-        "supports_ECC_memory": None,
         "uses_multithreading": None
     },
     "Cameras": {
-        "main_camera_megapixels": None,
+         "main_camera_megapixels": {
+            "text": None,
+            "value": None
+        },
         "front_camera_megapixels": None,
         "built_in_optical_image_stabilization": None,
         "video_recording": None,
@@ -138,9 +189,8 @@ def parse_phone_specs(html_content):
 }
 
     
-    # Find all property containers
     properties = soup.find_all(class_="Property__property___pNjSI")
-    
+
     for prop in properties:
         label = prop.find(class_="Property__label___zWFei")
         if not label:
@@ -204,7 +254,11 @@ def parse_phone_specs(html_content):
         elif label_text == "nom du GPU":
             specs["Performance"]["GPU_name"] = value_text
         elif label_text == "vitesse du processeur":
-            specs["Performance"]["processor_speed_ghz"] = value_text
+            text, value = process_processor_speed(value_text)
+            specs["Performance"]["processor_speed_ghz"] = {
+                "text": text,
+                "value": value
+            }
         elif label_text == "vitesse RAM":
             specs["Performance"]["RAM_speed_mhz"] = extract_number(value_text)
         elif label_text == "taille des semi-conducteurs":
@@ -215,14 +269,16 @@ def parse_phone_specs(html_content):
             specs["Performance"]["uses_big_LITTLE_technology"] = value_text
         elif label_text == "threads de processeur":
             specs["Performance"]["processor_threads"] = extract_number(value_text)
-        elif label_text == "Supporte la mémoire ECC":
-            specs["Performance"]["supports_ECC_memory"] = value_text
         elif label_text == "utilise le multithreading":
             specs["Performance"]["uses_multithreading"] = value_text
             
-        # Cameras section
+    # Cameras section
         elif label_text == "mégapixels (appareil photo principal)":
-            specs["Cameras"]["main_camera_megapixels"] = extract_number(value_text)
+            text, value = process_megapixels(value_text)
+            specs["Cameras"]["main_camera_megapixels"] = {
+                "text": text,
+                "value": value
+            }
         elif label_text == "mégapixels (caméra frontale)":
             specs["Cameras"]["front_camera_megapixels"] = extract_number(value_text)
         elif label_text == "doté(e) d'une stabilisation optique d'images intégrée":

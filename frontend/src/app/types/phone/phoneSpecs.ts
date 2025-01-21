@@ -32,7 +32,6 @@ interface PhoneSpecs {
         supports_64_bit: boolean;
         uses_big_LITTLE_technology: boolean;
         processor_threads: number;
-        supports_ECC_memory: boolean;
         uses_multithreading: boolean;
     };
     Cameras: {
