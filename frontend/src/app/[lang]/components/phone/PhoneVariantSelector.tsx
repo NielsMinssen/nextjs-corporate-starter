@@ -26,16 +26,25 @@ const PhoneVariantSelector: React.FC<PhoneVariantSelectorProps> = ({
     const getVariants = (phoneName: string): Variant[] => {
         if (!phoneName) return [];
 
+        // Extraire le nom de base sans ram et stockage
         const basePhoneName = phoneName.split(/\s+(?:\d+GB|\d+\s*GB\s*RAM)/)[0].trim();
 
+        // Expression régulière stricte pour éviter les variantes non désirées
+        const exactModelRegex = new RegExp(
+            `^${basePhoneName}(?:\\s(?:\\d+GB|\\d+GB\\sRAM))*$`, // Accepte uniquement le modèle exact suivi de RAM/stockage
+            'i'
+        );
+
         return phoneOptions
-            .filter(option => option.value.startsWith(basePhoneName))
+            .filter(option => exactModelRegex.test(option.value)) // Correspond uniquement au modèle exact
             .map(option => ({
                 fullName: option.value,
                 storage: option.storage,
-                ram: option.ram
+                ram: option.ram,
             }));
     };
+
+
 
     const variants = useMemo(() => getVariants(selectedPhone), [selectedPhone, phoneOptions]);
 
@@ -59,16 +68,17 @@ const PhoneVariantSelector: React.FC<PhoneVariantSelectorProps> = ({
                 <button
                     key={index}
                     onClick={() => handleVariantClick(variant)}
-                    className={`px-3 py-1 text-sm rounded-full border transition-colors
-            ${variant.fullName === selectedPhone
-                            ? 'bg-blue-600 text-white border-blue-600'
-                            : 'bg-white text-gray-700 border-gray-300 hover:border-blue-400'
+                    className={`px-3 py-1 text-sm rounded-md border transition-all text-xs
+      ${variant.fullName === selectedPhone
+                            ? 'bg-black text-white border-black'
+                            : 'bg-white text-gray-700 border-gray-300 hover:border-black hover:text-black'
                         }`}
                 >
                     {variant.storage}GB / {variant.ram}GB RAM
                 </button>
             ))}
         </div>
+
     );
 };
 
