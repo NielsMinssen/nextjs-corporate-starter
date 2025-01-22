@@ -1,0 +1,8 @@
+Etape 1 : remplir le fichier urls.txt avec les urls de versus.com de chaque telephone que l'on veut, scrapper, iniquer toutes les versions de chaque url.
+Etape 2 : Lancer le script ScrappingPhonesWeb, avec un vpn activé.
+Etape 3 : Renommer correctement l'attribut brand_and_fullname avec le script giving_good_id. (The script should now correctly:
+                                                                                                Identify the highest storage variant as the canonical version
+                                                                                                Sort variants primarily by storage, then by RAM
+                                                                                                Remove the specifications from the canonical version's name
+                                                                                                Add appropriate suffixes to non-canonical versions)
+Etape 4 : Envoyer sur strapi.
