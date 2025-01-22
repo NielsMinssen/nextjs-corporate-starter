@@ -6,14 +6,6 @@ import Loader from "../../components/Loader";
 import PhoneComparisonBubbles from "../../components/phone/PhoneComparisonBubbles";
 import { useLanguage } from "../../components/LanguageContext";
 
-interface Phone {
-    id: number;
-    brand_and_full_name: string;
-    performance: {
-        storage_options_gb: number;
-        RAM_gb: number;
-    };
-}
 
 interface Translation {
     phoneComparison: {
@@ -27,7 +19,7 @@ interface Translation {
 }
 
 const PhonePage: React.FC = () => {
-    const [phoneList, setPhoneList] = useState<Phone[]>([]);
+    const [phoneList, setPhoneList] = useState<PhoneSpecs[]>([]);
     const [phone1, setPhone1] = useState<string | null>(null);
     const [phone2, setPhone2] = useState<string | null>(null);
     const [translations, setTranslations] = useState<Translation | null>(null);
@@ -111,9 +103,6 @@ const PhonePage: React.FC = () => {
     const phoneOptions = phoneList.map((phone) => ({
         value: phone.brand_and_full_name,
         label: phone.brand_and_full_name,
-        storage: phone.performance.storage_options_gb,
-        ram: phone.performance.RAM_gb
-
     }));
 
     const phoneComparisons = [

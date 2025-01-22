@@ -52,10 +52,9 @@ export const usePhoneData = (lang: string) => {
     return { phoneList, translations, isLoading, error };
 };
 
-// hooks/useComparison.ts
-import { useCallback, useMemo } from 'react';
 import { SingleValue } from "react-select";
 import { useRouter } from 'next/navigation';
+import { useMemo } from 'react';
 
 export const useComparison = (phone1: string, phone2: string, phoneList: PhoneSpecs[], lang: string) => {
     const router = useRouter();
@@ -79,23 +78,23 @@ export const useComparison = (phone1: string, phone2: string, phoneList: PhoneSp
         if (selectedPhone1 && selectedPhone2) {
             setComparisonResult([selectedPhone1, selectedPhone2]);
         }
-    }, [phoneList]);
+    }, [phone1, phone2, phoneList]);
 
-    const handleSelectChange = useCallback((
-        selectedOption: SingleValue<{ value: string; label: string }>,
-        setter: (value: string) => void
-    ) => {
-        if (selectedOption) {
-            setter(selectedOption.value);
-        }
-    }, []);
-
-    const handleCompare = () => {
+    useEffect(() => {
         if (phone1 && phone2) {
             const phone1Formatted = phone1.replace(/ /g, '-');
             const phone2Formatted = phone2.replace(/ /g, '-');
 
             router.push(`/${lang}/phone/compare/${phone1Formatted}-vs-${phone2Formatted}`);
+        }
+    }, [phone1, phone2, lang, router]);
+
+    const handleSelectChange = (
+        selectedOption: SingleValue<{ value: string; label: string }>,
+        setter: (value: string) => void
+    ) => {
+        if (selectedOption) {
+            setter(selectedOption.value);
         }
     };
 
@@ -103,7 +102,6 @@ export const useComparison = (phone1: string, phone2: string, phoneList: PhoneSp
         comparisonResult,
         comparisonAttributes,
         handleSelectChange,
-        handleCompare,
     };
 };
 

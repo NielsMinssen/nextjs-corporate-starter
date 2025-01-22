@@ -25,7 +25,6 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
         comparisonResult,
         comparisonAttributes,
         handleSelectChange,
-        handleCompare,
     } = useComparison(phone1, phone2, phoneList, lang);
 
     if (isLoading) {
@@ -61,7 +60,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
 
             <PhoneSelectors phone1={phone1} phone2={phone2} phoneOptions={phoneOptions} translations={translations} handleSelectChange={handleSelectChange} setPhone1={setPhone1} setPhone2={setPhone2} />
 
-            <div className="text-center mb-10">
+            {/* <div className="text-center mb-10">
                 <button
                     onClick={handleCompare}
                     disabled={!phone1 || !phone2}
@@ -70,7 +69,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                 >
                     {translations.phoneComparison.compareButton}
                 </button>
-            </div>
+            </div> */}
 
             <div className="overflow-x-auto bg-gray-50 rounded-xl px-1 md:p-6">
                 {comparisonResult && (

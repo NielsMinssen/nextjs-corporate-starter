@@ -41,7 +41,14 @@ const PhoneVariantSelector: React.FC<PhoneVariantSelectorProps> = ({
                 fullName: option.value,
                 storage: option.storage,
                 ram: option.ram,
-            }));
+            }))
+            .sort((a, b) => {
+                // Trier d'abord par stockage, puis par RAM
+                if (a.storage !== b.storage) {
+                    return a.storage - b.storage;
+                }
+                return a.ram - b.ram;
+            });
     };
 
 
