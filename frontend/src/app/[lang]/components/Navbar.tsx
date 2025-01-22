@@ -30,11 +30,10 @@ function NavLinkComponent({ url, text }: NavLink) {
   return (
     <Link
       href={url}
-      className={`px-3 py-2 rounded-md text-base font-medium ${
-        path === url 
-          ? "text-blue-600" 
-          : "text-gray-700 hover:text-blue-600"
-      }`}
+      className={`px-3 py-2 rounded-md text-base font-medium ${path === url
+        ? "text-blue-600"
+        : "text-gray-700 hover:text-blue-600"
+        }`}
     >
       {text}
     </Link>
@@ -47,11 +46,10 @@ function MobileNavLinkComponent({ url, text, closeMenu }: MobileNavLink) {
     <Link
       href={url}
       onClick={closeMenu}
-      className={`block px-3 py-2 rounded-md text-base font-medium ${
-        path === url
-          ? "text-blue-600"
-          : "text-gray-700 hover:text-blue-600"
-      }`}
+      className={`block px-3 py-2 rounded-md text-base font-medium ${path === url
+        ? "text-blue-600"
+        : "text-gray-700 hover:text-blue-600"
+        }`}
     >
       {text}
     </Link>
@@ -87,11 +85,10 @@ function DropdownComponent({ title, links, isMobile = false, closeMenu }: Dropdo
     <div ref={dropdownRef} className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center ${
-          isMobile
-            ? "text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
-            : "text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
-        }`}
+        className={`flex items-center ${isMobile
+          ? "text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
+          : "text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
+          }`}
       >
         {title}
         <ChevronDownIcon className={`ml-2 h-5 w-5 transform ${isOpen ? "rotate-180" : ""} transition-transform duration-200`} />
@@ -149,16 +146,16 @@ export default function Navbar({
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Logo src={logoUrl}>
-              {logoText && <h2 className="text-gray-900 text-lg font-semibold">{logoText}</h2>}
+              {logoText && <h2 className="text-gray-900 text-md font-semibold">{logoText}</h2>}
             </Logo>
           </div>
           <div className="hidden md:flex items-center justify-center flex-1">
-            <div className="flex items-baseline space-x-4">
+            <div className="flex items-center justify-center">
               {links.map((item) => (
-                 <NavLinkComponent 
+                <NavLinkComponent
                   key={item.id}
                   url={`/${languageCode}${item.url}`} // Prepend the language code to the URL
-                  text={item.text} id={0} newTab={false}               />
+                  text={item.text} id={0} newTab={false} />
               ))}
               {dropdownLinks.map((dropdown) => (
                 <DropdownComponent key={dropdown.id} {...dropdown} closeMenu={closeMenu} />
@@ -203,11 +200,11 @@ export default function Navbar({
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 {links.map((item) => (
-                   <MobileNavLinkComponent 
+                  <MobileNavLinkComponent
                     key={item.id}
                     url={`/${languageCode}${item.url}`} // Prepend the language code to the URL
                     text={item.text}
-                    closeMenu={closeMenu} id={0} newTab={false}                 />
+                    closeMenu={closeMenu} id={0} newTab={false} />
                 ))}
                 {dropdownLinks.map((dropdown) => (
                   <DropdownComponent key={dropdown.id} {...dropdown} isMobile closeMenu={closeMenu} />
