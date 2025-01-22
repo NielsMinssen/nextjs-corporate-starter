@@ -9,6 +9,10 @@ import { useLanguage } from "../../components/LanguageContext";
 interface Phone {
     id: number;
     brand_and_full_name: string;
+    performance: {
+        storage_options_gb: number;
+        RAM_gb: number;
+    };
 }
 
 interface Translation {
@@ -107,6 +111,9 @@ const PhonePage: React.FC = () => {
     const phoneOptions = phoneList.map((phone) => ({
         value: phone.brand_and_full_name,
         label: phone.brand_and_full_name,
+        storage: phone.performance.storage_options_gb,
+        ram: phone.performance.RAM_gb
+
     }));
 
     const phoneComparisons = [

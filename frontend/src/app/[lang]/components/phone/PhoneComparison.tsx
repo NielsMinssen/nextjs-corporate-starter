@@ -46,6 +46,8 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
     const phoneOptions = phoneList.map((phone) => ({
         value: phone.brand_and_full_name,
         label: phone.brand_and_full_name,
+        storage: phone.Performance.storage_options_gb,
+        ram: phone.Performance.RAM_gb
     }));
 
     const phoneComparisons = [

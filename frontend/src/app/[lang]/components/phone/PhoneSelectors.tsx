@@ -1,9 +1,11 @@
+import React from 'react';
 import Select from "react-select";
+import PhoneVariantSelector from './PhoneVariantSelector';
 
 interface PhoneSelectorsProps {
     phone1: string;
     phone2: string;
-    phoneOptions: { value: string; label: string; }[];
+    phoneOptions: { value: string; label: string; storage: number; ram: number; }[];
     translations: any;
     handleSelectChange: (option: any, setter: (value: string) => void) => void;
     setPhone1: (value: string) => void;
@@ -17,7 +19,7 @@ const PhoneSelectors: React.FC<PhoneSelectorsProps> = ({
     translations,
     handleSelectChange,
     setPhone1,
-    setPhone2
+    setPhone2,
 }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -32,6 +34,12 @@ const PhoneSelectors: React.FC<PhoneSelectorsProps> = ({
                     classNamePrefix="react-select"
                     className="w-full"
                 />
+                <PhoneVariantSelector
+                    phoneOptions={phoneOptions}
+                    selectedPhone={phone1}
+                    otherPhone={phone2}
+                    position={1}
+                />
             </div>
             <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -43,6 +51,12 @@ const PhoneSelectors: React.FC<PhoneSelectorsProps> = ({
                     options={phoneOptions}
                     classNamePrefix="react-select"
                     className="w-full"
+                />
+                <PhoneVariantSelector
+                    phoneOptions={phoneOptions}
+                    selectedPhone={phone2}
+                    otherPhone={phone1}
+                    position={2}
                 />
             </div>
         </div>
