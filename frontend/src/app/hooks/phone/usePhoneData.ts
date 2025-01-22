@@ -65,8 +65,8 @@ export const useComparison = (phone1: string, phone2: string, phoneList: PhoneSp
         "Cameras",
         "Battery",
         "Screen",
-        "Design",
         "Operating_System",
+        "Design",
         "Audio",
         "Features",
     ], []);
