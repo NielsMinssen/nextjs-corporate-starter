@@ -5,7 +5,7 @@
     "thickness_mm": 7.0,
     "width_mm": 70.9,
     "height_mm": 145.0,
-    "IP_rating": "Inconnu. Aide-nous en suggérant une valeur.",
+    "IP_rating": null,
     "volume_cm3": 71.96
   },
   "Screen": {
@@ -22,7 +22,7 @@
     "storage_options_gb": 64.0,
     "RAM_gb": 4.0,
     "AnTuTu_benchmark_score": null,
-    "GPU_name": "Inconnu. Aide-nous en suggérant une valeur.",
+    "GPU_name": null,
     "processor_speed_ghz": {
       "text": "8 x 2.5 GHz",
       "value": 20.0
@@ -94,7 +94,7 @@
     "download_speed_mbps": 300.0,
     "upload_speed_mbps": 50.0,
     "USB_Type_C_ports": true,
-    "USB_version": "Inconnu. Aide-nous en suggérant une valeur.",
+    "USB_version": null,
     "NFC_device": true,
     "SIM_cards": "2 SIM",
     "fingerprint_reader": true,

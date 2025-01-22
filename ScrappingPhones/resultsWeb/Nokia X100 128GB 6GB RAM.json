@@ -5,7 +5,7 @@
     "thickness_mm": 9.1,
     "width_mm": 79.7,
     "height_mm": 171.4,
-    "IP_rating": "Inconnu. Aide-nous en suggérant une valeur.",
+    "IP_rating": null,
     "volume_cm3": 124.31
   },
   "Screen": {
@@ -41,7 +41,7 @@
     },
     "front_camera_megapixels": 16.0,
     "built_in_optical_image_stabilization": false,
-    "video_recording": "Inconnu. Aide-nous en suggérant une valeur.",
+    "video_recording": null,
     "largest_aperture_f": null,
     "continuous_autofocus_during_video_recording": true,
     "can_record_slow_motion_videos": false,

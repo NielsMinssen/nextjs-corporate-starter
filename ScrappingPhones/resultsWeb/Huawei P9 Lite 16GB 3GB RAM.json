@@ -5,7 +5,7 @@
     "thickness_mm": 7.5,
     "width_mm": 72.6,
     "height_mm": 146.8,
-    "IP_rating": "Inconnu. Aide-nous en suggérant une valeur.",
+    "IP_rating": null,
     "volume_cm3": 79.93
   },
   "Screen": {
@@ -22,7 +22,7 @@
     "storage_options_gb": 16.0,
     "RAM_gb": 3.0,
     "AnTuTu_benchmark_score": 52934.0,
-    "GPU_name": "Inconnu. Aide-nous en suggérant une valeur.",
+    "GPU_name": null,
     "processor_speed_ghz": {
       "text": "4 x 2 GHz & 4 x 1.7 GHz",
       "value": 14.8

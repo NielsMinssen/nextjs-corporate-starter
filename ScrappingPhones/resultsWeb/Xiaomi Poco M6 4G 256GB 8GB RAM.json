@@ -5,7 +5,7 @@
     "thickness_mm": 8.3,
     "width_mm": 76.3,
     "height_mm": 168.6,
-    "IP_rating": "Inconnu. Aide-nous en suggérant une valeur.",
+    "IP_rating": null,
     "volume_cm3": 106.77
   },
   "Screen": {
@@ -94,7 +94,7 @@
     "download_speed_mbps": 300.0,
     "upload_speed_mbps": 100.0,
     "USB_Type_C_ports": true,
-    "USB_version": "Inconnu. Aide-nous en suggérant une valeur.",
+    "USB_version": null,
     "NFC_device": true,
     "SIM_cards": "2 SIM",
     "fingerprint_reader": true,

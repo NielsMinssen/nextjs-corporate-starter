@@ -22,7 +22,7 @@
     "storage_options_gb": 1000.0,
     "RAM_gb": 6.0,
     "AnTuTu_benchmark_score": 854218.0,
-    "GPU_name": "Inconnu. Aide-nous en suggérant une valeur.",
+    "GPU_name": null,
     "processor_speed_ghz": {
       "text": "2 x 3.2 GHz & 4 x 2 GHz",
       "value": 14.4

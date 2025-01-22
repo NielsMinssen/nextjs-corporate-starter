@@ -1,11 +1,11 @@
 {
-  "brand_and_full_name": "Apple iPhone 6s 16GB 16GB 2GB RAM",
+  "brand_and_full_name": "Apple iPhone 6s 16GB",
   "Design": {
     "weight_g": 143.0,
     "thickness_mm": 7.1,
     "width_mm": 67.1,
     "height_mm": 138.3,
-    "IP_rating": "Inconnu. Aide-nous en suggérant une valeur.",
+    "IP_rating": null,
     "volume_cm3": 65.89
   },
   "Screen": {

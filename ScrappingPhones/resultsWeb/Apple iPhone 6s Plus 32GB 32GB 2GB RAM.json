@@ -5,7 +5,7 @@
     "thickness_mm": 7.3,
     "width_mm": 77.9,
     "height_mm": 158.2,
-    "IP_rating": "Inconnu. Aide-nous en suggérant une valeur.",
+    "IP_rating": null,
     "volume_cm3": 89.96
   },
   "Screen": {

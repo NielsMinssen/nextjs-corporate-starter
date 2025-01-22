@@ -1,11 +1,11 @@
 {
-  "brand_and_full_name": "Apple iPhone 6 Plus 128GB 1GB RAM",
+  "brand_and_full_name": "Apple iPhone 6 Plus",
   "Design": {
     "weight_g": 172.0,
     "thickness_mm": 7.1,
     "width_mm": 77.8,
     "height_mm": 158.1,
-    "IP_rating": "Inconnu. Aide-nous en suggérant une valeur.",
+    "IP_rating": null,
     "volume_cm3": 87.33
   },
   "Screen": {

@@ -94,7 +94,7 @@
     "download_speed_mbps": 2500.0,
     "upload_speed_mbps": 900.0,
     "USB_Type_C_ports": true,
-    "USB_version": "Inconnu. Aide-nous en suggérant une valeur.",
+    "USB_version": null,
     "NFC_device": false,
     "SIM_cards": "2 SIM",
     "fingerprint_reader": true,
