@@ -61,10 +61,10 @@ const PhoneComparison: React.FC<PhonePerformanceRadarProps> = ({
                                 </div>
                             </CircularProgressbarWithChildren>
                         </div>
-                        <span className="text-[#b83f39] font-bold pt-2">{phone1.brand_and_full_name}</span>
+                        <span className="text-[#b83f39] font-bold pt-2 h-4 md:h-8">{phone1.brand_and_full_name}</span>
                     </div>
                     <img
-                        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/${decodeURI(phone1.brand_and_full_name.replace(/\s+/g, '-'))}.webp`}
+                        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/photosSmartphones/${decodeURI((phone1.brand_and_full_name.split(/\s+(?:\d+GB|\d+\s*GB\s*RAM)/)[0].trim()).replace(/\s+/g, '-'))}.webp`}
                         alt={phone1.brand_and_full_name}
                         className="w-full h-full object-contain opacity-20"
                     />
@@ -88,10 +88,10 @@ const PhoneComparison: React.FC<PhonePerformanceRadarProps> = ({
                                 </div>
                             </CircularProgressbarWithChildren>
                         </div>
-                        <span className="text-[#514bbd] font-bold pt-2">{phone2.brand_and_full_name}</span>
+                        <span className="text-[#514bbd] font-bold pt-2 h-4 md:h-8">{phone2.brand_and_full_name}</span>
                     </div>
                     <img
-                        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/${decodeURI(phone2.brand_and_full_name.replace(/\s+/g, '-'))}.webp`}
+                        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/photosSmartphones/${decodeURI((phone2.brand_and_full_name.split(/\s+(?:\d+GB|\d+\s*GB\s*RAM)/)[0].trim()).replace(/\s+/g, '-'))}.webp`}
                         alt={phone2.brand_and_full_name}
                         className="w-full h-full object-contain opacity-20"
                     />

@@ -4,3 +4,5 @@ readme-images
 .DS_Store
 **/.yarn
 frontend/next.config.js
+/ScrappingPhones/photosbrutes
+/ScrappingPhones/photosSmartphones
