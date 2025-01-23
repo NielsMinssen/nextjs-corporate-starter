@@ -2,6 +2,7 @@ import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import { getAttributeComparisonPercentage, getOverallComparisonPercentage } from '../../utils/phone/comparisonCalculations';
+import Image from 'next/image';
 
 
 interface PhonePerformanceRadarProps {
@@ -63,10 +64,12 @@ const PhoneComparison: React.FC<PhonePerformanceRadarProps> = ({
                         </div>
                         <span className="text-[#b83f39] font-bold pt-2 h-4 md:h-8">{phone1.brand_and_full_name}</span>
                     </div>
-                    <img
+                    <Image
                         src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/photosSmartphones/${decodeURI((phone1.brand_and_full_name.split(/\s+(?:\d+GB|\d+\s*GB\s*RAM)/)[0].trim()).replace(/\s+/g, '-'))}.webp`}
                         alt={phone1.brand_and_full_name}
-                        className="w-full h-full object-contain opacity-20"
+                        className="object-contain h-full opacity-20"
+                        height={600}
+                        width={300}
                     />
                 </div>
 
@@ -90,10 +93,12 @@ const PhoneComparison: React.FC<PhonePerformanceRadarProps> = ({
                         </div>
                         <span className="text-[#514bbd] font-bold pt-2 h-4 md:h-8">{phone2.brand_and_full_name}</span>
                     </div>
-                    <img
+                    <Image
                         src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/photosSmartphones/${decodeURI((phone2.brand_and_full_name.split(/\s+(?:\d+GB|\d+\s*GB\s*RAM)/)[0].trim()).replace(/\s+/g, '-'))}.webp`}
                         alt={phone2.brand_and_full_name}
-                        className="w-full h-full object-contain opacity-20"
+                        className="object-contain h-full opacity-20"
+                        height={600}
+                        width={300}
                     />
                 </div>
 
@@ -105,7 +110,7 @@ const PhoneComparison: React.FC<PhonePerformanceRadarProps> = ({
                         margin={{ top: 10, right: 48, bottom: 10, left: 45 }}
                         className="mx-auto"
                     >
-                        <PolarGrid />
+                        <PolarGrid strokeWidth={2} strokeOpacity={0.3} stroke="black" />
                         <PolarAngleAxis
                             dataKey="subject"
                             orientation="outer"

@@ -6,3 +6,4 @@ Etape 3 : Renommer correctement l'attribut brand_and_fullname avec le script giv
                                                                                                 Remove the specifications from the canonical version's name
                                                                                                 Add appropriate suffixes to non-canonical versions)
 Etape 4 : Envoyer sur strapi.
+Etape 5 : Ajouter les images dans photosbrutes ( fond blanc et pas de png) et lancer le script format images, recuperer les images et les mettres dans upload (le nom doit matcher le nom du telephone avec des - à la palce des espaces)
