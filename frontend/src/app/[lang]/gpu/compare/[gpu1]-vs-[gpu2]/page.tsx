@@ -54,7 +54,6 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
 }
 
 export default function ComparisonPage({ params }: { params: Params }) {
-  console.log(params);
 
   // Extraire la chaîne qui contient gpu1 et gpu2
   const gpuComparison = params['gpu1]-vs-[gpu2'];

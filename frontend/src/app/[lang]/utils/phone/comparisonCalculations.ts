@@ -248,7 +248,6 @@ export const getAttributeComparisonPercentage = (attribute: string, comparisonRe
     const averageScorePhone1 = (totalScorePhone1 * 100) / (totalMetrics * 10);
     const averageScorePhone2 = (totalScorePhone2 * 100) / (totalMetrics * 10);
 
-    console.log(attribute, averageScorePhone1, averageScorePhone2);
     const isEqual = Math.abs(averageScorePhone1 - averageScorePhone2) < 0.1;
 
     const phone1IsBetter = averageScorePhone1 > averageScorePhone2;
@@ -262,8 +261,6 @@ export const getAttributeComparisonPercentage = (attribute: string, comparisonRe
     const betterScore = Math.max(averageScorePhone1, averageScorePhone2);
     const worseScore = Math.min(averageScorePhone1, averageScorePhone2);
     const percentageDifference = ((betterScore / worseScore) - 1) * 100;
-
-    console.log(averageScorePhone1, averageScorePhone2, percentageDifference);
 
     return {
         betterPhone: isEqual ? null : betterPhone,

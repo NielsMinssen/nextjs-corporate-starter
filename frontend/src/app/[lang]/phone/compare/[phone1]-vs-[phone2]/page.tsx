@@ -63,7 +63,6 @@ export default function ComparisonPage({ params }: { params: Params }) {
   const [phone1Extracted, phone2Extracted] = phoneComparison.split('-vs-');
   const phone1 = phone1Extracted.replace(/-/g, ' ');
   const phone2 = phone2Extracted.replace(/-/g, ' ');
-  //console.log(phone1, phone2);
 
   return (
     <PhoneComparison

@@ -6,7 +6,6 @@ interface PhoneSelectorsProps {
     phone1: string;
     phone2: string;
     phoneOptions: { value: string; label: string; storage: number; ram: number; }[];
-    translations: any;
     handleSelectChange: (selectedOption: any, setter: (value: string) => void) => void;
     setPhone1: (value: string) => void;
     setPhone2: (value: string) => void;
@@ -16,7 +15,6 @@ const PhoneSelectors: React.FC<PhoneSelectorsProps> = ({
     phone1,
     phone2,
     phoneOptions,
-    translations,
     handleSelectChange,
     setPhone1,
     setPhone2,

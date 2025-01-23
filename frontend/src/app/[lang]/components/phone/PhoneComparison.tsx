@@ -58,7 +58,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
             <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">{translations.phoneComparison.title}</h1>
             <p className="text-xl mb-8 text-center text-gray-600">{translations.phoneComparison.description}</p>
 
-            <PhoneSelectors phone1={phone1} phone2={phone2} phoneOptions={phoneOptions} translations={translations} handleSelectChange={handleSelectChange} setPhone1={setPhone1} setPhone2={setPhone2} />
+            <PhoneSelectors phone1={phone1} phone2={phone2} phoneOptions={phoneOptions} handleSelectChange={handleSelectChange} setPhone1={setPhone1} setPhone2={setPhone2} />
 
             {/* <div className="text-center mb-10">
                 <button
