@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+// removed unused import of Image
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { usePathname } from 'next/navigation';
 
@@ -30,16 +30,14 @@ const LanguageSwitcher: React.FC = () => {
 
   // Use the extracted code to find the initial language
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(() => {
-    // Check if window is defined to avoid reference error
-    if (typeof window !== 'undefined') {
-      const storedLanguage = localStorage.getItem('selectedLanguage');
-      if (storedLanguage) {
-        return languages.find(lang => lang.code === storedLanguage) || languages[0];
-      }
+    const storedLanguage = (typeof window !== 'undefined') ? localStorage.getItem('selectedLanguage') : null;
+    const languageFromPath = languages.find(lang => lang.code === initialLanguageCode);
+    if (languageFromPath) return languageFromPath;
+    if (storedLanguage) {
+      const matchedLang = languages.find(lang => lang.code === storedLanguage);
+      if (matchedLang) return matchedLang;
     }
-    // Fall back to URL language code
-    const language = languages.find(lang => lang.code === initialLanguageCode);
-    return language || languages[0]; // Default to English if not found
+    return languages[0];
   });
 
   // Effect to store the selected language in local storage
