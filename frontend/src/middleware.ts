@@ -34,7 +34,7 @@ export function middleware(request: NextRequest) {
             '/favicon.ico',
             '/sitemap.xml',
             '/robots.txt',
-            '/sitemap-index.xml',
+            '/sitemap-index.xml.gz',
             // Your other files in `public`
         ].includes(pathname) ||
         pathname.startsWith('/sitemaps/')

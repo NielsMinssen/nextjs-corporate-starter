@@ -4,9 +4,10 @@ from typing import List, Dict, Callable
 import requests
 import re
 from datetime import datetime
+import gzip
 
 # Constants
-BASE_URL = 'http://localhost:3001'  # Base URL of the website
+BASE_URL = 'https://siliconcompare.com'  # Base URL of the website
 MAX_URLS_PER_FILE = 45000  # Maximum number of URLs per file
 OUTPUT_DIR = '../frontend/public/sitemaps'  # Output directory
 LANGUAGES = ['en', 'fr', 'es']  # Supported languages
@@ -99,7 +100,7 @@ def generate_sitemaps_for_category(
         for combination in combinations:
             if urlcount == 0:
                 # Create new sitemap file
-                current_sitemap_filename = f"{category}-sitemap-{lang}-{sitemapindex}.xml"
+                current_sitemap_filename = f"{category}-sitemap-{lang}-{sitemapindex}.xml.gz"
                 current_sitemap = ET.Element('urlset', xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
                 sitemapfiles.append(current_sitemap_filename)
             
@@ -122,7 +123,8 @@ def generate_sitemaps_for_category(
             if urlcount >= MAX_URLS_PER_FILE:
                 print(f"Reached max URLs ({MAX_URLS_PER_FILE}), closing file")
                 tree = ET.ElementTree(current_sitemap)
-                tree.write(os.path.join(OUTPUT_DIR, current_sitemap_filename), encoding='utf-8', xml_declaration=True)
+                with gzip.open(os.path.join(OUTPUT_DIR, current_sitemap_filename), 'wb') as f:
+                    tree.write(f, encoding='utf-8', xml_declaration=True)
                 urlcount = 0
                 sitemapindex += 1
         
@@ -130,7 +132,8 @@ def generate_sitemaps_for_category(
         if urlcount > 0:
             print("Closing final sitemap file")
             tree = ET.ElementTree(current_sitemap)
-            tree.write(os.path.join(OUTPUT_DIR, current_sitemap_filename), encoding='utf-8', xml_declaration=True)
+            with gzip.open(os.path.join(OUTPUT_DIR, current_sitemap_filename), 'wb') as f:
+                tree.write(f, encoding='utf-8', xml_declaration=True)
             urlcount = 0
             sitemapindex += 1
     
@@ -156,7 +159,8 @@ def generate_sitemap_index(sitemap_files: Dict[str, List[str]]) -> None:
     
     # Write sitemap index
     tree = ET.ElementTree(sitemapindex)
-    tree.write('../frontend/public/sitemap-index.xml', encoding='utf-8', xml_declaration=True)
+    with gzip.open('../frontend/public/sitemap-index.xml.gz', 'wb') as f:
+        tree.write(f, encoding='utf-8', xml_declaration=True)
     print("Sitemap index written successfully")
 
 def generate_all_sitemaps():
