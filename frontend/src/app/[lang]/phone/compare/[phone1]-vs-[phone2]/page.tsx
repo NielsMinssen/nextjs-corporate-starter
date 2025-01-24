@@ -18,8 +18,10 @@ const getMetadata = (params: Params): Metadata => {
   // Split the string on '-vs-' to get phone1 and phone2
   const [phone1, phone2] = phoneComparison.split('-vs-');
 
+  const [basePhone1, basePhone2] = [phone1, phone2].map(phone => phone.split(/-+(?:\d+GB|\d+-*GB-*RAM)/)[0].trim());
+
   // Determine the canonical URL using alphabetical order
-  const canonicalPhones = [phone1, phone2].sort(); // Alphabetical sort
+  const canonicalPhones = [basePhone1, basePhone2].sort(); // Alphabetical sort
   const canonicalUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/${params.lang}/phone/compare/${canonicalPhones[0]}-vs-${canonicalPhones[1]}`;
 
   // Define titles and descriptions in different languages
