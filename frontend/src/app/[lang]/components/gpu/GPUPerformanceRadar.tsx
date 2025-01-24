@@ -118,7 +118,7 @@ const GPUPerformanceRadar: React.FC<GPUPerformanceRadarProps> = ({ gpu1, gpu2, t
                         dataKey={gpu1.videocard_name}
                         stroke="#8884d8"
                         fill="#8884d8"
-                        fillOpacity={0}
+                        fillOpacity={0.5}
                         strokeWidth={2}
                     />
                     <Radar
@@ -126,7 +126,7 @@ const GPUPerformanceRadar: React.FC<GPUPerformanceRadarProps> = ({ gpu1, gpu2, t
                         dataKey={gpu2.videocard_name}
                         stroke="#82ca9d"
                         fill="#82ca9d"
-                        fillOpacity={0}
+                        fillOpacity={0.5}
                         strokeWidth={2}
                     />
                     <Tooltip

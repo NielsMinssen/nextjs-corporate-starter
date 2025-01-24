@@ -56,7 +56,6 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
 }
 
 export default function ComparisonPage({ params }: { params: Params }) {
-  console.log(params);
 
   // Extract the string that contains phone1 and phone2
   const phoneComparison = params['phone1]-vs-[phone2'];

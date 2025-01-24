@@ -77,7 +77,6 @@ export const useComparison = (phone1: string, phone2: string, phoneList: PhoneSp
 
         if (selectedPhone1 && selectedPhone2) {
             setComparisonResult([selectedPhone1, selectedPhone2]);
-            console.log("et de 1")
         }
     }, [phoneList]);
 

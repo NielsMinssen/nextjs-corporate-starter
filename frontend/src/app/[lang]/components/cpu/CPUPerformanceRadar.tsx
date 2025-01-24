@@ -125,7 +125,7 @@ const CPUPerformanceRadar: React.FC<CPUPerformanceRadarProps> = ({ cpu1, cpu2, t
                         dataKey={cpu1.cpu_name}
                         stroke="#8884d8"
                         fill="#8884d8"
-                        fillOpacity={0}
+                        fillOpacity={0.5}
                         strokeWidth={2}
                     />
                     <Radar
@@ -133,7 +133,7 @@ const CPUPerformanceRadar: React.FC<CPUPerformanceRadarProps> = ({ cpu1, cpu2, t
                         dataKey={cpu2.cpu_name}
                         stroke="#82ca9d"
                         fill="#82ca9d"
-                        fillOpacity={0}
+                        fillOpacity={0.5}
                         strokeWidth={2}
                     />
                     <Tooltip

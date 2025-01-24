@@ -58,8 +58,6 @@ export default function ComparisonPage({ params }: { params: Params }) {
   const cpu1 = decodeURIComponent(cpu1Extracted).replace(/-/g, ' ');
   const cpu2 = decodeURIComponent(cpu2Extracted).replace(/-/g, ' ');
 
-  console.log(cpu1, cpu2);
-
   return (
     <CPUComparison
       initialCpu1={cpu1}
