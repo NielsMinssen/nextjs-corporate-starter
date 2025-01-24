@@ -74,8 +74,8 @@ const PhonePage: React.FC = () => {
 
     const handleCompare = () => {
         if (phone1 && phone2) {
-            const phone1Formatted = phone1.replace(/ /g, '-');
-            const phone2Formatted = phone2.replace(/ /g, '-');
+            const phone1Formatted = encodeURIComponent(phone1.replace(/ /g, '-'));
+            const phone2Formatted = encodeURIComponent(phone2.replace(/ /g, '-'));
 
             router.push(`/${lang}/phone/compare/${phone1Formatted}-vs-${phone2Formatted}`);
         }

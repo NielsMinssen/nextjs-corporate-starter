@@ -82,8 +82,8 @@ const CPUPage: React.FC = () => {
 
   const handleCompare = () => {
     if (cpu1 && cpu2) {
-      const cpu1Formatted = encodeURI(cpu1.replace(/ /g, '-'));
-      const cpu2Formatted = encodeURI(cpu2.replace(/ /g, '-'));
+      const cpu1Formatted = encodeURIComponent(cpu1.replace(/ /g, '-'));
+      const cpu2Formatted = encodeURIComponent(cpu2.replace(/ /g, '-'));
 
       router.push(`/${lang}/cpu/compare/${cpu1Formatted}-vs-${cpu2Formatted}`);
     }

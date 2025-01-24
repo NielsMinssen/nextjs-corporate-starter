@@ -67,7 +67,7 @@ const PhoneComparison: React.FC<PhonePerformanceRadarProps> = ({
                     <Image
                         src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/photosSmartphones/${decodeURI((phone1.brand_and_full_name.split(/\s+(?:\d+GB|\d+\s*GB\s*RAM)/)[0].trim()).replace(/\s+/g, '-'))}.webp`}
                         alt={phone1.brand_and_full_name}
-                        className="object-contain h-full opacity-20"
+                        className="object-contain h-4/5 opacity-20"
                         height={600}
                         width={300}
                     />
@@ -96,7 +96,7 @@ const PhoneComparison: React.FC<PhonePerformanceRadarProps> = ({
                     <Image
                         src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/photosSmartphones/${decodeURI((phone2.brand_and_full_name.split(/\s+(?:\d+GB|\d+\s*GB\s*RAM)/)[0].trim()).replace(/\s+/g, '-'))}.webp`}
                         alt={phone2.brand_and_full_name}
-                        className="object-contain h-full opacity-20"
+                        className="object-contain h-4/5 opacity-20"
                         height={600}
                         width={300}
                     />

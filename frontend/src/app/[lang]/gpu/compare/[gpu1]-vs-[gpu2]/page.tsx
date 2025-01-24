@@ -60,8 +60,8 @@ export default function ComparisonPage({ params }: { params: Params }) {
 
   // Diviser la chaîne sur '-vs-' pour obtenir gpu1 et gpu2
   const [gpu1Extracted, gpu2Extracted] = gpuComparison.split('-vs-');
-  const gpu1 = gpu1Extracted.replace(/-/g, ' ');
-  const gpu2 = gpu2Extracted.replace(/-/g, ' ');
+  const gpu1 = decodeURIComponent(gpu1Extracted).replace(/-/g, ' ');
+  const gpu2 = decodeURIComponent(gpu2Extracted).replace(/-/g, ' ');
 
   return (
     <GPUComparison

@@ -17,10 +17,10 @@ function getLocale(request: NextRequest): string | undefined {
     const locales: string[] = i18n.locales;
     try {
         return matchLocale(languages, locales, i18n.defaultLocale);
-      } catch (e) {
+    } catch (e) {
         // Invalid accept-language header
         return i18n.defaultLocale;
-      }
+    }
 }
 
 export function middleware(request: NextRequest) {
@@ -33,9 +33,11 @@ export function middleware(request: NextRequest) {
             '/manifest.json',
             '/favicon.ico',
             '/sitemap.xml',
-            '/robots.txt'
+            '/robots.txt',
+            '/sitemap-index.xml',
             // Your other files in `public`
-        ].includes(pathname)
+        ].includes(pathname) ||
+        pathname.startsWith('/sitemaps/')
     )
         return;
 

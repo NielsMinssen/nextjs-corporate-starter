@@ -55,8 +55,10 @@ export default function ComparisonPage({ params }: { params: Params }) {
   const cpuComparison = params['cpu1]-vs-[cpu2'];
   // Split the string on '-vs-' to get cpu1 and cpu2
   const [cpu1Extracted, cpu2Extracted] = cpuComparison.split('-vs-');
-  const cpu1 = decodeURI(cpu1Extracted).replace(/-/g, ' ').replace(/%40/g, '@');
-  const cpu2 = decodeURI(cpu2Extracted).replace(/-/g, ' ').replace(/%40/g, '@');
+  const cpu1 = decodeURIComponent(cpu1Extracted).replace(/-/g, ' ');
+  const cpu2 = decodeURIComponent(cpu2Extracted).replace(/-/g, ' ');
+
+  console.log(cpu1, cpu2);
 
   return (
     <CPUComparison
