@@ -66,7 +66,7 @@ const ComparisonCarousel: React.FC<CarouselProps> = ({ phoneList, phone1, phone2
                         return (
                             <CarouselItem
                                 key={index}
-                                className="shrink-0 basis-full basis-1/2 md:basis-1/3 lg:basis-1/4"
+                                className="shrink-0 basis-1/2 md:basis-1/3"
                             >
                                 <a
                                     href={`${canonicalUrl}`}
