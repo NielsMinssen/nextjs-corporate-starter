@@ -1,3 +1,4 @@
+"use client";
 import React, { useMemo } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 

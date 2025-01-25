@@ -50,9 +50,6 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
         ram: phone.Performance.RAM_gb
     }));
 
-    const phoneComparisons = [
-        { phone: 'Apple iPhone 7 256GB vs POCO X6 Pro' },
-    ];
 
     return (
         <div className="max-w-4xl mx-auto md:p-8 p-2 bg-white rounded-xl">
@@ -88,7 +85,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                 )}
             </div>
             <ComparisonCarousel phoneList={phoneList.map(p => p.brand_and_full_name)} phone1={phone1} phone2={phone2} translations={translations} lang={lang} />
-            <PhoneComparisonBubbles comparisons={phoneComparisons} lang={lang} />
+            <PhoneComparisonBubbles lang={lang} />
         </div >
     );
 };

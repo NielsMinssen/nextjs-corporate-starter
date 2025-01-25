@@ -2,18 +2,13 @@
 import React from 'react';
 import Link from 'next/link';
 
-// Define the type for phone comparison data
-interface PhoneComparisonData {
-    phone: string; // Use the same name for both Phone 1 and Phone 2
-}
 
 // Define props for the PhoneComparisonBubbles component
 interface PhoneComparisonBubblesProps {
-    comparisons: PhoneComparisonData[];
     lang: 'fr' | 'es' | 'en'; // Define supported languages
 }
 
-const PhoneComparisonBubbles: React.FC<PhoneComparisonBubblesProps> = ({ comparisons, lang }) => {
+const PhoneComparisonBubbles: React.FC<PhoneComparisonBubblesProps> = ({ lang }) => {
     const getComparisonLink = (phone1: string, phone2: string) => {
         const phone1Formatted = phone1.replace(/ /g, '-');
         const phone2Formatted = phone2.replace(/ /g, '-');
@@ -37,13 +32,25 @@ const PhoneComparisonBubbles: React.FC<PhoneComparisonBubblesProps> = ({ compari
         },
     };
 
+    const phoneComparisons = [
+        { phone: 'Oppo K3 vs Oppo Reno2 F' },
+        { phone: 'LG G7 ThinQ vs OnePlus 8' },
+        { phone: 'Motorola Moto G14 vs Motorola Moto G54 5G' },
+        { phone: 'Apple iPhone XR vs Samsung Galaxy A03s' },
+        { phone: 'Apple iPhone 14 Pro vs Apple iPhone 15 Pro' },
+        { phone: 'Honor Magic 7 Pro vs Oppo Find X6 Pro' },
+        { phone: 'Apple iPhone 13 vs Samsung Galaxy S24' },
+        { phone: 'Apple iPhone 7 vs Apple iPhone 7 Plus' },
+        { phone: 'Oppo Find X6 Pro vs Xiaomi Redmi Note 13 Pro' },
+    ];
+
     return (
         <div className='py-10'>
             <h2 className="text-2xl font-bold text-center mb-4">{translations[lang].title}</h2>
             <p className="text-center mb-6">{translations[lang].subtitle}</p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {comparisons.map((comparison, index) => {
+                {phoneComparisons.map((comparison, index) => {
                     const phone1 = comparison.phone.split(' vs ')[0]; // Split phone names
                     const phone2 = comparison.phone.split(' vs ')[1]; // Split phone names
 

@@ -54,7 +54,7 @@ const ComparisonCarousel: React.FC<CarouselProps> = ({ phoneList, phone1, phone2
 
     return (
         <div className="max-w-4xl mx-auto mt-6">
-            <h2 className="text-2xl font-bold text-center mb-4">{translations.phoneComparison.comparisonCarousel.title}</h2>
+            <h2 className="text-2xl font-bold text-center mb-6">{translations.phoneComparison.comparisonCarousel.title}</h2>
             <Carousel className="relative">
                 <CarouselContent className="flex md:gap-2">
                     {comparisons.map((comparison, index) => {
