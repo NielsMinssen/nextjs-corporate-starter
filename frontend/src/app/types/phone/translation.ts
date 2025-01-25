@@ -15,6 +15,9 @@ interface Translation {
         basedon: string;
         buyonamazon: string;
         amazondisclaimer: string;
+        comparisonCarousel: {
+            title: string;
+        },
         details: { [key: string]: { title: string; description: string } } & {
             title: string;
             brand_and_full_name: {

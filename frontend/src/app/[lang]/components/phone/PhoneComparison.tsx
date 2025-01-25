@@ -7,6 +7,7 @@ import { useComparison, usePhoneData } from '@/app/hooks/phone/usePhoneData';
 import PhoneSelectors from './PhoneSelectors';
 import ComparisonHeader from './ComparisonHeader';
 import AccordionComparison from './AccordionComparison';
+import ComparisonCarousel from './ComparisonCaroussel';
 
 interface PhoneComparisonProps {
     initialPhone1: string;
@@ -86,6 +87,7 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                     </div>
                 )}
             </div>
+            <ComparisonCarousel phoneList={phoneList.map(p => p.brand_and_full_name)} phone1={phone1} phone2={phone2} translations={translations} lang={lang} />
             <PhoneComparisonBubbles comparisons={phoneComparisons} lang={lang} />
         </div >
     );
