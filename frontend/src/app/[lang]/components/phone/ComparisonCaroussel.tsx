@@ -36,10 +36,10 @@ const ComparisonCarousel: React.FC<CarouselProps> = ({ phoneList, phone1, phone2
         const alternateComparisons: { phone1: string; phone2: string }[] = [];
 
         filterCanonicalPhones.forEach((phone, index) => {
-            const alternatePhone1 = index % 2 === 0 ? phone1 : phone;
-            const alternatePhone2 = index % 2 === 0 ? phone : phone2;
+            if (extractBasePhone(phone1) !== extractBasePhone(phone) && extractBasePhone(phone2) !== extractBasePhone(phone)) {
+                const alternatePhone1 = index % 2 === 0 ? phone1 : phone;
+                const alternatePhone2 = index % 2 === 0 ? phone : phone2;
 
-            if (extractBasePhone(alternatePhone1) !== extractBasePhone(alternatePhone2)) {
                 const canonicalUrl = createCanonicalUrl(alternatePhone1, alternatePhone2);
 
                 if (!canonicalSet.has(canonicalUrl)) {
