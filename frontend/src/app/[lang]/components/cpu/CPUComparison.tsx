@@ -230,8 +230,13 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
   const getBarStyle = (attribute: keyof CPU, index: number) => {
     if (!comparisonResult || !numericAttributes.includes(attribute)) return {};
 
-    const value1 = comparisonResult[0][attribute] as number;
-    const value2 = comparisonResult[1][attribute] as number;
+    const parseValue = (val: any): number | null => {
+      if (val == null) return null;
+      return parseFloat(String(val).replace(',', ''));
+    };
+
+    const value1 = parseValue(comparisonResult[0][attribute]);
+    const value2 = parseValue(comparisonResult[1][attribute]);
 
     if (value1 == null || value2 == null) {
       if (index === 0 && value1 != null) {
@@ -254,9 +259,9 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
 
     const maxValue = Math.max(value1, value2);
     const minValue = Math.min(value1, value2);
-    const currentValue = comparisonResult[index][attribute] as number;
+    const currentValue = parseFloat(String(comparisonResult[index][attribute]).replace(',', ''));
     const isBestValue = (attribute === "price" || attribute === "tdp") ? currentValue === minValue : currentValue === maxValue;
-    const otherValue = comparisonResult[1 - index][attribute] as number;
+    const otherValue = parseFloat(String(comparisonResult[1 - index][attribute]).replace(',', ''));
 
     const differenceRatio = Math.abs(currentValue - otherValue) / Math.max(maxValue, 1);
     const percentage = (currentValue / maxValue) * 100;
@@ -285,8 +290,8 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
     let totalAttributesCounted = 0;
 
     performanceAttributes.forEach((attribute) => {
-      const value1 = comparisonResult[0][attribute] as number;
-      const value2 = comparisonResult[1][attribute] as number;
+      const value1 = parseFloat(String(comparisonResult[0][attribute]).replace(',', ''));
+      const value2 = parseFloat(String(comparisonResult[1][attribute]).replace(',', ''));
 
       if (value1 != null && value2 != null && value1 !== 0 && value2 !== 0) {
         if (value1 > value2) {
