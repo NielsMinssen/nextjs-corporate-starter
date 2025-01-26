@@ -3,20 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation';
 import Select, { SingleValue } from "react-select";
 import Loader from "../../components/Loader";
-import PhoneComparisonBubbles from "../../components/phone/PhoneComparisonBubbles";
 import { useLanguage } from "../../components/LanguageContext";
+import PopularCarousel from "../../components/phone/PoupularCarousel";
 
-
-interface Translation {
-    phoneComparison: {
-        title: string;
-        description: string;
-        selectPhone1: string;
-        selectPhone2: string;
-        compareButton: string;
-        [key: string]: string;
-    };
-}
 
 const PhonePage: React.FC = () => {
     const [phoneList, setPhoneList] = useState<PhoneSpecs[]>([]);
@@ -105,10 +94,6 @@ const PhonePage: React.FC = () => {
         label: phone.brand_and_full_name,
     }));
 
-    const phoneComparisons = [
-        { phone: 'Apple iPhone 7 256GB vs POCO X6 Pro' },
-    ];
-
     return (
         <div className="max-w-4xl mx-auto p-8 bg-white rounded-xl">
             <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">{translations.phoneComparison.title}</h1>
@@ -153,7 +138,7 @@ const PhonePage: React.FC = () => {
                     {translations.phoneComparison.compareButton}
                 </button>
             </div>
-            <PhoneComparisonBubbles comparisons={phoneComparisons} lang={lang} />
+            <PopularCarousel lang={lang} translations={translations} />
         </div>
     );
 };

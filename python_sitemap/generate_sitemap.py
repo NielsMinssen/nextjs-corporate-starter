@@ -8,7 +8,7 @@ from datetime import datetime
 from difflib import SequenceMatcher
 
 # Constants
-BASE_URL = 'localhost:3001'  # Base URL of the website
+BASE_URL = 'https://siliconcompare.com'  # Base URL of the website
 MAX_URLS_PER_FILE = 45000  # Maximum number of URLs per file
 OUTPUT_DIR = '../frontend/public/sitemaps'  # Output directory
 LANGUAGES = ['en', 'fr', 'es']  # Supported languages
@@ -19,6 +19,42 @@ ENDPOINTS = {
     'cpu': 'http://localhost:1337/api/cpus',
     'gpu': 'http://localhost:1337/api/gpus',
 }
+
+def generate_general_sitemaps() -> Dict[str, List[str]]:
+    """
+    Generate sitemaps for general pages like homepage, privacy, etc., for each language.
+    """
+    print("Generating general sitemaps...")
+    general_pages = ['', '/phone/compare', '/cpu/compare', '/gpu/compare',]
+    sitemapfiles = {}
+    
+    for lang in LANGUAGES:
+        sitemapindex = 1
+        current_sitemap_filename = f"general-sitemap-{lang}-{sitemapindex}.xml"
+        current_sitemap = ET.Element('urlset', xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+        sitemapfiles[lang] = []
+        
+        for page in general_pages:
+            url_elem = ET.SubElement(current_sitemap, 'url')
+            loc_elem = ET.SubElement(url_elem, 'loc')
+            loc_elem.text = f"{BASE_URL}/{lang}{page}"
+            
+            lastmod_elem = ET.SubElement(url_elem, 'lastmod')
+            lastmod_elem.text = datetime.now().strftime('%Y-%m-%d')
+            
+            priority_elem = ET.SubElement(url_elem, 'priority')
+            priority_elem.text = '1.0' if page == 'home' else '0.8'
+        
+        # Save the sitemap file
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
+        tree = ET.ElementTree(current_sitemap)
+        with open(os.path.join(OUTPUT_DIR, current_sitemap_filename), 'wb') as f:
+            tree.write(f, encoding='utf-8', xml_declaration=True)
+        
+        sitemapfiles[lang].append(current_sitemap_filename)
+        print(f"Generated sitemap for {lang}: {current_sitemap_filename}")
+    
+    return sitemapfiles
 
 def is_similar(item: str, reference_list: List[str], threshold: float) -> bool:
     """
@@ -580,6 +616,10 @@ def generate_all_sitemaps():
 
     print('Generating GPU sitemaps...')
     sitemapfiles['gpu'] = generate_sitemaps_for_category('gpu', transform_gpus, reference_gpus)
+
+    print('Generating general sitemaps...')
+    general_sitemaps = generate_general_sitemaps()
+    sitemapfiles.update(general_sitemaps)
 
     print('Generating sitemap index...')
     generate_sitemap_index(sitemapfiles)
