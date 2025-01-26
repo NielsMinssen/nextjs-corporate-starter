@@ -4,11 +4,11 @@ from typing import List, Dict, Callable
 import requests
 import re
 from datetime import datetime
-import gzip
+# import gzip
 from difflib import SequenceMatcher
 
 # Constants
-BASE_URL = 'https://siliconcompare.com'  # Base URL of the website
+BASE_URL = 'localhost:3001'  # Base URL of the website
 MAX_URLS_PER_FILE = 45000  # Maximum number of URLs per file
 OUTPUT_DIR = '../frontend/public/sitemaps'  # Output directory
 LANGUAGES = ['en', 'fr', 'es']  # Supported languages
@@ -111,7 +111,7 @@ def generate_sitemaps_for_category(
         
         for combination in combinations:
             if urlcount == 0:
-                current_sitemap_filename = f"{category}-sitemap-{lang}-{sitemapindex}.xml.gz"
+                current_sitemap_filename = f"{category}-sitemap-{lang}-{sitemapindex}.xml"
                 current_sitemap = ET.Element('urlset', xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
                 sitemapfiles.append(current_sitemap_filename)
             
@@ -129,14 +129,14 @@ def generate_sitemaps_for_category(
             
             if urlcount >= MAX_URLS_PER_FILE:
                 tree = ET.ElementTree(current_sitemap)
-                with gzip.open(os.path.join(OUTPUT_DIR, current_sitemap_filename), 'wb') as f:
+                with open(os.path.join(OUTPUT_DIR, current_sitemap_filename), 'wb') as f:
                     tree.write(f, encoding='utf-8', xml_declaration=True)
                 urlcount = 0
                 sitemapindex += 1
         
         if urlcount > 0:
             tree = ET.ElementTree(current_sitemap)
-            with gzip.open(os.path.join(OUTPUT_DIR, current_sitemap_filename), 'wb') as f:
+            with open(os.path.join(OUTPUT_DIR, current_sitemap_filename), 'wb') as f:
                 tree.write(f, encoding='utf-8', xml_declaration=True)
             urlcount = 0
             sitemapindex += 1
@@ -159,7 +159,7 @@ def generate_sitemap_index(sitemap_files: Dict[str, List[str]]) -> None:
             lastmod_elem.text = datetime.now().strftime('%Y-%m-%d')
     
     tree = ET.ElementTree(sitemapindex)
-    with gzip.open('../frontend/public/sitemap-index.xml.gz', 'wb') as f:
+    with open('../frontend/public/sitemap-index.xml', 'wb') as f:
         tree.write(f, encoding='utf-8', xml_declaration=True)
     print("Sitemap index written successfully")
 
