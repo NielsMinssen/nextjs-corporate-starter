@@ -1,1 +1,1 @@
-Sitemap: https://siliconcompare.com/sitemap-index.xml.gz
+Sitemap: https://siliconcompare.com/sitemap-index.xml

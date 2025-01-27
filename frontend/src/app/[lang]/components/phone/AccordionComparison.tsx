@@ -13,9 +13,11 @@ import {
     XCircle,
     HelpCircle,
     Trophy,
+    Badge,
 } from 'lucide-react';
 import { getAttributeComparisonPercentage, getBarStyle } from '../../utils/phone/comparisonCalculations';
 import { Popover, PopoverContent, PopoverTrigger } from '../popover';
+import { neutralAttributes } from '../../utils/phone/constants';
 
 const AccordionComparison = ({ comparisonResult, comparisonAttributes, translations }: {
     comparisonResult: [PhoneSpecs, PhoneSpecs];
@@ -129,7 +131,7 @@ const AccordionComparison = ({ comparisonResult, comparisonAttributes, translati
                                         {Object.keys(comparisonResult[0][attribute]).map((subAttribute) => (
                                             <React.Fragment key={subAttribute}>
                                                 <tr className="md:hidden border-b border-gray-200 bg-gray-50">
-                                                    <td colSpan={2} className="py-2 text-sm font-semibold text-gray-700">
+                                                    <td colSpan={2} className="flex flex-row py-2 text-sm font-semibold text-gray-700">
                                                         {<Popover>
                                                             <PopoverTrigger asChild>
                                                                 <span className="flex cursor-pointer underline">
@@ -140,6 +142,18 @@ const AccordionComparison = ({ comparisonResult, comparisonAttributes, translati
                                                                 <p>{(translations.phoneComparison.details[attribute] as any)[subAttribute]?.description}</p>
                                                             </PopoverContent>
                                                         </Popover>}
+                                                        {(neutralAttributes.includes(`${attribute}.${subAttribute}`)) && (
+                                                            <Popover>
+                                                                <PopoverTrigger asChild>
+                                                                    <span className="ml-2 cursor-pointer bg-[#b3cce6] h-5 w-5 rounded-full flex justify-center">
+                                                                        n
+                                                                    </span>
+                                                                </PopoverTrigger>
+                                                                <PopoverContent>
+                                                                    <p>{translations.phoneComparison.neutralAttribute}</p>
+                                                                </PopoverContent>
+                                                            </Popover>
+                                                        )}
                                                     </td>
                                                 </tr>
                                                 <tr className="border-b border-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out">
@@ -154,6 +168,18 @@ const AccordionComparison = ({ comparisonResult, comparisonAttributes, translati
                                                                 <p>{(translations.phoneComparison.details[attribute] as any)[subAttribute]?.description}</p>
                                                             </PopoverContent>
                                                         </Popover>}
+                                                        {(neutralAttributes.includes(`${attribute}.${subAttribute}`)) && (
+                                                            <Popover>
+                                                                <PopoverTrigger asChild>
+                                                                    <span className="ml-2 cursor-pointer bg-[#b3cce6] h-5 w-5 rounded-full flex justify-center">
+                                                                        n
+                                                                    </span>
+                                                                </PopoverTrigger>
+                                                                <PopoverContent>
+                                                                    <p>{translations.phoneComparison.neutralAttribute}</p>
+                                                                </PopoverContent>
+                                                            </Popover>
+                                                        )}
                                                     </td>
                                                     <td
                                                         className="px-6 py-4 text-sm text-gray-600 text-center"

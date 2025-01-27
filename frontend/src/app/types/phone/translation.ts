@@ -21,6 +21,7 @@ interface Translation {
         popularCarousel: {
             title: string;
         },
+        neutralAttribute: string;
         details: { [key: string]: { title: string; description: string } } & {
             title: string;
             brand_and_full_name: {
