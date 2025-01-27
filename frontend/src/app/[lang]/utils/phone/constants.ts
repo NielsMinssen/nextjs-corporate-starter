@@ -1,6 +1,6 @@
 export const FALLBACK_SEO = {
-    title: "Strapi Starter Next Blog",
-    description: "Strapi Starter Next Blog",
+    title: "SiliconCompare",
+    description: "SiliconCompare is a hardware comparison tool that helps you find the best tools for your needs.",
 }
 
 export const comparisonAttributes: (keyof PhoneSpecs)[] = [
@@ -63,7 +63,7 @@ interface AttributeRange {
 
 export const attributeRanges: Record<string, AttributeRange> = {
     // Design attributes
-    "Design.weight_g": { min: 130, max: 240, lowerIsBetter: true },
+    "Design.weight_g": { min: 130, max: 350, lowerIsBetter: true },
     "Design.thickness_mm": { min: 5, max: 12, lowerIsBetter: true },
     "Design.width_mm": { "min": 60, "max": 80 },
     "Design.height_mm": { "min": 120, "max": 170 },
@@ -71,7 +71,7 @@ export const attributeRanges: Record<string, AttributeRange> = {
 
 
     // Screen attributes
-    "Screen.screen_size_in": { min: 5.5, max: 7.5 },
+    "Screen.screen_size_in": { min: 5, max: 7.5 },
     "Screen.pixel_density_ppi": { min: 0, max: 500 },
     "Screen.refresh_rate_hz": { min: 0, max: 165 },
     "Screen.typical_brightness_nits": { min: 0, max: 2000 },
