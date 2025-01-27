@@ -42,7 +42,8 @@
     "remark-gfm": "^4.0.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "5.4.2"
+    "typescript": "5.4.2",
+    "react-circular-progressbar": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.18",
