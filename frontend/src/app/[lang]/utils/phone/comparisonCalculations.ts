@@ -1,48 +1,43 @@
-import { attributeRanges, attributesWhereLowerIsBetter, neutralAttributes, numericAttributes } from "./constants";
+import { attributeRanges, neutralAttributes, numericAttributes } from "./constants";
 
 // utils/comparisonCalculations.ts
 export const getBarStyle = (attribute: keyof PhoneSpecs, subAttribute: string, index: number, comparisonResult: [PhoneSpecs, PhoneSpecs] | null) => {
     if (!comparisonResult || !numericAttributes.includes(`${attribute}.${subAttribute}` as keyof PhoneSpecs)) return {};
 
-    const rawValue1 = (comparisonResult[0][attribute] as any)[subAttribute];
-    const rawValue2 = (comparisonResult[1][attribute] as any)[subAttribute];
+    const attributeKey = `${attribute}.${subAttribute}` as keyof typeof attributeRanges;
+    const range = attributeRanges[attributeKey];
 
-    // Extract values from objects if needed
-    const value1 = typeof rawValue1 === 'object' && rawValue1 !== null ? rawValue1.value : rawValue1;
-    const value2 = typeof rawValue2 === 'object' && rawValue2 !== null ? rawValue2.value : rawValue2;
+    if (!range) return {};
 
-    // If one of the values doesn't exist, use pastel blue for the other existing value
-    if (value1 == null || value2 == null) {
-        if (index === 0 && value1 != null) {
-            return {
-                background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for the existing value
-            };
-        } else if (index === 1 && value2 != null) {
-            return {
-                background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for the existing value
-            };
-        }
-        return {}; // No styling if the value doesn't exist
+    const rawValue = (comparisonResult[index][attribute] as any)[subAttribute];
+    const currentValue = typeof rawValue === 'object' && rawValue !== null ? rawValue.value : rawValue;
+
+    // If the value doesn't exist, return empty style
+    if (currentValue == null) return {};
+
+    // Calculate percentage based on the range
+    let percentage: number;
+    let colorPercentage: number;
+    const valueRange = range.max - range.min;
+
+    if (range.lowerIsBetter) {
+        // For attributes where lower is better, inverse the percentage
+        percentage = ((currentValue - range.min) / valueRange) * 100;
+        colorPercentage = ((range.max - currentValue) / valueRange) * 100;
+
+    } else {
+        percentage = ((currentValue - range.min) / valueRange) * 100;
+        colorPercentage = ((currentValue - range.min) / valueRange) * 100;
     }
 
-    // If values are the same, return full pastel blue for both
-    if (value1 === value2) {
-        return {
-            background: `linear-gradient(90deg, hsl(210, 50%, 80%) 100%, hsl(210, 50%, 80%) 100%)`, // pastel blue for equal values
-        };
-    }
+    // Clamp percentage between 0 and 100
+    percentage = Math.max(0, Math.min(100, percentage));
+    colorPercentage = Math.max(0, Math.min(100, colorPercentage));
 
-    const maxValue = Math.max(value1, value2);
-    const minValue = Math.min(value1, value2);
-    const rawCurrentValue = (comparisonResult[index][attribute] as any)[subAttribute];
-    const currentValue = typeof rawCurrentValue === 'object' && rawCurrentValue !== null ? rawCurrentValue.value : rawCurrentValue;
-    const isBestValue = attributesWhereLowerIsBetter.includes(`${attribute}.${subAttribute}`) ? currentValue === minValue : currentValue === maxValue;
-    const rawOtherValue = (comparisonResult[1 - index][attribute] as any)[subAttribute];
-    const otherValue = typeof rawOtherValue === 'object' && rawOtherValue !== null ? rawOtherValue.value : rawOtherValue;
-
-    // Determine the difference ratio
-    const differenceRatio = Math.abs(currentValue - otherValue) / Math.max(maxValue, 1); // Avoid division by zero
-    const percentage = (currentValue / maxValue) * 100;
+    // Determine color based on percentage
+    // 0% = red (0), 100% = green (120)
+    const hue = colorPercentage * 1.2;
+    const color = `hsl(${hue}, 70%, 60%)`; // Softened, pastel color
 
     if (neutralAttributes.includes(`${attribute}.${subAttribute}`)) {
         return {
@@ -50,13 +45,18 @@ export const getBarStyle = (attribute: keyof PhoneSpecs, subAttribute: string, i
         };
     }
 
-    // Base color for the best value (always green)
-    let color = `hsl(120, 70%, 60%)`; // green
+    // Fill slightly with red if below minimum range
+    if (currentValue <= range.min && !range.lowerIsBetter) {
+        return {
+            background: `linear-gradient(90deg, hsl(0, 70%, 60%) 3%, ${color} 3%, ${color} ${percentage}%, transparent ${percentage}%)`,
+        };
+    }
 
-    if (!isBestValue) {
-        // Color transitions from green (120 hue) to red (0 hue) based on how far the values are
-        const hue = 100 - (differenceRatio * 120); // Shift hue from 120 (green) to 0 (red) based on the difference
-        color = `hsl(${hue}, 70%, 60%)`; // Softened, pastel color
+    // Fill compeltely with green if above maximum range for attributes where lower is better
+    if (currentValue <= range.min && range.lowerIsBetter) {
+        return {
+            background: `linear-gradient(90deg, hsl(120, 70%, 60%) 3%, ${color} 3%, ${color} ${percentage}%, transparent ${percentage}%)`,
+        };
     }
 
     return {

@@ -13,7 +13,6 @@ import {
     XCircle,
     HelpCircle,
     Trophy,
-    Badge,
 } from 'lucide-react';
 import { getAttributeComparisonPercentage, getBarStyle } from '../../utils/phone/comparisonCalculations';
 import { Popover, PopoverContent, PopoverTrigger } from '../popover';
