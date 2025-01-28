@@ -110,6 +110,12 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
     setUserLanguage(language);
   }, []);
 
+  const getCpuDetails = async (cpuName: string) => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpus/details?fields=cpu_name,num_sockets,cores,price,cpu_mark,cpu_value,thread_mark,thread_value,tdp,power_perf,test_date,socket,category&filters[cpu_name][$eq]=${encodeURIComponent(cpuName)}`);
+    const data = await response.json();
+    return data.data[0]; // On prend le premier résultat car le nom devrait être unique
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -118,7 +124,7 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
       try {
         const [translationsResponse, cpusResponse] = await Promise.all([
           fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpudescription?locale=${lang}`),
-          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpus`)
+          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/cpus/details?fields=cpu_name`),
         ]);
 
         if (!translationsResponse.ok || !cpusResponse.ok) {
@@ -136,13 +142,14 @@ const CPUComparison: React.FC<CPUComparisonProps> = ({ initialCpu1, initialCpu2,
 
         if (cpusData.data) {
           const cpus = cpusData.data.map((item: any) => ({
-            id: item.id,
-            ...item.attributes.CPU,
+            cpu_name: item.cpu_name,
           }));
           setCpuList(cpus);
 
-          const selectedCpu1 = cpus.find((cpu: CPU) => cpu.cpu_name === cpu1);
-          const selectedCpu2 = cpus.find((cpu: CPU) => cpu.cpu_name === cpu2);
+          const [selectedCpu1, selectedCpu2] = await Promise.all([
+            getCpuDetails(cpu1),
+            getCpuDetails(cpu2)
+          ]);
 
           if (selectedCpu1 && selectedCpu2) {
             setComparisonResult([selectedCpu1, selectedCpu2]);

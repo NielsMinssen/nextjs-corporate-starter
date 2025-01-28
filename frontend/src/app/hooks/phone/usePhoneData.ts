@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 export const usePhoneData = (lang: string) => {
-    const [phoneList, setPhoneList] = useState<PhoneSpecs[]>([]);
+    const [phoneList, setPhoneList] = useState<{ brand_and_full_name: string; RAM_gb: number; storage_options_gb: number; }[]>([]);
     const [translations, setTranslations] = useState<Translation | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -13,7 +13,7 @@ export const usePhoneData = (lang: string) => {
             try {
                 const [translationsResponse, phonesResponse] = await Promise.all([
                     fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/phonedescription?locale=${lang}`),
-                    fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/phones`)
+                    fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/phones/details?fields=brand_and_full_name,Performance.RAM_gb,Performance.storage_options_gb`),
                 ]);
 
                 if (!translationsResponse.ok || !phonesResponse.ok) {
@@ -30,11 +30,15 @@ export const usePhoneData = (lang: string) => {
                 }
 
                 if (phonesData.data) {
-                    const phones = phonesData.data.map((item: any) => ({
-                        id: item.id,
-                        ...item.attributes.phone,
-                    }));
+                    const phones = phonesData.data.map((item: any) => {
+                        return {
+                            brand_and_full_name: item.brand_and_full_name,
+                            RAM_gb: item["Performance.RAM_gb"],
+                            storage_options_gb: item["Performance.storage_options_gb"]
+                        };
+                    });
                     setPhoneList(phones);
+                    console.log(phones);
                 } else {
                     throw new Error("Invalid phone data structure");
                 }
@@ -56,7 +60,7 @@ import { SingleValue } from "react-select";
 import { useRouter } from 'next/navigation';
 import { useMemo } from 'react';
 
-export const useComparison = (phone1: string, phone2: string, phoneList: PhoneSpecs[], lang: string) => {
+export const useComparison = (phone1: string, phone2: string, phoneList: { brand_and_full_name: string; RAM_gb: number; storage_options_gb: number; }[], lang: string) => {
     const router = useRouter();
     const [comparisonResult, setComparisonResult] = useState<[PhoneSpecs, PhoneSpecs] | null>(null);
 
@@ -71,13 +75,27 @@ export const useComparison = (phone1: string, phone2: string, phoneList: PhoneSp
         "Features",
     ], []);
 
-    useEffect(() => {
-        const selectedPhone1 = phoneList.find((phone) => phone.brand_and_full_name === phone1);
-        const selectedPhone2 = phoneList.find((phone) => phone.brand_and_full_name === phone2);
+    const getPhoneDetails = async (phoneName: string) => {
+        const response = await fetch(
+            `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/phones/details?filters[brand_and_full_name][$eq]=${encodeURIComponent(phoneName)}`
+        );
+        const data = await response.json();
+        console.log(data.data[0].phone);
+        return data.data[0].phone;
+    };
 
-        if (selectedPhone1 && selectedPhone2) {
-            setComparisonResult([selectedPhone1, selectedPhone2]);
-        }
+    useEffect(() => {
+        const fetchPhones = async () => {
+            const [selectedPhone1, selectedPhone2] = await Promise.all([
+                getPhoneDetails(phone1),
+                getPhoneDetails(phone2)
+            ]);
+
+            if (selectedPhone1 && selectedPhone2) {
+                setComparisonResult([selectedPhone1, selectedPhone2]);
+            }
+        };
+        fetchPhones();
     }, [phoneList]);
 
     useEffect(() => {
@@ -90,11 +108,11 @@ export const useComparison = (phone1: string, phone2: string, phoneList: PhoneSp
     }, [phone1, phone2, lang, router]);
 
     const handleSelectChange = (
-        selectedOption: SingleValue<{ value: string; label: string }>,
+        selectedOption: SingleValue<{ brand_and_full_name: string; }>,
         setter: (value: string) => void
     ) => {
         if (selectedOption) {
-            setter(selectedOption.value);
+            setter(selectedOption.brand_and_full_name);
         }
     };
 

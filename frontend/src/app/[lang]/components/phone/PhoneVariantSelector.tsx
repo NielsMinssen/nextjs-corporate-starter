@@ -9,7 +9,7 @@ interface Variant {
 }
 
 interface PhoneVariantSelectorProps {
-    phoneOptions: { value: string; label: string; storage: number; ram: number }[];
+    phoneOptions: { brand_and_full_name: string; RAM_gb: number; storage_options_gb: number; }[];
     selectedPhone: string;
     otherPhone: string;
     position: 1 | 2;
@@ -37,11 +37,11 @@ const PhoneVariantSelector: React.FC<PhoneVariantSelectorProps> = ({
         );
 
         return phoneOptions
-            .filter(option => exactModelRegex.test(option.value)) // Correspond uniquement au modèle exact
+            .filter(option => exactModelRegex.test(option.brand_and_full_name)) // Correspond uniquement au modèle exact
             .map(option => ({
-                fullName: option.value,
-                storage: option.storage,
-                ram: option.ram,
+                fullName: option.brand_and_full_name,
+                storage: option.storage_options_gb,
+                ram: option.RAM_gb,
             }))
             .sort((a, b) => {
                 // Trier d'abord par stockage, puis par RAM

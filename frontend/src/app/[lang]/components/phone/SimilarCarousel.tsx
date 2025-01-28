@@ -23,6 +23,7 @@ const SimilarCarousel: React.FC<CarouselProps> = ({ phoneList, phone1, phone2, t
 
     const filterCanonicalPhones = useMemo(() => {
         const canonicalSet = new Set<string>();
+        console.log(phoneList);
         return phoneList.filter(phone => {
             const basePhone = extractBasePhone(phone);
             if (canonicalSet.has(basePhone)) return false;

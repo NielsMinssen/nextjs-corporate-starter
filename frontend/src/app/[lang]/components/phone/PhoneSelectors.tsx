@@ -5,7 +5,7 @@ import PhoneVariantSelector from './PhoneVariantSelector';
 interface PhoneSelectorsProps {
     phone1: string;
     phone2: string;
-    phoneOptions: { value: string; label: string; storage: number; ram: number; }[];
+    phoneOptions: { brand_and_full_name: string; RAM_gb: number; storage_options_gb: number; }[];
     handleSelectChange: (selectedOption: any, setter: (value: string) => void) => void;
     setPhone1: (value: string) => void;
     setPhone2: (value: string) => void;
@@ -22,10 +22,12 @@ const PhoneSelectors: React.FC<PhoneSelectorsProps> = ({
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div>
-                <Select
-                    value={phoneOptions.find((option) => option.value === phone1) || null}
+                <Select<{ brand_and_full_name: string; RAM_gb: number; storage_options_gb: number; }>
+                    value={phoneOptions.find((option) => option.brand_and_full_name === phone1) || null}
                     onChange={(option) => handleSelectChange(option, setPhone1)}
                     options={phoneOptions}
+                    getOptionLabel={(option) => option.brand_and_full_name}
+                    getOptionValue={(option) => option.brand_and_full_name}
                     classNamePrefix="react-select"
                     className="w-full"
                 />
@@ -37,10 +39,12 @@ const PhoneSelectors: React.FC<PhoneSelectorsProps> = ({
                 />
             </div>
             <div>
-                <Select
-                    value={phoneOptions.find((option) => option.value === phone2) || null}
+                <Select<{ brand_and_full_name: string; RAM_gb: number; storage_options_gb: number; }>
+                    value={phoneOptions.find((option) => option.brand_and_full_name === phone2) || null}
                     onChange={(option) => handleSelectChange(option, setPhone2)}
                     options={phoneOptions}
+                    getOptionLabel={(option) => option.brand_and_full_name}
+                    getOptionValue={(option) => option.brand_and_full_name}
                     classNamePrefix="react-select"
                     className="w-full"
                 />

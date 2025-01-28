@@ -44,10 +44,9 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
 
 
     const phoneOptions = phoneList.map((phone) => ({
-        value: phone.brand_and_full_name,
-        label: phone.brand_and_full_name,
-        storage: phone.Performance.storage_options_gb,
-        ram: phone.Performance.RAM_gb
+        brand_and_full_name: phone.brand_and_full_name,
+        storage_options_gb: phone.storage_options_gb,
+        RAM_gb: phone.RAM_gb,
     }));
 
 
@@ -84,8 +83,8 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                     </div>
                 )}
             </div>
-            <SimilarCarousel phoneList={phoneList.map(p => p.brand_and_full_name)} phone1={phone1} phone2={phone2} translations={translations} lang={lang} />
-            <PopularCarousel translations={translations} lang={lang} />
+            {/* <SimilarCarousel phoneList={phoneList.map(p => p.brand_and_full_name)} phone1={phone1} phone2={phone2} translations={translations} lang={lang} />
+            <PopularCarousel translations={translations} lang={lang} /> */}
         </div >
     );
 };
