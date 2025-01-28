@@ -112,6 +112,12 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
     { gpu: 'GeForce RTX 2060 SUPER vs GeForce RTX 3060 12GB' },
   ];
 
+  const getGpuDetails = async (gpuName: string) => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/gpus/details?fields=videocard_name,price,g3d_mark,videocard_value,g2d_mark,tdp,power_perf,vram,test_date,category&filters[videocard_name][$eq]=${encodeURIComponent(gpuName)}`);
+    const data = await response.json();
+    return data.data[0]; // On prend le premier résultat car le nom devrait être unique
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -120,7 +126,7 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
       try {
         const [translationsResponse, gpusResponse] = await Promise.all([
           fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/gpudescription?locale=${lang}`),
-          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/gpus`)
+          fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/gpus/details?fields=videocard_name`),
         ]);
 
         if (!translationsResponse.ok || !gpusResponse.ok) {
@@ -138,13 +144,14 @@ const GPUComparison: React.FC<GPUComparisonProps> = ({ initialGpu1, initialGpu2,
 
         if (gpusData.data) {
           const gpus = gpusData.data.map((item: any) => ({
-            id: item.id,
-            ...item.attributes.GPU,
+            videocard_name: item.videocard_name,
           }));
           setGpuList(gpus);
 
-          const selectedGpu1 = gpus.find((gpu: GPU) => gpu.videocard_name === gpu1);
-          const selectedGpu2 = gpus.find((gpu: GPU) => gpu.videocard_name === gpu2);
+          const [selectedGpu1, selectedGpu2] = await Promise.all([
+            getGpuDetails(gpu1),
+            getGpuDetails(gpu2)
+          ]);
 
           if (selectedGpu1 && selectedGpu2) {
             setComparisonResult([selectedGpu1, selectedGpu2]);
