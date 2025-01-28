@@ -83,8 +83,8 @@ const PhoneComparison: React.FC<PhoneComparisonProps> = ({ initialPhone1, initia
                     </div>
                 )}
             </div>
-            {/* <SimilarCarousel phoneList={phoneList.map(p => p.brand_and_full_name)} phone1={phone1} phone2={phone2} translations={translations} lang={lang} />
-            <PopularCarousel translations={translations} lang={lang} /> */}
+            <SimilarCarousel phoneList={phoneList.map(p => p.brand_and_full_name)} phone1={phone1} phone2={phone2} translations={translations} lang={lang} />
+            <PopularCarousel translations={translations} lang={lang} />
         </div >
     );
 };
