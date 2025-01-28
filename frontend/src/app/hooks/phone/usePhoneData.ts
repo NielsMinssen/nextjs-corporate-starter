@@ -38,7 +38,6 @@ export const usePhoneData = (lang: string) => {
                         };
                     });
                     setPhoneList(phones);
-                    console.log(phones);
                 } else {
                     throw new Error("Invalid phone data structure");
                 }
@@ -80,7 +79,6 @@ export const useComparison = (phone1: string, phone2: string, phoneList: { brand
             `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/phones/details?filters[brand_and_full_name][$eq]=${encodeURIComponent(phoneName)}`
         );
         const data = await response.json();
-        console.log(data.data[0].phone);
         return data.data[0].phone;
     };
 
