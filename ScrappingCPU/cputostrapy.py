@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 
 # Load the CSV file for CPUs
-df = pd.read_csv('cpus.csv')
+df = pd.read_csv('../cpus_07_2025.csv')
 
 # Function to clean and transform the DataFrame
 def transform_data(df):
@@ -25,7 +25,7 @@ def transform_data(df):
 cpu_entries = transform_data(df)
 
 # Strapi API URL for CPUs
-api_url = 'http://localhost:1337/api/cpus'  # Adjust the URL according to your Strapi instance
+api_url = 'https://api.siliconcompare.com/api/cpus'  # Adjust the URL according to your Strapi instance
 
 # Function to post data to Strapi
 def post_to_strapi(cpu_entries):
@@ -41,7 +41,7 @@ def post_to_strapi(cpu_entries):
         
         # Send POST request to Strapi
         response = requests.post(api_url, json=payload)
-        if response.status_code == 201:
+        if response.status_code == 201 or 200:
             print(f"Successfully added: {entry['cpu_name']}")
         else:
             print(f"Failed to add {entry['cpu_name']}: {response.content}")

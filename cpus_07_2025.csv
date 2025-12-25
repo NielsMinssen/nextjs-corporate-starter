@@ -1,0 +1,251 @@
+cpu_name,num_sockets,cores,price,cpu_mark,cpu_value,thread_mark,thread_value,tdp,power_perf,test_date,socket,category
+AMD EPYC 7203P,1,8,,"22,017",,"2,537",,120,183.48,Jul 2025,SP3,Server
+AMD EPYC 9565,1,72,10486.00,"135,221",12.90,"3,696",0.35,400,338.05,Jul 2025,SP5,Server
+AMD EPYC Embedded 8224P,1,24,,"48,873",,"2,357",,160,305.46,Jul 2025,SP6,"Server, Mobile/Embedded"
+AMD EPYC Embedded 9755,1,128,,"163,419",,"3,499",,500,326.84,Jul 2025,Unknown,Mobile/Embedded
+AMD Ryzen 7 H 260,1,8,,"30,214",,"3,965",,,,Jul 2025,FP8,Laptop
+AMD Ryzen 9 270,1,8,,"31,104",,"3,970",,45,691.19,Jul 2025,FP8,"Desktop, Laptop"
+AMD Ryzen Threadripper 9960X 24 Cores,1,24,,"92,632",,"4,536",,350,264.66,Jul 2025,sTR5,Desktop
+AMD Ryzen Threadripper PRO 9945WX,1,12,,"56,854",,"4,573",,350,162.44,Jul 2025,sTR5,Server
+AMD Ryzen Threadripper PRO 9955WX,1,16,,"69,993",,"4,561",,350,199.98,Jul 2025,sTR5,Server
+AMD Ryzen Threadripper PRO 9965WX,1,24,4360.38,"95,346",21.87,"4,555",1.04,350,272.42,Jul 2025,sTR5,Server
+AMD Ryzen Threadripper PRO 9975WX,1,32,4099.00,"110,740",27.02,"4,422",1.08,350,316.40,Jul 2025,sTR5,Desktop
+AMD Ryzen Threadripper PRO 9985WX,1,64,7999.00,"156,305",19.54,"4,586",0.57,350,446.58,Jul 2025,sTR5,Server
+ARM   12 Core 2000 MHz,1,12,,"16,944",,"3,991",,,,Jul 2025,Unknown,Unknown
+ARM   4 Core 1804 MHz,1,4,,"3,336",,"1,615",,,,Jul 2025,Unknown,Unknown
+ARM Cortex A55 6 Core 1800 MHz,1,6,,984,,311,,,,Jul 2025,Unknown,Unknown
+ARM Cortex A72 1 Core 0 MHz,1,1,,400,,561,,,,Jul 2025,Unknown,Unknown
+ARM Cortex A76 4 Core 2000 MHz,1,4,,"1,513",,676,,,,Jul 2025,Unknown,Unknown
+ARM Kryo 4XX Gold 1 Core 0 MHz,1,1,,769,,956,,,,Jul 2025,Unknown,Unknown
+ARM Neoverse V1 1 Core 0 MHz,1,1,,785,,"1,472",,,,Jul 2025,Unknown,Unknown
+Fabrikams XY9 @ 3.15 GHz,1,8,,"6,715",,"1,885",,,,Jul 2025,Unknown,Unknown
+hi6620oem,1,4,,396,,321,,,,Jul 2025,Unknown,Mobile/Embedded
+Intel Core 3 100HL,1,8,306.00,"17,899",58.49,"3,731",12.19,45,397.76,Jul 2025,FCLGA1700,Mobile/Embedded
+Intel Core 7 160UL,1,10,426.00,"11,043",25.92,"3,391",7.96,15,736.17,Jul 2025,FCLGA1700,Mobile/Embedded
+Intel Core i7 1265UL,1,10,,"18,294",,"3,513",,15,"1,219.61",Jul 2025,FCLGA1700,Mobile/Embedded
+Intel Core Ultra 5 245HX,1,14,,"40,059",,"4,530",,55,728.34,Jul 2025,FCBGA2114,Mobile/Embedded
+Intel U300L,1,5,,"7,692",,"2,030",,15,512.81,Jul 2025,FCLGA1700,Mobile/Embedded
+Intel Xeon Gold 6338T @ 2.10GHz,1,24,3139.00,"35,801",11.41,"2,348",0.75,165,216.98,Jul 2025,FCLGA4189,Server
+Mediatek MT8768CA,1,8,,"1,978",,569,,,,Jul 2025,Unknown,Mobile/Embedded
+Mediatek MT8791,1,8,,"5,521",,"2,271",,,,Jul 2025,Unknown,Mobile/Embedded
+Spreadtrum UMS9230E,1,8,,"3,066",,"1,122",,,,Jul 2025,Unknown,Mobile/Embedded
+Synaptics VS680,1,4,,"1,728",,879,,,,Jul 2025,Unknown,Mobile/Embedded
+ZHAOXIN KaiXian KX U6780A,1,8,,"3,058",,736,,,,Jul 2025,Unknown,Unknown
+ZHAOXIN KaiXian ZX C+ C4701@2.0GHz,1,4,,"1,442",,564,,,,Jul 2025,Unknown,Unknown
+AMD EPYC 4465P,1,12,399.00,"50,492",126.55,"4,611",11.56,65,776.80,Jun 2025,AM5,Server
+AMD EPYC 4545P,1,16,549.00,"55,388",100.89,"4,568",8.32,65,852.12,Jun 2025,AM5,Server
+AMD EPYC 4585PX,1,16,699.00,"71,552",102.36,"4,795",6.86,170,420.89,Jun 2025,AM5,Server
+AMD EPYC 7K23,1,48,,"81,183",,"2,788",,,,Jun 2025,Unknown,Server
+[Dual CPU] AMD EPYC 9475F,2,48,15184.00,"179,338",11.81,"4,094",,4000,,Jun 2025,SP5,Server
+AMD Ryzen 5 7545U,1,6,,"20,298",,"3,673",,28,724.93,Jun 2025,"FP7, FP7r2",Laptop
+AMD Ryzen 7 7445HS,1,6,,"19,316",,"3,614",,,,Jun 2025,Unknown,Laptop
+ARM   10 Core 2000 MHz,1,10,,"9,787",,"3,807",,,,Jun 2025,Unknown,Unknown
+ARM Cortex A53 4 Core 1968 MHz,1,4,,571,,278,,,,Jun 2025,Unknown,Unknown
+ARM Cortex A55 4 Core 0 MHz,1,4,,258,,129,,,,Jun 2025,Unknown,Unknown
+ARM Falkor V1 Kryo 4 Core 1612 MHz,1,4,,"1,453",,472,,,,Jun 2025,Unknown,Unknown
+ARM Neoverse V2 72 Core 3447 MHz,1,72,,"57,299",,"2,311",,,,Jun 2025,Unknown,Unknown
+Hygon C86 3G  OPN:3350M ,1,8,,"4,658",,"1,017",,,,Jun 2025,Unknown,Unknown
+Intel Core 5 221E,1,14,232.00,"32,388",139.60,"4,186",18.04,65,498.28,Jun 2025,FCLGA1700,Mobile/Embedded
+Intel Core i5 13600HRE,1,12,347.00,"14,591",42.05,"2,127",6.13,45,324.23,Jun 2025,FCBGA1744,Mobile/Embedded
+Intel Core i7 14701TE,1,8,392.00,"27,519",70.20,"4,252",10.85,45,611.53,Jun 2025,FCLGA1700,Mobile/Embedded
+Intel Pentium Silver A1030 @ 2.00GHz,1,2,,"1,380",,"1,115",,15,91.99,Jun 2025,FCBGA1090,Mobile/Embedded
+Intel Xeon 6333P,1,6,319.00,"18,751",58.78,"3,791",11.88,65,288.47,Jun 2025,FCLGA1700,Server
+Intel Xeon E 2226GE @ 3.40GHz,1,6,286.00,"9,090",31.78,"2,532",8.85,80,113.63,Jun 2025,FCLGA1151,Mobile/Embedded
+Intel Xeon E3 1565L v5 @ 2.50GHz,1,4,,"7,325",,"1,970",,35,209.28,Jun 2025,FCBGA1440,Server
+[Quad CPU] Intel Xeon E7 4850 v4 @ 2.10GHz,4,16,,"36,786",,"1,573",,115,,Jun 2025,FCLGA2011,Server
+[Dual CPU] Intel Xeon Platinum 8280L @ 2.70GHz,2,28,29796.00,"65,975",2.21,"2,359",,205,,Jun 2025,FCLGA3647,Server
+Intel Xeon w7 3545,1,24,2039.00,"59,163",29.02,"3,325",1.63,310,190.85,Jun 2025,FCLGA4677,Server
+Mediatek MT8768,1,8,,"1,957",,630,,,,Jun 2025,Unknown,Mobile/Embedded
+Mediatek MT8791V HZA,1,8,,"4,882",,"2,231",,,,Jun 2025,Unknown,Mobile/Embedded
+Mediatek MT8791V TZA,1,8,,"2,909",,"2,082",,,,Jun 2025,Unknown,Mobile/Embedded
+QTI SG8275,1,8,,"10,036",,"3,208",,,,Jun 2025,Unknown,Mobile/Embedded
+QTI SM8735,1,8,,"11,144",,"2,711",,,,Jun 2025,Unknown,Mobile/Embedded
+Snapdragon X Plus  8 core  @ 3.30 GHz,1,8,,"17,778",,"3,194",,,,Jun 2025,Unknown,Unknown
+Spreadtrum UMS9230H,1,8,,"1,477",,"1,119",,,,Jun 2025,Unknown,Mobile/Embedded
+StratoVirt,1,8,,"11,440",,"1,552",,,,Jun 2025,Unknown,Unknown
+virt 10.0,1,4,,"3,127",,"1,338",,,,Jun 2025,Unknown,Unknown
+virt 8.2,1,6,,"6,547",,"1,555",,,,Jun 2025,Unknown,Unknown
+Virtual @ 2.89GHz,1,7,,"4,134",,"1,111",,,,Jun 2025,Unknown,Unknown
+AMD EPYC 4245P,1,6,239.00,"31,316",131.03,"4,603",19.26,65,481.79,May 2025,AM5,Server
+AMD EPYC 4345P,1,8,329.00,"37,671",114.50,"4,672",14.20,65,579.55,May 2025,AM5,Server
+AMD EPYC 4565P,1,16,589.00,"64,006",108.67,"4,738",8.04,170,376.51,May 2025,AM5,Server
+AMD EPYC 9755,1,128,12984.00,"166,328",12.81,"3,503",0.27,500,332.66,May 2025,SP5,Server
+[Dual CPU] AMD EPYC 9755,2,128,25968.00,"197,637",7.61,"3,491",,500,,May 2025,SP5,Server
+AMD EPYC 9B45,1,32,13564.00,"158,790",11.71,"3,540",0.26,390,407.15,May 2025,SP5,Server
+AMD Ryzen 5 PRO 215,1,6,,"19,690",,"3,834",,28,703.22,May 2025,FP8,Laptop
+AMD Ryzen 7 255,1,8,,"31,072",,"3,833",,,,May 2025,Unknown,Laptop
+AMD Ryzen 9 4950U Mobile,1,8,,"16,290",,"2,724",,,,May 2025,Unknown,Laptop
+AMD Ryzen 9 8940HX,1,16,,"54,675",,"4,033",,55,994.09,May 2025,FL1,"Desktop, Laptop"
+AMD Ryzen 9 8945HX,1,16,,"50,251",,"3,963",,55,913.65,May 2025,FL1,Laptop
+AMD Ryzen AI 9 H 365,1,10,,"28,941",,"3,624",,54,535.95,May 2025,Unknown,Laptop
+AMD Ryzen Threadripper 9980X,1,64,,"153,564",,"4,591",,350,438.75,May 2025,sTR5,Desktop
+AMD Ryzen Threadripper PRO 9995WX,1,96,,"174,825",,"4,565",,350,499.50,May 2025,sTR5,Desktop
+Amlogic AMLA311D2,1,8,,"3,522",,"1,028",,,,May 2025,Unknown,Mobile/Embedded
+ARM Cortex A72 2 Core 1703 MHz,1,2,,"1,005",,578,,,,May 2025,Unknown,Unknown
+ARM Cortex A72 8 Core 2016 MHz,1,8,,"2,208",,591,,,,May 2025,Unknown,Unknown
+ARM Cortex A720 8 Core 2600 MHz,1,8,,"6,141",,"1,455",,,,May 2025,Unknown,Unknown
+ARM Cortex A76 4 Core 1608 MHz,1,4,,"2,698",,848,,,,May 2025,Unknown,Unknown
+ARM Neoverse V2 2 Core 0 MHz,1,2,,"1,991",,"1,940",,,,May 2025,Unknown,Unknown
+Broadcom BCM2712,1,4,,"4,095",,"1,804",,,,May 2025,Unknown,Mobile/Embedded
+Essgoo,1,4,,497,,349,,,,May 2025,Unknown,Mobile/Embedded
+Intel Atom C3708 @ 1.70GHz,1,8,224.00,"3,750",16.74,681,3.04,17,220.61,May 2025,FCBGA1310,Server
+Intel Celeron 5305U @ 2.30GHz,1,2,128.00,"1,684",13.16,"1,195",9.34,15,112.27,May 2025,FCBGA1528,Laptop
+Intel Core 3 201E,1,4,,"14,817",,"3,284",,60,246.95,May 2025,FCLGA1700,Mobile/Embedded
+Intel Core 9 270H,1,14,,"31,602",,"4,404",,45,702.26,May 2025,FCBGA1744,Laptop
+Intel Core i5 9500E @ 3.00GHz,1,6,192.00,"8,829",45.99,"2,153",11.22,65,135.84,May 2025,FCLGA1151,Mobile/Embedded
+Intel Core Ultra 5 115U,1,8,,"13,024",,"3,057",,15,868.25,May 2025,FCBGA2049,Laptop
+Intel Core Ultra 5 245,1,14,,"38,809",,"4,475",,65,597.06,May 2025,FCLGA1851,Desktop
+Intel Core Ultra 7 265HX,1,20,,"49,826",,"4,531",,55,905.93,May 2025,FCBGA2114,Laptop
+Intel Core Ultra 7 265T,1,20,,"36,838",,"4,624",,35,"1,052.52",May 2025,FCLGA1851,Desktop
+Intel Ultra 5 115U,1,10,,"12,381",,"2,876",,15,825.38,May 2025,FCBGA2049,Mobile/Embedded
+Intel Xeon 6325P,1,4,,"16,045",,"4,283",,55,291.73,May 2025,FCLGA1700,Server
+Intel Xeon 6353P,1,8,426.00,"27,662",64.93,"4,200",9.86,65,425.57,May 2025,FCLGA1700,Server
+Intel Xeon 6369P,1,8,606.00,"29,680",48.98,"4,322",7.13,95,312.42,May 2025,FCLGA1700,Server
+[Dual CPU] Intel Xeon 6520P,2,24,2590.00,"99,016",38.23,"3,349",,210,,May 2025,FCLGA4710,Server
+[Dual CPU] Intel Xeon 6747P,2,48,12994.00,"141,231",10.87,"3,201",,330,,May 2025,FCLGA4710,Server
+Intel Xeon Bronze 3508U,1,8,415.00,"11,224",27.05,"1,663",4.01,125,89.79,May 2025,FCLGA4677,Server
+[Quad CPU] Intel Xeon Platinum 8490H,4,60,68000.00,"157,156",2.31,"2,925",,350,,May 2025,FCLGA4677,Server
+[Dual CPU] Intel Xeon Platinum 8558,2,48,9300.00,"100,177",10.77,"2,388",,330,,May 2025,FCLGA4677,Server
+Intel Xeon w3 2525,1,8,609.00,"27,882",45.78,"3,430",5.63,175,159.33,May 2025,FCLGA4677,Server
+Mediatek MT8195AV,1,8,,"6,251",,"1,977",,,,May 2025,Unknown,Mobile/Embedded
+MT6739CW,1,4,,545,,353,,,,May 2025,Unknown,Mobile/Embedded
+QTI QM215,1,4,,563,,347,,,,May 2025,Unknown,Mobile/Embedded
+QTI SM4635,1,8,,"3,618",,"1,477",,,,May 2025,Unknown,Mobile/Embedded
+AMD EPYC 8324PN 32 Core,1,8,,"8,375",,"1,232",,130,64.42,Apr 2025,Unknown,Desktop
+[Dual CPU] AMD EPYC 9J45,2,128,,"201,335",,"3,488",,,,Apr 2025,Unknown,Server
+AMD Ryzen 3 210,1,4,,"13,175",,"3,652",,28,470.55,Apr 2025,FP8,"Desktop, Laptop"
+AMD Ryzen 5 220,1,6,,"18,260",,"3,595",,28,652.16,Apr 2025,FP8,"Desktop, Laptop"
+AMD Ryzen 5 240,1,6,,"22,576",,"3,533",,45,501.69,Apr 2025,FP8,"Desktop, Laptop"
+AMD Ryzen 5 7533HS,1,6,,"14,520",,"2,740",,54,268.88,Apr 2025,FP7,Laptop
+AMD Ryzen 5 PRO 230,1,6,,"20,603",,"3,691",,28,735.84,Apr 2025,FP8,"Desktop, Laptop, Mobile/Embedded"
+AMD Ryzen 5 PRO 8645HS,1,6,,"23,227",,"3,830",,45,516.16,Apr 2025,"FP7, FP7r2","Desktop, Laptop"
+AMD Ryzen 7 260,1,8,,"29,955",,"3,823",,45,665.66,Apr 2025,Unknown,"Desktop, Laptop"
+AMD Ryzen 7 7435H,1,8,,"24,156",,"3,324",,45,536.81,Apr 2025,FP7r2,"Desktop, Laptop"
+AMD Ryzen 7 PRO 250,1,8,,"23,279",,"3,795",,28,831.38,Apr 2025,FP8,Laptop
+AMD Ryzen 9 9955HX,1,16,,"57,640",,"4,459",,55,"1,048.00",Apr 2025,FL1,"Desktop, Laptop"
+AMD Ryzen 9 9955HX3D,1,16,,"61,403",,"4,492",,55,"1,116.42",Apr 2025,FL1,"Desktop, Laptop"
+AMD Ryzen AI 5 340,1,6,,"20,196",,"3,873",,28,721.27,Apr 2025,FP8,"Desktop, Laptop"
+AMD Ryzen AI 5 PRO 340,1,6,,"18,999",,"3,778",,28,678.53,Apr 2025,FP8,"Desktop, Laptop"
+AMD Ryzen AI 7 H 350,1,8,,"27,316",,"3,970",,28,975.58,Apr 2025,Unknown,Unknown
+AMD Ryzen AI Max Pro 385,1,8,,"33,441",,"4,052",,55,608.02,Apr 2025,FP11,"Desktop, Laptop"
+AMD Ryzen Embedded V1780B,1,6,,"6,219",,"1,607",,45,138.21,Apr 2025,Unknown,Mobile/Embedded
+ARM ARMv8 rev 1  v8l  4 Core 1510 MHz,1,4,,"1,042",,476,,,,Apr 2025,Unknown,Unknown
+ARM Cortex A35 4 Core 2004 MHz,1,4,,546,,259,,,,Apr 2025,Unknown,Unknown
+ARM Kryo 3XX Gold 8 Core 1766 MHz,1,8,,"2,372",,870,,,,Apr 2025,Unknown,Unknown
+ARM Kryo 4XX Silver 4 Core 1804 MHz,1,4,,"3,425",,"1,543",,,,Apr 2025,Unknown,Unknown
+CIX P1 CD8180,1,12,,"9,277",,"1,376",,,,Apr 2025,Unknown,"Desktop, Laptop"
+Intel 3 N350,1,8,,"4,877",,"1,757",,7,696.75,Apr 2025,FCBGA1264,Mobile/Embedded
+Intel Core 3 N350,1,8,,"7,117",,"1,806",,7,"1,016.78",Apr 2025,FCBGA1264,Mobile/Embedded
+Intel Core i5 1345URE,1,10,340.00,"11,565",34.01,"3,122",9.18,15,770.98,Apr 2025,FCBGA1744,Mobile/Embedded
+Intel Core Ultra 5 235T,1,14,247.00,"32,438",131.33,"4,425",17.92,65,499.05,Apr 2025,FCLGA1851,Desktop
+Intel Core Ultra 5 245T,1,14,270.00,"32,036",118.65,"4,456",16.50,35,915.32,Apr 2025,FCLGA1851,Desktop
+Intel Core Ultra 7 255HX,1,20,,"50,739",,"4,645",,55,922.53,Apr 2025,FCBGA2114,Laptop
+Intel Core Ultra 7 265H,1,16,,"34,067",,"4,432",,28,"1,216.68",Apr 2025,FCBGA2049,Laptop
+Intel Core Ultra 9 285HX,1,24,,"62,297",,"4,784",,55,"1,132.68",Apr 2025,FCBGA2114,Laptop
+Intel CoreTM Ultra 5 115U,1,8,,"12,771",,"3,421",,15,851.42,Apr 2025,FCBGA2049,Laptop
+Intel Pentium Gold G7400E,1,2,79.00,"6,134",77.65,"2,875",36.39,46,133.35,Apr 2025,FCLGA1700,Mobile/Embedded
+Intel Xeon 6521P,1,24,1250.00,"57,970",46.38,"2,829",2.26,225,257.65,Apr 2025,FCLGA4710,Server
+[Dual CPU] Intel Xeon 6530P,2,32,4468.00,"124,434",27.85,"3,453",,225,,Apr 2025,FCLGA4710,Server
+[Dual CPU] Intel Xeon 6736P,2,36,,"125,444",,"3,445",,205,,Apr 2025,FCLGA4710,Server
+[Dual CPU] Intel Xeon 6737P,2,32,9990.00,"127,075",12.72,"3,366",,270,,Apr 2025,FCLGA4710,Server
+[Dual CPU] Intel Xeon 6740P,2,48,9300.00,"122,165",13.14,"3,185",,270,,Apr 2025,FCLGA4710,Server
+Intel Xeon 6741P,1,48,4421.00,"100,660",22.77,"3,195",0.72,300,335.53,Apr 2025,FCLGA4710,Server
+[Dual CPU] Intel Xeon 6787P,2,86,20800.00,"148,896",7.16,"3,137",,350,,Apr 2025,FCLGA4710,Server
+Intel Xeon D 2766NT @ 2.00GHz,1,14,1224.00,"24,013",19.62,"1,930",1.58,97,247.56,Apr 2025,FCBGA2579,Server
+[Dual CPU] Intel Xeon E7 4820 v2 @ 2.00GHz,2,8,,"9,610",,"1,324",,,,Apr 2025,FCLGA2011,Server
+Intel Xeon Platinum 8260C @ 2.40GHz,1,24,,"34,420",,"2,203",,,,Apr 2025,FCLGA3647,Server
+Mediatek MT6739W,1,4,,251,,103,,,,Apr 2025,Unknown,Mobile/Embedded
+MT8161AB,1,4,,700,,285,,,,Apr 2025,Unknown,Mobile/Embedded
+QTI SM6650,1,8,,"5,972",,"1,178",,,,Apr 2025,Unknown,Mobile/Embedded
+Qualcomm Snapdragon 808  8992 ,1,6,,720,,173,,,,Apr 2025,Unknown,Unknown
+sc8830,1,4,,438,,295,,,,Apr 2025,Unknown,Mobile/Embedded
+Allwinner A733,1,8,,"3,109",,"1,330",,,,Mar 2025,Unknown,Mobile/Embedded
+AMD EPYC 9175F,1,16,4256.00,"65,792",15.46,"4,271",1.00,320,205.60,Mar 2025,SP5,Server
+[Dual CPU] AMD EPYC 9175F,2,16,8512.00,"100,968",11.86,"3,702",,320,,Mar 2025,SP5,Server
+[Dual CPU] AMD EPYC 9V94,2,128,,"83,538",,"1,902",,,,Mar 2025,SP5,Server
+AMD Ryzen 5 7400F,1,6,,"25,607",,"3,642",,65,393.96,Mar 2025,AM5 (LGA 1718),Desktop
+AMD Ryzen 5 9600,1,6,463.56,"28,736",61.99,"4,287",9.25,65,442.10,Mar 2025,AM5,Desktop
+AMD Ryzen 9 9900X3D,1,12,539.99,"56,154",103.99,"4,646",8.60,120,467.95,Mar 2025,AM5,Desktop
+AMD Ryzen 9 9950X3D,1,16,638.00,"70,255",110.12,"4,737",7.42,170,413.26,Mar 2025,AM5,Desktop
+AMD Ryzen AI Max 385,1,8,,"18,441",,"2,056",,55,335.30,Mar 2025,FP11,"Desktop, Laptop"
+AMD Ryzen AI Max 390,1,12,,"42,429",,"4,025",,55,771.43,Mar 2025,FP11,"Desktop, Laptop"
+AMD Ryzen Z2 Go,1,4,,"12,043",,"3,116",,28,430.10,Mar 2025,Unknown,Mobile/Embedded
+Apple A16,1,5,,"10,033",,"4,072",,,,Mar 2025,Unknown,Mobile/Embedded
+Apple M3 Ultra 28 Core,1,28,,"68,805",,"5,141",,,,Mar 2025,Unknown,Desktop
+Apple M3 Ultra 32 Core,1,32,,"73,785",,"5,106",,,,Mar 2025,Unknown,Desktop
+ARM CIX P1 CD8180 7 Core 2500 MHz,1,7,,"5,505",,"1,395",,,,Mar 2025,Unknown,Unknown
+ARM Cortex A53 4 Core 1416 MHz,1,4,,468,,203,,,,Mar 2025,Unknown,Unknown
+ARM Cortex A55 4 Core 2208 MHz,1,4,,798,,368,,,,Mar 2025,Unknown,Unknown
+ARM Cortex A78 4 Core 1958 MHz,1,4,,"3,150",,"1,474",,,,Mar 2025,Unknown,Unknown
+Hygon C86 4G  OPN:3490 ,1,16,,"21,378",,"1,760",,,,Mar 2025,Unknown,Unknown
+Intel Celeron G5900E @ 3.20GHz,1,2,53.00,"1,809",34.13,"1,896",35.76,58,31.19,Mar 2025,LGA 1200,Mobile/Embedded
+Intel Core i3 12300HL,1,8,,"20,321",,"3,586",,45,451.58,Mar 2025,FCLGA1700,Mobile/Embedded
+Intel Core Ultra 5 225T,1,10,,"25,358",,"4,348",,35,724.51,Mar 2025,FCLGA1851,Desktop
+Intel Core Ultra 7 265F,1,20,264.99,"48,349",182.46,"4,717",17.80,65,743.83,Mar 2025,FCLGA1851,Desktop
+Intel Pentium G3460T @ 3.00GHz,1,2,,"2,036",,"1,674",,35,58.17,Mar 2025,FCLGA1150,Desktop
+Intel Pentium Gold 8500,1,5,,"5,652",,"2,714",,9,628.05,Mar 2025,FCBGA1781,Mobile/Embedded
+Intel Xeon 6517P,1,16,1195.00,"49,572",41.48,"3,481",2.91,190,260.90,Mar 2025,FCLGA4710,Server
+[Dual CPU] Intel Xeon 6760P,2,64,,"153,187",,"3,214",,330,,Mar 2025,FCLGA4710,Server
+Intel Xeon Gold 6554S,1,36,2974.99,"50,777",17.07,"1,802",0.61,270,188.06,Mar 2025,FCLGA4677,Server
+[Dual CPU] Intel Xeon Gold 6554S,2,36,5949.98,"108,431",18.22,"3,269",,270,,Mar 2025,FCLGA4677,Server
+Intel Xeon Phi 7290 @ 1.50GHz,1,72,3213.00,"17,839",5.55,485,0.15,245,72.81,Mar 2025,SVLCLGA3647,Server
+[Dual CPU] Intel Xeon Platinum 8170M @ 2.10GHz,2,26,,"42,425",,"1,664",,165,,Mar 2025,FCLGA3647,Server
+Intel Xeon Platinum 8581C @ 2.30GHz,1,2,,"8,040",,"3,258",,,,Mar 2025,Unknown,Server
+Intel Xeon w3 2535,1,10,,"35,270",,"3,614",,185,190.65,Mar 2025,Unknown,Unknown
+Intel Xeon w5 3525,1,16,1339.00,"49,190",36.74,"3,781",2.82,290,169.62,Mar 2025,FCLGA4677,Server
+Intel Xeon w5 3535X,1,20,1884.64,"54,276",28.80,"3,813",2.02,300,180.92,Mar 2025,FCLGA4677,Server
+Intel Xeon w7 2595X,1,26,2039.00,"65,364",32.06,"3,693",1.81,250,261.46,Mar 2025,FCLGA4677,Server
+Qualcomm QCS5430,1,8,,"3,729",,"1,098",,,,Mar 2025,Unknown,Unknown
+Qualcomm SA8195P,1,8,,"5,348",,"1,635",,,,Mar 2025,Unknown,Mobile/Embedded
+Qualcomm SM6375,1,8,,"4,713",,"2,001",,,,Mar 2025,Unknown,Mobile/Embedded
+Rockchip RK3566 RK817 EINK LP4X Board,1,4,,667,,446,,,,Mar 2025,Unknown,Mobile/Embedded
+Samsung s5e8855,1,8,,"7,654",,"2,418",,,,Mar 2025,Unknown,Mobile/Embedded
+AMD BC 250,1,6,,"13,201",,"2,115",,220,60.01,Feb 2025,Unknown,Unknown
+AMD EPYC 9115,1,16,726.00,"49,416",68.07,"3,377",4.65,125,395.33,Feb 2025,SP5,Server
+AMD EPYC 9555P,1,64,7983.00,"135,513",16.98,"3,726",0.47,360,376.42,Feb 2025,SP5,Server
+AMD EPYC 9V74,1,80,,"117,606",,"2,888",,400,294.02,Feb 2025,SP5,Server
+AMD Ryzen 3 PRO 5355GE,1,4,,"12,761",,"3,089",,35,364.61,Feb 2025,AM4,Desktop
+AMD Ryzen 5 230,1,6,,"21,009",,"3,490",,28,750.34,Feb 2025,FP8,"Desktop, Laptop"
+AMD Ryzen 7 250,1,8,,"23,897",,"3,719",,28,853.45,Feb 2025,FP8,Desktop
+AMD Ryzen 7 5825C,1,8,,"14,561",,"2,645",,15,970.75,Feb 2025,FP6,Mobile/Embedded
+AMD Ryzen 7 PRO 5755GE,1,8,,"20,894",,"3,355",,35,596.96,Feb 2025,AM4,Desktop
+AMD Ryzen AI 7 PRO 350,1,8,,"24,220",,"3,957",,28,865.02,Feb 2025,FP8,"Desktop, Laptop"
+AMD Ryzen AI 9 HX PRO 370,1,12,,"31,425",,"3,952",,28,"1,122.32",Feb 2025,FP8,"Desktop, Laptop"
+ARM Cortex A55 4 Core 2000 MHz,1,4,,711,,320,,,,Feb 2025,Unknown,Unknown
+ARM Cortex A715 4 Core 2200 MHz,1,4,,"3,432",,"1,461",,,,Feb 2025,Unknown,Unknown
+Hygon C86 3330 4 core,1,4,,"6,031",,"1,702",,35,172.32,Feb 2025,Unknown,Desktop
+Intel Atom x7211E,1,2,39.00,"2,553",65.47,"1,434",36.78,6,425.54,Feb 2025,FCBGA1264,Mobile/Embedded
+Intel Core 5 220H,1,12,,"21,268",,"3,120",,45,472.62,Feb 2025,FCBGA1744,Laptop
+Intel Core 7 240H,1,10,,"24,606",,"3,850",,45,546.80,Feb 2025,FCBGA1744,Mobile/Embedded
+Intel Core 7 250H,1,14,,"25,655",,"4,114",,45,570.12,Feb 2025,FCBGA1744,Laptop
+Intel Core i5 1345UE,1,10,312.00,"10,312",33.05,"2,697",8.65,15,687.48,Feb 2025,FCBGA1744,Mobile/Embedded
+[Dual CPU] Intel Core i7 5960X @ 3.50GHz,2,8,,"20,781",,"1,663",,140,,Feb 2025,FCLGA2011,Desktop
+Intel Core Ultra 5 225H,1,14,,"29,204",,"4,365",,28,"1,042.99",Feb 2025,FCBGA2049,Laptop
+Intel Core Ultra 5 225U,1,12,,"18,824",,"3,630",,15,"1,254.96",Feb 2025,FCBGA2049,Laptop
+Intel Core Ultra 5 235,1,14,264.99,"40,192",151.67,"4,542",17.14,65,618.34,Feb 2025,FCLGA1851,Desktop
+Intel Core Ultra 7 255U,1,12,,"18,545",,"3,734",,15,"1,236.33",Feb 2025,FCBGA2049,"Laptop, Mobile/Embedded"
+Intel Core Ultra 9 275HX,1,24,,"56,415",,"4,727",,55,"1,025.73",Feb 2025,FCBGA2114,Laptop
+Intel Core Ultra 9 285T,1,24,549.00,"36,940",67.29,"4,775",8.70,35,"1,055.44",Feb 2025,FCLGA1851,Desktop
+Intel Xeon D 1823NT @ 2.80GHz,1,6,436.00,"13,673",31.36,"2,429",5.57,55,248.60,Feb 2025,FCBGA2227,Server
+Intel Xeon Gold 5215 @ 2.20GHz,1,10,1424.00,"16,304",11.45,"2,101",1.48,85,191.81,Feb 2025,FCLGA3647,Server
+Mediatek Dimensity 9400  MT6991 ,1,8,,"12,506",,"3,022",,,,Feb 2025,Unknown,Mobile/Embedded
+Mediatek MT6769V CB,1,8,,"2,652",,"1,100",,,,Feb 2025,Unknown,Mobile/Embedded
+QTI QCS4490,1,8,,"5,179",,"2,191",,,,Feb 2025,Unknown,Mobile/Embedded
+QTI SM4250,1,8,,"2,631",,802,,,,Feb 2025,Unknown,Mobile/Embedded
+QTI SM6475,1,8,,"5,924",,"2,040",,,,Feb 2025,Unknown,Mobile/Embedded
+Qualcomm SA8155P,1,8,,"4,257",,"1,365",,,,Feb 2025,Unknown,Mobile/Embedded
+"RK3568 AIoT3568 Board V2.1 AD52068, LVDS 8775 , HD",1,4,,"1,178",,526,,,,Feb 2025,Unknown,Mobile/Embedded
+Rockchip RK3228A,1,4,,314,,202,,,,Feb 2025,Unknown,Mobile/Embedded
+Snapdragon X   X126100   Qualcomm Oryon,1,8,,"16,843",,"2,892",,30,561.43,Feb 2025,Unknown,Laptop
+sun8iw7,1,4,,237,,207,,,,Feb 2025,Unknown,Mobile/Embedded
+Virtual @ 2.32GHz,1,8,,"1,826",,751,,,,Feb 2025,Unknown,Unknown
+Virtual @ 2.95GHz,1,8,,"10,358",,"2,339",,,,Feb 2025,Unknown,Unknown
+ZHAOXIN KaiXian KX 6640A@2.6GHz,1,4,,"1,766",,729,,,,Feb 2025,Unknown,Unknown
+AMD EPYC 9275F,1,24,3439.00,"84,620",24.61,"3,810",1.11,320,264.44,Jan 2025,SP5,Server
+AMD EPYC 9355P,1,32,2998.00,"97,255",32.44,"3,741",1.25,280,347.34,Jan 2025,SP5,Server
+AMD EPYC 9375F,1,32,5306.00,"95,768",18.05,"3,762",0.71,320,299.28,Jan 2025,SP5,Server
+AMD EPYC 9455P,1,48,4819.00,"116,713",24.22,"3,750",0.78,300,389.04,Jan 2025,SP5,Server
+[Dual CPU] AMD EPYC 9555,2,64,19652.00,"180,981",9.21,"3,757",,360,,Jan 2025,SP5,Server
+AMD Ryzen 5 2600E,1,6,,"12,346",,"2,297",,65,189.94,Jan 2025,AM4,Desktop
+AMD Ryzen 5 PRO 8640U,1,6,,"23,509",,"3,792",,28,839.61,Jan 2025,FP7 FP7r2,Laptop
+AMD Ryzen 7 PRO 5800H,1,8,,"19,313",,"3,136",,,,Jan 2025,AM4,Laptop

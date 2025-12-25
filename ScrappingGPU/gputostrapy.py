@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 
 # Load the CSV file
-df = pd.read_csv('graphics_cards.csv')
+df = pd.read_csv('../graphics_cards_07_2025.csv')
 
 # Function to clean and transform the DataFrame
 def transform_data(df):
@@ -25,25 +25,28 @@ def transform_data(df):
 gpu_entries = transform_data(df)
 
 # Strapi API URL
-api_url = 'http://localhost:1337/api/gpus'  # Adjust the URL according to your Strapi instance
+api_url = 'https://api.siliconcompare.com/api/gpus'  # Adjust the URL according to your Strapi instance
 
-# Function to post data to Strapi
 def post_to_strapi(gpu_entries):
     for entry in gpu_entries:
-        # Prepare the JSON data, wrapping it in a 'data' key and nested under 'GPU'
-        entry_cleaned = {k: (v if pd.notna(v) else None) for k, v in entry.items()}  # Replace NaN with None
+        # Replace NaN with None
+        entry_cleaned = {k: (v if pd.notna(v) else None) for k, v in entry.items()}
         
-        # Create the payload for Strapi
+        # Create payload
         payload = {"data": {"GPU": entry_cleaned}}
         
-        # Debug log to see the payload being sent
         print(f"Sending payload: {payload}")
         
         response = requests.post(api_url, json=payload)
-        if response.status_code == 201:
-            print(f"Successfully added: {entry['videocard_name']}")
+        if response.status_code == 201 or 200:
+            print(f"✅ Successfully added: {entry['videocard_name']}")
         else:
-            print(f"Failed to add {entry['videocard_name']}: {response.content}")
+            try:
+                error_details = response.json()
+            except ValueError:
+                error_details = response.text
+            print(f"❌ Failed to add {entry['videocard_name']} (status {response.status_code}): {error_details}")
+
 
 # Post the GPU entries to Strapi
 post_to_strapi(gpu_entries)
