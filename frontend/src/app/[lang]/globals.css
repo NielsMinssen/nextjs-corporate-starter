@@ -10,7 +10,7 @@ body {
 
 /******************************************* 
   Rich Text Styles
-*******************************************/ 
+*******************************************/
 
 /* Headers */
 .rich-text h1 {
@@ -82,17 +82,17 @@ body {
   @apply mb-2;
 }
 
-.rich-text li > ul {
+.rich-text li>ul {
   @apply list-disc pl-4 mb-2;
 }
 
-.rich-text li > ol {
+.rich-text li>ol {
   @apply list-decimal pl-4 mb-2;
 }
 
 /* Code blocks */
 .rich-text pre {
-  @apply font-mono bg-gray-900 text-gray-100 rounded p-4  my-6;
+  @apply font-mono bg-gray-900 text-gray-100 rounded p-4 my-6;
 }
 
 .rich-text code {
@@ -105,7 +105,7 @@ body {
 }
 
 .rich-text th {
-  @apply bg-gray-900 text-left py-2 px-4 font-semibold border-b border-gray-300;
+  @apply bg-gray-200 text-left py-2 px-4 font-semibold border-b border-gray-300;
 }
 
 .rich-text td {
@@ -125,7 +125,7 @@ body {
 
 /******************************************* 
   React Slideshow Styles
-*******************************************/   
+*******************************************/
 
 .react-slideshow-container [aria-label="Previous Slide"] {
   margin-left: 1rem;
@@ -161,7 +161,9 @@ body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;}
+    --radius: 0.5rem;
+  }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -186,10 +188,16 @@ body {
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;}}
+    --chart-5: 340 75% 55%;
+  }
+}
 
 @layer base {
   * {
-    @apply border-border;}
+    @apply border-border;
+  }
+
   body {
-    @apply bg-background text-foreground;}}
+    @apply bg-background text-foreground;
+  }
+}

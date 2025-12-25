@@ -25,7 +25,9 @@ const LanguageSwitcher: React.FC = () => {
   const initialLanguageCode = path.split('/')[1]; // Extract the language code from the URL
 
   // Extract everything after the language code
-  const currentPage = path.split('/').slice(2).join('/'); // Join the remaining parts back into a string
+  const currentPage = path.includes('/blog') || (path.split('/').slice(2).join('/') && path.split('/').slice(2).join('/') !== 'blog')
+    ? 'blog'
+    : path.split('/').slice(2).join('/');
 
 
   // Use the extracted code to find the initial language
